@@ -27,8 +27,8 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Prettier format check
-        run: npm run format:check
+      - name: Prettier format (auto-fix)
+        run: npm run format
 
       - name: Lint (no warnings)
         run: npm run lint:ci
