@@ -1,0 +1,141 @@
+{
+  "regions": [
+    {
+      "key": "ile-de-france",
+      "name": "Île-de-France",
+      "departments": [
+        {
+          "key": "paris-75",
+          "name": "Paris (75)",
+          "cities": [
+            { "slug": "paris", "name": "Paris" }
+          ]
+        },
+        {
+          "key": "seine-et-marne-77",
+          "name": "Seine-et-Marne (77)",
+          "cities": [
+            { "slug": "meaux", "name": "Meaux" },
+            { "slug": "chelles", "name": "Chelles" },
+            { "slug": "melun", "name": "Melun" },
+            { "slug": "pontault-combault", "name": "Pontault-Combault" },
+            { "slug": "savigny-le-temple", "name": "Savigny-le-Temple" }
+          ]
+        },
+        {
+          "key": "yvelines-78",
+          "name": "Yvelines (78)",
+          "cities": [
+            { "slug": "versailles", "name": "Versailles" },
+            { "slug": "saint-germain-en-laye", "name": "Saint-Germain-en-Laye" },
+            { "slug": "mantes-la-jolie", "name": "Mantes-la-Jolie" },
+            { "slug": "poissy", "name": "Poissy" }
+          ]
+        },
+        {
+          "key": "essonne-91",
+          "name": "Essonne (91)",
+          "cities": [
+            { "slug": "evry-courcouronnes", "name": "Évry-Courcouronnes" },
+            { "slug": "massy", "name": "Massy" },
+            { "slug": "palaiseau", "name": "Palaiseau" },
+            { "slug": "savigny-sur-orge", "name": "Savigny-sur-Orge" }
+          ]
+        },
+        {
+          "key": "hauts-de-seine-92",
+          "name": "Hauts-de-Seine (92)",
+          "cities": [
+            { "slug": "boulogne-billancourt", "name": "Boulogne-Billancourt" },
+            { "slug": "nanterre", "name": "Nanterre" },
+            { "slug": "courbevoie", "name": "Courbevoie" },
+            { "slug": "neuilly-sur-seine", "name": "Neuilly-sur-Seine" },
+            { "slug": "colombes", "name": "Colombes" },
+            { "slug": "asnieres-sur-seine", "name": "Asnières-sur-Seine" }
+          ]
+        },
+        {
+          "key": "seine-saint-denis-93",
+          "name": "Seine-Saint-Denis (93)",
+          "cities": [
+            { "slug": "saint-denis", "name": "Saint-Denis" },
+            { "slug": "montreuil", "name": "Montreuil" },
+            { "slug": "aubervilliers", "name": "Aubervilliers" },
+            { "slug": "drancy", "name": "Drancy" }
+          ]
+        },
+        {
+          "key": "val-de-marne-94",
+          "name": "Val-de-Marne (94)",
+          "cities": [
+            { "slug": "creteil", "name": "Créteil" },
+            { "slug": "vitry-sur-seine", "name": "Vitry-sur-Seine" },
+            { "slug": "ivry-sur-seine", "name": "Ivry-sur-Seine" },
+            { "slug": "villejuif", "name": "Villejuif" }
+          ]
+        },
+        {
+          "key": "val-d-oise-95",
+          "name": "Val-d'Oise (95)",
+          "cities": [
+            { "slug": "argenteuil", "name": "Argenteuil" },
+            { "slug": "cergy", "name": "Cergy" },
+            { "slug": "garges-les-gonesse", "name": "Garges-lès-Gonesse" },
+            { "slug": "sarcelles", "name": "Sarcelles" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "normandie",
+      "name": "Normandie",
+      "departments": [
+        {
+          "key": "calvados-14",
+          "name": "Calvados (14)",
+          "cities": [
+            { "slug": "caen", "name": "Caen" },
+            { "slug": "lisieux", "name": "Lisieux" },
+            { "slug": "bayeux", "name": "Bayeux" }
+          ]
+        },
+        {
+          "key": "eure-27",
+          "name": "Eure (27)",
+          "cities": [
+            { "slug": "evreux", "name": "Évreux" },
+            { "slug": "vernon", "name": "Vernon" },
+            { "slug": "louviers", "name": "Louviers" }
+          ]
+        },
+        {
+          "key": "manche-50",
+          "name": "Manche (50)",
+          "cities": [
+            { "slug": "cherbourg", "name": "Cherbourg-en-Cotentin" },
+            { "slug": "saint-lo", "name": "Saint-Lô" },
+            { "slug": "granville", "name": "Granville" }
+          ]
+        },
+        {
+          "key": "orne-61",
+          "name": "Orne (61)",
+          "cities": [
+            { "slug": "alencon", "name": "Alençon" },
+            { "slug": "flers", "name": "Flers" },
+            { "slug": "argentan", "name": "Argentan" }
+          ]
+        },
+        {
+          "key": "seine-maritime-76",
+          "name": "Seine-Maritime (76)",
+          "cities": [
+            { "slug": "rouen", "name": "Rouen" },
+            { "slug": "le-havre", "name": "Le Havre" },
+            { "slug": "dieppe", "name": "Dieppe" }
+          ]
+        }
+      ]
+    }
+  ]
+}
