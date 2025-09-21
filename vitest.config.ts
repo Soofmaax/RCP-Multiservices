@@ -9,7 +9,13 @@ export default defineConfig({
     setupFiles: ['src/test/setup.ts'],
     coverage: {
       reporter: ['text', 'html'],
-      provider: 'v8'
-    }
-  }
+      provider: 'v8',
+      thresholds: {
+        statements: 80,
+        branches: 80,
+        functions: 80,
+        lines: 80,
+      },
+    },
+  },
 });
