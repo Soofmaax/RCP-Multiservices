@@ -26,10 +26,7 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unsafe-assignment': 'error',
       '@typescript-eslint/no-unsafe-member-access': 'error',
@@ -51,6 +48,6 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    rules: {}
-  }
+    rules: {},
+  },
 );
