@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   test: {
+    include: ['src/**/*.test.{ts,tsx}'],
     environment: 'jsdom',
     globals: true,
     setupFiles: ['src/test/setup.ts'],
@@ -16,6 +17,17 @@ export default defineConfig({
         functions: 80,
         lines: 80,
       },
+      exclude: [
+        '**/node_modules/**',
+        'vite.config.ts',
+        'vitest.config.ts',
+        'postcss.config.js',
+        'tailwind.config.js',
+        'eslint.config.js',
+        'tsconfig*.json',
+        'index.html',
+        'src/main.tsx',
+      ],
     },
   },
 });
