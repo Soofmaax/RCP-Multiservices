@@ -42,5 +42,8 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Try to auto-fix vulnerabilities
+        run: npm audit fix --force || true
+
       - name: Security audit (fail on high+)
         run: npm run audit
