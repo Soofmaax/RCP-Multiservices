@@ -1,7 +1,6 @@
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import locations from '../src/data/locations.json' assert { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,7 +12,13 @@ function url(loc) {
   return `  <url><loc>${loc}</loc></url>`;
 }
 
-function buildUrls() {
+async function loadLocations() {
+  const jsonPath = resolve(__dirname, '../src/data/locations.json');
+  const raw = await readFile(jsonPath, 'utf8');
+  return JSON.parse(raw);
+}
+
+function buildUrls(locations) {
   const urls = new Set();
   urls.add(`${SITE_URL}/`);
   urls.add(`${SITE_URL}/zones`);
@@ -29,7 +34,8 @@ function buildUrls() {
 }
 
 async function main() {
-  const urls = buildUrls();
+  const locations = await loadLocations();
+  const urls = buildUrls(locations);
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -40,7 +46,7 @@ async function main() {
   const distDir = resolve(__dirname, '../dist');
   try {
     await mkdir(distDir, { recursive: true });
-  } catch (e) {
+  } catch {
     // ignore
   }
   const out = resolve(distDir, 'sitemap.xml');
