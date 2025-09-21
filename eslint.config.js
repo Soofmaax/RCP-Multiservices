@@ -6,14 +6,17 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   { ignores: ['dist'] },
+  // App and tests (type-checked)
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommendedTypeChecked],
-    files: ['**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+      },
       parserOptions: {
-        project: ['./tsconfig.app.json'],
+        project: ['./tsconfig.app.json', './tsconfig.node.json'],
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -27,12 +30,27 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      // Interdire 'any' et usages non sûrs
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unsafe-assignment': 'error',
       '@typescript-eslint/no-unsafe-member-access': 'error',
       '@typescript-eslint/no-unsafe-call': 'error',
       '@typescript-eslint/no-unsafe-return': 'error',
     },
+  },
+  // Node config files (type-checked with node tsconfig)
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommendedTypeChecked],
+    files: ['vite.config.ts', 'vitest.config.ts'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: {
+        ...globals.node,
+      },
+      parserOptions: {
+        project: ['./tsconfig.node.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    rules: {}
   }
 );
