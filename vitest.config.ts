@@ -19,6 +19,7 @@ export default defineConfig({
       },
       exclude: [
         '**/node_modules/**',
+        '**/scripts/**',
         'vite.config.ts',
         'vitest.config.ts',
         'postcss.config.js',
@@ -27,6 +28,8 @@ export default defineConfig({
         'tsconfig*.json',
         'index.html',
         'src/main.tsx',
+        'src/pages/**',
+        'src/routes/**',
       ],
     },
   },
