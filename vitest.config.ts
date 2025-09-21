@@ -28,7 +28,6 @@ export default defineConfig({
         'tsconfig*.json',
         'index.html',
         'src/main.tsx',
-        'src/routes/**',
       ],
     },
   },
