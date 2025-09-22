@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -64,6 +65,15 @@ export default function ServicesPage() {
           Nous proposons une gamme de prestations pour vous accompagner au quotidien, en
           Île-de-France et en Normandie.
         </p>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <Link
+            to="/contact"
+            className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+          >
+            Demander un devis
+          </Link>
+          <GoogleReviewsBadge />
+        </div>
 
         <section className="mt-6 space-y-2">
           <h2 className="text-xl font-semibold">Aide à domicile</h2>

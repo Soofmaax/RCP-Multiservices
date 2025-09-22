@@ -6,16 +6,6 @@ import ServicesPage from '../pages/ServicesPage';
 import ContactPage from '../pages/ContactPage';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
 
-function Header() {
-  return (
-    <header className="border-b">
-      <div className="max-w-3xl mx-auto p-4 flex items-center justify-end">
-        <GoogleReviewsBadge />
-      </div>
-    </header>
-  );
-}
-
 function Home() {
   return (
     <>
@@ -32,7 +22,7 @@ function Home() {
         <p className="mt-3 text-gray-700">
           Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie.
         </p>
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="mt-4 flex flex-wrap items-center gap-3">
           <Link
             to="/zones"
             className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
@@ -51,6 +41,7 @@ function Home() {
           >
             Contact
           </Link>
+          <GoogleReviewsBadge />
         </div>
       </main>
     </>
@@ -73,10 +64,19 @@ function ZonesRoot() {
   );
 }
 
+function Footer() {
+  return (
+    <footer className="border-t mt-12">
+      <div className="max-w-3xl mx-auto p-4 flex items-center justify-center">
+        <GoogleReviewsBadge />
+      </div>
+    </footer>
+  );
+}
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
@@ -84,6 +84,7 @@ export default function AppRoutes() {
         <Route path="/zones" element={<ZonesRoot />} />
         <Route path="/zones/:region/:city" element={<CityPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

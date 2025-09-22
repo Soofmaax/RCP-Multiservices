@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import locations from '../data/locations.json';
 import Reviews from '../components/Reviews';
+import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
 
 type Params = {
   region: string;
@@ -148,6 +149,15 @@ export default function CityPage() {
           accompagnement à {match.city.name} et dans tout le département {match.department.name}.
           Notre équipe qualifiée et assurée intervient rapidement selon vos besoins.
         </p>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <Link
+            to="/contact"
+            className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+          >
+            Demander un devis
+          </Link>
+          <GoogleReviewsBadge />
+        </div>
 
         <section className="mt-6 space-y-2">
           <h2 className="text-xl font-semibold">Prestations</h2>
