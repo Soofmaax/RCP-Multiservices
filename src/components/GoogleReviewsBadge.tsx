@@ -1,14 +1,23 @@
 type Props = {
   className?: string;
   label?: string;
+  variant?: 'default' | 'inverted';
 };
 
 export default function GoogleReviewsBadge({
   className = '',
   label = 'Voir nos avis Google',
+  variant = 'default',
 }: Props) {
   const url = import.meta.env.VITE_GBP_URL as string | undefined;
   if (!url || !url.trim()) return null;
+
+  const base =
+    'inline-flex items-center gap-2 rounded px-3 py-2 text-sm border transition-colors';
+  const styles =
+    variant === 'inverted'
+      ? 'bg-gray-900 text-white border-gray-700 hover:bg-gray-800'
+      : 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100';
 
   return (
     <a
@@ -16,7 +25,7 @@ export default function GoogleReviewsBadge({
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className={`inline-flex items-center gap-2 rounded px-3 py-2 text-sm bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 ${className}`}
+      className={`${base} ${styles} ${className}`}
     >
       <GoogleIcon />
       <span className="font-medium">Avis Google</span>
