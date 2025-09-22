@@ -10,10 +10,10 @@ export type Review = {
 };
 
 export async function fetchReviews(): Promise<Review[]> {
-  const endpoint = import.meta.env.VITE_REVIEWS_ENDPOINT;
-  if (!endpoint) {
-    return [];
-  }
+  const endpoint =
+    import.meta.env.VITE_REVIEWS_ENDPOINT && String(import.meta.env.VITE_REVIEWS_ENDPOINT).trim().length > 0
+      ? String(import.meta.env.VITE_REVIEWS_ENDPOINT)
+      : '/api/google-reviews';
 
   try {
     const res = await fetch(endpoint, {
