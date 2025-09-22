@@ -1,8 +1,28 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const pathname = usePathname();
+  const active = pathname === href;
+  const base =
+    'relative inline-block text-gray-700 transition-colors hover:text-blue-700';
+  const underline =
+    'after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all hover:after:w-full';
+  const activeCls = active ? 'text-blue-700 font-medium after:w-full' : '';
+  return (
+    <Link
+      href={href}
+      aria-current={active ? 'page' : undefined}
+      className={`${base} ${underline} ${activeCls}`}
+    >
+      {children}
+    </Link>
+  );
+}
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,15 +59,9 @@ export default function SiteHeader() {
           RCP Multiservices
         </Link>
         <nav className="flex items-center gap-4 text-sm">
-          <Link href="/zones" className="text-gray-700 hover:underline">
-            Zones
-          </Link>
-          <Link href="/services" className="text-gray-700 hover:underline">
-            Services
-          </Link>
-          <Link href="/contact" className="text-gray-700 hover:underline">
-            Contact
-          </Link>
+          <NavLink href="/zones">Zones</NavLink>
+          <NavLink href="/services">Services</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </nav>
       </div>
     </motion.header>

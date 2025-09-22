@@ -3,6 +3,7 @@ import './globals.css';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import PageTransition from '@/components/PageTransition';
+import BackToTop from '@/components/BackToTop';
 
 export const metadata: Metadata = {
   title: 'RCP Multiservices — Île-de-France et Normandie',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <PageTransition>{children}</PageTransition>
         </div>
         <SiteFooter />
+        <BackToTop />
       </body>
     </html>
   );
