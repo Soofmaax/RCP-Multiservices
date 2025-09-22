@@ -41,17 +41,18 @@ CI intégrée: Prettier (check), ESLint (strict), TypeScript (strict), Vitest (c
     - `GOOGLE_PLACE_ID`: Place ID de l’établissement (obtenable via Place ID Finder)
   - CORS géré, renvoie `{ reviews: Review[] }` (max 5)
   - Cache en mémoire (12h) pour limiter les appels API
-- Composant front:
-  - `src/components/Reviews.tsx` (utilise `src/lib/reviews.ts`)
-  - `Reviews` s’affiche sur chaque `CityPage`
+- Composants front:
+  - `src/components/Reviews.tsx` (utilise `src/lib/reviews.ts`) — s’affiche sur chaque `CityPage`
+  - `src/components/GoogleReviewsBadge.tsx` — affiche un badge “Avis Google” si `VITE_GBP_URL` est défini
 
-### Ajouter vos clés et Place ID
+### Ajouter vos clés, Place ID et URL Google Business
 
 1) Dans Netlify, Site settings → Environment variables:
    - `GOOGLE_MAPS_API_KEY=...`
    - `GOOGLE_PLACE_ID=...`
-2) Déployer. L’endpoint `/api/google-reviews` renverra les avis.
-3) Optionnel: Définir `VITE_REVIEWS_ENDPOINT` côté front (dans `.env`), sinon le défaut `/api/google-reviews` est utilisé.
+2) Déployer. L’endpoint `/api/google-reviews` renverra les avis (si dispo).
+3) Optionnel: Définir dans `.env` (Vite) l’URL de votre fiche:
+   - `VITE_GBP_URL=https://g.page/r/xxxxxxxx` (le badge “Avis Google” s’affichera automatiquement)
 
 ## Scripts
 

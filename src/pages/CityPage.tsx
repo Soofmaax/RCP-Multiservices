@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import locations from '../data/locations.json';
 import Reviews from '../components/Reviews';
+import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
 
 type Params = {
   region: string;
@@ -159,7 +160,10 @@ export default function CityPage() {
           </ul>
         </section>
 
-        <Reviews />
+        <div className="mt-6 flex items-center gap-3">
+          <Reviews />
+          <GoogleReviewsBadge />
+        </div>
 
         <section className="mt-6">
           <h2 className="text-xl font-semibold">FAQ</h2>
