@@ -32,19 +32,19 @@ export default function HomePage() {
       >
         <Link
           href="/zones"
-          className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+          className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-transform duration-150 hover:scale-[1.03]"
         >
           Voir nos zones d&apos;intervention
         </Link>
         <Link
           href="/services"
-          className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded"
+          className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded transition-transform duration-150 hover:scale-[1.03]"
         >
           Voir nos services
         </Link>
         <Link
           href="/contact"
-          className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded"
+          className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded transition-transform duration-150 hover:scale-[1.03]"
         >
           Contact
         </Link>

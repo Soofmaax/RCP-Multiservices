@@ -29,7 +29,7 @@ export default function ContactPage() {
       </motion.p>
       <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
         <a
-          className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+          className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-transform duration-150 hover:scale-[1.03]"
           href="mailto:contact@rcp-multiservices.com"
         >
           Nous écrire
@@ -105,7 +105,7 @@ export default function ContactPage() {
               rows={4}
             />
           </div>
-          <button type="submit" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+          <button type="submit" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-transform duration-150 hover:scale-[1.03]">
             Envoyer
           </button>
         </form>

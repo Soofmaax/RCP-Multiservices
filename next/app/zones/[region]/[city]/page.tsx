@@ -89,7 +89,7 @@ export default function CityPage({ params }: Props) {
       <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
         <Link
           href="/contact"
-          className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+          className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-transform duration-150 hover:scale-[1.03]"
         >
           Demander un devis
         </Link>
