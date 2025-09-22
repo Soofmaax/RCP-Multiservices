@@ -3,6 +3,7 @@ import Link from 'next/link';
 import data from '@/data/locations.json';
 import Reviews from '@/components/Reviews';
 import GoogleReviewsBadge from '@/components/GoogleReviewsBadge';
+import CityPrestations from '@/components/CityPrestations';
 
 export const revalidate = 60 * 60 * 12; // 12h
 
@@ -95,6 +96,8 @@ export default function CityPage({ params }: Props) {
         </Link>
         <GoogleReviewsBadge />
       </div>
+
+      <CityPrestations />
 
       <Reviews />
     </main>
