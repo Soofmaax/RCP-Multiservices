@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 type Review = {
   author_name: string;
@@ -11,6 +12,18 @@ type Review = {
   author_url?: string;
   time?: number;
   source?: string;
+};
+
+const listVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.05, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 6 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.18 } },
 };
 
 export default function Reviews() {
@@ -53,9 +66,19 @@ export default function Reviews() {
   return (
     <section className="mt-6">
       <h2 className="text-xl font-semibold">Avis clients</h2>
-      <ul className="mt-3 space-y-3">
+      <motion.ul
+        className="mt-3 space-y-3"
+        variants={listVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         {reviews.slice(0, 5).map((r, idx) => (
-          <li key={idx} className="rounded border p-3 bg-white shadow-sm">
+          <motion.li
+            key={idx}
+            variants={itemVariants}
+            className="rounded border p-3 bg-white shadow-sm transition-shadow duration-150 hover:shadow-md"
+          >
             <div className="flex items-center gap-2">
               {r.profile_photo_url ? (
                 <img
@@ -84,9 +107,9 @@ export default function Reviews() {
             <div className="mt-2 text-xs text-gray-500">
               Source: {r.source === 'google' ? 'Google' : 'Avis'}
             </div>
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </section>
   );
 }

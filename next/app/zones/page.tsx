@@ -51,7 +51,7 @@ export default function ZonesIndexPage() {
                     <motion.li key={c.slug} variants={itemVariants}>
                       <Link
                         href={`/zones/${region.key}/${c.slug}`}
-                        className="inline-block text-blue-600 hover:underline transition-transform duration-150 hover:scale-[1.02]"
+                        className="inline-block rounded px-2 py-1 text-blue-700 hover:text-blue-800 hover:bg-blue-50 transition-all duration-150 hover:scale-[1.02] hover:shadow-sm"
                       >
                         {c.name}
                       </Link>
