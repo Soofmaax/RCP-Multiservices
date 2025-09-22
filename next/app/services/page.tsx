@@ -10,6 +10,18 @@ export const metadata = {
     "Découvrez nos services à domicile en Île-de-France et en Normandie : aide à domicile, ménage, repassage, jardinage, petits travaux. Devis gratuit sous 24h.",
 };
 
+const listVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.05, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 6 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.18 } },
+};
+
 export default function ServicesPage() {
   return (
     <main className="container py-8">
@@ -40,29 +52,47 @@ export default function ServicesPage() {
 
       <section className="mt-6 space-y-2">
         <h2 className="text-xl font-semibold">Aide à domicile</h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>Courses, préparation des repas</li>
-          <li>Aide administrative, accompagnement</li>
-          <li>Compagnie et sorties</li>
-        </ul>
+        <motion.ul
+          className="list-disc list-inside text-gray-700"
+          variants={listVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.li variants={itemVariants}>Courses, préparation des repas</motion.li>
+          <motion.li variants={itemVariants}>Aide administrative, accompagnement</motion.li>
+          <motion.li variants={itemVariants}>Compagnie et sorties</motion.li>
+        </motion.ul>
       </section>
 
       <section className="mt-6 space-y-2">
         <h2 className="text-xl font-semibold">Ménage et repassage</h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>Entretien régulier de la maison/appartement</li>
-          <li>Grand ménage, remise en état</li>
-          <li>Repassage, pliage</li>
-        </ul>
+        <motion.ul
+          className="list-disc list-inside text-gray-700"
+          variants={listVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.li variants={itemVariants}>Entretien régulier de la maison/appartement</motion.li>
+          <motion.li variants={itemVariants}>Grand ménage, remise en état</motion.li>
+          <motion.li variants={itemVariants}>Repassage, pliage</motion.li>
+        </motion.ul>
       </section>
 
       <section className="mt-6 space-y-2">
         <h2 className="text-xl font-semibold">Jardinage</h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>Tonte, taille, désherbage</li>
-          <li>Entretien des haies et massifs</li>
-          <li>Petits aménagements</li>
-        </ul>
+        <motion.ul
+          className="list-disc list-inside text-gray-700"
+          variants={listVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.li variants={itemVariants}>Tonte, taille, désherbage</motion.li>
+          <motion.li variants={itemVariants}>Entretien des haies et massifs</motion.li>
+          <motion.li variants={itemVariants}>Petits aménagements</motion.li>
+        </motion.ul>
       </section>
     </main>
   );
