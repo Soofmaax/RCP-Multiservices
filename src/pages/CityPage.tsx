@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import locations from '../data/locations.json';
+import Reviews from '../components/Reviews';
 
 type Params = {
   region: string;
@@ -43,12 +44,6 @@ export default function CityPage() {
   const description = `Aide à domicile, ménage, jardinage et accompagnement à ${match.city.name}. Intervention rapide, personnel qualifié et assuré. Devis gratuit sous 24h.`;
   const canonical = `${SITE_URL}/zones/${match.region.key}/${match.city.slug}`;
 
-  const aggregateRating = {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '127'
-  };
-
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -78,8 +73,7 @@ export default function CityPage() {
     name: `Services à domicile à ${match.city.name}`,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'RCP Multiservices',
-      aggregateRating
+      name: 'RCP Multiservices'
     },
     areaServed: {
       '@type': 'Place',
@@ -165,17 +159,7 @@ export default function CityPage() {
           </ul>
         </section>
 
-        <section className="mt-6">
-          <h2 className="text-xl font-semibold">Avis clients</h2>
-          <div className="mt-2 rounded border p-3 bg-white shadow-sm">
-            <p className="text-gray-800">
-              Note moyenne: <span className="font-semibold">4.8/5</span> (basée sur 127 avis)
-            </p>
-            <p className="text-gray-600 text-sm">
-              “Service rapide et soigné, équipe très professionnelle.”
-            </p>
-          </div>
-        </section>
+        <Reviews />
 
         <section className="mt-6">
           <h2 className="text-xl font-semibold">FAQ</h2>
