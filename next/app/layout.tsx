@@ -21,14 +21,14 @@ export const metadata: Metadata = {
       "Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie. Devis gratuit sous 24h.",
     siteName: 'RCP Multiservices',
     locale: 'fr_FR',
-    // images are handled by app/opengraph-image.tsx
+    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'RCP Multiservices' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'RCP Multiservices — Services à domicile',
     description:
       "Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie. Devis gratuit sous 24h.",
-    // image handled by app/twitter-image.tsx
+    images: ['/og-image.svg'],
   },
 };
 
