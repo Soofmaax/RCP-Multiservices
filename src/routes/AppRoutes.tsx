@@ -4,6 +4,17 @@ import CityPage from '../pages/CityPage';
 import ZonesIndex from '../pages/ZonesIndex';
 import ServicesPage from '../pages/ServicesPage';
 import ContactPage from '../pages/ContactPage';
+import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+
+function Header() {
+  return (
+    <header className="border-b">
+      <div className="max-w-3xl mx-auto p-4 flex items-center justify-end">
+        <GoogleReviewsBadge />
+      </div>
+    </header>
+  );
+}
 
 function Home() {
   return (
@@ -65,6 +76,7 @@ function ZonesRoot() {
 export default function AppRoutes() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
