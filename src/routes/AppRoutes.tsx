@@ -22,7 +22,7 @@ function Home() {
         <p className="mt-3 text-gray-700">
           Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
           <Link
             to="/zones"
             className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"

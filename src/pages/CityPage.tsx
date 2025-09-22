@@ -149,7 +149,7 @@ export default function CityPage() {
           accompagnement à {match.city.name} et dans tout le département {match.department.name}.
           Notre équipe qualifiée et assurée intervient rapidement selon vos besoins.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
           <Link
             to="/contact"
             className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"

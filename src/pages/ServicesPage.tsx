@@ -65,7 +65,7 @@ export default function ServicesPage() {
           Nous proposons une gamme de prestations pour vous accompagner au quotidien, en
           Île-de-France et en Normandie.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
           <Link
             to="/contact"
             className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"

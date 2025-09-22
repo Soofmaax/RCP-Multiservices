@@ -13,7 +13,7 @@ export default function GoogleReviewsBadge({
   if (!url || !url.trim()) return null;
 
   const base =
-    'inline-flex items-center gap-2 rounded px-3 py-2 text-sm border transition-colors';
+    'inline-flex items-center gap-2 rounded px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm border transition-colors';
   const styles =
     variant === 'inverted'
       ? 'bg-gray-900 text-white border-gray-700 hover:bg-gray-800'

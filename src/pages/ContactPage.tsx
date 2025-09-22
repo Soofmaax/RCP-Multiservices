@@ -50,7 +50,7 @@ export default function ContactPage() {
         <p className="mt-3 text-gray-700">
           Devis gratuit sous 24h. N'hésitez pas à nous écrire ou à nous appeler.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
           <a
             className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
             href="mailto:contact@rcp-multiservices.com"
