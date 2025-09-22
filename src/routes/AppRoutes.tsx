@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import CityPage from '../pages/CityPage';
 import ZonesIndex from '../pages/ZonesIndex';
+import ServicesPage from '../pages/ServicesPage';
+import ContactPage from '../pages/ContactPage';
 
 function Home() {
   return (
@@ -19,12 +21,26 @@ function Home() {
         <p className="mt-3 text-gray-700">
           Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie.
         </p>
-        <Link
-          to="/zones"
-          className="mt-4 inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-        >
-          Voir nos zones d&apos;intervention
-        </Link>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link
+            to="/zones"
+            className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+          >
+            Voir nos zones d&apos;intervention
+          </Link>
+          <Link
+            to="/services"
+            className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded"
+          >
+            Voir nos services
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded"
+          >
+            Contact
+          </Link>
+        </div>
       </main>
     </>
   );
@@ -51,6 +67,8 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/zones" element={<ZonesRoot />} />
         <Route path="/zones/:region/:city" element={<CityPage />} />
       </Routes>

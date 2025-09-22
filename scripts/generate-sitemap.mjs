@@ -22,6 +22,8 @@ function buildUrls(locations) {
   const urls = new Set();
   urls.add(`${SITE_URL}/`);
   urls.add(`${SITE_URL}/zones`);
+  urls.add(`${SITE_URL}/services`);
+  urls.add(`${SITE_URL}/contact`);
 
   for (const region of locations.regions) {
     for (const dept of region.departments) {
