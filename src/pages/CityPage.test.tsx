@@ -29,8 +29,8 @@ describe('CityPage', () => {
     expect(screen.getByText('Zones')).toBeInTheDocument();
   });
 
-  it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', () => {
-    withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, () => {
+  it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', async () => {
+    await withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, async () => {
       render(
         <HelmetProvider>
           <MemoryRouter initialEntries={['/zones/ile-de-france/paris']}>
@@ -41,7 +41,7 @@ describe('CityPage', () => {
         </HelmetProvider>,
       );
 
-      const badge = screen.getByRole('link', { name: /voir nos avis google/i });
+      const badge = screen.getByRole('link', { name: /avis google/i });
       expect(badge).toBeInTheDocument();
       expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
     });

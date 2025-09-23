@@ -13,9 +13,9 @@ describe('ZonesIndex', () => {
       </HelmetProvider>,
     );
 
-    // Regions present
-    expect(screen.getByText(/Île-de-France/i)).toBeInTheDocument();
-    expect(screen.getByText(/Normandie/i)).toBeInTheDocument();
+    // Regions present (target headings to avoid duplicate matches with body text)
+    expect(screen.getByRole('heading', { name: /Île-de-France/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Normandie/i })).toBeInTheDocument();
 
     // Some city links present (sample from data)
     expect(screen.getByRole('link', { name: /Paris/i })).toBeInTheDocument();
