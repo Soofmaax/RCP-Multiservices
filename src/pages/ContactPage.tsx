@@ -86,7 +86,6 @@ export default function ContactPage() {
             onSubmit={(e) => {
               e.preventDefault();
               const form = e.currentTarget as HTMLFormElement;
-              // eslint-disable-next-line no-alert
               alert('Merci, votre demande a été envoyée (démo).');
               form.reset();
             }}
