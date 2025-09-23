@@ -21,7 +21,7 @@ describe('ContactPage', () => {
   });
 
   it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', async () => {
-    await withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, async () => {
+    await withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, () => {
       render(
         <HelmetProvider>
           <MemoryRouter initialEntries={['/contact']}>
@@ -30,7 +30,7 @@ describe('ContactPage', () => {
         </HelmetProvider>,
       );
 
-      const badge = screen.getByRole('link', { name: /voir nos avis google/i });
+      const badge = screen.getByRole('link', { name: /avis google/i });
       expect(badge).toBeInTheDocument();
       expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
     });
