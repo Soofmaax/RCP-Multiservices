@@ -1,3 +1,5 @@
+import { getGbpUrl } from '../lib/env';
+
 type Props = {
   className?: string;
   label?: string;
@@ -9,12 +11,7 @@ export default function GoogleReviewsBadge({
   label = 'Voir nos avis Google',
   variant = 'default',
 }: Props) {
-  const env = import.meta.env;
-  const url =
-    typeof env.VITE_GBP_URL === 'string' && env.VITE_GBP_URL.trim().length > 0
-      ? env.VITE_GBP_URL
-      : undefined;
-
+  const url = getGbpUrl();
   if (!url) return null;
 
   const base =

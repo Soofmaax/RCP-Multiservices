@@ -1,17 +1,18 @@
-export function withEnv(vars: Partial<ImportMetaEnv>, fn: () => void) {
-  const original = import.meta.env;
-  const mutated: ImportMetaEnv = { ...original, ...vars };
-  Object.defineProperty(import.meta, 'env', { value: mutated, configurable: true });
+export function withEnv(vars: Partial<ImportMetaEnv>, fn: () => void | Promise<void>) {
+  const prev = globalThis.__APP_TEST_ENV__;
+  globalThis.__APP_TEST_ENV__ = { ...(prev ?? {}), ...vars };
   try {
-    fn();
+    const result = fn();
+    return result;
   } finally {
-    Object.defineProperty(import.meta, 'env', { value: original, configurable: true });
+    globalThis.__APP_TEST_ENV__ = prev;
   }
 }
 
 export function setEnv(vars: Partial<ImportMetaEnv>) {
-  const original = import.meta.env;
-  const mutated: ImportMetaEnv = { ...original, ...vars };
-  Object.defineProperty(import.meta, 'env', { value: mutated, configurable: true });
-  return () => Object.defineProperty(import.meta, 'env', { value: original, configurable: true });
+  const prev = globalThis.__APP_TEST_ENV__;
+  globalThis.__APP_TEST_ENV__ = { ...(prev ?? {}), ...vars };
+  return () => {
+    globalThis.__APP_TEST_ENV__ = prev;
+  };
 }
