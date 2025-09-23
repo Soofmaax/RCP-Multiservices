@@ -61,22 +61,4 @@ export default function Reviews() {
 function renderStars(rating: number) {
   const full = Math.max(0, Math.min(5, Math.round(rating)));
   return '★'.repeat(full) + '☆'.repeat(5 - full);
-} {r.relative_time_description ?? ''}
-                </div>
-              </div>
-            </div>
-            {r.text ? <p className="mt-2 text-gray-800">{r.text}</p> : null}
-            <div className="mt-2 text-xs text-gray-500">
-              Source: {r.source === 'google' ? 'Google' : 'Avis'}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
-function renderStars(rating: number) {
-  const full = Math.max(0, Math.min(5, Math.round(rating)));
-  return '★'.repeat(full) + '☆'.repeat(5 - full);
 }

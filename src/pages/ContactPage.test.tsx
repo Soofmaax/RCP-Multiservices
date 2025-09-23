@@ -14,9 +14,10 @@ describe('ContactPage', () => {
       </HelmetProvider>,
     );
 
-    expect(screen.getByRole('heading', { name: /Contactez-nous/i })).toBeInTheDocument();
-    expect(screen.getByText(/RCP Multiservices/i)).toBeInTheDocument();
-    expect(screen.getByText(/Téléphone/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Contact/i })).toBeInTheDocument();
+    expect(screen.getByText(/Devis gratuit sous 24h/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /\+33 1 23 45 67 89/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /contact@rcp-multiservices.com/i })).toBeInTheDocument();
   });
 
   it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', () => {
@@ -33,9 +34,5 @@ describe('ContactPage', () => {
       expect(badge).toBeInTheDocument();
       expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
     });
-  });
-});
-    expect(badge).toBeInTheDocument();
-    expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
   });
 });
