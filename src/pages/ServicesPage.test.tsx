@@ -20,8 +20,8 @@ describe('ServicesPage', () => {
     expect(screen.getByRole('heading', { name: /Jardinage/i })).toBeInTheDocument();
   });
 
-  it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', () => {
-    withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, () => {
+  it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', async () => {
+    await withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, () => {
       render(
         <HelmetProvider>
           <MemoryRouter>
