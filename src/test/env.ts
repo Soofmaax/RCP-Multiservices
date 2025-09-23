@@ -1,9 +1,11 @@
-export function withEnv(vars: Partial<ImportMetaEnv>, fn: () => void | Promise<void>) {
+export async function withEnv<T>(
+  vars: Partial<ImportMetaEnv>,
+  fn: () => T | Promise<T>,
+): Promise<T> {
   const prev = globalThis.__APP_TEST_ENV__;
   globalThis.__APP_TEST_ENV__ = { ...(prev ?? {}), ...vars };
   try {
-    const result = fn();
-    return result;
+    return await fn();
   } finally {
     globalThis.__APP_TEST_ENV__ = prev;
   }
