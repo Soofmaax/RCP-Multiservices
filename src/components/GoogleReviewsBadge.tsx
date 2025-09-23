@@ -9,8 +9,13 @@ export default function GoogleReviewsBadge({
   label = 'Voir nos avis Google',
   variant = 'default',
 }: Props) {
-  const url = import.meta.env.VITE_GBP_URL as string | undefined;
-  if (!url || !url.trim()) return null;
+  const env = import.meta.env;
+  const url =
+    typeof env.VITE_GBP_URL === 'string' && env.VITE_GBP_URL.trim().length > 0
+      ? env.VITE_GBP_URL
+      : undefined;
+
+  if (!url) return null;
 
   const base =
     'inline-flex items-center gap-2 rounded px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm border transition-colors';

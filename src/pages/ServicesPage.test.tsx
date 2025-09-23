@@ -1,15 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
+import { withEnv } from '../test/env';
 import ServicesPage from './ServicesPage';
 
 describe('ServicesPage', () => {
-  const originalEnv = { ...(import.meta as any).env };
-
-  afterEach(() => {
-    (import.meta as any).env = { ...originalEnv };
-  });
-
   it('renders services heading and sections', () => {
     render(
       <HelmetProvider>
@@ -26,18 +21,18 @@ describe('ServicesPage', () => {
   });
 
   it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', () => {
-    (import.meta as any).env = { ...originalEnv, VITE_GBP_URL: 'https://g.page/r/abc123' };
+    withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, () => {
+      render(
+        <HelmetProvider>
+          <MemoryRouter>
+            <ServicesPage />
+          </MemoryRouter>
+        </HelmetProvider>,
+      );
 
-    render(
-      <HelmetProvider>
-        <MemoryRouter>
-          <ServicesPage />
-        </MemoryRouter>
-      </HelmetProvider>,
-    );
-
-    const badge = screen.getByRole('link', { name: /voir nos avis google/i });
-    expect(badge).toBeInTheDocument();
-    expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
+      const badge = screen.getByRole('link', { name: /voir nos avis google/i });
+      expect(badge).toBeInTheDocument();
+      expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
+    });
   });
 });

@@ -15,7 +15,7 @@
     "jsx": "react-jsx",
 
     /* Test globals typings */
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "vite/client"],
 
     /* Linting */
     "strict": true,
