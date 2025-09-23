@@ -4,8 +4,55 @@ export type Review = {
   rating: number; // 1..5
   text?: string;
   source: 'google' | 'mock';
-  url?: string;
+  authorUrl?: string;
 };
+
+type ApiReview = {
+  author_name: string;
+  profile_photo_url?: string;
+  rating: number;
+  text?: string;
+  relative_time_description?: string;
+  author_url?: string;
+};
+
+function isApiReview(x: unknown): x is ApiReview {
+  if (!x || typeof x !== 'object') return false;
+  const o = x as Record<string, unknown>;
+  return typeof o.author_name === 'string' && typeof o.rating === 'number';
+}
+
+function isAppReview(x: unknown): x is Review {
+  if (!x || typeof x !== 'object') return false;
+  const o = x as Record<string, unknown>;
+  return typeof o.authorName === 'string' && typeof o.rating === 'number';
+}
+
+function hasReviewsArray(x: unknown): x is { reviews: unknown[] } {
+  return !!x && typeof x === 'object' && Array.isArray((x as { reviews?: unknown[] }).reviews);
+}
+
+function normalizeFromApi(arr: unknown[]): Review[] {
+  return arr.filter(isApiReview).slice(0, 5).map((r) => ({
+    authorName: r.author_name,
+    authorPhotoUrl: typeof r.profile_photo_url === 'string' ? r.profile_photo_url : undefined,
+    rating: typeof r.rating === 'number' ? r.rating : 0,
+    text: typeof r.text === 'string' ? r.text : undefined,
+    source: 'google',
+    authorUrl: typeof r.author_url === 'string' ? r.author_url : undefined,
+  }));
+}
+
+function normalizeFromApp(arr: unknown[]): Review[] {
+  return arr.filter(isAppReview).slice(0, 5).map((r) => ({
+    authorName: r.authorName,
+    authorPhotoUrl: r.authorPhotoUrl,
+    rating: r.rating,
+    text: r.text,
+    source: r.source,
+    authorUrl: r.authorUrl,
+  }));
+}
 
 export async function fetchReviews(): Promise<Review[]> {
   const env = import.meta.env;
@@ -15,32 +62,15 @@ export async function fetchReviews(): Promise<Review[]> {
       : undefined) ?? '/api/google-reviews';
 
   try {
-    const res = await fetch(endpoint);
-    if (!res.ok) {
-      return [];
-    }
+    const res = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+    if (!res.ok) return [];
     const data: unknown = await res.json();
+
     if (Array.isArray(data)) {
-      // data is Review[]
-      return data.map((r) => ({
-        authorName: r.authorName,
-        authorPhotoUrl: r.authorPhotoUrl,
-        rating: r.rating,
-        text: r.text,
-        source: (r as Review).source ?? 'google',
-        url: r.url,
-      }));
+      return normalizeFromApp(data);
     }
-    if (typeof data === 'object' && data !== null && Array.isArray((data as { reviews?: unknown }).reviews)) {
-      const arr = (data as { reviews: Review[] }).reviews;
-      return arr.map((r) => ({
-        authorName: r.authorName,
-        authorPhotoUrl: r.authorPhotoUrl,
-        rating: r.rating,
-        text: r.text,
-        source: r.source ?? 'google',
-        url: r.url,
-      }));
+    if (hasReviewsArray(data)) {
+      return normalizeFromApi(data.reviews);
     }
     return [];
   } catch {
