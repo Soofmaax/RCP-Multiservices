@@ -14,7 +14,7 @@ export default function ContactPage() {
 
   const localBusinessLd = buildLocalBusinessLd({
     siteUrl: SITE_URL,
-    telephone: '+33123456789',
+    telephone: '+33743670815',
     email: 'contact@rcp-multiservices.com',
     address: {
       streetAddress: '123 Avenue de la République',
@@ -33,6 +33,9 @@ export default function ContactPage() {
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(localBusinessLd)}</script>
       </Helmet>
 
@@ -60,8 +63,8 @@ export default function ContactPage() {
           <ul className="text-gray-800">
             <li>
               Téléphone:{' '}
-              <a className="text-blue-600 hover:underline" href="tel:+33123456789">
-                +33 1 23 45 67 89
+              <a className="text-blue-600 hover:underline" href="tel:+33743670815">
+                07 43 67 08 15
               </a>
             </li>
             <li>

@@ -4,16 +4,32 @@ import { CityPage, ZonesIndex, ServicesPage, ContactPage } from '../pages';
 import { GoogleReviewsBadge } from '../components';
 import { btnPrimary, btnSecondary, ctaRow } from '../utils/styles';
 
+const SITE_URL = 'https://www.rcp-multiservices.com';
+
 function Home() {
+  const canonical = `${SITE_URL}/`;
+  const title = 'RCP Multiservices — Île-de-France et Normandie';
+  const description =
+    'Services à domicile de qualité en Île-de-France et en Normandie : aide, ménage, jardinage, accompagnement. Devis gratuit sous 24h.';
+  const websiteLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: SITE_URL,
+    name: 'RCP Multiservices',
+  };
+
   return (
     <>
       <Helmet>
-        <title>RCP Multiservices — Île-de-France et Normandie</title>
-        <meta
-          name="description"
-          content="Services à domicile de qualité en Île-de-France et en Normandie : aide, ménage, jardinage, accompagnement. Devis gratuit sous 24h."
-        />
-        <link rel="canonical" href="https://www.rcp-multiservices.com/" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
       <main className="max-w-3xl mx-auto p-6">
         <h1 className="text-3xl font-semibold">RCP Multiservices</h1>
@@ -38,6 +54,7 @@ function Home() {
 }
 
 function ZonesRoot() {
+  const canonical = `${SITE_URL}/zones`;
   return (
     <>
       <Helmet>
@@ -46,7 +63,12 @@ function ZonesRoot() {
           name="description"
           content="Découvrez nos villes d'intervention en Île-de-France et en Normandie."
         />
-        <link rel="canonical" href="https://www.rcp-multiservices.com/zones" />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content="Zones d’intervention — Île-de-France et Normandie" />
+        <meta property="og:description" content="Découvrez nos villes d'intervention en Île-de-France et en Normandie." />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <ZonesIndex />
     </>
