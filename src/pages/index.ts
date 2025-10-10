@@ -4,3 +4,5 @@ export { default as ContactPage } from './ContactPage';
 export { default as ZonesIndex } from './ZonesIndex';
 export { default as RegionPage } from './RegionPage';
 export { default as NotFoundPage } from './NotFoundPage';
+export { default as LegalPage } from './LegalPage';
+export { default as PrivacyPage } from './PrivacyPage';

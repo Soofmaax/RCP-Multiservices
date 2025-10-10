@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
-import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage } from '../pages';
-import { GoogleReviewsBadge, QuickCall } from '../components';
+import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage } from '../pages';
+import { GoogleReviewsBadge, QuickCall, Header } from '../components';
 import { btnPrimary, btnSecondary, ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
@@ -37,7 +37,10 @@ function Home() {
           Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie.
         </p>
         <div className={ctaRow}>
-          <Link to="/zones" className={btnPrimary}>
+          <a href="tel:+33743670815" className={btnPrimary}>
+            Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+          </a>
+          <Link to="/zones" className={btnSecondary}>
             Voir nos zones d&apos;intervention
           </Link>
           <Link to="/services" className={btnSecondary}>
@@ -77,9 +80,26 @@ function ZonesRoot() {
 
 function Footer() {
   return (
-    <footer className="border-t mt-12 bg-gray-900">
-      <div className="max-w-3xl mx-auto p-4 flex items-center justify-center">
-        <GoogleReviewsBadge variant="inverted" />
+    <footer className="border-t mt-12 bg-gray-900 text-gray-200">
+      <div className="max-w-3xl mx-auto p-4 flex flex-col gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="text-sm">
+            Appeler:{' '}
+            <a href="tel:+33743670815" className="text-white hover:underline">
+              07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+            </a>{' '}
+            • Horaires: Lun–Ven 08:00–20:00, Sam 09:00–18:00
+          </div>
+          <GoogleReviewsBadge variant="inverted" />
+        </div>
+        <div className="text-xs text-gray-400 flex flex-wrap gap-3">
+          <Link to="/mentions-legales" className="hover:text-gray-300">
+            Mentions légales
+          </Link>
+          <Link to="/confidentialite" className="hover:text-gray-300">
+            Politique de confidentialité
+          </Link>
+        </div>
       </div>
     </footer>
   );
@@ -88,6 +108,7 @@ function Footer() {
 export default function AppRoutes() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
@@ -95,6 +116,8 @@ export default function AppRoutes() {
         <Route path="/zones" element={<ZonesRoot />} />
         <Route path="/zones/:region" element={<RegionPage />} />
         <Route path="/zones/:region/:city" element={<CityPage />} />
+        <Route path="/mentions-legales" element={<LegalPage />} />
+        <Route path="/confidentialite" element={<PrivacyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <QuickCall />

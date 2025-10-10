@@ -55,6 +55,9 @@ export default function ServicesPage() {
           Île-de-France et en Normandie.
         </p>
         <div className={ctaRow}>
+          <a href="tel:+33743670815" className={btnPrimary}>
+            Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+          </a>
           <Link to="/contact" className={btnPrimary}>
             Demander un devis
           </Link>

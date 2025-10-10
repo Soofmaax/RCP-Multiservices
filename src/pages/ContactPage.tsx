@@ -52,6 +52,9 @@ export default function ContactPage() {
           Devis gratuit sous 24h. N'hésitez pas à nous écrire ou à nous appeler.
         </p>
         <div className={ctaRow}>
+          <a className={btnPrimary} href="tel:+33743670815">
+            Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+          </a>
           <a className={btnPrimary} href="mailto:contact@rcp-multiservices.com">
             Nous écrire
           </a>
