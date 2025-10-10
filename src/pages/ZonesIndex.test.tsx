@@ -19,7 +19,7 @@ describe('ZonesIndex', () => {
 
     // Some city links present (sample from data)
     expect(screen.getByRole('link', { name: /Paris/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Versailles/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Rouen/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Meaux/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Torcy/i })).toBeInTheDocument();
   });
 });

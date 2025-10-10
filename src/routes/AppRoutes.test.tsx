@@ -38,7 +38,7 @@ describe('AppRoutes', () => {
   it('shows Google reviews badge in CTA row on home when VITE_GBP_URL is set', async () => {
     await withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, () => {
       renderAt('/');
-      const badge = screen.getByRole('link', { name: /avis google/i });
+      const badge = screen.getByRole('link', { name: /voir nos avis google/i });
       expect(badge).toBeInTheDocument();
       expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
     });
@@ -47,7 +47,7 @@ describe('AppRoutes', () => {
   it('shows inverted Google reviews badge in footer when VITE_GBP_URL is set', async () => {
     await withEnv({ VITE_GBP_URL: 'https://g.page/r/abc123' }, () => {
       renderAt('/services');
-      const badge = screen.getByRole('link', { name: /avis google/i });
+      const badge = screen.getByRole('link', { name: /voir nos avis google/i });
       // Footer renders after routes, ensure variant applied (dark style)
       expect(badge.className).toMatch(/text-white|bg-gray-9|bg-gray-900/);
     });

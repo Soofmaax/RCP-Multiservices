@@ -41,7 +41,7 @@ describe('CityPage', () => {
         </HelmetProvider>,
       );
 
-      const badge = screen.getByRole('link', { name: /avis google/i });
+      const badge = screen.getByRole('link', { name: /voir nos avis google/i });
       expect(badge).toBeInTheDocument();
       expect(badge).toHaveAttribute('href', 'https://g.page/r/abc123');
     });
