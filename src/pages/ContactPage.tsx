@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
 import { buildLocalBusinessLd } from '../utils/seo';
+import { btnPrimary, ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -47,11 +48,8 @@ export default function ContactPage() {
         <p className="mt-3 text-gray-700">
           Devis gratuit sous 24h. N'hésitez pas à nous écrire ou à nous appeler.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-          <a
-            className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-            href="mailto:contact@rcp-multiservices.com"
-          >
+        <div className={ctaRow}>
+          <a className={btnPrimary} href="mailto:contact@rcp-multiservices.com">
             Nous écrire
           </a>
           <GoogleReviewsBadge />

@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
 import { buildFaqLd } from '../utils/seo';
+import { btnPrimary, ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -50,11 +51,8 @@ export default function ServicesPage() {
           Nous proposons une gamme de prestations pour vous accompagner au quotidien, en
           Île-de-France et en Normandie.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-          <Link
-            to="/contact"
-            className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-          >
+        <div className={ctaRow}>
+          <Link to="/contact" className={btnPrimary}>
             Demander un devis
           </Link>
           <GoogleReviewsBadge />
@@ -92,10 +90,7 @@ export default function ServicesPage() {
           <p className="text-gray-700">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
-          <Link
-            to="/contact"
-            className="mt-2 inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-          >
+          <Link to="/contact" className={btnPrimary}>
             Nous contacter
           </Link>
         </section>

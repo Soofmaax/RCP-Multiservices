@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import locations from '../data/locations.json';
+import { LOCATIONS } from '../data/locations';
 
 export default function ZonesIndex() {
   return (
@@ -10,7 +10,7 @@ export default function ZonesIndex() {
       </p>
 
       <div className="mt-6 space-y-8">
-        {locations.regions.map((region) => (
+        {LOCATIONS.regions.map((region) => (
           <section key={region.key}>
             <h2 className="text-2xl font-semibold">{region.name}</h2>
             <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2">

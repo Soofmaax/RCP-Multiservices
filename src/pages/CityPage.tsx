@@ -1,26 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
-import locations from '../data/locations.json';
+import { findCity } from '../data/locations';
 import Reviews from '../components/Reviews';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
 import { buildFaqLd, buildServiceLd, buildBreadcrumbsLd } from '../utils/seo';
+import { btnPrimary, ctaRow } from '../utils/styles';
 
 type Params = {
   region: string;
   city: string;
 };
-
-function findCity(regionKey: string, citySlug: string) {
-  const region = locations.regions.find((r) => r.key === regionKey);
-  if (!region) return null;
-  for (const dept of region.departments) {
-    const city = dept.cities.find((c) => c.slug === citySlug);
-    if (city) {
-      return { region, department: dept, city };
-    }
-  }
-  return null;
-}
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -100,11 +89,8 @@ export default function CityPage() {
           accompagnement à {match.city.name} et dans tout le département {match.department.name}.
           Notre équipe qualifiée et assurée intervient rapidement selon vos besoins.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-          <Link
-            to="/contact"
-            className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-          >
+        <div className={ctaRow}>
+          <Link to="/contact" className={btnPrimary}>
             Demander un devis
           </Link>
           <GoogleReviewsBadge />
@@ -147,10 +133,7 @@ export default function CityPage() {
           <p className="text-gray-700">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
-          <a
-            href="mailto:contact@rcp-multiservices.com"
-            className="mt-2 inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-          >
+          <a href="mailto:contact@rcp-multiservices.com" className={btnPrimary}>
             Nous écrire
           </a>
         </section>

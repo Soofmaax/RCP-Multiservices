@@ -5,6 +5,7 @@ import ZonesIndex from '../pages/ZonesIndex';
 import ServicesPage from '../pages/ServicesPage';
 import ContactPage from '../pages/ContactPage';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+import { btnPrimary, btnSecondary, ctaRow } from '../utils/styles';
 
 function Home() {
   return (
@@ -22,23 +23,14 @@ function Home() {
         <p className="mt-3 text-gray-700">
           Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-          <Link
-            to="/zones"
-            className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-          >
+        <div className={ctaRow}>
+          <Link to="/zones" className={btnPrimary}>
             Voir nos zones d&apos;intervention
           </Link>
-          <Link
-            to="/services"
-            className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded"
-          >
+          <Link to="/services" className={btnSecondary}>
             Voir nos services
           </Link>
-          <Link
-            to="/contact"
-            className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded"
-          >
+          <Link to="/contact" className={btnSecondary}>
             Contact
           </Link>
           <GoogleReviewsBadge />
