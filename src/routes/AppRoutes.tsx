@@ -1,10 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
-import CityPage from '../pages/CityPage';
-import ZonesIndex from '../pages/ZonesIndex';
-import ServicesPage from '../pages/ServicesPage';
-import ContactPage from '../pages/ContactPage';
-import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+import { CityPage, ZonesIndex, ServicesPage, ContactPage } from '../pages';
+import { GoogleReviewsBadge } from '../components';
 import { btnPrimary, btnSecondary, ctaRow } from '../utils/styles';
 
 function Home() {

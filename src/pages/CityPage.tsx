@@ -1,8 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { findCity } from '../data/locations';
-import Reviews from '../components/Reviews';
-import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+import { Reviews, GoogleReviewsBadge } from '../components';
 import { buildFaqLd, buildServiceLd, buildBreadcrumbsLd } from '../utils/seo';
 import { btnPrimary, ctaRow } from '../utils/styles';
 

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+import { GoogleReviewsBadge } from '../components';
 import { buildLocalBusinessLd } from '../utils/seo';
 import { btnPrimary, ctaRow } from '../utils/styles';
 

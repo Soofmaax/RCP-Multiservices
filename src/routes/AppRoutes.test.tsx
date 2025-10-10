@@ -4,7 +4,7 @@ import { withEnv } from '../test/env';
 import AppRoutes from './AppRoutes';
 
 // Avoid act() warnings by stubbing Reviews in this test suite
-vi.mock('../components/Reviews', () => ({ default: () => null }));
+vi.mock('../components', () => ({ Reviews: () => null }));
 
 function renderAt(path: string) {
   window.history.pushState({}, '', path);
