@@ -32,25 +32,52 @@ function Home() {
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
       <main className="max-w-3xl mx-auto p-6">
-        <h1 className="text-3xl font-semibold">RCP Multiservices</h1>
-        <p className="mt-3 text-gray-700">
-          Aide à domicile, ménage, jardinage et accompagnement en Île-de-France et en Normandie.
-        </p>
-        <div className={ctaRow}>
-          <a href="tel:+33743670815" className={btnPrimary}>
-            Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
-          </a>
-          <Link to="/zones" className={btnSecondary}>
-            Voir nos zones d&apos;intervention
-          </Link>
-          <Link to="/services" className={btnSecondary}>
-            Voir nos services
-          </Link>
-          <Link to="/contact" className={btnSecondary}>
-            Contact
-          </Link>
-          <GoogleReviewsBadge />
-        </div>
+        {/* Hero */}
+        <section className="rounded-xl border bg-white shadow-sm p-6">
+          <h1 className="text-3xl font-semibold">RCP Multiservices</h1>
+          <p className="mt-2 text-gray-700">
+            Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <span className="text-xs rounded bg-blue-50 text-blue-700 px-2 py-1">Assuré RC Pro</span>
+            <span className="text-xs rounded bg-blue-50 text-blue-700 px-2 py-1">Intervenants qualifiés</span>
+            <span className="text-xs rounded bg-blue-50 text-blue-700 px-2 py-1">Intervention rapide</span>
+          </div>
+          <div className={`${ctaRow} mt-3`}>
+            <a href="tel:+33743670815" className={btnPrimary}>
+              Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+            </a>
+            <Link to="/zones" className={btnSecondary}>
+              Voir nos zones d&apos;intervention
+            </Link>
+            <Link to="/services" className={btnSecondary}>
+              Voir nos services
+            </Link>
+            <Link to="/contact" className={btnSecondary}>
+              Contact
+            </Link>
+            <GoogleReviewsBadge />
+          </div>
+        </section>
+
+        {/* Témoignages statiques (temporaire) */}
+        <section className="mt-6">
+          <h2 className="text-xl font-semibold">Ils nous recommandent</h2>
+          <ul className="mt-3 space-y-3">
+            <li className="rounded border p-3 bg-white shadow-sm">
+              <div className="font-medium">Marie L. — Paris 11e</div>
+              <p className="text-gray-800 mt-1">Très réactifs, intervention le jour-même. Merci !</p>
+            </li>
+            <li className="rounded border p-3 bg-white shadow-sm">
+              <div className="font-medium">Paul R. — Rouen</div>
+              <p className="text-gray-800 mt-1">Ménage impeccable, équipe ponctuelle et sympa.</p>
+            </li>
+            <li className="rounded border p-3 bg-white shadow-sm">
+              <div className="font-medium">Sofia M. — Versailles</div>
+              <p className="text-gray-800 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
+            </li>
+          </ul>
+        </section>
       </main>
     </>
   );
@@ -88,7 +115,7 @@ function Footer() {
             <a href="tel:+33743670815" className="text-white hover:underline">
               07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
             </a>{' '}
-            • Horaires: Lun–Ven 08:00–20:00, Sam 09:00–18:00
+            • Horaires: Lun–Ven 08:00–20:00, Sam 09:00–18:00 • SIRET: à compléter • RC Pro: à compléter
           </div>
           <GoogleReviewsBadge variant="inverted" />
         </div>

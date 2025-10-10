@@ -57,6 +57,10 @@ CI intégrée: Prettier (check), ESLint (strict), TypeScript (strict), Vitest (c
 
 ## UX — ce qui a été ajouté
 
+- Hero sur la home:
+  - Titre, sous‑titre géographique, CTA “Appeler”, 3 badges de réassurance (Assuré RC Pro, Intervenants qualifiés, Intervention rapide)
+- Témoignages statiques (temporaire):
+  - 3 avis affichés sur la home (seront remplacés par de vrais avis Google dès que l’endpoint sera prêt)
 - Micro‑animations discrètes:
   - Boutons (primaires/secondaires): transition, hover scale
   - Liens villes: hover background bleu clair + transition
@@ -67,18 +71,20 @@ CI intégrée: Prettier (check), ESLint (strict), TypeScript (strict), Vitest (c
 - FAQ enrichie:
   - Ajout d’une question “Qualifiés et assurés ?” sur `CityPage`
 
+## À compléter avant déploiement (checklist)
+
+- SIRET: remplacer “à compléter” (footer + Mentions légales)
+- RC Pro: renseigner l’assureur et n° de police (footer + Mentions légales)
+- Google Business Profile:
+  - URL publique: définir `VITE_GBP_URL` (badge “Avis Google”)
+  - Place ID: définir `GOOGLE_PLACE_ID` + `GOOGLE_MAPS_API_KEY` dans Netlify (avis live)
+- Réseaux sociaux (optionnel): liens sameAs dans LocalBusiness (GBP, LinkedIn, X/Twitter, Instagram, Facebook)
+- og:image par défaut (optionnel): `public/og-default.jpg` et référencer dans Helmet
+
 ## Roadmap — à faire plus tard (guide)
 
-- Créer vos comptes et Google Business Profile:
-  - Récupérer l’URL publique GBP → définir `VITE_GBP_URL`
-  - Récupérer le `GOOGLE_PLACE_ID` → définir dans Netlify avec `GOOGLE_MAPS_API_KEY`
-  - (Optionnel) Ajouter les liens sameAs (GBP, LinkedIn, X/Twitter, Instagram, Facebook) dans le JSON‑LD LocalBusiness
-- Ajouter un og:image par défaut:
-  - Placer un asset (ex: `public/og-default.jpg`)
-  - Référencer dans Helmet des pages (Open Graph/Twitter images)
-- Étoffer le contenu SEO local:
-  - Enrichir `src/data/locations.json` et les sections “Prestations”/“Villes proches”
-  - Ajouter témoignages réels et agrégation d’avis (front consommera l’endpoint)
+- Enrichir `src/data/locations.json` et les sections “Prestations”/“Villes proches”
+- Ajouter témoignages réels (via endpoint) et agrégation d’avis
 - Performance:
   - Optimiser images (WebP/AVIF), tailles explicites, lazy‑loading
   - Fonts locales avec `font-display: swap` (si besoin)
