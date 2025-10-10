@@ -17,9 +17,9 @@ describe('ZonesIndex', () => {
     expect(screen.getByText(/Île-de-France/i)).toBeInTheDocument();
     expect(screen.getByText(/Normandie/i)).toBeInTheDocument();
 
-    // Some city links present (sample from data)
-    expect(screen.getByRole('link', { name: /Paris/i })).toBeInTheDocument();
+    // Some city links present (sample from data in Seine-et-Marne)
     expect(screen.getByRole('link', { name: /Meaux/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Torcy/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Chelles/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Fontainebleau/i })).toBeInTheDocument();
   });
 });
