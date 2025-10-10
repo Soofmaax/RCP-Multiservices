@@ -17,9 +17,15 @@ export default defineConfig({
         functions: 80,
         lines: 80,
       },
+      // Only measure coverage for app sources
+      include: ['src/**/*.{ts,tsx}'],
+      // Exclude non-app directories, configs and test helpers
       exclude: [
         '**/node_modules/**',
         '**/scripts/**',
+        'next/**',
+        'netlify/**',
+        'public/**',
         'vite.config.ts',
         'vitest.config.ts',
         'postcss.config.js',
@@ -28,6 +34,8 @@ export default defineConfig({
         'tsconfig*.json',
         'index.html',
         'src/main.tsx',
+        'src/test/**',
+        'src/vite-env.d.ts',
       ],
     },
   },
