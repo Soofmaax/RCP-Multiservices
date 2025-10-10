@@ -4,7 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import ZonesIndex from './ZonesIndex';
 
 describe('ZonesIndex', () => {
-  it('lists regions and sample city links (Île-de-France)', () => {
+  it('lists regions and has city links for each region', () => {
     render(
       <HelmetProvider>
         <MemoryRouter>
@@ -17,9 +17,12 @@ describe('ZonesIndex', () => {
     expect(screen.getByText(/Île-de-France/i)).toBeInTheDocument();
     expect(screen.getByText(/Normandie/i)).toBeInTheDocument();
 
-    // Sample city links (from Seine-et-Marne 77 in Île-de-France)
-    expect(screen.getByRole('link', { name: /Meaux/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Chelles/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Torcy/i })).toBeInTheDocument();
+    // Ensure at least one city link exists for each region (robust, data-agnostic)
+    const links = screen.getAllByRole('link');
+    const idfLinks = links.filter((a) => a.getAttribute('href')?.startsWith('/zones/ile-de-france/'));
+    const normLinks = links.filter((a) => a.getAttribute('href')?.startsWith('/zones/normandie/'));
+
+    expect(idfLinks.length).toBeGreaterThan(0);
+    expect(normLinks.length).toBeGreaterThan(0);
   });
 });

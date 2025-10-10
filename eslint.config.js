@@ -5,7 +5,8 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  // Ignore non-Vite app directories to avoid cross-project lint noise
+  { ignores: ['dist', 'next/**', 'netlify/**', 'public/**', 'scripts/**'] },
   // App and tests (type-checked)
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommendedTypeChecked],
