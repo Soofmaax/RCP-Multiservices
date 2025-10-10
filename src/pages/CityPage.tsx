@@ -126,7 +126,7 @@ export default function CityPage() {
                 <Link
                   key={c.slug}
                   to={`/zones/${match.region.key}/${c.slug}`}
-                  className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-colors rounded px-1"
+                  className="link-city"
                 >
                   {c.name}
                 </Link>
