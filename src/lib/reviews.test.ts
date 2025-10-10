@@ -10,7 +10,7 @@ function mockFetch(json: unknown, ok = true) {
     .spyOn(globalThis, 'fetch')
     .mockResolvedValue({
       ok,
-      json: async () => json,
+      json: () => Promise.resolve(json),
     } as unknown as Response);
 }
 
