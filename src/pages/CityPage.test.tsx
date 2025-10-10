@@ -4,8 +4,12 @@ import { HelmetProvider } from 'react-helmet-async';
 import { withEnv } from '../test/env';
 import CityPage from './CityPage';
 
-// Avoid act() warnings by stubbing Reviews in this test suite
-vi.mock('../components', () => ({ Reviews: () => null }));
+// Avoid act() warnings by stubbing Reviews in this test suite,
+// but keep other exports (like GoogleReviewsBadge) intact.
+vi.mock('../components', async () => {
+  const actual = await vi.importActual<typeof import('../components')>('../components');
+  return { ...actual, Reviews: () => null };
+});
 
 describe('CityPage', () => {
   it('renders city heading and content for Paris (Île-de-France)', () => {
