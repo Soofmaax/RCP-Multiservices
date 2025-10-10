@@ -8,41 +8,45 @@ function isCity(x: unknown): x is City {
   return typeof o.slug === 'string' && typeof o.name === 'string';
 }
 
+function isUnknownArray(x: unknown): x is unknown[] {
+  return Array.isArray(x);
+}
+
 function isDepartment(x: unknown): x is Department {
   if (!x || typeof x !== 'object') return false;
   const o = x as Record<string, unknown>;
-  const cities = o.cities as unknown;
+  const cities = o.cities;
   return (
     typeof o.key === 'string' &&
     typeof o.name === 'string' &&
-    Array.isArray(cities) &&
-    (cities as unknown[]).every(isCity)
+    isUnknownArray(cities) &&
+    cities.every(isCity)
   );
 }
 
 function isRegion(x: unknown): x is Region {
   if (!x || typeof x !== 'object') return false;
   const o = x as Record<string, unknown>;
-  const departments = o.departments as unknown;
+  const departments = o.departments;
   return (
     typeof o.key === 'string' &&
     typeof o.name === 'string' &&
-    Array.isArray(departments) &&
-    (departments as unknown[]).every(isDepartment)
+    isUnknownArray(departments) &&
+    departments.every(isDepartment)
   );
 }
 
 function isLocationsData(x: unknown): x is LocationsData {
   if (!x || typeof x !== 'object') return false;
   const o = x as Record<string, unknown>;
-  const regions = o.regions as unknown;
-  return Array.isArray(regions) && (regions as unknown[]).every(isRegion);
+  const regions = o.regions;
+  return isUnknownArray(regions) && regions.every(isRegion);
 }
 
 const dataUnknown: unknown = raw;
 
 export const LOCATIONS: LocationsData = isLocationsData(dataUnknown)
-  ? (dataUnknown as LocationsData)
+  ? dataUnknown
   : { regions: [] };
 
 export function findCity(regionKey: string, citySlug: string) {
