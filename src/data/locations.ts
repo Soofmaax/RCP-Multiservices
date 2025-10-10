@@ -60,3 +60,8 @@ export function findCity(regionKey: string, citySlug: string) {
   }
   return null;
 }
+
+export function findRegion(regionKey: string): Region | null {
+  const region = LOCATIONS.regions.find((r) => r.key === regionKey);
+  return region ?? null;
+}

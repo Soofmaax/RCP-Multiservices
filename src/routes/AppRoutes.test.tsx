@@ -36,6 +36,11 @@ describe('AppRoutes', () => {
     expect(screen.getByRole('heading', { name: /Normandie/i })).toBeInTheDocument();
   });
 
+  it('renders a region page (Île-de-France)', () => {
+    renderAt('/zones/ile-de-france');
+    expect(screen.getByRole('heading', { name: /Île-de-France/i })).toBeInTheDocument();
+  });
+
   it('renders a city page (Paris)', () => {
     renderAt('/zones/ile-de-france/paris');
     expect(

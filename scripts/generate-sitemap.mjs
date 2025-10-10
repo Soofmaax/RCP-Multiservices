@@ -26,6 +26,8 @@ function buildUrls(locations) {
   urls.add(`${SITE_URL}/contact`);
 
   for (const region of locations.regions) {
+    // Region-level URL
+    urls.add(`${SITE_URL}/zones/${region.key}`);
     for (const dept of region.departments) {
       for (const city of dept.cities) {
         urls.add(`${SITE_URL}/zones/${region.key}/${city.slug}`);
