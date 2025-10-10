@@ -111,6 +111,27 @@ export default function CityPage() {
         <Reviews />
 
         <section className="mt-6">
+          <h2 className="text-xl font-semibold">Villes proches</h2>
+          <p className="text-gray-700">
+            Nous intervenons également dans les villes voisines du département {match.department.name}.
+          </p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {match.department.cities
+              .filter((c) => c.slug !== match.city.slug)
+              .slice(0, 8)
+              .map((c) => (
+                <Link
+                  key={c.slug}
+                  to={`/zones/${match.region.key}/${c.slug}`}
+                  className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-colors rounded px-1"
+                >
+                  {c.name}
+                </Link>
+              ))}
+          </div>
+        </section>
+
+        <section className="mt-6">
           <h2 className="text-xl font-semibold">FAQ</h2>
           <details className="mt-2">
             <summary className="cursor-pointer font-medium">
@@ -126,6 +147,14 @@ export default function CityPage() {
             </summary>
             <p className="mt-1 text-gray-700">
               Oui, nous intervenons à {match.city.name} et dans tout le département {match.department.name}.
+            </p>
+          </details>
+          <details className="mt-2">
+            <summary className="cursor-pointer font-medium">
+              Vos intervenants sont-ils qualifiés et assurés ?
+            </summary>
+            <p className="mt-1 text-gray-700">
+              Oui, notre équipe est formée, qualifiée et assurée pour intervenir en toute sécurité.
             </p>
           </details>
         </section>

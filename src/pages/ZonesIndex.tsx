@@ -22,7 +22,7 @@ export default function ZonesIndex() {
                       <Link
                         key={c.slug}
                         to={`/zones/${region.key}/${c.slug}`}
-                        className="text-blue-600 hover:underline"
+                        className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-colors rounded px-1"
                       >
                         {c.name}
                       </Link>
