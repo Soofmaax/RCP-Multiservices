@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
-import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage } from '../pages';
+import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage } from '../pages';
 import { GoogleReviewsBadge, QuickCall } from '../components';
 import { btnPrimary, btnSecondary, ctaRow } from '../utils/styles';
 
@@ -95,6 +95,7 @@ export default function AppRoutes() {
         <Route path="/zones" element={<ZonesRoot />} />
         <Route path="/zones/:region" element={<RegionPage />} />
         <Route path="/zones/:region/:city" element={<CityPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <QuickCall />
       <Footer />
