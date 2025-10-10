@@ -14,7 +14,7 @@ export default function NotFoundPage() {
     }, 1000);
 
     const timer = setTimeout(() => {
-      navigate('/', { replace: true });
+      void navigate('/', { replace: true });
     }, 5000);
 
     return () => {
