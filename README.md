@@ -61,6 +61,10 @@ CI intégrée: Prettier (check), ESLint (strict), TypeScript (strict), Vitest (c
   - Titre, sous‑titre géographique, CTA “Appeler”, 3 badges de réassurance (Assuré RC Pro, Intervenants qualifiés, Intervention rapide)
 - Témoignages statiques (temporaire):
   - 3 avis affichés sur la home (seront remplacés par de vrais avis Google dès que l’endpoint sera prêt)
+- Comment ça marche (home):
+  - 3 étapes: Appel → Évaluation rapide → Intervention/Devis sous 24h + CTA “Appeler maintenant”
+- Infos pratiques (home):
+  - CESU accepté, délais, horaires, zones couvertes, modes de paiement
 - Micro‑animations discrètes:
   - Boutons (primaires/secondaires): transition, hover scale
   - Liens villes: hover background bleu clair + transition

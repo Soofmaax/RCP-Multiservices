@@ -78,6 +78,42 @@ function Home() {
             </li>
           </ul>
         </section>
+
+        {/* Comment ça marche */}
+        <section className="mt-8">
+          <h2 className="text-xl font-semibold">Comment ça marche</h2>
+          <ol className="mt-3 list-decimal list-inside text-gray-700 space-y-2">
+            <li>
+              Appel direct au{' '}
+              <a href="tel:+33743670815" className="text-blue-600 hover:underline">
+                07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+              </a>
+              .
+            </li>
+            <li>Évaluation rapide de votre besoin (au téléphone ou par message).</li>
+            <li>Intervention / Devis sous 24h selon vos disponibilités.</li>
+          </ol>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className={btnPrimary}>
+              Appeler maintenant
+            </a>
+            <Link to="/contact" className={btnSecondary}>
+              Nous contacter
+            </Link>
+          </div>
+        </section>
+
+        {/* Infos pratiques */}
+        <section className="mt-8">
+          <h2 className="text-xl font-semibold">Infos pratiques</h2>
+          <ul className="mt-3 list-disc list-inside text-gray-700 space-y-1">
+            <li>CESU accepté.</li>
+            <li>Intervention possible le jour-même selon disponibilités.</li>
+            <li>Horaires: Lun–Ven 08:00–20:00, Sam 09:00–18:00, Dim fermé.</li>
+            <li>Zones couvertes: Paris, Île‑de‑France et Normandie.</li>
+            <li>Modes de paiement: CB, virement, espèces, CESU.</li>
+          </ul>
+        </section>
       </main>
     </>
   );
