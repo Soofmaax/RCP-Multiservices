@@ -64,31 +64,58 @@ export default function ServicesPage() {
           <GoogleReviewsBadge />
         </div>
 
-        <section className="mt-6 space-y-2">
-          <h2 className="text-xl font-semibold">Aide à domicile</h2>
-          <ul className="list-disc list-inside text-gray-700">
+        <section className="mt-6 card p-4">
+          <div className="flex items-center gap-2">
+            <h2 className="text-xl font-semibold">Aide à domicile</h2>
+          </div>
+          <p className="text-gray-700 mt-2">
+            Appel direct et réponse immédiate. Intervenants qualifiés et assurés pour vous accompagner au quotidien.
+          </p>
+          <ul className="mt-2 list-disc list-inside text-gray-700">
             <li>Courses, préparation des repas</li>
             <li>Aide administrative, accompagnement</li>
             <li>Compagnie et sorties</li>
           </ul>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
         </section>
 
-        <section className="mt-6 space-y-2">
-          <h2 className="text-xl font-semibold">Ménage et repassage</h2>
-          <ul className="list-disc list-inside text-gray-700">
+        <section className="mt-6 card p-4">
+          <div className="flex items-center gap-2">
+            <h2 className="text-xl font-semibold">Ménage et repassage</h2>
+          </div>
+          <p className="text-gray-700 mt-2">
+            Planning flexible, contrôle qualité et matériel adapté pour un entretien impeccable.
+          </p>
+          <ul className="mt-2 list-disc list-inside text-gray-700">
             <li>Entretien régulier de la maison/appartement</li>
             <li>Grand ménage, remise en état</li>
             <li>Repassage, pliage</li>
           </ul>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
         </section>
 
-        <section className="mt-6 space-y-2">
-          <h2 className="text-xl font-semibold">Jardinage</h2>
-          <ul className="list-disc list-inside text-gray-700">
+        <section className="mt-6 card p-4">
+          <div className="flex items-center gap-2">
+            <h2 className="text-xl font-semibold">Jardinage</h2>
+          </div>
+          <p className="text-gray-700 mt-2">
+            Intervention rapide et résultat durable pour vos espaces verts.
+          </p>
+          <ul className="mt-2 list-disc list-inside text-gray-700">
             <li>Tonte, taille, désherbage</li>
             <li>Entretien des haies et massifs</li>
             <li>Petits aménagements</li>
           </ul>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
         </section>
 
         <section className="mt-6">

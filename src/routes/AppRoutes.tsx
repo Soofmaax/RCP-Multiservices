@@ -18,6 +18,23 @@ function Home() {
     name: 'RCP Multiservices',
   };
 
+  // Inline service icons (minimal SVGs)
+  const ServiceIconHomeAssist = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="text-blue-600">
+      <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v3H4a2 2 0 0 0-2 2v5h20v-5a2 2 0 0 0-2-2h-1V9a7 7 0 0 0-7-7zm-5 10V9a5 5 0 0 1 10 0v3H7zm-3 5v-3h16v3H4z"/>
+    </svg>
+  );
+  const ServiceIconClean = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="text-blue-600">
+      <path fill="currentColor" d="M9 2h6l1 3h5v2h-2l-2 13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L3 7H1V5h5l1-3zm0 5H7l2 12h6l2-12h-2l-1 3H10L9 7z"/>
+    </svg>
+  );
+  const ServiceIconGarden = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="text-blue-600">
+      <path fill="currentColor" d="M7 2a5 5 0 0 0 0 10h2v10h2V12h2a5 5 0 0 0 0-10H7zm0 2h6a3 3 0 1 1 0 6H7a3 3 0 1 1 0-6z"/>
+    </svg>
+  );
+
   return (
     <>
       <Helmet>
@@ -60,58 +77,85 @@ function Home() {
           </div>
         </section>
 
-        {/* Témoignages statiques (temporaire) */}
-        <section className="mt-6">
-          <h2 className="text-xl font-semibold">Ils nous recommandent</h2>
-          <ul className="mt-3 space-y-3">
-            <li className="rounded border p-3 bg-white shadow-sm">
-              <div className="font-medium">Marie L. — Paris 11e</div>
-              <p className="text-gray-800 mt-1">Très réactifs, intervention le jour-même. Merci !</p>
-            </li>
-            <li className="rounded border p-3 bg-white shadow-sm">
-              <div className="font-medium">Paul R. — Rouen</div>
-              <p className="text-gray-800 mt-1">Ménage impeccable, équipe ponctuelle et sympa.</p>
-            </li>
-            <li className="rounded border p-3 bg-white shadow-sm">
-              <div className="font-medium">Sofia M. — Versailles</div>
-              <p className="text-gray-800 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
-            </li>
-          </ul>
-        </section>
-
-        {/* Comment ça marche */}
+        {/* Nos services principaux */}
         <section className="mt-8">
-          <h2 className="text-xl font-semibold">Comment ça marche</h2>
-          <ol className="mt-3 list-decimal list-inside text-gray-700 space-y-2">
-            <li>
-              Appel direct au{' '}
-              <a href="tel:+33743670815" className="text-blue-600 hover:underline">
-                07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
-              </a>
-              .
-            </li>
-            <li>Évaluation rapide de votre besoin (au téléphone ou par message).</li>
-            <li>Intervention / Devis sous 24h selon vos disponibilités.</li>
-          </ol>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <a href="tel:+33743670815" className={btnPrimary}>
-              Appeler maintenant
-            </a>
-            <Link to="/contact" className={btnSecondary}>
-              Nous contacter
-            </Link>
+          <h2 className="text-xl font-semibold">Nos services principaux</h2>
+          <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+            <article className="card p-4">
+              <div className="flex items-center gap-2">
+                <ServiceIconHomeAssist />
+                <h3 className="text-lg font-semibold">Aide à domicile</h3>
+              </div>
+              <p className="text-gray-700 mt-2">
+                Compagnie, accompagnement, courses, repas, démarches.
+              </p>
+              <ul className="mt-2 list-disc list-inside text-gray-700">
+                <li>Réponse immédiate par téléphone</li>
+                <li>Intervenants qualifiés et assurés</li>
+                <li>Devis sous 24h</li>
+              </ul>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+                <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+              </div>
+            </article>
+
+            <article className="card p-4">
+              <div className="flex items-center gap-2">
+                <ServiceIconClean />
+                <h3 className="text-lg font-semibold">Ménage &amp; repassage</h3>
+              </div>
+              <p className="text-gray-700 mt-2">
+                Entretien régulier, grand ménage, repassage soigné.
+              </p>
+              <ul className="mt-2 list-disc list-inside text-gray-700">
+                <li>Planning flexible</li>
+                <li>Contrôle qualité</li>
+                <li>Matériel adapté</li>
+              </ul>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+                <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+              </div>
+            </article>
+
+            <article className="card p-4">
+              <div className="flex items-center gap-2">
+                <ServiceIconGarden />
+                <h3 className="text-lg font-semibold">Jardinage</h3>
+              </div>
+              <p className="text-gray-700 mt-2">
+                Tonte, taille, entretien des haies et massifs.
+              </p>
+              <ul className="mt-2 list-disc list-inside text-gray-700">
+                <li>Intervention rapide</li>
+                <li>Résultat propre et durable</li>
+                <li>Conseils d’entretien</li>
+              </ul>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+                <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+              </div>
+            </article>
           </div>
         </section>
 
-        {/* Infos pratiques */}
+        {/* Témoignages statiques (temporaire) */}
         <section className="mt-8">
-          <h2 className="text-xl font-semibold">Infos pratiques</h2>
-          <ul className="mt-3 list-disc list-inside text-gray-700 space-y-1">
-            <li>CESU accepté.</li>
-            <li>Intervention possible le jour-même selon disponibilités.</li>
-            <li>Horaires: Lun–Ven 08:00–20:00, Sam 09:00–18:00, Dim fermé.</li>
-            <li>Zones couvertes: Paris, Île‑de‑France et Normandie.</li>
-            <li>Modes de paiement: CB, virement, espèces, CESU.</li>
+          <h2 className="text-xl font-semibold">Ils nous recommandent</h2>
+          <ul className="mt-3 space-y-3">
+            <li className="card p-3">
+              <div className="font-medium">Marie L. — Paris 11e</div>
+              <p className="text-gray-800 mt-1">Très réactifs, intervention le jour-même. Merci !</p>
+            </li>
+            <li className="card p-3">
+              <div className="font-medium">Paul R. — Rouen</div>
+              <p className="text-gray-800 mt-1">Ménage impeccable, équipe ponctuelle et sympa.</p>
+            </li>
+            <li className="card p-3">
+              <div className="font-medium">Sofia M. — Versailles</div>
+              <p className="text-gray-800 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
+            </li>
           </ul>
         </section>
       </main>
