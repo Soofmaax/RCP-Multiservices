@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+import { buildLocalBusinessLd } from '../utils/seo';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -10,22 +11,18 @@ export default function ContactPage() {
     "Contactez RCP Multiservices pour un devis gratuit sous 24h. Intervention en Île-de-France et en Normandie.";
   const canonical = `${SITE_URL}/contact`;
 
-  const localBusinessLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'RCP Multiservices',
-    url: SITE_URL,
+  const localBusinessLd = buildLocalBusinessLd({
+    siteUrl: SITE_URL,
     telephone: '+33123456789',
     email: 'contact@rcp-multiservices.com',
     address: {
-      '@type': 'PostalAddress',
       streetAddress: '123 Avenue de la République',
       addressLocality: 'Paris',
       postalCode: '75011',
       addressCountry: 'FR',
     },
     openingHours: ['Mo-Fr 08:00-20:00', 'Sa 09:00-18:00'],
-  };
+  });
 
   return (
     <>

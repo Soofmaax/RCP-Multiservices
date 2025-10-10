@@ -3,6 +3,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { withEnv } from '../test/env';
 import AppRoutes from './AppRoutes';
 
+// Avoid act() warnings by stubbing Reviews in this test suite
+vi.mock('../components/Reviews', () => ({ default: () => null }));
+
 function renderAt(path: string) {
   window.history.pushState({}, '', path);
   render(

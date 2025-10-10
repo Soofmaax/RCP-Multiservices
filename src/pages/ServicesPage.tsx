@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+import { buildFaqLd } from '../utils/seo';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -10,36 +11,20 @@ export default function ServicesPage() {
     "Découvrez nos services à domicile en Île-de-France et en Normandie : aide à domicile, ménage, repassage, jardinage, petits travaux. Devis gratuit sous 24h.";
   const canonical = `${SITE_URL}/services`;
 
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Proposez-vous un devis gratuit ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, devis gratuit sous 24h avec une estimation précise selon votre besoin.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Intervenez-vous partout en Île-de-France et en Normandie ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "Oui, nous couvrons l'ensemble de l'Île-de-France et de la Normandie.",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Vos intervenants sont-ils assurés et formés ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, nos intervenants sont qualifiés, assurés et accompagnés.',
-        },
-      },
-    ],
-  };
+  const faqLd = buildFaqLd([
+    {
+      q: 'Proposez-vous un devis gratuit ?',
+      a: 'Oui, devis gratuit sous 24h avec une estimation précise selon votre besoin.',
+    },
+    {
+      q: 'Intervenez-vous partout en Île-de-France et en Normandie ?',
+      a: "Oui, nous couvrons l'ensemble de l'Île-de-France et de la Normandie.",
+    },
+    {
+      q: 'Vos intervenants sont-ils assurés et formés ?',
+      a: 'Oui, nos intervenants sont qualifiés, assurés et accompagnés.',
+    },
+  ]);
 
   return (
     <>

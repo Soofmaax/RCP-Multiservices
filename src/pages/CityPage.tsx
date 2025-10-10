@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import locations from '../data/locations.json';
 import Reviews from '../components/Reviews';
 import GoogleReviewsBadge from '../components/GoogleReviewsBadge';
+import { buildFaqLd, buildServiceLd, buildBreadcrumbsLd } from '../utils/seo';
 
 type Params = {
   region: string;
@@ -45,73 +46,23 @@ export default function CityPage() {
   const description = `Aide à domicile, ménage, jardinage et accompagnement à ${match.city.name}. Intervention rapide, personnel qualifié et assuré. Devis gratuit sous 24h.`;
   const canonical = `${SITE_URL}/zones/${match.region.key}/${match.city.slug}`;
 
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Proposez-vous un devis gratuit ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, nous proposons un devis gratuit sous 24h.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: `Intervenez-vous à ${match.city.name} et aux alentours ?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Oui, nous intervenons à ${match.city.name} et dans tout le département ${match.department.name}.`
-        }
-      }
-    ]
-  };
-
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: `Services à domicile à ${match.city.name}`,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'RCP Multiservices'
+  const faqLd = buildFaqLd([
+    { q: 'Proposez-vous un devis gratuit ?', a: 'Oui, nous proposons un devis gratuit sous 24h.' },
+    {
+      q: `Intervenez-vous à ${match.city.name} et aux alentours ?`,
+      a: `Oui, nous intervenons à ${match.city.name} et dans tout le département ${match.department.name}.`,
     },
-    areaServed: {
-      '@type': 'Place',
-      name: match.city.name
-    }
-  };
+  ]);
 
-  const breadcrumbsLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Accueil',
-        item: SITE_URL + '/'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Zones',
-        item: SITE_URL + '/zones'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: match.region.name,
-        item: `${SITE_URL}/zones/${match.region.key}`
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
-        name: match.city.name,
-        item: canonical
-      }
-    ]
-  };
+  const serviceLd = buildServiceLd(match.city.name);
+
+  const breadcrumbsLd = buildBreadcrumbsLd({
+    siteUrl: SITE_URL,
+    regionKey: match.region.key,
+    regionName: match.region.name,
+    citySlug: match.city.slug,
+    cityName: match.city.name,
+  });
 
   return (
     <>

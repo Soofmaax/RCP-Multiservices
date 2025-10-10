@@ -4,6 +4,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { withEnv } from '../test/env';
 import CityPage from './CityPage';
 
+// Avoid act() warnings by stubbing Reviews in this test suite
+vi.mock('../components/Reviews', () => ({ default: () => null }));
+
 describe('CityPage', () => {
   it('renders city heading and content for Paris (Île-de-France)', () => {
     render(
