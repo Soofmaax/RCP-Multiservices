@@ -83,9 +83,10 @@ export default function CityPage() {
           / <span className="font-medium">{match.city.name}</span>
         </nav>
 
-        <h1 className="text-3xl font-semibold">
+        <h1 className="heading-1">
           Services à domicile à {match.city.name}
         </h1>
+        <div className="accent mt-2"></div>
         <p className="mt-3 text-gray-700">
           Nous proposons des prestations d&apos;aide à domicile, ménage, jardinage et
           accompagnement à {match.city.name} et dans tout le département {match.department.name}.
@@ -101,9 +102,10 @@ export default function CityPage() {
           <GoogleReviewsBadge />
         </div>
 
-        <section className="mt-6 space-y-2">
-          <h2 className="text-xl font-semibold">Prestations</h2>
-          <ul className="list-disc list-inside text-gray-700">
+        <section className="mt-6 panel">
+          <h2 className="heading-2">Prestations</h2>
+          <div className="accent mt-2"></div>
+          <ul className="mt-2 list-disc list-inside text-gray-700">
             <li>Aide à domicile (courses, préparation des repas, accompagnement)</li>
             <li>Ménage et repassage</li>
             <li>Jardinage (tonte, taille, entretien)</li>
@@ -134,8 +136,9 @@ export default function CityPage() {
           </div>
         </section>
 
-        <section className="mt-6">
-          <h2 className="text-xl font-semibold">FAQ</h2>
+        <section className="mt-6 panel">
+          <h2 className="heading-2">FAQ</h2>
+          <div className="accent mt-2"></div>
           <details className="mt-2">
             <summary className="cursor-pointer font-medium">
               Proposez-vous un devis gratuit ?
@@ -162,9 +165,10 @@ export default function CityPage() {
           </details>
         </section>
 
-        <section className="mt-6">
-          <h2 className="text-xl font-semibold">Demander un devis</h2>
-          <p className="text-gray-700">
+        <section className="mt-6 panel">
+          <h2 className="heading-2">Demander un devis</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-gray-700">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
           <a href="mailto:contact@rcp-multiservices.com" className={btnPrimary}>

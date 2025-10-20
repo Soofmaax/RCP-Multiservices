@@ -49,7 +49,8 @@ export default function ServicesPage() {
           / <span className="font-medium">Services</span>
         </nav>
 
-        <h1 className="text-3xl font-semibold">Nos services à domicile</h1>
+        <h1 className="heading-1">Nos services à domicile</h1>
+        <div className="accent mt-2"></div>
         <p className="mt-3 text-gray-700">
           Nous proposons une gamme de prestations pour vous accompagner au quotidien, en
           Île-de-France et en Normandie.

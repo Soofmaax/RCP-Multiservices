@@ -51,8 +51,9 @@ function Home() {
       <main className="container">
         {/* Hero */}
         <section className="hero">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">RCP Multiservices</h1>
-          <p className="mt-2 text-gray-700 text-lg md:text-xl">
+          <h1 className="heading-1">RCP Multiservices</h1>
+          <div className="accent mt-2"></div>
+          <p className="mt-3 text-gray-700 text-lg md:text-xl">
             Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -79,7 +80,8 @@ function Home() {
 
         {/* Nos services principaux */}
         <section className="mt-8">
-          <h2 className="text-xl font-semibold">Nos services principaux</h2>
+          <h2 className="heading-2">Nos services principaux</h2>
+          <div className="accent mt-2"></div>
           <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
             <article className="card p-4">
               <div className="flex items-center gap-2">

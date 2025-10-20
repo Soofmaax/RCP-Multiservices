@@ -4,15 +4,17 @@ import { LOCATIONS } from '../data/locations';
 export default function ZonesIndex() {
   return (
     <main className="container">
-      <h1 className="text-3xl font-semibold">Zones d&apos;intervention</h1>
-      <p className="mt-2 text-gray-700">
+      <h1 className="heading-1">Zones d&apos;intervention</h1>
+      <div className="accent mt-2"></div>
+      <p className="mt-3 text-gray-700">
         Nous intervenons en Île-de-France et en Normandie. Sélectionnez une région puis une ville.
       </p>
 
       <div className="mt-6 space-y-8">
         {LOCATIONS.regions.map((region) => (
           <section key={region.key}>
-            <h2 className="text-2xl font-semibold">{region.name}</h2>
+            <h2 className="heading-2">{region.name}</h2>
+            <div className="accent mt-1"></div>
             <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2">
               {region.departments.map((dept) => (
                 <li key={dept.key} className="text-gray-800">

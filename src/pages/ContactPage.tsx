@@ -47,7 +47,8 @@ export default function ContactPage() {
           / <span className="font-medium">Contact</span>
         </nav>
 
-        <h1 className="text-3xl font-semibold">Contact</h1>
+        <h1 className="heading-1">Contact</h1>
+        <div className="accent mt-2"></div>
         <p className="mt-3 text-gray-700">
           Devis gratuit sous 24h. N'hésitez pas à nous écrire ou à nous appeler.
         </p>
@@ -61,17 +62,18 @@ export default function ContactPage() {
           <GoogleReviewsBadge />
         </div>
 
-        <section className="mt-6 space-y-2">
-          <h2 className="text-xl font-semibold">Coordonnées</h2>
+        <section className="mt-6 panel space-y-2">
+          <h2 className="heading-2">Coordonnées</h2>
+          <div className="accent mt-2"></div>
           <ul className="text-gray-800">
             <li>
-              Téléphone:{' '}
+              Téléphone{' '}
               <a className="text-blue-600 hover:underline" href="tel:+33743670815">
                 07 43 67 08 15
               </a>
             </li>
             <li>
-              Email:{' '}
+              Email{' '}
               <a className="text-blue-600 hover:underline" href="mailto:contact@rcp-multiservices.com">
                 contact@rcp-multiservices.com
               </a>
@@ -80,10 +82,11 @@ export default function ContactPage() {
           </ul>
         </section>
 
-        <section className="mt-6">
-          <h2 className="text-xl font-semibold">Formulaire rapide</h2>
-          <form
-            className="mt-2 space-y-3"
+        <section className="mt-6 panel">
+         <ah2 className="heading-2">Formulaire rapi</rah2>
+         < div className="accent mt"></Nadiv>
+         <yform
+            className="mt-3 space-y-3"
             onSubmit={(e) => {
               e.preventDefault();
               const form = e.currentTarget as HTMLFormElement;
@@ -91,20 +94,20 @@ export default function ContactPage() {
               form.reset();
             }}
           >
-            <div>
-              <label htmlFor="name" className="block text-sm text-gray-700">
+           <"div>
+             <elabel htmlFor="name" className="block text-sm text-gray-700">
                 Nom
-              </label>
-              <input
+            </  label>
+             < input
                 id="name"
                 name="name"
                 required
-                className="mt-1 w-full border rounded px-3 py-2"
+                className="mt-1 input"
                 placeholder="Votre nom"
               />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm text-gray-700">
+          </  div>
+           < div>
+             <=label htmlFor="email" className="block text-sm">
                 Email
               </label>
               <input
