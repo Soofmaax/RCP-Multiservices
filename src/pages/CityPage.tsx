@@ -18,7 +18,7 @@ export default function CityPage() {
 
   if (!match) {
     return (
-      <main className="max-w-3xl mx-auto p-6">
+      <main className="container">
         <h1 className="text-2xl font-semibold">Zone non trouvée</h1>
         <p className="mt-2 text-gray-600">
           La ville ou la région demandée n&apos;a pas été trouvée.
@@ -67,7 +67,7 @@ export default function CityPage() {
         <script type="application/ld+json">{JSON.stringify(breadcrumbsLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
-      <main className="max-w-3xl mx-auto p-6">
+      <main className="container">
         <nav className="text-sm text-gray-600 mb-4">
           <Link to="/" className="hover:underline">
             Accueil

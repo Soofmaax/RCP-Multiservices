@@ -48,17 +48,17 @@ function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
-      <main className="max-w-3xl mx-auto p-6">
+      <main className="container">
         {/* Hero */}
-        <section className="rounded-xl border bg-white shadow-sm p-6">
-          <h1 className="text-3xl font-semibold">RCP Multiservices</h1>
-          <p className="mt-2 text-gray-700">
+        <section className="hero">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">RCP Multiservices</h1>
+          <p className="mt-2 text-gray-700 text-lg md:text-xl">
             Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <span className="text-xs rounded bg-blue-50 text-blue-700 px-2 py-1">Assuré RC Pro</span>
-            <span className="text-xs rounded bg-blue-50 text-blue-700 px-2 py-1">Intervenants qualifiés</span>
-            <span className="text-xs rounded bg-blue-50 text-blue-700 px-2 py-1">Intervention rapide</span>
+            <span className="badge">Assuré RC Pro</span>
+            <span className="badge">Intervenants qualifiés</span>
+            <span className="badge">Intervention rapide</span>
           </div>
           <div className={`${ctaRow} mt-3`}>
             <a href="tel:+33743670815" className={btnPrimary}>

@@ -3,7 +3,7 @@ import { LOCATIONS } from '../data/locations';
 
 export default function ZonesIndex() {
   return (
-    <main className="max-w-4xl mx-auto p-6">
+    <main className="container">
       <h1 className="text-3xl font-semibold">Zones d&apos;intervention</h1>
       <p className="mt-2 text-gray-700">
         Nous intervenons en Île-de-France et en Normandie. Sélectionnez une région puis une ville.

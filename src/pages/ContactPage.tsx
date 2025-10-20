@@ -39,7 +39,7 @@ export default function ContactPage() {
         <script type="application/ld+json">{JSON.stringify(localBusinessLd)}</script>
       </Helmet>
 
-      <main className="max-w-3xl mx-auto p-6">
+      <main className="container">
         <nav className="text-sm text-gray-600 mb-4">
           <Link to="/" className="hover:underline">
             Accueil

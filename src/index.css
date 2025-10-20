@@ -29,4 +29,18 @@ body,
   .link-city {
     @apply text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-colors rounded px-1;
   }
+
+  /* Layout helpers inspired by premium clinics sites */
+  .container {
+    @apply max-w-5xl mx-auto p-6 md:p-8;
+  }
+  .section {
+    @apply mt-8 md:mt-10;
+  }
+  .hero {
+    @apply card p-6 md:p-8 bg-gradient-to-br from-white to-blue-50;
+  }
+  .panel {
+    @apply card p-4 md:p-6;
+  }
 }
