@@ -68,6 +68,9 @@ function Home() {
             <Link to="/services" className={btnPrimary}>
               Demander un rendez-vous
             </Link>
+            <Link to="/zones" className={btnSecondary}>
+              Voir nos zones d&apos;intervention
+            </Link>
             <GoogleReviewsBadge />
           </div>
         </section>
@@ -153,6 +156,60 @@ function Home() {
               <p className="text-neutral-900 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
             </li>
           </ul>
+        </section>
+
+        {/* How it Works (navy section) */}
+        <section className="mt-10 section-navy">
+          <div className="max-w-6xl mx-auto p-8">
+            <div className="text-center">
+              <div className="uppercase tracking-wider text-white/80 text-sm">3 ÉTAPES SIMPLES</div>
+              <h2 className="heading-2 text-white mt-1">Comment ça marche</h2>
+              <p className="mt-3 text-white/90">
+                Nous organisons une intervention adaptée à vos besoins, au domicile ou sur site.
+              </p>
+            </div>
+
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="card-steps">
+                <div className="flex items-center gap-2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="text-accent">
+                    <path fill="currentColor" d="M5 3h14a2 2 0 012 2v12a4 4 0 01-4 4H7a4 4 0 01-4-4V5a2 2 0 012-2zm2 4v2h10V7H7zm0 4v2h10v-2H7z"/>
+                  </svg>
+                  <div className="font-semibold">Étape 1</div>
+                </div>
+                <div className="mt-1 text-secondary font-medium">Demande de rendez-vous</div>
+                <p className="mt-2 text-neutral-600">
+                  Appelez le <a href="tel:+33743670815" className="text-primary hover:underline">07 43 67 08 15</a> ou écrivez-nous. Nous fixons un créneau rapidement.
+                </p>
+              </div>
+
+              <div className="card-steps">
+                <div className="flex items-center gap-2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="text-accent">
+                    <path fill="currentColor" d="M12 2a7 7 0 00-7 7v4h14V9a7 7 0 00-7-7zM5 15v1a4 4 0 004 4h6a4 4 0 004-4v-1H5z"/>
+                  </svg>
+                  <div className="font-semibold">Étape 2</div>
+                </div>
+                <div className="mt-1 text-secondary font-medium">Intervention / Examen</div>
+                <p className="mt-2 text-neutral-600">
+                  Nous intervenons au domicile ou sur site, au créneau convenu, avec du matériel adapté.
+                </p>
+              </div>
+
+              <div className="card-steps">
+                <div className="flex items-center gap-2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" className="text-accent">
+                    <path fill="currentColor" d="M12 4a4 4 0 014 4v2h2a4 4 0 014 4v6H2v-6a4 4 0 014-4h2V8a4 4 0 014-4z"/>
+                  </svg>
+                  <div className="font-semibold">Étape 3</div>
+                </div>
+                <div className="mt-1 text-secondary font-medium">Résultats & Suivi</div>
+                <p className="mt-2 text-neutral-600">
+                  Nous expliquons les résultats, conseillons les actions et assurons le suivi si nécessaire.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </>

@@ -40,6 +40,7 @@ export default {
         success: 'rgb(var(--color-success-rgb) / <alpha-value>)',
         warning: 'rgb(var(--color-warning-rgb) / <alpha-value>)',
         danger: 'rgb(var(--color-danger-rgb) / <alpha-value>)',
+        navy: 'rgb(var(--bg-navy-rgb) / <alpha-value>)',
 
         /* text neutrals */
         neutral: {

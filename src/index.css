@@ -68,6 +68,15 @@ body,
   .panel {
     @apply card p-4 md:p-6;
   }
+  .section-navy {
+    @apply bg-navy text-white;
+  }
+  .card-steps {
+    @apply bg-white text-neutral-900 rounded-[24px] shadow-md p-6;
+  }
+  .link-more {
+    @apply inline-flex items-center gap-1 text-secondary hover:text-secondary/80 transition-colors;
+  }
 
   /* Headings & accents */
   .heading-1 {

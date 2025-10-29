@@ -41,6 +41,10 @@
   --bg-danger: #ffe6ec;
   --bg-danger-rgb: 255 230 236;
 
+  /* Deep navy section background */
+  --bg-navy: #0B2E4E;
+  --bg-navy-rgb: 11 46 78;
+
   /* Borders & radius */
   --border-color: #dddedf;
   --border-color-rgb: 221 222 223;
