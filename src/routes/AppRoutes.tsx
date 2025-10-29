@@ -317,8 +317,19 @@ function Footer() {
             <a href="tel:+33743670815" className="btn-white">Appeler</a>
             <Link to="/contact" className="btn-primary">Rendez-vous</Link>
           </div>
-          <div className="w-full text-white/70 text-sm">
-            Horaires: Lun–Ven 08:00–20:00 • Sam 09:00–18:00 • Dim &amp; hors horaires: sur RDV
+          <div className="w-full text-white/80 text-sm flex flex-wrap items-center gap-2">
+            <span className="text-white/70">Zones principales:</span>
+            <Link to="/zones/ile-de-france/paris" className="hover:underline">Paris</Link>
+            <span className="text-white/40">•</span>
+            <Link to="/zones/ile-de-france/versailles" className="hover:underline">Versailles</Link>
+            <span className="text-white/40">•</span>
+            <Link to="/zones/ile-de-france/meaux" className="hover:underline">Meaux</Link>
+            <span className="text-white/40">•</span>
+            <Link to="/zones/normandie/rouen" className="hover:underline">Rouen</Link>
+            <span className="text-white/40">•</span>
+            <Link to="/zones/ile-de-france/chelles" className="hover:underline">Chelles</Link>
+            <span className="text-white/40">•</span>
+            <Link to="/zones/ile-de-france/fontainebleau" className="hover:underline">Fontainebleau</Link>
           </div>
         </div>
 
@@ -355,15 +366,7 @@ function Footer() {
               <li><Link to="/zones/ile-de-france/paris" className="hover:underline">Paris</Link></li>
               <li><Link to="/zones/ile-de-france" className="hover:underline">Île-de-France</Link></li>
             </ul>
-            <div className="mt-4 text-lg font-semibold">Zones principales</div>
-            <ul className="mt-2 space-y-1 text-white/90">
-              <li><Link to="/zones/ile-de-france/paris" className="hover:underline">Paris</Link></li>
-              <li><Link to="/zones/ile-de-france/versailles" className="hover:underline">Versailles</Link></li>
-              <li><Link to="/zones/ile-de-france/meaux" className="hover:underline">Meaux</Link></li>
-              <li><Link to="/zones/normandie/rouen" className="hover:underline">Rouen</Link></li>
-              <li><Link to="/zones/ile-de-france/chelles" className="hover:underline">Chelles</Link></li>
-              <li><Link to="/zones/ile-de-france/fontainebleau" className="hover:underline">Fontainebleau</Link></li>
-            </ul>
+            
           </div>
 
           <div>
