@@ -2,10 +2,10 @@
 /* Design tokens: change values here to retheme the app globally */
 :root {
   /* Brand */
-  --color-primary: #ffd64f;
-  --color-primary-rgb: 255 214 79;
-  --color-secondary: #fc5778;
-  --color-secondary-rgb: 252 87 120;
+  --color-primary: #0B4EB3;
+  --color-primary-rgb: 11 78 179;
+  --color-secondary: #0EA5E9;
+  --color-secondary-rgb: 14 165 233;
 
   /* Semantic states */
   --color-info: #00b0f4;
@@ -28,8 +28,8 @@
   /* Surfaces / backgrounds */
   --bg-dark: #263238;
   --bg-dark-rgb: 38 50 56;
-  --bg-light: #f5f6f7;
-  --bg-light-rgb: 245 246 247;
+  --bg-light: #F8FAFC;
+  --bg-light-rgb: 248 250 252;
   --bg-info: #e5f3ff;
   --bg-info-rgb: 229 243 255;
   --bg-success: #e6f6ed;
