@@ -114,6 +114,11 @@ function Home() {
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
               </div>
+              <div className="mt-3">
+                <Link to="/services" className="link-more">
+                  En savoir plus <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </article>
 
             <article className="card p-4">
@@ -133,6 +138,11 @@ function Home() {
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
               </div>
+              <div className="mt-3">
+                <Link to="/services" className="link-more">
+                  En savoir plus <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </article>
 
             <article className="card p-4">
@@ -151,6 +161,11 @@ function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+              </div>
+              <div className="mt-3">
+                <Link to="/services" className="link-more">
+                  En savoir plus <span aria-hidden="true">→</span>
+                </Link>
               </div>
             </article>
           </div>
@@ -173,6 +188,37 @@ function Home() {
               <p className="text-neutral-900 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
             </li>
           </ul>
+        </section>
+
+        {/* Testimonials overlay on image (royalty-free) */}
+        <section className="mt-10">
+          <div className="rounded-[24px] overflow-hidden relative shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"
+              alt="Témoignages — illustration"
+              className="w-full h-[420px] object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-y-0 right-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 flex flex-col justify-center rounded-l-[24px]">
+              <div className="uppercase tracking-wide text-white/80 text-sm">Ce que disent nos clients</div>
+              <h2 className="heading-2 text-white mt-1">Témoignages</h2>
+              <div className="mt-4 text-white/90 max-w-md">
+                <p className="font-semibold">Excellent, professionnel et à l’écoute.</p>
+                <p className="mt-2">
+                  Intervention à domicile, examen complet, explications claires et conseils adaptés.
+                  Très satisfait du service rendu.
+                </p>
+                <div className="mt-3 text-yellow-300" aria-label="5 sur 5">★★★★★</div>
+                <div className="mt-3 text-white/80 text-sm">Par M. Dupont</div>
+              </div>
+            </div>
+          </div>
+          <div className={`${ctaRow} mt-4 justify-center`}>
+            <Link className={btnPrimary} to="/contact">
+              Demander un rendez-vous
+            </Link>
+          </div>
         </section>
 
         {/* How it Works (navy section) */}
@@ -257,25 +303,73 @@ function ZonesRoot() {
 
 function Footer() {
   return (
-    <footer className="border-t mt-12 bg-gray-900 text-gray-200">
-      <div className="max-w-3xl mx-auto p-4 flex flex-col gap-3">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="text-sm">
-            Appeler{' '}
-            <a href="tel:+33743670815" className="text-white hover:underline">
-              07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
-            </a>{' '}
-            • Horaires: Lun–Ven 08:00–20:00, Sam 09:00–18:00 • SIRET: à compléter • RC Pro: à compléter
+    <footer className="border-t mt-12 bg-navy text-white">
+      <div className="max-w-6xl mx-auto p-6">
+        {/* Newsletter */}
+        <div className="flex flex-wrap items-center gap-3 justify-between">
+          <div>
+            <h2 className="text-lg font-semibold">S&apos;abonner à la newsletter</h2>
+            <p className="text-white/80 text-sm">
+              Conseils, entretien et informations utiles pour vos services à domicile.
+            </p>
           </div>
-          <GoogleReviewsBadge variant="inverted" />
+          <form
+            className="flex items-center gap-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert('Merci, vous êtes abonné (démo).');
+            }}
+          >
+            <input
+              type="email"
+              required
+              placeholder="Adresse email"
+              className="px-4 py-2 rounded-full bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+            <button type="submit" className="btn-primary">S&apos;abonner</button>
+          </form>
         </div>
-        <div className="text-xs text-gray-400 flex flex-wrap gap-3">
-          <Link to="/mentions-legales" className="hover:text-gray-300">
-            Mentions légales
-          </Link>
-          <Link to="/confidentialite" className="hover:text-gray-300">
-            Politique de confidentialité
-          </Link>
+
+        <hr className="my-6 border-white/20" />
+
+        {/* Footer columns */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="space-y-2">
+            <div className="text-xl font-semibold">RCP Multiservices</div>
+            <p className="text-white/80 text-sm">
+              Services à domicile: aide, ménage, jardinage, accompagnement. Interventions rapides,
+              équipe qualifiée et assurée.
+            </p>
+          </div>
+
+          <div>
+            <div className="text-lg font-semibold">Liens utiles</div>
+            <ul className="mt-2 space-y-1 text-white/90">
+              <li><Link to="/mentions-legales" className="hover:underline">Mentions légales</Link></li>
+              <li><Link to="/confidentialite" className="hover:underline">Politique de confidentialité</Link></li>
+              <li><Link to="/services" className="hover:underline">Services</Link></li>
+              <li><Link to="/zones" className="hover:underline">Zones d&apos;intervention</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="text-lg font-semibold">Liens rapides</div>
+            <ul className="mt-2 space-y-1 text-white/90">
+              <li><Link to="/" className="hover:underline">Accueil</Link></li>
+              <li><Link to="/contact" className="hover:underline">Contact</Link></li>
+              <li><Link to="/zones/ile-de-france/paris" className="hover:underline">Paris</Link></li>
+              <li><Link to="/zones/ile-de-france" className="hover:underline">Île-de-France</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="text-lg font-semibold">Prendre rendez-vous</div>
+            <div className="mt-2 flex flex-col gap-2">
+              <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+              <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
+              <GoogleReviewsBadge variant="inverted" />
+            </div>
+          </div>
         </div>
       </div>
     </footer>

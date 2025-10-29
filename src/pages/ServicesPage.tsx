@@ -81,6 +81,11 @@ export default function ServicesPage() {
             <a href="tel:+33743670815" className="btn-primary">Appeler</a>
             <Link to="/contact" className="btn-secondary">Demander un devis</Link>
           </div>
+          <div className="mt-3">
+            <Link to="/services" className="link-more">
+              En savoir plus <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         <section className="mt-6 card p-4">
@@ -99,6 +104,11 @@ export default function ServicesPage() {
             <a href="tel:+33743670815" className="btn-primary">Appeler</a>
             <Link to="/contact" className="btn-secondary">Demander un devis</Link>
           </div>
+          <div className="mt-3">
+            <Link to="/services" className="link-more">
+              En savoir plus <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </section>
 
         <section className="mt-6 card p-4">
@@ -116,6 +126,11 @@ export default function ServicesPage() {
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <a href="tel:+33743670815" className="btn-primary">Appeler</a>
             <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
+          <div className="mt-3">
+            <Link to="/services" className="link-more">
+              En savoir plus <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </section>
 
