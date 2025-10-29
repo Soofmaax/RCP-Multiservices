@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const SITE_URL = 'https://www.rcp-multiservices.com';
+const SITE_URL = 'https://www.rcp-multisevices.com';
 
 export default function NotFoundPage() {
   const navigate = useNavigate();

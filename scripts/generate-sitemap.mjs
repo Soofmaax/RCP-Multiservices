@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Change this to your production domain
-const SITE_URL = 'https://www.rcp-multiservices.com';
+const SITE_URL = 'https://www.rcp-multisevices.com';
 
 function url(loc) {
   return `  <url><loc>${loc}</loc></url>`;

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.rcp-multiservices.com/sitemap.xml
+Sitemap: https://www.rcp-multisevices.com/sitemap.xml

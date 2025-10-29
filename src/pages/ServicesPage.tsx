@@ -4,7 +4,7 @@ import { GoogleReviewsBadge } from '../components';
 import { buildFaqLd } from '../utils/seo';
 import { ctaRow } from '../utils/styles';
 
-const SITE_URL = 'https://www.rcp-multiservices.com';
+const SITE_URL = 'https://www.rcp-multisevices.com';
 
 export default function ServicesPage() {
   const title = 'Services à domicile — Aide, Ménage, Jardinage | RCP Multiservices';

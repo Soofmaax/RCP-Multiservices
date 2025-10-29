@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { findRegion } from '../data/locations';
 
-const SITE_URL = 'https://www.rcp-multiservices.com';
+const SITE_URL = 'https://www.rcp-multisevices.com';
 
 type Params = {
   region: string;

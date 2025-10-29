@@ -9,6 +9,13 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# Canonical domain redirect (apex -> www)
+[[redirects]]
+  from = "https://rcp-multisevices.com/*"
+  to = "https://www.rcp-multisevices.com/:splat"
+  status = 301
+  force = true
+
 # Security headers for all routes
 [[headers]]
   for = "/*"
