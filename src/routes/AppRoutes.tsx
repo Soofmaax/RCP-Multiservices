@@ -56,7 +56,7 @@ function Home() {
           return (
             <section className="hero-split">
               <div className="hero-teal">
-                <h1 className="heading-1">RCP Multiservices</h1>
+                <h1 className="heading-1 heading-hero">RCP Multiservices</h1>
                 <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
                 <p className="mt-3 text-white/90 text-lg md:text-xl">
                   Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
@@ -70,10 +70,10 @@ function Home() {
                   <a href="tel:+33743670815" className="btn-white">
                     07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
                   </a>
-                  <Link to="/services" className={btnPrimary}>
+                  <Link to="/services" className="btn-request">
                     Demander un rendez-vous
                   </Link>
-                  <Link to="/zones" className={btnSecondary}>
+                  <Link to="/zones" className="btn-outline">
                     Voir nos zones d&apos;intervention
                   </Link>
                   <GoogleReviewsBadge />
@@ -83,7 +83,7 @@ function Home() {
                 <img
                   src={heroImg}
                   alt="Service à domicile — illustration"
-                  className="w-full h-full object-cover md:min-h-[360px]"
+                  className="w-full h-full object-cover md:min-h-[360px] mask-image"
                   loading="lazy"
                   decoding="async"
                 />
@@ -93,11 +93,11 @@ function Home() {
         })()}
 
         {/* Nos services principaux */}
-        <section className="mt-8">
+        <section className="section-spacious">
           <h2 className="heading-2">Nos services principaux</h2>
           <div className="accent mt-2"></div>
           <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-            <article className="card p-4">
+            <article className="card card-elevated p-4">
               <div className="flex items-center gap-2">
                 <ServiceIconHomeAssist />
                 <h3 className="text-lg font-semibold">Aide à domicile</h3>
@@ -121,7 +121,7 @@ function Home() {
               </div>
             </article>
 
-            <article className="card p-4">
+            <article className="card card-elevated p-4">
               <div className="flex items-center gap-2">
                 <ServiceIconClean />
                 <h3 className="text-lg font-semibold">Ménage &amp; repassage</h3>
@@ -145,7 +145,7 @@ function Home() {
               </div>
             </article>
 
-            <article className="card p-4">
+            <article className="card card-elevated p-4">
               <div className="flex items-center gap-2">
                 <ServiceIconGarden />
                 <h3 className="text-lg font-semibold">Jardinage</h3>
@@ -172,7 +172,7 @@ function Home() {
         </section>
 
         {/* Témoignages statiques (temporaire) */}
-        <section className="mt-8">
+        <section className="section-spacious">
           <h2 className="text-xl font-semibold">Ils nous recommandent</h2>
           <ul className="mt-3 space-y-3">
             <li className="card p-3">
@@ -191,8 +191,8 @@ function Home() {
         </section>
 
         {/* Testimonials overlay on image (royalty-free) */}
-        <section className="mt-10">
-          <div className="rounded-[24px] overflow-hidden relative shadow-md">
+        <section className="section-spacious">
+          <div className="rounded-[24px] overflow-hidden relative card-elevated">
             <img
               src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"
               alt="Témoignages — illustration"
@@ -222,7 +222,7 @@ function Home() {
         </section>
 
         {/* How it Works (navy section) */}
-        <section className="mt-10 section-navy">
+        <section className="section-spacious section-navy">
           <div className="max-w-6xl mx-auto p-8">
             <div className="text-center">
               <div className="uppercase tracking-wider text-white/80 text-sm">3 ÉTAPES SIMPLES</div>

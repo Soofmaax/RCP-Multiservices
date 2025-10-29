@@ -91,8 +91,33 @@ body,
   .heading-3 {
     @apply uppercase font-normal tracking-wider text-[22px];
   }
+  .heading-hero {
+    @apply font-bold tracking-tight text-[42px] md:text-[56px] leading-tight;
+  }
   .accent {
     @apply h-1 w-20 bg-primary rounded-full;
+  }
+
+  /* Buttons (premium variants) */
+  .btn-request {
+    @apply inline-flex items-center justify-center text-white bg-primary hover:bg-primary/90 px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center text-primary border border-primary/40 bg-transparent hover:bg-primary/10 px-6 py-2 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20;
+  }
+
+  /* Cards & visual treatments */
+  .card-elevated {
+    @apply bg-white rounded-[24px] shadow-md hover:shadow-lg border border-border/70 transition-shadow;
+  }
+  .mask-image {
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 40%);
+    mask-image: linear-gradient(to left, transparent 0%, black 40%);
+  }
+
+  /* Spacing */
+  .section-spacious {
+    @apply mt-10 md:mt-12;
   }
 
   /* Form controls */
