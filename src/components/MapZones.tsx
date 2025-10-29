@@ -1,24 +1,25 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { latLng, type LatLng } from 'leaflet';
 import { useNavigate } from 'react-router-dom';
+
+type LatLngTuple = readonly [number, number];
 
 type CityMarker = {
   name: string;
   slug: string;
   regionKey: string;
-  pos: LatLng;
+  pos: LatLngTuple;
 };
 
-const MAP_CENTER: LatLng = latLng(48.8566, 2.3522);
+const MAP_CENTER: LatLngTuple = [48.8566, 2.3522];
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 const FEATURED_CITIES: CityMarker[] = [
-  { name: 'Paris', slug: 'paris', regionKey: 'ile-de-france', pos: latLng(48.8566, 2.3522) },
-  { name: 'Versailles', slug: 'versailles', regionKey: 'ile-de-france', pos: latLng(48.8014, 2.1301) },
-  { name: 'Meaux', slug: 'meaux', regionKey: 'ile-de-france', pos: latLng(48.9602, 2.8784) },
-  { name: 'Chelles', slug: 'chelles', regionKey: 'ile-de-france', pos: latLng(48.8813, 2.5911) },
-  { name: 'Fontainebleau', slug: 'fontainebleau', regionKey: 'ile-de-france', pos: latLng(48.4079, 2.7016) },
-  { name: 'Rouen', slug: 'rouen', regionKey: 'normandie', pos: latLng(49.4431, 1.0993) },
+  { name: 'Paris', slug: 'paris', regionKey: 'ile-de-france', pos: [48.8566, 2.3522] },
+  { name: 'Versailles', slug: 'versailles', regionKey: 'ile-de-france', pos: [48.8014, 2.1301] },
+  { name: 'Meaux', slug: 'meaux', regionKey: 'ile-de-france', pos: [48.9602, 2.8784] },
+  { name: 'Chelles', slug: 'chelles', regionKey: 'ile-de-france', pos: [48.8813, 2.5911] },
+  { name: 'Fontainebleau', slug: 'fontainebleau', regionKey: 'ile-de-france', pos: [48.4079, 2.7016] },
+  { name: 'Rouen', slug: 'rouen', regionKey: 'normandie', pos: [49.4431, 1.0993] },
 ];
 
 export default function MapZones() {
