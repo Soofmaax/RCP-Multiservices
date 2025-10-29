@@ -33,11 +33,8 @@ export default function MapZones() {
   return (
     <MapContainer
       bounds={BOUNDS}
-      
       style={{ height: 420, width: '100%' }}
-    >
-      <TileLayer url={TILE_URL} />
-      {FEATURED_CITIES.map((c) => (
+    > (
         <Marker key={c.slug} position={c.pos}>
           <Popup>
             <div className="text-sm">
