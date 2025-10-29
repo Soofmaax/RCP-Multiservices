@@ -49,31 +49,48 @@ function Home() {
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
       <main className="container">
-        {/* Hero teal like reference */}
-        <section className="hero-teal">
-          <h1 className="heading-1">RCP Multiservices</h1>
-          <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
-          <p className="mt-3 text-white/90 text-lg md:text-xl">
-            Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
-          </p>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <span className="badge bg-white/10 text-white">Assuré RC Pro</span>
-            <span className="badge bg-white/10 text-white">Intervenants qualifiés</span>
-            <span className="badge bg-white/10 text-white">Intervention rapide</span>
-          </div>
-          <div className={`${ctaRow} mt-3`}>
-            <a href="tel:+33743670815" className="btn-white">
-              07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
-            </a>
-            <Link to="/services" className={btnPrimary}>
-              Demander un rendez-vous
-            </Link>
-            <Link to="/zones" className={btnSecondary}>
-              Voir nos zones d&apos;intervention
-            </Link>
-            <GoogleReviewsBadge />
-          </div>
-        </section>
+        {/* Hero split (teal panel + royalty-free image) */}
+        {(() => {
+          const heroImg =
+            'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
+          return (
+            <section className="hero-split">
+              <div className="hero-teal">
+                <h1 className="heading-1">RCP Multiservices</h1>
+                <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+                <p className="mt-3 text-white/90 text-lg md:text-xl">
+                  Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <span className="badge bg-white/10 text-white">Assuré RC Pro</span>
+                  <span className="badge bg-white/10 text-white">Intervenants qualifiés</span>
+                  <span className="badge bg-white/10 text-white">Intervention rapide</span>
+                </div>
+                <div className={`${ctaRow} mt-3`}>
+                  <a href="tel:+33743670815" className="btn-white">
+                    07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+                  </a>
+                  <Link to="/services" className={btnPrimary}>
+                    Demander un rendez-vous
+                  </Link>
+                  <Link to="/zones" className={btnSecondary}>
+                    Voir nos zones d&apos;intervention
+                  </Link>
+                  <GoogleReviewsBadge />
+                </div>
+              </div>
+              <div className="rounded-[24px] overflow-hidden shadow-md">
+                <img
+                  src={heroImg}
+                  alt="Service à domicile — illustration"
+                  className="w-full h-full object-cover md:min-h-[360px]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </section>
+          );
+        })()}
 
         {/* Nos services principaux */}
         <section className="mt-8">
