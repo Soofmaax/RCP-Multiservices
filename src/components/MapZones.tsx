@@ -12,6 +12,7 @@ type CityMarker = {
 };
 
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
 // Bounds covering Île-de-France & Normandie (typed locally to avoid imported type unions)
 const BOUNDS: BoundsTuple = [
   [47.5, -1.0], // southwest
@@ -30,26 +31,31 @@ const FEATURED_CITIES: CityMarker[] = [
 export default function MapZones() {
   const navigate = useNavigate();
 
+  const markers = FEATURED_CITIES.map((c) => {
+    return (
+      <Marker key={c.slug} position={c.pos}>
+        <Popup>
+          <div className="text-sm">
+            <div className="font-medium">{c.name}</div>
+            <button
+              type="button"
+              className="btn-primary mt-2"
+              onClick={() => {
+                void navigate(`/zones/${c.regionKey}/${c.slug}`);
+              }}
+            >
+              Voir la ville
+            </button>
+          </div>
+        </Popup>
+      </Marker>
+    );
+  });
+
   return (
-    <MapContainer
-      bounds={BOUNDS}
-      style={{ height: 420, width: '100%' }}
-    > (
-        <Marker key={c.slug} position={c.pos}>
-          <Popup>
-            <div className="text-sm">
-              <div className="font-medium">{c.name}</div>
-              <button
-                type="button"
-                className="btn-primary mt-2"
-                onClick={() => { void navigate(`/zones/${c.regionKey}/${c.slug}`); }}
-              >
-                Voir la ville
-              </button>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+    <MapContainer bounds={BOUNDS} style={{ height: 420, width: '100%' }}>
+      <TileLayer url={TILE_URL} />
+      {markers}
     </MapContainer>
   );
 }
