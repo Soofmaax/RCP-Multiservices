@@ -315,6 +315,9 @@ function Footer() {
             <a href="tel:+33743670815" className="btn-white">Appeler</a>
             <Link to="/contact" className="btn-primary">Rendez-vous</Link>
           </div>
+          <div className="w-full text-white/70 text-sm">
+            Horaires: Lun–Ven 08:00–20:00 • Sam 09:00–18:00 • Dim &amp; hors horaires: sur RDV
+          </div>
         </div>
 
         {/* Footer columns */}
