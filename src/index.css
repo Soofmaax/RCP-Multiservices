@@ -14,17 +14,20 @@ body,
 
 @layer base {
   body {
-    @apply bg-slate-50 text-gray-900;
+    @apply bg-slate-50 text-gray-900 font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
 }
 
 /* Premium UI layer */
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300;
+    @apply inline-flex items-center justify-center text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-xl border border-blue-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-100;
+    @apply inline-flex items-center justify-center text-blue-700 bg-blue-50 hover:bg-blue-100 px-6 py-2 rounded-full border border-blue-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-100;
   }
   .badge {
     @apply inline-flex items-center text-xs rounded-full bg-blue-50 text-blue-700 px-2 py-1;
@@ -38,7 +41,7 @@ body,
 
   /* Layout helpers inspired by premium clinics sites */
   .container {
-    @apply max-w-5xl mx-auto p-6 md:p-8;
+    @apply max-w-6xl mx-auto p-6 md:p-8;
   }
   .section {
     @apply mt-8 md:mt-10;
@@ -52,20 +55,23 @@ body,
 
   /* Headings & accents */
   .heading-1 {
-    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    @apply font-bold tracking-tight text-[45px] md:text-[50px];
   }
   .heading-2 {
-    @apply text-2xl font-semibold;
+    @apply font-semibold text-[32px] md:text-[40px];
+  }
+  .heading-3 {
+    @apply uppercase font-normal tracking-wider text-[22px];
   }
   .accent {
-    @apply h-1 w-16 bg-blue-600 rounded-full;
+    @apply h-1 w-20 bg-blue-600 rounded-full;
   }
 
   /* Form controls */
   .input {
-    @apply w-full border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200;
+    @apply w-full border border-gray-300 rounded-full px-4 py-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200;
   }
   .textarea {
-    @apply w-full border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200;
+    @apply w-full border border-gray-300 rounded-xl px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200;
   }
 }
