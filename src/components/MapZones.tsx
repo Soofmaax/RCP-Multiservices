@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import type { Icon as LeafletIcon, IconOptions } from 'leaflet';
 import { useNavigate } from 'react-router-dom';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
@@ -13,15 +14,17 @@ type CityMarker = {
   lng: number;
 };
 
-// Use a custom Leaflet icon to avoid touching global defaults
-const defaultIcon = new Icon({
-  iconRetinaUrl,
-  iconUrl,
-  shadowUrl,
+// Strongly-typed icon options to satisfy ESLint's type-aware rules
+const iconOptions: IconOptions = {
+  iconRetinaUrl: iconRetinaUrl as string,
+  iconUrl: iconUrl as string,
+  shadowUrl: shadowUrl as string,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
-});
+};
+
+const defaultIcon: LeafletIcon = new Icon(iconOptions);
 
 const FEATURED_CITIES: CityMarker[] = [
   { name: 'Paris', slug: 'paris', regionKey: 'ile-de-france', lat: 48.8566, lng: 2.3522 },
@@ -54,7 +57,7 @@ export default function MapZones() {
               <button
                 type="button"
                 className="btn-primary mt-2"
-                onClick={() => { void navigate(`/zones/${c.regionKey}/${c.slug}`); }}
+                onClick={() => { navigate(`/zones/${c.regionKey}/${c.slug}`); }}
               >
                 Voir la ville
               </button>
