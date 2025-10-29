@@ -9,17 +9,7 @@ type CityMarker = {
   lng: number;
 };
 
-// Strongly-typed icon options to satisfy ESLint's type-aware rules
-const iconOptions: IconOptions = {
-  iconRetinaUrl: iconRetinaUrl as string,
-  iconUrl: iconUrl as string,
-  shadowUrl: shadowUrl as string,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-};
 
-const defaultIcon: LeafletIcon = new Icon(iconOptions);
 
 const FEATURED_CITIES: CityMarker[] = [
   { name: 'Paris', slug: 'paris', regionKey: 'ile-de-france', lat: 48.8566, lng: 2.3522 },
