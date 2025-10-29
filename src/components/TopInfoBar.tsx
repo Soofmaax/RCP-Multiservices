@@ -2,7 +2,7 @@ import { openingStatusLabel } from '../utils/openingHours';
 
 export default function TopInfoBar() {
   const hours =
-    'Ouvert Lun–Ven 08:00–20:00 | Sam 09:00–18:00 | Dim & hors horaires: sur RDV';
+    'Horaires: Lun–Ven 08:00–20:00 • Sam 09:00–18:00 • Dim & hors horaires: sur RDV';
   const status = openingStatusLabel();
 
   return (
