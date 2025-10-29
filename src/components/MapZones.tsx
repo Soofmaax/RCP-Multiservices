@@ -1,8 +1,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import type { LatLngBoundsExpression } from 'leaflet';
 import { useNavigate } from 'react-router-dom';
 
 type LatLngTuple = readonly [number, number];
+type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
 
 type CityMarker = {
   name: string;
@@ -12,8 +12,8 @@ type CityMarker = {
 };
 
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-// Bounds covering Île-de-France & Normandie
-const BOUNDS: LatLngBoundsExpression = [
+// Bounds covering Île-de-France & Normandie (typed locally to avoid imported type unions)
+const BOUNDS: BoundsTuple = [
   [47.5, -1.0], // southwest
   [50.5, 3.7],  // northeast
 ];
@@ -33,7 +33,7 @@ export default function MapZones() {
   return (
     <MapContainer
       bounds={BOUNDS}
-      whenCreated={(map) => {
+      whenCreated={(map: import('leaflet').Map) => {
         map.scrollWheelZoom.disable();
       }}
       style={{ height: 420, width: '100%' }}
