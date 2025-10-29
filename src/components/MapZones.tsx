@@ -33,9 +33,7 @@ export default function MapZones() {
   return (
     <MapContainer
       bounds={BOUNDS}
-      whenCreated={(map: import('leaflet').Map) => {
-        map.scrollWheelZoom.disable();
-      }}
+      
       style={{ height: 420, width: '100%' }}
     >
       <TileLayer url={TILE_URL} />
