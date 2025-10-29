@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage } from '../pages';
 import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar } from '../components';
-import { btnPrimary, btnSecondary, ctaRow } from '../utils/styles';
+import { btnPrimary, ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multisevices.com';
 

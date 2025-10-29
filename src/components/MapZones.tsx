@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
+import { Icon } from 'leaflet';
 import { useNavigate } from 'react-router-dom';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
@@ -13,11 +13,14 @@ type CityMarker = {
   lng: number;
 };
 
-// Fix default icon paths for Leaflet in bundlers like Vite
-L.Icon.Default.mergeOptions({
+// Use a custom Leaflet icon to avoid touching global defaults
+const defaultIcon = new Icon({
   iconRetinaUrl,
   iconUrl,
   shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
 });
 
 const FEATURED_CITIES: CityMarker[] = [
@@ -44,14 +47,14 @@ export default function MapZones() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {FEATURED_CITIES.map((c) => (
-        <Marker key={c.slug} position={[c.lat, c.lng]}>
+        <Marker key={c.slug} position={[c.lat, c.lng]} icon={defaultIcon}>
           <Popup>
             <div className="text-sm">
               <div className="font-medium">{c.name}</div>
               <button
                 type="button"
                 className="btn-primary mt-2"
-                onClick={() => navigate(`/zones/${c.regionKey}/${c.slug}`)}
+                onClick={() => { void navigate(`/zones/${c.regionKey}/${c.slug}`); }}
               >
                 Voir la ville
               </button>
