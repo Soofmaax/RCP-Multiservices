@@ -1,10 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Icon } from 'leaflet';
-import type { Icon as LeafletIcon, IconOptions } from 'leaflet';
+import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 type CityMarker = {
   name: string;
@@ -50,20 +45,25 @@ export default function MapZones() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {FEATURED_CITIES.map((c) => (
-        <Marker key={c.slug} position={[c.lat, c.lng]} icon={defaultIcon}>
+        <CircleMarker
+          key={c.slug}
+          center={[c.lat, c.lng]}
+          radius={8}
+          pathOptions={{ color: '#10BFAE', fillColor: '#10BFAE', fillOpacity: 0.85 }}
+        >
           <Popup>
             <div className="text-sm">
               <div className="font-medium">{c.name}</div>
               <button
                 type="button"
                 className="btn-primary mt-2"
-                onClick={() => { navigate(`/zones/${c.regionKey}/${c.slug}`); }}
+                onClick={() => { void navigate(`/zones/${c.regionKey}/${c.slug}`); }}
               >
                 Voir la ville
               </button>
             </div>
           </Popup>
-        </Marker>
+        </CircleMarker>
       ))}
     </MapContainer>
   );
