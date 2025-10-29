@@ -53,7 +53,7 @@ function Home() {
         <section className="hero">
           <h1 className="heading-1">RCP Multiservices</h1>
           <div className="accent mt-2"></div>
-          <p className="mt-3 text-gray-700 text-lg md:text-xl">
+          <p className="mt-3 text-neutral-600 text-lg md:text-xl">
             Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -88,10 +88,10 @@ function Home() {
                 <ServiceIconHomeAssist />
                 <h3 className="text-lg font-semibold">Aide à domicile</h3>
               </div>
-              <p className="text-gray-700 mt-2">
+              <p className="text-neutral-600 mt-2">
                 Compagnie, accompagnement, courses, repas, démarches.
               </p>
-              <ul className="mt-2 list-disc list-inside text-gray-700">
+              <ul className="mt-2 list-disc list-inside text-neutral-600">
                 <li>Réponse immédiate par téléphone</li>
                 <li>Intervenants qualifiés et assurés</li>
                 <li>Devis sous 24h</li>
@@ -107,10 +107,10 @@ function Home() {
                 <ServiceIconClean />
                 <h3 className="text-lg font-semibold">Ménage &amp; repassage</h3>
               </div>
-              <p className="text-gray-700 mt-2">
+              <p className="text-neutral-600 mt-2">
                 Entretien régulier, grand ménage, repassage soigné.
               </p>
-              <ul className="mt-2 list-disc list-inside text-gray-700">
+              <ul className="mt-2 list-disc list-inside text-neutral-600">
                 <li>Planning flexible</li>
                 <li>Contrôle qualité</li>
                 <li>Matériel adapté</li>
@@ -126,10 +126,10 @@ function Home() {
                 <ServiceIconGarden />
                 <h3 className="text-lg font-semibold">Jardinage</h3>
               </div>
-              <p className="text-gray-700 mt-2">
+              <p className="text-neutral-600 mt-2">
                 Tonte, taille, entretien des haies et massifs.
               </p>
-              <ul className="mt-2 list-disc list-inside text-gray-700">
+              <ul className="mt-2 list-disc list-inside text-neutral-600">
                 <li>Intervention rapide</li>
                 <li>Résultat propre et durable</li>
                 <li>Conseils d’entretien</li>
@@ -148,15 +148,15 @@ function Home() {
           <ul className="mt-3 space-y-3">
             <li className="card p-3">
               <div className="font-medium">Marie L. — Paris 11e</div>
-              <p className="text-gray-800 mt-1">Très réactifs, intervention le jour-même. Merci !</p>
+              <p className="text-neutral-900 mt-1">Très réactifs, intervention le jour-même. Merci !</p>
             </li>
             <li className="card p-3">
               <div className="font-medium">Paul R. — Rouen</div>
-              <p className="text-gray-800 mt-1">Ménage impeccable, équipe ponctuelle et sympa.</p>
+              <p className="text-neutral-900 mt-1">Ménage impeccable, équipe ponctuelle et sympa.</p>
             </li>
             <li className="card p-3">
               <div className="font-medium">Sofia M. — Versailles</div>
-              <p className="text-gray-800 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
+              <p className="text-neutral-900 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
             </li>
           </ul>
         </section>

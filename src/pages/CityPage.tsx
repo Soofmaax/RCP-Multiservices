@@ -20,7 +20,7 @@ export default function CityPage() {
     return (
       <main className="container">
         <h1 className="text-2xl font-semibold">Zone non trouvée</h1>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-neutral-600">
           La ville ou la région demandée n&apos;a pas été trouvée.
         </p>
         <Link className="text-primary underline mt-4 inline-block" to="/">
@@ -68,7 +68,7 @@ export default function CityPage() {
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
       <main className="container">
-        <nav className="text-sm text-gray-600 mb-4">
+        <nav className="text-sm text-neutral-600 mb-4">
           <Link to="/" className="hover:underline">
             Accueil
           </Link>{' '}
@@ -87,7 +87,7 @@ export default function CityPage() {
           Services à domicile à {match.city.name}
         </h1>
         <div className="accent mt-2"></div>
-        <p className="mt-3 text-gray-700">
+        <p className="mt-3 text-neutral-600">
           Nous proposons des prestations d&apos;aide à domicile, ménage, jardinage et
           accompagnement à {match.city.name} et dans tout le département {match.department.name}.
           Notre équipe qualifiée et assurée intervient rapidement selon vos besoins.
@@ -105,7 +105,7 @@ export default function CityPage() {
         <section className="mt-6 panel">
           <h2 className="heading-2">Prestations</h2>
           <div className="accent mt-2"></div>
-          <ul className="mt-2 list-disc list-inside text-gray-700">
+          <ul className="mt-2 list-disc list-inside text-neutral-600">
             <li>Aide à domicile (courses, préparation des repas, accompagnement)</li>
             <li>Ménage et repassage</li>
             <li>Jardinage (tonte, taille, entretien)</li>
@@ -117,7 +117,7 @@ export default function CityPage() {
 
         <section className="mt-6">
           <h2 className="text-xl font-semibold">Villes proches</h2>
-          <p className="text-gray-700">
+          <p className="text-neutral-600">
             Nous intervenons également dans les villes voisines du département {match.department.name}.
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -143,7 +143,7 @@ export default function CityPage() {
             <summary className="cursor-pointer font-medium">
               Proposez-vous un devis gratuit ?
             </summary>
-            <p className="mt-1 text-gray-700">
+            <p className="mt-1 text-neutral-600">
               Oui, nous proposons un devis gratuit sous 24h.
             </p>
           </details>
@@ -151,7 +151,7 @@ export default function CityPage() {
             <summary className="cursor-pointer font-medium">
               Intervenez-vous à {match.city.name} et aux alentours ?
             </summary>
-            <p className="mt-1 text-gray-700">
+            <p className="mt-1 text-neutral-600">
               Oui, nous intervenons à {match.city.name} et dans tout le département {match.department.name}.
             </p>
           </details>
@@ -159,7 +159,7 @@ export default function CityPage() {
             <summary className="cursor-pointer font-medium">
               Vos intervenants sont-ils qualifiés et assurés ?
             </summary>
-            <p className="mt-1 text-gray-700">
+            <p className="mt-1 text-neutral-600">
               Oui, notre équipe est formée, qualifiée et assurée pour intervenir en toute sécurité.
             </p>
           </details>
@@ -168,7 +168,7 @@ export default function CityPage() {
         <section className="mt-6 panel">
           <h2 className="heading-2">Demander un devis</h2>
           <div className="accent mt-2"></div>
-          <p className="mt-2 text-gray-700">
+          <p className="mt-2 text-neutral-600">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
           <a href="mailto:contact@rcp-multiservices.com" className={btnPrimary}>

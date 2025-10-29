@@ -40,7 +40,7 @@ export default function ContactPage() {
       </Helmet>
 
       <main className="container">
-        <nav className="text-sm text-gray-600 mb-4">
+        <nav className="text-sm text-neutral-600 mb-4">
           <Link to="/" className="hover:underline">
             Accueil
           </Link>{' '}
@@ -49,7 +49,7 @@ export default function ContactPage() {
 
         <h1 className="heading-1">Contact</h1>
         <div className="accent mt-2"></div>
-        <p className="mt-3 text-gray-700">
+        <p className="mt-3 text-neutral-600">
           Devis gratuit sous 24h. N'hésitez pas à nous écrire ou à nous appeler.
         </p>
         <div className={ctaRow}>
@@ -65,7 +65,7 @@ export default function ContactPage() {
         <section className="mt-6 panel space-y-2">
           <h2 className="heading-2">Coordonnées</h2>
           <div className="accent mt-2"></div>
-          <ul className="text-gray-800">
+          <ul className="text-neutral-900">
             <li>
               Téléphone{' '}
               <a className="text-primary hover:underline" href="tel:+33743670815">
@@ -95,13 +95,13 @@ export default function ContactPage() {
             }}
           >
             <div>
-              <label htmlFor="name" className="block text-sm text-gray-700">
+              <label htmlFor="name" className="block text-sm text-neutral-600">
                 Nom
               </label>
               <input id="name" name="name" required className="mt-1 input" placeholder="Votre nom" />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm text-gray-700">
+              <label htmlFor="email" className="block text-sm text-neutral-600">
                 Email
               </label>
               <input
@@ -114,7 +114,7 @@ export default function ContactPage() {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm text-gray-700">
+              <label htmlFor="message" className="block text-sm text-neutral-600">
                 Message
               </label>
               <textarea

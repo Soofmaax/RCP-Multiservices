@@ -41,8 +41,8 @@ export default function RegionPage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <main className="max-w-4xl mx-auto p-6">
-        <nav className="text-sm text-gray-600 mb-4">
+      <main className="container">
+        <nav className="text-sm text-neutral-600 mb-4">
           <Link to="/" className="hover:underline">
             Accueil
           </Link>{' '}
@@ -54,7 +54,7 @@ export default function RegionPage() {
         </nav>
 
         <h1 className="text-3xl font-semibold">{data.name}</h1>
-        <p className="mt-2 text-gray-700">
+        <p className="mt-2 text-neutral-600">
           Choisissez une ville pour consulter les services disponibles et demander un devis.
         </p>
 
@@ -67,7 +67,7 @@ export default function RegionPage() {
                   <Link
                     key={c.slug}
                     to={`/zones/${data.key}/${c.slug}`}
-                    className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-colors rounded px-1"
+                    className="link-city"
                   >
                     {c.name}
                   </Link>

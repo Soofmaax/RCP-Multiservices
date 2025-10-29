@@ -15,9 +15,9 @@ export default function LegalPage() {
         <link rel="canonical" href={canonical} />
       </Helmet>
 
-      <main className="max-w-3xl mx-auto p-6">
+      <main className="container">
         <h1 className="text-3xl font-semibold">Mentions légales</h1>
-        <section className="mt-4 space-y-2 text-gray-800">
+        <section className="mt-4 space-y-2 text-neutral-900">
           <p>RCP Multiservices — Services à domicile.</p>
           <p>SIRET: à compléter</p>
           <p>Siège: à compléter</p>

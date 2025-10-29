@@ -15,7 +15,7 @@ export default function Reviews() {
     return (
       <section className="mt-6">
         <h2 className="text-xl font-semibold">Avis clients</h2>
-        <p className="text-gray-600 mt-2">Chargement des avis…</p>
+        <p className="text-neutral-600 mt-2">Chargement des avis…</p>
       </section>
     );
   }
@@ -24,7 +24,7 @@ export default function Reviews() {
     return (
       <section className="mt-6">
         <h2 className="text-xl font-semibold">Avis clients</h2>
-        <p className="text-gray-600 mt-2">Pas encore d&apos;avis — soyez le premier.</p>
+        <p className="text-neutral-600 mt-2">Pas encore d&apos;avis — soyez le premier.</p>
       </section>
     );
   }
@@ -46,11 +46,11 @@ export default function Reviews() {
               ) : null}
               <div className="flex-1">
                 <div className="font-medium">{r.authorName}</div>
-                <div className="text-sm text-gray-500">{renderStars(r.rating)}</div>
+                <div className="text-sm text-neutral-400">{renderStars(r.rating)}</div>
               </div>
             </div>
-            {r.text ? <p className="mt-2 text-gray-800">{r.text}</p> : null}
-            <div className="mt-2 text-xs text-gray-500">Source: {r.source === 'google' ? 'Google' : 'Avis'}</div>
+            {r.text ? <p className="mt-2 text-neutral-900">{r.text}</p> : null}
+            <div className="mt-2 text-xs text-neutral-400">Source: {r.source === 'google' ? 'Google' : 'Avis'}</div>
           </li>
         ))}
       </ul>

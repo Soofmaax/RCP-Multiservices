@@ -40,13 +40,13 @@ export default function NotFoundPage() {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <main className="max-w-3xl mx-auto p-6">
+      <main className="container">
         <div className="rounded-xl border bg-white shadow-sm p-6">
           <h1 className="text-2xl font-semibold">Page non trouvée</h1>
-          <p className="mt-2 text-gray-700">
+          <p className="mt-2 text-neutral-600">
             La page que vous cherchez n&apos;existe pas ou a été déplacée.
           </p>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-neutral-600">
             Redirection automatique vers l&apos;accueil dans{' '}
             <span className="font-medium">{seconds}s</span>.
           </p>
