@@ -26,33 +26,30 @@ export default function MapZones() {
   const navigate = useNavigate();
 
   return (
-   <fMapContainer
+    <MapContainer
       center={MAP_CENTER}
       zoom={6}
       scrollWheelZoom={false}
       style={{ height: 420, width: '100%' }}
     >
-     <eTileLayer url={TILE_URL} />
+      <TileLayer url={TILE_URL} />
       {FEATURED_CITIES.map((c) => (
-       <
-Marker key={c.slug} position={c.pos}>
-         < Popup>
-           <udiv className="text-sm">
-             <.div className="font-medium">{c.na}</eydiv>
-             <.button
-                type="button"
-                className="btn-primary mt-2"
-                on  <div className="font-medium">{c.name}</div>
+        <Marker key={c.slug} position={c.pos}>
+          <Popup>
+            <div className="text-sm">
+              <div className="font-medium">{c.name}</div>
               <button
                 type="button"
                 className="btn-primary mt-2"
-                onClick={() => { void navigate(`/zones/${c.regionKey}/${c.slug}`); }}
+                onClick={() => {
+                  void navigate(`/zones/${c.regionKey}/${c.slug}`);
+                }}
               >
                 Voir la ville
               </button>
             </div>
           </Popup>
-        </CircleMarker>
+        </Marker>
       ))}
     </MapContainer>
   );
