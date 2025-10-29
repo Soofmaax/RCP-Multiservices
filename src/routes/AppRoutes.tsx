@@ -79,7 +79,7 @@ function Home() {
                   <GoogleReviewsBadge />
                 </div>
               </div>
-              <div className="rounded-[24px] overflow-hidden shadow-md">
+              <div className="relative rounded-[24px] overflow-hidden shadow-md">
                 <img
                   src={heroImg}
                   alt="Service à domicile — illustration"
@@ -87,6 +87,7 @@ function Home() {
                   loading="lazy"
                   decoding="async"
                 />
+                <div className="image-overlay-teal" aria-hidden="true"></div>
               </div>
             </section>
           );
@@ -329,6 +330,11 @@ function Footer() {
               Services à domicile: aide, ménage, jardinage, accompagnement. Interventions rapides,
               équipe qualifiée et assurée.
             </p>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <span className="footer-badge">Qualifié</span>
+              <span className="footer-badge">RC Pro</span>
+              <span className="footer-badge">Rapide</span>
+            </div>
           </div>
 
           <div>

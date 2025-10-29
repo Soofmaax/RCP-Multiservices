@@ -139,6 +139,16 @@ body,
   .social-link {
     @apply inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/30 text-white/80 hover:text-white hover:border-white transition-colors;
   }
+
+  /* Image overlay for hero visuals */
+  .image-overlay-teal {
+    @apply absolute inset-0 bg-gradient-to-l from-accent/40 to-transparent;
+  }
+
+  /* Footer trust badges */
+  .footer-badge {
+    @apply inline-flex items-center gap-1 rounded-full bg-white/10 text-white px-3 py-1 text-xs border border-white/20;
+  }
   .mask-image {
     -webkit-mask-image: linear-gradient(to left, transparent 0%, black 40%);
     mask-image: linear-gradient(to left, transparent 0%, black 40%);
