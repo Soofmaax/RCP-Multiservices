@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
 
 type LatLngTuple = readonly [number, number];
+type LatLngBoundsLiteral = readonly [LatLngTuple, LatLngTuple];
 
 type CityMarker = {
   name: string;
@@ -10,8 +11,12 @@ type CityMarker = {
   pos: LatLngTuple;
 };
 
-const MAP_CENTER: LatLngTuple = [48.8566, 2.3522];
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+// Bounds covering Île-de-France & Normandie
+const BOUNDS: LatLngBoundsLiteral = [
+  [47.5, -1.0], // southwest
+  [50.5, 3.7],  // northeast
+];
 
 const FEATURED_CITIES: CityMarker[] = [
   { name: 'Paris', slug: 'paris', regionKey: 'ile-de-france', pos: [48.8566, 2.3522] },
@@ -27,8 +32,7 @@ export default function MapZones() {
 
   return (
     <MapContainer
-      center={MAP_CENTER}
-      zoom={6}
+      bounds={BOUNDS}
       scrollWheelZoom={false}
       style={{ height: 420, width: '100%' }}
     >
