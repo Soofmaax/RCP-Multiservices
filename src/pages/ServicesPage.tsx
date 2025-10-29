@@ -160,9 +160,10 @@ export default function ServicesPage() {
           </article>
         </section>
 
-        <section className="section-spacious">
-          <h2 className="text-xl font-semibold">Demander un devis</h2>
-          <p className="text-neutral-600">
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Demander un devis</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
           <Link to="/contact" className="btn-request">

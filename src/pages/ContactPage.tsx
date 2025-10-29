@@ -62,7 +62,7 @@ export default function ContactPage() {
           <GoogleReviewsBadge />
         </div>
 
-        <section className="section-spacious panel space-y-2">
+        <section className="section-spacious panel panel-hover space-y-2">
           <h2 className="heading-2">Coordonnées</h2>
           <div className="accent mt-2"></div>
           <ul className="text-neutral-900 space-y-2">
@@ -97,7 +97,7 @@ export default function ContactPage() {
         </ul>
         </section>
 
-        <section className="section-spacious panel">
+        <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">Formulaire rapide</h2>
           <div className="accent mt-2"></div>
           <form
