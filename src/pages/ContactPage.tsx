@@ -68,13 +68,13 @@ export default function ContactPage() {
           <ul className="text-gray-800">
             <li>
               Téléphone{' '}
-              <a className="text-blue-600 hover:underline" href="tel:+33743670815">
+              <a className="text-primary hover:underline" href="tel:+33743670815">
                 07 43 67 08 15
               </a>
             </li>
             <li>
               Email{' '}
-              <a className="text-blue-600 hover:underline" href="mailto:contact@rcp-multiservices.com">
+              <a className="text-primary hover:underline" href="mailto:contact@rcp-multiservices.com">
                 contact@rcp-multiservices.com
               </a>
             </li>

@@ -38,6 +38,16 @@ body,
   .link-city {
     @apply text-primary hover:text-primary hover:bg-primary/10 transition-colors rounded px-1;
   }
+  .nav-link {
+    @apply relative inline-block text-gray-700 transition-colors hover:text-primary;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary transition-all;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
 
   /* Layout helpers inspired by premium clinics sites */
   .container {

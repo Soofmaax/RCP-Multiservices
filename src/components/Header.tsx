@@ -15,13 +15,13 @@ export default function Header() {
         </div>
 
         <nav className="hidden sm:flex items-center gap-3 text-sm">
-          <Link to="/zones" className="text-gray-700 hover:text-primary">
+          <Link to="/zones" className="nav-link">
             Zones
           </Link>
-          <Link to="/services" className="text-gray-700 hover:text-primary">
+          <Link to="/services" className="nav-link">
             Services
           </Link>
-          <Link to="/contact" className="text-gray-700 hover:text-primary">
+          <Link to="/contact" className="nav-link">
             Contact
           </Link>
           <a href="tel:+33743670815" className="btn-primary">
