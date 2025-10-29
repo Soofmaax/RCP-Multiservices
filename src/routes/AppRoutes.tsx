@@ -97,15 +97,17 @@ function Home() {
           <h2 className="heading-2">Nos services principaux</h2>
           <div className="accent mt-2"></div>
           <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-            <article className="card card-elevated p-4">
-              <div className="flex items-center gap-2">
-                <ServiceIconHomeAssist />
-                <h3 className="text-lg font-semibold">Aide à domicile</h3>
+            <article className="service-card">
+              <div className="flex items-center gap-3">
+                <div className="icon-teal">
+                  <ServiceIconHomeAssist />
+                </div>
+                <h3 className="service-title">Aide à domicile</h3>
               </div>
-              <p className="text-neutral-600 mt-2">
+              <p className="service-desc mt-2">
                 Compagnie, accompagnement, courses, repas, démarches.
               </p>
-              <ul className="mt-2 list-disc list-inside text-neutral-600">
+              <ul className="service-list mt-2">
                 <li>Réponse immédiate par téléphone</li>
                 <li>Intervenants qualifiés et assurés</li>
                 <li>Devis sous 24h</li>
@@ -113,23 +115,23 @@ function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              </div>
-              <div className="mt-3">
                 <Link to="/services" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>
 
-            <article className="card card-elevated p-4">
-              <div className="flex items-center gap-2">
-                <ServiceIconClean />
-                <h3 className="text-lg font-semibold">Ménage &amp; repassage</h3>
+            <article className="service-card">
+              <div className="flex items-center gap-3">
+                <div className="icon-teal">
+                  <ServiceIconClean />
+                </div>
+                <h3 className="service-title">Ménage &amp; repassage</h3>
               </div>
-              <p className="text-neutral-600 mt-2">
+              <p className="service-desc mt-2">
                 Entretien régulier, grand ménage, repassage soigné.
               </p>
-              <ul className="mt-2 list-disc list-inside text-neutral-600">
+              <ul className="service-list mt-2">
                 <li>Planning flexible</li>
                 <li>Contrôle qualité</li>
                 <li>Matériel adapté</li>
@@ -137,23 +139,23 @@ function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              </div>
-              <div className="mt-3">
                 <Link to="/services" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>
 
-            <article className="card card-elevated p-4">
-              <div className="flex items-center gap-2">
-                <ServiceIconGarden />
-                <h3 className="text-lg font-semibold">Jardinage</h3>
+            <article className="service-card">
+              <div className="flex items-center gap-3">
+                <div className="icon-teal">
+                  <ServiceIconGarden />
+                </div>
+                <h3 className="service-title">Jardinage</h3>
               </div>
-              <p className="text-neutral-600 mt-2">
+              <p className="service-desc mt-2">
                 Tonte, taille, entretien des haies et massifs.
               </p>
-              <ul className="mt-2 list-disc list-inside text-neutral-600">
+              <ul className="service-list mt-2">
                 <li>Intervention rapide</li>
                 <li>Résultat propre et durable</li>
                 <li>Conseils d’entretien</li>
@@ -161,8 +163,6 @@ function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              </div>
-              <div className="mt-3">
                 <Link to="/services" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
                 </Link>
@@ -173,19 +173,20 @@ function Home() {
 
         {/* Témoignages statiques (temporaire) */}
         <section className="section-spacious">
-          <h2 className="text-xl font-semibold">Ils nous recommandent</h2>
-          <ul className="mt-3 space-y-3">
-            <li className="card p-3">
-              <div className="font-medium">Marie L. — Paris 11e</div>
-              <p className="text-neutral-900 mt-1">Très réactifs, intervention le jour-même. Merci !</p>
+          <h2 className="heading-2">Ils nous recommandent</h2>
+          <div className="accent mt-2"></div>
+          <ul className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+            <li className="testimonial-card">
+              <div className="testimonial-name">Marie L. — Paris 11e</div>
+              <p className="testimonial-text">Très réactifs, intervention le jour-même. Merci !</p>
             </li>
-            <li className="card p-3">
-              <div className="font-medium">Paul R. — Rouen</div>
-              <p className="text-neutral-900 mt-1">Ménage impeccable, équipe ponctuelle et sympa.</p>
+            <li className="testimonial-card">
+              <div className="testimonial-name">Paul R. — Rouen</div>
+              <p className="testimonial-text">Ménage impeccable, équipe ponctuelle et sympa.</p>
             </li>
-            <li className="card p-3">
-              <div className="font-medium">Sofia M. — Versailles</div>
-              <p className="text-neutral-900 mt-1">Jardinage soigné, très bon rapport qualité/prix.</p>
+            <li className="testimonial-card">
+              <div className="testimonial-name">Sofia M. — Versailles</div>
+              <p className="testimonial-text">Jardinage soigné, très bon rapport qualité/prix.</p>
             </li>
           </ul>
         </section>

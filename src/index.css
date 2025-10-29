@@ -110,6 +110,30 @@ body,
   .card-elevated {
     @apply bg-white rounded-[24px] shadow-md hover:shadow-lg border border-border/70 transition-shadow;
   }
+  .service-card {
+    @apply card-elevated p-5;
+  }
+  .icon-teal {
+    @apply inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent/15 text-accent;
+  }
+  .service-title {
+    @apply text-lg font-semibold;
+  }
+  .service-desc {
+    @apply text-neutral-600;
+  }
+  .service-list {
+    @apply list-disc list-inside text-neutral-600;
+  }
+  .testimonial-card {
+    @apply card-elevated p-4;
+  }
+  .testimonial-name {
+    @apply font-medium;
+  }
+  .testimonial-text {
+    @apply text-neutral-600 mt-1;
+  }
   .mask-image {
     -webkit-mask-image: linear-gradient(to left, transparent 0%, black 40%);
     mask-image: linear-gradient(to left, transparent 0%, black 40%);
