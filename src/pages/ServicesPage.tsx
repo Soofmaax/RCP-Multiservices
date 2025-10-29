@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { GoogleReviewsBadge } from '../components';
 import { buildFaqLd } from '../utils/seo';
-import { btnPrimary, ctaRow } from '../utils/styles';
+import { ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -26,6 +26,23 @@ export default function ServicesPage() {
       a: 'Oui, nos intervenants sont qualifiés, assurés et accompagnés.',
     },
   ]);
+
+  // Minimal inline icons for services (harmonized with home)
+  const ServiceIconHomeAssist = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v3H4a2 2 0 0 0-2 2v5h20v-5a2 2 0 0 0-2-2h-1V9a7 7 0 0 0-7-7zm-5 10V9a5 5 0 0 1 10 0v3H7zm-3 5v-3h16v3H4z"/>
+    </svg>
+  );
+  const ServiceIconClean = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M9 2h6l1 3h5v2h-2l-2 13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L3 7H1V5h5l1-3zm0 5H7l2 12h6l2-12h-2l-1 3H10L9 7z"/>
+    </svg>
+  );
+  const ServiceIconGarden = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M7 2a5 5 0 0 0 0 10h2v10h2V12h2a5 5 0 0 0 0-10H7zm0 2h6a3 3 0 1 1 0 6H7a3 3 0 1 1 0-6z"/>
+    </svg>
+  );
 
   return (
     <>
@@ -56,90 +73,99 @@ export default function ServicesPage() {
           Île-de-France et en Normandie.
         </p>
         <div className={ctaRow}>
-          <a href="tel:+33743670815" className={btnPrimary}>
-            Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+          <a href="tel:+33743670815" className="btn-white">
+            07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
           </a>
-          <Link to="/contact" className={btnPrimary}>
+          <Link to="/contact" className="btn-request">
             Demander un devis
           </Link>
           <GoogleReviewsBadge />
         </div>
 
-        <section className="mt-6 card p-4">
-          <div className="flex items-center gap-2">
-            <h2 className="text-xl font-semibold">Aide à domicile</h2>
-          </div>
-          <p className="text-neutral-600 mt-2">
-            Appel direct et réponse immédiate. Intervenants qualifiés et assurés pour vous accompagner au quotidien.
-          </p>
-          <ul className="mt-2 list-disc list-inside text-neutral-600">
-            <li>Courses, préparation des repas</li>
-            <li>Aide administrative, accompagnement</li>
-            <li>Compagnie et sorties</li>
-          </ul>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
-            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-          </div>
-          <div className="mt-3">
-            <Link to="/services" className="link-more">
-              En savoir plus <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+        <section className="section-spacious">
+          <article className="service-card group">
+            <div className="flex items-center gap-3">
+              <div className="icon-teal">
+                <ServiceIconHomeAssist />
+              </div>
+              <h2 className="service-title">Aide à domicile</h2>
+            </div>
+            <p className="service-desc mt-2">
+              Appel direct et réponse immédiate. Intervenants qualifiés et assurés pour vous accompagner au quotidien.
+            </p>
+            <ul className="service-list mt-2">
+              <li>Courses, préparation des repas</li>
+              <li>Aide administrative, accompagnement</li>
+              <li>Compagnie et sorties</li>
+            </ul>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+              <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+              <Link to="/services" className="link-more">
+                En savoir plus <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </article>
         </section>
 
-        <section className="mt-6 card p-4">
-          <div className="flex items-center gap-2">
-            <h2 className="text-xl font-semibold">Ménage et repassage</h2>
-          </div>
-          <p className="text-neutral-600 mt-2">
-            Planning flexible, contrôle qualité et matériel adapté pour un entretien impeccable.
-          </p>
-          <ul className="mt-2 list-disc list-inside text-neutral-600">
-            <li>Entretien régulier de la maison/appartement</li>
-            <li>Grand ménage, remise en état</li>
-            <li>Repassage, pliage</li>
-          </ul>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
-            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-          </div>
-          <div className="mt-3">
-            <Link to="/services" className="link-more">
-              En savoir plus <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+        <section className="section-spacious">
+          <article className="service-card group">
+            <div className="flex items-center gap-3">
+              <div className="icon-teal">
+                <ServiceIconClean />
+              </div>
+              <h2 className="service-title">Ménage et repassage</h2>
+            </div>
+            <p className="service-desc mt-2">
+              Planning flexible, contrôle qualité et matériel adapté pour un entretien impeccable.
+            </p>
+            <ul className="service-list mt-2">
+              <li>Entretien régulier de la maison/appartement</li>
+              <li>Grand ménage, remise en état</li>
+              <li>Repassage, pliage</li>
+            </ul>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+              <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+              <Link to="/services" className="link-more">
+                En savoir plus <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </article>
         </section>
 
-        <section className="mt-6 card p-4">
-          <div className="flex items-center gap-2">
-            <h2 className="text-xl font-semibold">Jardinage</h2>
-          </div>
-          <p className="text-neutral-600 mt-2">
-            Intervention rapide et résultat durable pour vos espaces verts.
-          </p>
-          <ul className="mt-2 list-disc list-inside text-neutral-600">
-            <li>Tonte, taille, désherbage</li>
-            <li>Entretien des haies et massifs</li>
-            <li>Petits aménagements</li>
-          </ul>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
-            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-          </div>
-          <div className="mt-3">
-            <Link to="/services" className="link-more">
-              En savoir plus <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+        <section className="section-spacious">
+          <article className="service-card group">
+            <div className="flex items-center gap-3">
+              <div className="icon-teal">
+                <ServiceIconGarden />
+              </div>
+              <h2 className="service-title">Jardinage</h2>
+            </div>
+            <p className="service-desc mt-2">
+              Intervention rapide et résultat durable pour vos espaces verts.
+            </p>
+            <ul className="service-list mt-2">
+              <li>Tonte, taille, désherbage</li>
+              <li>Entretien des haies et massifs</li>
+              <li>Petits aménagements</li>
+            </ul>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+              <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+              <Link to="/services" className="link-more">
+                En savoir plus <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </article>
         </section>
 
-        <section className="mt-6">
+        <section className="section-spacious">
           <h2 className="text-xl font-semibold">Demander un devis</h2>
           <p className="text-neutral-600">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
-          <Link to="/contact" className={btnPrimary}>
+          <Link to="/contact" className="btn-request">
             Nous contacter
           </Link>
         </section>
