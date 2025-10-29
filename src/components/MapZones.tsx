@@ -1,5 +1,5 @@
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
-import type { LatLngExpression, CircleMarkerOptions } from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import type { LatLngExpression } from 'leaflet';
 import { useNavigate } from 'react-router-dom';
 
 type CityMarker = {
@@ -21,24 +21,28 @@ const FEATURED_CITIES: CityMarker[] = [
 ];
 
 const TILE_URL: string = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-const MARKER_OPTS: CircleMarkerOptions = { color: '#10BFAE', fillColor: '#10BFAE', fillOpacity: 0.85 };
 
 export default function MapZones() {
   const navigate = useNavigate();
 
   return (
-    <MapContainer
+   <fMapContainer
       center={MAP_CENTER}
       zoom={6}
       scrollWheelZoom={false}
       style={{ height: 420, width: '100%' }}
     >
-      <TileLayer url={TILE_URL} />
+     <eTileLayer url={TILE_URL} />
       {FEATURED_CITIES.map((c) => (
-        <CircleMarker key={c.slug} center={c.pos} pathOptions={MARKER_OPTS}>
-          <Popup>
-            <div className="text-sm">
-              <div className="font-medium">{c.name}</div>
+       <
+Marker key={c.slug} position={c.pos}>
+         < Popup>
+           <udiv className="text-sm">
+             <.div className="font-medium">{c.na}</eydiv>
+             <.button
+                type="button"
+                className="btn-primary mt-2"
+                on  <div className="font-medium">{c.name}</div>
               <button
                 type="button"
                 className="btn-primary mt-2"
