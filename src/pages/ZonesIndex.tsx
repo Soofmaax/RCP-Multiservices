@@ -12,7 +12,7 @@ export default function ZonesIndex() {
 
       <div className="mt-6 space-y-8">
         {LOCATIONS.regions.map((region) => (
-          <section key={region.key}>
+          <section key={region.key} className="section-spacious">
             <h2 className="heading-2">{region.name}</h2>
             <div className="accent mt-1"></div>
             <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2">

@@ -16,8 +16,9 @@ export default function PrivacyPage() {
       </Helmet>
 
       <main className="container">
-        <h1 className="text-3xl font-semibold">Politique de confidentialité</h1>
-        <section className="mt-4 space-y-2 text-neutral-900">
+        <h1 className="heading-1">Politique de confidentialité</h1>
+        <div className="accent mt-2"></div>
+        <section className="section-spacious space-y-2 text-neutral-900">
           <p>Nous collectons les données strictement nécessaires pour traiter vos demandes (nom, email, message).</p>
           <p>Nous ne partageons pas vos données avec des tiers hors obligations légales.</p>
           <p>Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à <a className="text-primary hover:underline" href="mailto:contact@rcp-multiservices.com">contact@rcp-multiservices.com</a>.</p>

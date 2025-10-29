@@ -41,8 +41,9 @@ export default function NotFoundPage() {
       </Helmet>
 
       <main className="container">
-        <div className="rounded-xl border bg-white shadow-sm p-6">
-          <h1 className="text-2xl font-semibold">Page non trouvée</h1>
+        <div className="panel p-6">
+          <h1 className="heading-2">Page non trouvée</h1>
+          <div className="accent mt-2"></div>
           <p className="mt-2 text-neutral-600">
             La page que vous cherchez n&apos;existe pas ou a été déplacée.
           </p>
@@ -52,7 +53,7 @@ export default function NotFoundPage() {
           </p>
 
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <Link to="/" className="btn-primary">
+            <Link to="/" className="btn-request">
               Revenir à l&apos;accueil
             </Link>
             <Link to="/zones" className="btn-secondary">

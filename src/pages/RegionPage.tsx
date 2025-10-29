@@ -14,11 +14,12 @@ export default function RegionPage() {
 
   if (!data) {
     return (
-      <main className="max-w-4xl mx-auto p-6">
-        <h1 className="text-2xl font-semibold">Région non trouvée</h1>
-        <p className="mt-2 text-gray-600">La région demandée n&apos;a pas été trouvée.</p>
-        <Link className="text-primary underline mt-4 inline-block" to="/zones">
-          Revenir aux zones
+      <main className="container">
+        <h1 className="heading-1">Région non trouvée</h1>
+        <div className="accent mt-2"></div>
+        <p className="mt-2 text-neutral-600">La région demandée n&apos;a pas été trouvée.</p>
+        <Link className="link-more mt-3 inline-block" to="/zones">
+          Revenir aux zones <span aria-hidden="true">→</span>
         </Link>
       </main>
     );
@@ -53,15 +54,17 @@ export default function RegionPage() {
           / <span className="font-medium">{data.name}</span>
         </nav>
 
-        <h1 className="text-3xl font-semibold">{data.name}</h1>
-        <p className="mt-2 text-neutral-600">
+        <h1 className="heading-1">{data.name}</h1>
+        <div className="accent mt-2"></div>
+        <p className="mt-3 text-neutral-600">
           Choisissez une ville pour consulter les services disponibles et demander un devis.
         </p>
 
-        <div className="mt-6 space-y-8">
+        <div className="mt-3">
           {data.departments.map((dept) => (
-            <section key={dept.key}>
-              <h2 className="text-xl font-semibold">{dept.name}</h2>
+            <section key={dept.key} className="section-spacious">
+              <h2 className="heading-2">{dept.name}</h2>
+              <div className="accent mt-1"></div>
               <div className="mt-2 flex flex-wrap gap-2">
                 {dept.cities.map((c) => (
                   <Link

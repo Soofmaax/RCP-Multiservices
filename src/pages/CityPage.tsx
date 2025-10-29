@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { findCity } from '../data/locations';
 import { Reviews, GoogleReviewsBadge } from '../components';
 import { buildFaqLd, buildServiceLd, buildBreadcrumbsLd } from '../utils/seo';
-import { btnPrimary, ctaRow } from '../utils/styles';
+import { ctaRow } from '../utils/styles';
 
 type Params = {
   region: string;
@@ -93,16 +93,16 @@ export default function CityPage() {
           Notre équipe qualifiée et assurée intervient rapidement selon vos besoins.
         </p>
         <div className={ctaRow}>
-          <a href="tel:+33743670815" className={btnPrimary}>
-            Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+          <a href="tel:+33743670815" className="btn-white">
+            07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
           </a>
-          <Link to="/contact" className={btnPrimary}>
+          <Link to="/contact" className="btn-request">
             Demander un devis
           </Link>
           <GoogleReviewsBadge />
         </div>
 
-        <section className="mt-6 panel">
+        <section className="section-spacious panel">
           <h2 className="heading-2">Prestations</h2>
           <div className="accent mt-2"></div>
           <ul className="mt-2 list-disc list-inside text-neutral-600">
@@ -115,8 +115,9 @@ export default function CityPage() {
 
         <Reviews />
 
-        <section className="mt-6">
-          <h2 className="text-xl font-semibold">Villes proches</h2>
+        <section className="section-spacious">
+          <h2 className="heading-2">Villes proches</h2>
+          <div className="accent mt-2"></div>
           <p className="text-neutral-600">
             Nous intervenons également dans les villes voisines du département {match.department.name}.
           </p>
@@ -136,7 +137,7 @@ export default function CityPage() {
           </div>
         </section>
 
-        <section className="mt-6 panel">
+        <section className="section-spacious panel">
           <h2 className="heading-2">FAQ</h2>
           <div className="accent mt-2"></div>
           <details className="mt-2">
@@ -165,13 +166,13 @@ export default function CityPage() {
           </details>
         </section>
 
-        <section className="mt-6 panel">
+        <section className="section-spacious panel">
           <h2 className="heading-2">Demander un devis</h2>
           <div className="accent mt-2"></div>
           <p className="mt-2 text-neutral-600">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
-          <a href="mailto:contact@rcp-multiservices.com" className={btnPrimary}>
+          <a href="mailto:contact@rcp-multiservices.com" className="btn-request">
             Nous écrire
           </a>
         </section>
