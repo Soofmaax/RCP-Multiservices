@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { LOCATIONS } from '../data/locations';
+import { MapZones } from '../components';
 
 export default function ZonesIndex() {
   return (
@@ -15,6 +16,15 @@ export default function ZonesIndex() {
       <p className="mt-3 text-neutral-600">
         Nous intervenons en Île-de-France et en Normandie. Sélectionnez une région puis une ville.
       </p>
+
+      {/* Map section */}
+      <section className="section-spacious">
+        <h2 className="heading-2">Carte des zones d&apos;intervention</h2>
+        <div className="accent mt-2"></div>
+        <div className="mt-3 rounded-[24px] overflow-hidden border border-border/70 shadow-md">
+          <MapZones />
+        </div>
+      </section>
 
       <div className="mt-6 space-y-8">
         {LOCATIONS.regions.map((region) => (
