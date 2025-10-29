@@ -8,20 +8,20 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b shadow-sm">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link to="/" className="text-lg font-semibold text-gray-900 hover:text-blue-700">
+          <Link to="/" className="text-lg font-semibold text-gray-900 hover:text-primary">
             RCP Multiservices
           </Link>
           <span className="badge">{status}</span>
         </div>
 
         <nav className="hidden sm:flex items-center gap-3 text-sm">
-          <Link to="/zones" className="text-gray-700 hover:text-blue-700">
+          <Link to="/zones" className="text-gray-700 hover:text-primary">
             Zones
           </Link>
-          <Link to="/services" className="text-gray-700 hover:text-blue-700">
+          <Link to="/services" className="text-gray-700 hover:text-primary">
             Services
           </Link>
-          <Link to="/contact" className="text-gray-700 hover:text-blue-700">
+          <Link to="/contact" className="text-gray-700 hover:text-primary">
             Contact
           </Link>
           <a href="tel:+33743670815" className="btn-primary">

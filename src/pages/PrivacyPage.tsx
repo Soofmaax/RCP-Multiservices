@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <section className="mt-4 space-y-2 text-gray-800">
           <p>Nous collectons les données strictement nécessaires pour traiter vos demandes (nom, email, message).</p>
           <p>Nous ne partageons pas vos données avec des tiers hors obligations légales.</p>
-          <p>Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à <a className="text-blue-600 hover:underline" href="mailto:contact@rcp-multiservices.com">contact@rcp-multiservices.com</a>.</p>
+          <p>Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à <a className="text-primary hover:underline" href="mailto:contact@rcp-multiservices.com">contact@rcp-multiservices.com</a>.</p>
           <p>Cookies: le site peut utiliser des cookies techniques pour le bon fonctionnement.</p>
         </section>
       </main>

@@ -24,7 +24,7 @@ export default function LegalPage() {
           <p>Directeur de publication: à compléter</p>
           <p>Hébergeur: Netlify</p>
           <p>Assurance RC Pro: à compléter</p>
-          <p>Contact: <a className="text-blue-600 hover:underline" href="mailto:contact@rcp-multiservices.com">contact@rcp-multiservices.com</a></p>
+          <p>Contact: <a className="text-primary hover:underline" href="mailto:contact@rcp-multiservices.com">contact@rcp-multiservices.com</a></p>
         </section>
       </main>
     </>

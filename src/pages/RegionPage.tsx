@@ -17,7 +17,7 @@ export default function RegionPage() {
       <main className="max-w-4xl mx-auto p-6">
         <h1 className="text-2xl font-semibold">Région non trouvée</h1>
         <p className="mt-2 text-gray-600">La région demandée n&apos;a pas été trouvée.</p>
-        <Link className="text-blue-600 underline mt-4 inline-block" to="/zones">
+        <Link className="text-primary underline mt-4 inline-block" to="/zones">
           Revenir aux zones
         </Link>
       </main>

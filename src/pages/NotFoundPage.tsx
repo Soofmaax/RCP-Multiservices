@@ -52,10 +52,10 @@ export default function NotFoundPage() {
           </p>
 
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <Link to="/" className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+            <Link to="/" className="btn-primary">
               Revenir à l&apos;accueil
             </Link>
-            <Link to="/zones" className="inline-block text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded">
+            <Link to="/zones" className="btn-secondary">
               Voir nos zones
             </Link>
           </div>

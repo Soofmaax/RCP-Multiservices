@@ -6,7 +6,7 @@ export default function QuickCall() {
     <a
       href={telHref}
       aria-label={label}
-      className="fixed bottom-4 right-4 sm:hidden z-50 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-blue-600 text-white shadow-lg transition-colors duration-150 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+      className="fixed bottom-4 right-4 sm:hidden z-50 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-primary text-white shadow-lg transition-colors duration-150 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/30"
     >
       <svg
         aria-hidden="true"

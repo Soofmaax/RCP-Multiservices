@@ -23,7 +23,7 @@ export default function CityPage() {
         <p className="mt-2 text-gray-600">
           La ville ou la région demandée n&apos;a pas été trouvée.
         </p>
-        <Link className="text-blue-600 underline mt-4 inline-block" to="/">
+        <Link className="text-primary underline mt-4 inline-block" to="/">
           Revenir à l&apos;accueil
         </Link>
       </main>

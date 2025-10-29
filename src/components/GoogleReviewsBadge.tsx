@@ -19,7 +19,7 @@ export default function GoogleReviewsBadge({
   const styles =
     variant === 'inverted'
       ? 'bg-gray-900 text-white border-gray-700 hover:bg-gray-800'
-      : 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100';
+      : 'bg-primary/10 text-primary border-primary/20 hover:bg-primary/15';
 
   return (
     <a
