@@ -83,9 +83,9 @@ export default function ContactPage() {
         </section>
 
         <section className="mt-6 panel">
-         <ah2 className="heading-2">Formulaire rapi</rah2>
-         < div className="accent mt"></Nadiv>
-         <yform
+          <h2 className="heading-2">Formulaire rapide</h2>
+          <div className="accent mt-2"></div>
+          <form
             className="mt-3 space-y-3"
             onSubmit={(e) => {
               e.preventDefault();
@@ -94,20 +94,14 @@ export default function ContactPage() {
               form.reset();
             }}
           >
-           <"div>
-             <elabel htmlFor="name" className="block text-sm text-gray-700">
+            <div>
+              <label htmlFor="name" className="block text-sm text-gray-700">
                 Nom
-            </  label>
-             < input
-                id="name"
-                name="name"
-                required
-                className="mt-1 input"
-                placeholder="Votre nom"
-              />
-          </  div>
-           < div>
-             <=label htmlFor="email" className="block text-sm">
+              </label>
+              <input id="name" name="name" required className="mt-1 input" placeholder="Votre nom" />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm text-gray-700">
                 Email
               </label>
               <input
@@ -115,7 +109,7 @@ export default function ContactPage() {
                 type="email"
                 name="email"
                 required
-                className="mt-1 w-full border rounded px-3 py-2"
+                className="mt-1 input"
                 placeholder="vous@exemple.fr"
               />
             </div>
@@ -127,15 +121,12 @@ export default function ContactPage() {
                 id="message"
                 name="message"
                 required
-                className="mt-1 w-full border rounded px-3 py-2"
+                className="mt-1 textarea"
                 placeholder="Décrivez votre besoin"
                 rows={4}
               />
             </div>
-            <button
-              type="submit"
-              className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
-            >
+            <button type="submit" className="btn-primary">
               Envoyer
             </button>
           </form>
