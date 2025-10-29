@@ -30,7 +30,7 @@ describe('AppRoutes', () => {
 
   it('renders zones index', () => {
     renderAt('/zones');
-    expect(screen.getByRole('heading', { name: /Zones d'intervention/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: /Zones d'intervention/i })).toBeInTheDocument();
     // Be specific: regions are headings, not paragraph text
     expect(screen.getByRole('heading', { name: /Île-de-France/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Normandie/i })).toBeInTheDocument();

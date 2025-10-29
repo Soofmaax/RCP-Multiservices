@@ -14,7 +14,7 @@ describe('ZonesIndex', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: /Zones d'intervention/i }),
+      screen.getByRole('heading', { level: 1, name: /Zones d'intervention/i }),
     ).toBeInTheDocument();
   });
 });
