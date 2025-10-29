@@ -71,6 +71,9 @@ body,
   .panel {
     @apply card p-4 md:p-6;
   }
+  .panel-hover {
+    @apply transition-transform hover:-translate-y-0.5;
+  }
   .section-navy {
     @apply bg-navy text-white;
   }

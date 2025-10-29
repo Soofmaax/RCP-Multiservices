@@ -102,7 +102,7 @@ export default function CityPage() {
           <GoogleReviewsBadge />
         </div>
 
-        <section className="section-spacious panel">
+        <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">Prestations</h2>
           <div className="accent mt-2"></div>
           <ul className="mt-2 list-disc list-inside text-neutral-600">
@@ -139,7 +139,7 @@ export default function CityPage() {
           </div>
         </section>
 
-        <section className="section-spacious panel">
+        <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">FAQ</h2>
           <div className="accent mt-2"></div>
           <details className="mt-2">
