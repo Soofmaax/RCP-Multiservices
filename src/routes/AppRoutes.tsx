@@ -305,7 +305,17 @@ function Footer() {
   return (
     <footer className="border-t mt-12 bg-navy text-white">
       <div className="max-w-6xl mx-auto p-6">
-        
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-white/90">
+            Besoin d’aide rapidement ? Appelez-nous au{' '}
+            <a href="tel:+33743670815" className="underline hover:text-secondary">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>{' '}
+            ou <Link to="/contact" className="underline hover:text-secondary">demandez un rendez-vous</Link>.
+          </p>
+          <div className="flex items-center gap-2">
+            <a href="tel:+33743670815" className="btn-white">Appeler</a>
+            <Link to="/contact" className="btn-primary">Rendez-vous</Link>
+          </div>
+        </div>
 
         {/* Footer columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
