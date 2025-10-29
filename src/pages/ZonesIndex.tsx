@@ -4,6 +4,12 @@ import { LOCATIONS } from '../data/locations';
 export default function ZonesIndex() {
   return (
     <main className="container">
+      <nav className="text-sm text-neutral-600 mb-4">
+        <Link to="/" className="hover:underline">
+          Accueil
+        </Link>{' '}
+        / <span className="font-medium">Zones</span>
+      </nav>
       <h1 className="heading-1">Zones d&apos;intervention</h1>
       <div className="accent mt-2"></div>
       <p className="mt-3 text-neutral-600">
