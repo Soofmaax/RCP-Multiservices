@@ -305,7 +305,7 @@ function ZonesRoot() {
 
 function Footer() {
   return (
-    <footer className="border-t mt-12 bg-navy text-white">
+    <footer className="border-t mt-12 bg-navy footer-gradient text-white">
       <div className="max-w-6xl mx-auto p-6">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <p className="text-white/90">
@@ -355,6 +355,15 @@ function Footer() {
               <li><Link to="/zones/ile-de-france/paris" className="hover:underline">Paris</Link></li>
               <li><Link to="/zones/ile-de-france" className="hover:underline">Île-de-France</Link></li>
             </ul>
+            <div className="mt-4 text-lg font-semibold">Zones principales</div>
+            <ul className="mt-2 space-y-1 text-white/90">
+              <li><Link to="/zones/ile-de-france/paris" className="hover:underline">Paris</Link></li>
+              <li><Link to="/zones/ile-de-france/versailles" className="hover:underline">Versailles</Link></li>
+              <li><Link to="/zones/ile-de-france/meaux" className="hover:underline">Meaux</Link></li>
+              <li><Link to="/zones/normandie/rouen" className="hover:underline">Rouen</Link></li>
+              <li><Link to="/zones/ile-de-france/chelles" className="hover:underline">Chelles</Link></li>
+              <li><Link to="/zones/ile-de-france/fontainebleau" className="hover:underline">Fontainebleau</Link></li>
+            </ul>
           </div>
 
           <div>
@@ -363,6 +372,9 @@ function Footer() {
               <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
               <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
               <GoogleReviewsBadge variant="inverted" />
+            </div>
+            <div className="mt-2 text-white/80 text-xs">
+              Modes de paiement: CESU • Carte • Virement
             </div>
 
             <div className="mt-4">
@@ -375,7 +387,7 @@ function Footer() {
                   <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 5.8c-.8.4-1.6.6-2.5.8.9-.6 1.5-1.4 1.8-2.4-.8.5-1.8.9-2.7 1.1A4.3 4.3 0 0 0 12.3 9c0 .3 0 .6.1.9-3.6-.2-6.8-1.9-9-4.5-.4.6-.6 1.4-.6 2.2 0 1.5.8 2.9 2 3.7-.7 0-1.3-.2-1.9-.5v.1c0 2.1 1.5 3.8 3.6 4.2-.4.1-.8.2-1.3.2-.3 0-.6 0-.9-.1.6 1.7 2.2 2.9 4.1 3-.1.2-.3.2-.5.2-.3 0-.6 0-.9-.1 1.3.9 2.8 1.4 4.4 1.4 5.3 0 8.2-4.5 8.2-8.4v-.4c.6-.4 1.2-1 1.6-1.7z"/></svg>
                 </a>
                 <a href="#" aria-label="Instagram" className="social-link">
-                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.2 0-3.6 0-4.8.1-1 .1-1.6.2-2 .4-.5.1-.8.3-1.1.6-.3.3-.5.6-.6 1.1-.2.4-.3 1-.4 2-.1 1.2-.1 1.6-.1 4.8s0 3.6.1 4.8c.1 1 .2 1.6.4 2 .1.5.3.8.6 1.1.3.3.6.5 1.1.6.4.2 1 .3 2 .4 1.2.1 1.6.1 4.8.1s3.6 0 4.8-.1c1-.1 1.6-.2 2-.4.5-.1.8-.3 1.1-.6.3-.3.5-.6.6-1.1.2-.4.3-1 .4-2 .1-1.2.1-1.6.1-4.8s0-3.6-.1-4.8c-.1-1-.2-1.6-.4-2-.1-.5-.3-.8-.6-1.1-.3-.3-.6-.5-1.1-.6-.4-.2-1-.3-2-.4-1.2-.1-1.6-.1-4.8-.1zm0 3.2a6.6 6.6 0 1 1 0 13.2 6.6 6.6 0 0 1 0-13.2zm0 2a4.6 4.6 0 1 0 0 9.2 4.6 4.6 0 0 0 0-9.2zm5.3-2.3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1-.1-1.6-.2-2-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.2 0-3.6 0-4.8.1-1 .1-1.6.2-2 .4-.5.1-.8.3-1.1.6-.3.3-.5.6-.6 1.1-.2.4-.3 1-.4 2-.1 1.2-.1 1.6-.1 4.8s0 3.6.1 4.8c.1 1 .2 1.6.4 2 .1.5.3.8.6 1.1.3.3.6.5 1.1.6.4.2 1 .3 2 .4 1.2.1 1.6.1 4.8.1s3.6 0 4.8-.1c1-.1 1.6-.2 2-.4.5-.1.8-.3 1.1-.6.3-.3.5-.6.6-1.1.2-.4.3-1 .4-2 .1-1.2.1-1.6.1-4.8s0-3.6-.1-4.8c-.1-1-.2-1.6-.4-2-.1-.5-.3-.8-.6-1.1-.3-.3-.6-.5-1.1-.6-.4-.2-1-.3-2-.4-1.2-.1-1.6-.1-4.8-.1zm0 3.2a6.6 6.6 0 1 1 0 13.2 6.6 6.6 0 0 1 0-13.2zm0 2a4.6 4.6 0 1 0 0 9.2 4.6 4.6 0 0 0 0-9.2zm5.3-2.3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
                 </a>
                 <a href="#" aria-label="Facebook" className="social-link">
                   <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.1V12h2.1V9.7c0-2.1 1.3-3.3 3.2-3.3.9 0 1.8.1 2.7.3v2.1h-1.5c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
