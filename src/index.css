@@ -111,10 +111,10 @@ body,
     @apply bg-white rounded-[24px] shadow-md hover:shadow-lg border border-border/70 transition-shadow;
   }
   .service-card {
-    @apply card-elevated p-5;
+    @apply card-elevated p-5 transition-transform hover:-translate-y-0.5;
   }
   .icon-teal {
-    @apply inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent/15 text-accent;
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent/15 text-accent transition-transform group-hover:scale-105;
   }
   .service-title {
     @apply text-lg font-semibold;
