@@ -65,16 +65,18 @@ export default function RegionPage() {
             <section key={dept.key} className="section-spacious">
               <h2 className="heading-2">{dept.name}</h2>
               <div className="accent mt-1"></div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {dept.cities.map((c) => (
-                  <Link
-                    key={c.slug}
-                    to={`/zones/${data.key}/${c.slug}`}
-                    className="link-city"
-                  >
-                    {c.name}
-                  </Link>
-                ))}
+              <div className="dept-card mt-2">
+                <div className="flex flex-wrap gap-2">
+                  {dept.cities.map((c) => (
+                    <Link
+                      key={c.slug}
+                      to={`/zones/${data.key}/${c.slug}`}
+                      className="link-city"
+                    >
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </section>
           ))}

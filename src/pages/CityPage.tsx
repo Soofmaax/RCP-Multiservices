@@ -121,19 +121,21 @@ export default function CityPage() {
           <p className="text-neutral-600">
             Nous intervenons également dans les villes voisines du département {match.department.name}.
           </p>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {match.department.cities
-              .filter((c) => c.slug !== match.city.slug)
-              .slice(0, 8)
-              .map((c) => (
-                <Link
-                  key={c.slug}
-                  to={`/zones/${match.region.key}/${c.slug}`}
-                  className="link-city"
-                >
-                  {c.name}
-                </Link>
-              ))}
+          <div className="dept-card mt-2">
+            <div className="flex flex-wrap gap-2">
+              {match.department.cities
+                .filter((c) => c.slug !== match.city.slug)
+                .slice(0, 8)
+                .map((c) => (
+                  <Link
+                    key={c.slug}
+                    to={`/zones/${match.region.key}/${c.slug}`}
+                    className="link-city"
+                  >
+                    {c.name}
+                  </Link>
+                ))}
+            </div>
           </div>
         </section>
 

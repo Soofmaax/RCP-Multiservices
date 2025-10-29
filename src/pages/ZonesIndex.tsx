@@ -23,7 +23,7 @@ export default function ZonesIndex() {
             <div className="accent mt-1"></div>
             <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2">
               {region.departments.map((dept) => (
-                <li key={dept.key} className="text-neutral-900">
+                <li key={dept.key} className="dept-card">
                   <div className="font-medium">{dept.name}</div>
                   <div className="mt-1 flex flex-wrap gap-2">
                     {dept.cities.map((c) => (
@@ -39,6 +39,11 @@ export default function ZonesIndex() {
                 </li>
               ))}
             </ul>
+            <div className="mt-3">
+              <Link to={`/zones/${region.key}`} className="link-more">
+                Voir la région <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </section>
         ))}
       </div>
