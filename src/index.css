@@ -134,6 +134,11 @@ body,
   .testimonial-text {
     @apply text-neutral-600 mt-1;
   }
+
+  /* Footer social links */
+  .social-link {
+    @apply inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/30 text-white/80 hover:text-white hover:border-white transition-colors;
+  }
   .mask-image {
     -webkit-mask-image: linear-gradient(to left, transparent 0%, black 40%);
     mask-image: linear-gradient(to left, transparent 0%, black 40%);
