@@ -53,9 +53,11 @@ export default function MapZones() {
   });
 
   return (
-    <MapContainer bounds={BOUNDS} style={{ height: 420, width: '100%' }}>
-      <TileLayer url={TILE_URL} />
-      {markers}
-    </MapContainer>
+    <div className="h-[420px] w-full">
+      <MapContainer bounds={BOUNDS} className="h-full w-full">
+        <TileLayer url={TILE_URL} />
+        {markers}
+      </MapContainer>
+    </div>
   );
 }
