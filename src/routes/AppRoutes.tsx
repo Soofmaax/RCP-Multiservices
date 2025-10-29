@@ -305,32 +305,7 @@ function Footer() {
   return (
     <footer className="border-t mt-12 bg-navy text-white">
       <div className="max-w-6xl mx-auto p-6">
-        {/* Newsletter */}
-        <div className="flex flex-wrap items-center gap-3 justify-between">
-          <div>
-            <h2 className="text-lg font-semibold">S&apos;abonner à la newsletter</h2>
-            <p className="text-white/80 text-sm">
-              Conseils, entretien et informations utiles pour vos services à domicile.
-            </p>
-          </div>
-          <form
-            className="flex items-center gap-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert('Merci, vous êtes abonné (démo).');
-            }}
-          >
-            <input
-              type="email"
-              required
-              placeholder="Adresse email"
-              className="px-4 py-2 rounded-full bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
-            />
-            <button type="submit" className="btn-primary">S&apos;abonner</button>
-          </form>
-        </div>
-
-        <hr className="my-6 border-white/20" />
+        
 
         {/* Footer columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
