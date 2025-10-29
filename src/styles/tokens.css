@@ -2,10 +2,12 @@
 /* Design tokens: change values here to retheme the app globally */
 :root {
   /* Brand */
-  --color-primary: #0B4EB3;
+  --color-primary: #0B4EB3;            /* deep blue (buttons/CTAs) */
   --color-primary-rgb: 11 78 179;
-  --color-secondary: #0EA5E9;
+  --color-secondary: #0EA5E9;          /* sky blue accent */
   --color-secondary-rgb: 14 165 233;
+  --color-accent: #10BFAE;             /* teal (hero/strips) */
+  --color-accent-rgb: 16 191 174;
 
   /* Semantic states */
   --color-info: #00b0f4;

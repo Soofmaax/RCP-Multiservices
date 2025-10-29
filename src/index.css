@@ -33,7 +33,7 @@ body,
     @apply inline-flex items-center text-xs rounded-full bg-primary/10 text-primary px-2 py-1;
   }
   .card {
-    @apply rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow;
+    @apply rounded-[24px] border border-border bg-white shadow-sm hover:shadow-md transition-shadow;
   }
   .link-city {
     @apply text-primary hover:text-primary hover:bg-primary/10 transition-colors rounded px-1;
@@ -58,6 +58,12 @@ body,
   }
   .hero {
     @apply card p-6 md:p-8 bg-gradient-to-br from-white to-primary/5;
+  }
+  .hero-teal {
+    @apply rounded-[24px] p-6 md:p-8 bg-accent text-white shadow-md;
+  }
+  .btn-white {
+    @apply inline-flex items-center justify-center bg-white text-neutral-900 px-5 py-2 rounded-full shadow-sm hover:shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/30;
   }
   .panel {
     @apply card p-4 md:p-6;

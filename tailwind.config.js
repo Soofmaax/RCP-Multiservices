@@ -35,6 +35,7 @@ export default {
         /* semantic colors backed by CSS variables (supports opacity via /xx) */
         primary: 'rgb(var(--color-primary-rgb) / <alpha-value>)',
         secondary: 'rgb(var(--color-secondary-rgb) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
         info: 'rgb(var(--color-info-rgb) / <alpha-value>)',
         success: 'rgb(var(--color-success-rgb) / <alpha-value>)',
         warning: 'rgb(var(--color-warning-rgb) / <alpha-value>)',

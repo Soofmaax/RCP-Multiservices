@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage } from '../pages';
-import { GoogleReviewsBadge, QuickCall, Header } from '../components';
+import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar } from '../components';
 import { btnPrimary, btnSecondary, ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
@@ -49,30 +49,24 @@ function Home() {
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
       <main className="container">
-        {/* Hero */}
-        <section className="hero">
+        {/* Hero teal like reference */}
+        <section className="hero-teal">
           <h1 className="heading-1">RCP Multiservices</h1>
-          <div className="accent mt-2"></div>
-          <p className="mt-3 text-neutral-600 text-lg md:text-xl">
+          <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+          <p className="mt-3 text-white/90 text-lg md:text-xl">
             Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <span className="badge">Assuré RC Pro</span>
-            <span className="badge">Intervenants qualifiés</span>
-            <span className="badge">Intervention rapide</span>
+            <span className="badge bg-white/10 text-white">Assuré RC Pro</span>
+            <span className="badge bg-white/10 text-white">Intervenants qualifiés</span>
+            <span className="badge bg-white/10 text-white">Intervention rapide</span>
           </div>
           <div className={`${ctaRow} mt-3`}>
-            <a href="tel:+33743670815" className={btnPrimary}>
-              Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+            <a href="tel:+33743670815" className="btn-white">
+              07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
             </a>
-            <Link to="/zones" className={btnSecondary}>
-              Voir nos zones d&apos;intervention
-            </Link>
-            <Link to="/services" className={btnSecondary}>
-              Voir nos services
-            </Link>
-            <Link to="/contact" className={btnSecondary}>
-              Contact
+            <Link to="/services" className={btnPrimary}>
+              Demander un rendez-vous
             </Link>
             <GoogleReviewsBadge />
           </div>
@@ -193,7 +187,7 @@ function Footer() {
       <div className="max-w-3xl mx-auto p-4 flex flex-col gap-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="text-sm">
-            Appeler:{' '}
+            Appeler{' '}
             <a href="tel:+33743670815" className="text-white hover:underline">
               07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
             </a>{' '}
@@ -217,6 +211,7 @@ function Footer() {
 export default function AppRoutes() {
   return (
     <BrowserRouter>
+      <TopInfoBar />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
