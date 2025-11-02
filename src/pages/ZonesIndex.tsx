@@ -38,12 +38,32 @@ export default function ZonesIndex() {
         </Link>{' '}
         / <span className="font-medium">Zones</span>
       </nav>
-      <h1 className="heading-1">Zones d&apos;intervention</h1>
-      <div className="accent mt-2"></div>
-      <p className="mt-3 text-neutral-600">
-        Nous intervenons en Île-de-France et en Normandie. Choisissez une région, puis cliquez sur un
-        marqueur ou un lien de ville.
-      </p>
+      {/* Hero split — style landing */}
+      <section className="hero-split">
+        <div className="hero-teal">
+          <h1 className="heading-1 heading-hero">Zones d&apos;intervention</h1>
+          <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+          <p className="mt-3 text-white/90 text-lg md:text-xl">
+            Île-de-France &amp; Normandie — choisissez une région ou une ville
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <Link to="/services" className="btn-white">Voir nos services</Link>
+            <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
+          </div>
+        </div>
+        <div className="relative rounded-[24px] overflow-hidden shadow-md">
+          <img
+            src="https://images.unsplash.com/photo-1527049979667-990f1d0d8b79?auto=format&fit=crop&w=1600&q=80"
+            alt="Zones d’intervention — illustration"
+            className="w-full h-full object-cover md:min-h-[360px] mask-image"
+            loading="lazy"
+            decoding="async"
+            width={1600}
+            height={1067}
+          />
+          <div className="image-overlay-teal" aria-hidden="true"></div>
+        </div>
+      </section>
 
       {/* Search bar */}
       <div className="mt-3">

@@ -47,20 +47,40 @@ export default function ContactPage() {
           / <span className="font-medium">Contact</span>
         </nav>
 
-        <h1 className="heading-1">Contact</h1>
-        <div className="accent mt-2"></div>
-        <p className="mt-3 text-neutral-600">
-          Devis gratuit sous 24h. N'hésitez pas à nous écrire ou à nous appeler.
-        </p>
-        <div className={ctaRow}>
-          <a href="tel:+33743670815" className="btn-white">
-            07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
-          </a>
-          <a href="mailto:contact@rcp-multiservices.com" className="btn-request">
-            Nous écrire
-          </a>
-          <GoogleReviewsBadge />
-        </div>
+        {/* Hero split — cohérence visuelle landing */}
+        <section className="hero-split">
+          <div className="hero-teal">
+            <h1 className="heading-1 heading-hero">Contact</h1>
+            <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+            <p className="mt-3 text-white/90 text-lg md:text-xl">
+              Devis gratuit sous 24h — appelez-nous ou écrivez-nous.
+            </p>
+            <div className={`${ctaRow} mt-3`}>
+              <a href="tel:+33743670815" className="btn-white">
+                07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+              </a>
+              <a href="mailto:contact@rcp-multiservices.com" className="btn-request">
+                Nous écrire
+              </a>
+              <Link to="/services" className="btn-outline">
+                Voir nos services
+              </Link>
+              <GoogleReviewsBadge />
+            </div>
+          </div>
+          <div className="relative rounded-[24px] overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1526378722484-b51edf409d98?auto=format&fit=crop&w=1600&q=80"
+              alt="Contact — illustration"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              loading="lazy"
+              decoding="async"
+              width={1600}
+              height={1067}
+            />
+            <div className="image-overlay-teal" aria-hidden="true"></div>
+          </div>
+        </section>
 
         <section className="section-spacious panel panel-hover space-y-2">
           <h2 className="heading-2">Coordonnées</h2>

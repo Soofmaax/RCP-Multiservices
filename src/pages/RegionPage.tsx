@@ -54,11 +54,33 @@ export default function RegionPage() {
           / <span className="font-medium">{data.name}</span>
         </nav>
 
-        <h1 className="heading-1">{data.name}</h1>
-        <div className="accent mt-2"></div>
-        <p className="mt-3 text-neutral-600">
-          Choisissez une ville pour consulter les services disponibles et demander un devis.
-        </p>
+        {/* Hero split — style landing */}
+        <section className="hero-split">
+          <div className="hero-teal">
+            <h1 className="heading-1 heading-hero">{data.name}</h1>
+            <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+            <p className="mt-3 text-white/90 text-lg md:text-xl">
+              Zones d&apos;intervention et villes couvertes
+            </p>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+              <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
+              <Link to="/zones" className="btn-outline">Voir toutes les zones</Link>
+            </div>
+          </div>
+          <div className="relative rounded-[24px] overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+              alt={`${data.name} — illustration`}
+              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              loading="lazy"
+              decoding="async"
+              width={1600}
+              height={1067}
+            />
+            <div className="image-overlay-teal" aria-hidden="true"></div>
+          </div>
+        </section>
 
         <div className="mt-3">
           {data.departments.map((dept) => (

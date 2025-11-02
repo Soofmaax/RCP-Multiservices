@@ -83,24 +83,42 @@ export default function CityPage() {
           / <span className="font-medium">{match.city.name}</span>
         </nav>
 
-        <h1 className="heading-1">
-          Services à domicile à {match.city.name}
-        </h1>
-        <div className="accent mt-2"></div>
-        <p className="mt-3 text-neutral-600">
-          Nous proposons des prestations d&apos;aide à domicile, ménage, jardinage et
-          accompagnement à {match.city.name} et dans tout le département {match.department.name}.
-          Notre équipe qualifiée et assurée intervient rapidement selon vos besoins.
-        </p>
-        <div className={ctaRow}>
-          <a href="tel:+33743670815" className="btn-white">
-            07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
-          </a>
-          <Link to="/contact" className="btn-request">
-            Demander un devis
-          </Link>
-          <GoogleReviewsBadge />
-        </div>
+        {/* Hero split — cohérent avec la landing */}
+        <section className="hero-split">
+          <div className="hero-teal">
+            <h1 className="heading-1 heading-hero">
+              Services à domicile à {match.city.name}
+            </h1>
+            <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+            <p className="mt-3 text-white/90 text-lg md:text-xl">
+              {match.region.name} • {match.department.name}
+            </p>
+            <div className={`${ctaRow} mt-3`}>
+              <a href="tel:+33743670815" className="btn-white">
+                07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+              </a>
+              <Link to="/contact" className="btn-request">
+                Demander un rendez-vous
+              </Link>
+              <Link to={`/zones/${match.region.key}`} className="btn-outline">
+                Voir la région
+              </Link>
+              <GoogleReviewsBadge />
+            </div>
+          </div>
+          <div className="relative rounded-[24px] overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1600&q=80"
+              alt={`Ville de ${match.city.name} — illustration`}
+              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              loading="lazy"
+              decoding="async"
+              width={1600}
+              height={1067}
+            />
+            <div className="image-overlay-teal" aria-hidden="true"></div>
+          </div>
+        </section>
 
         <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">Prestations</h2>
