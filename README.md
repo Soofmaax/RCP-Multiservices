@@ -48,15 +48,17 @@ Ce projet React + TypeScript (Vite) propose:
 
 ## Captures (Screenshots)
 
-Placez vos captures dans `public/screenshots/` et référencez‑les ci‑dessous:
-- Hero (Desktop): `public/screenshots/hero-desktop.png`
-- Page Ville (Paris): `public/screenshots/city-paris.png`
-- Carte des zones (Leaflet): `public/screenshots/zones-map.png`
+Générez et insérez automatiquement les captures dans le README:
+```bash
+# installez Puppeteer si nécessaire
+npm i -D puppeteer
+# capture et mise à jour du README
+npm run screenshots
+```
 
-Exemple d’insertion:
-![Hero Desktop](public/screenshots/hero-desktop.png)
-![Page Ville — Paris](public/screenshots/city-paris.png)
-![Carte des zones](public/screenshots/zones-map.png)
+<!-- screenshots:start -->
+
+<!-- screenshots:end -->
 
 ## Stack & Architecture
 

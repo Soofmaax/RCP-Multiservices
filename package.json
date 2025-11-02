@@ -16,7 +16,8 @@
     "format:check": "prettier . --check",
     "test": "vitest",
     "test:ci": "vitest run --coverage",
-    "tokens:sync": "node scripts/sync-tokens.mjs"
+    "tokens:sync": "node scripts/sync-tokens.mjs",
+    "screenshots": "node scripts/capture-screenshots.mjs"
   },
   "dependencies": {
     
