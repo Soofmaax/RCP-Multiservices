@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Circle, Popup } from 'react-leaflet';
 import { useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,6 +30,11 @@ const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> 
     [48.8, -1.7],
     [50.0, 2.0],
   ],
+};
+
+const REGION_COVERAGE: Record<'ile-de-france' | 'normandie', { center: LatLngTuple; radius: number }> = {
+  'ile-de-france': { center: [48.8566, 2.3522], radius: 50000 }, // ~50 km autour de Paris
+  normandie: { center: [49.2, 0.5], radius: 120000 }, // ~120 km autour du centre de la Normandie
 };
 
 const FEATURED_CITIES: CityMarker[] = [
@@ -113,6 +118,23 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
         }}
       >
         <TileLayer url={TILE_URL} />
+        {/* Region coverage circles for clarity */}
+        {(
+          regionFilter === 'all'
+            ? (['ile-de-france', 'normandie'] as const)
+            : ([regionFilter] as const)
+        ).map((key) => {
+          const cfg = REGION_COVERAGE[key];
+          const color = COLOR_BY_REGION[key];
+          return (
+            <Circle
+              key={`cover-${key}`}
+              center={cfg.center}
+              radius={cfg.radius}
+              pathOptions={{ color, fillColor: color, fillOpacity: 0.15, weight: 1 }}
+            />
+          );
+        })}
         {markers}
       </MapContainer>
     </div>
