@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage } from '../pages';
+import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage, ServiceAidePage, ServiceMenagePage, ServiceJardinagePage } from '../pages';
 import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar } from '../components';
 import CookieConsent from '../components/CookieConsent';
 import { initAnalytics } from '../lib/analytics';
@@ -123,7 +123,7 @@ function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-                <Link to="/services#aide-a-domicile" className="link-more">
+                <Link to="/services/aide-a-domicile" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -147,7 +147,7 @@ function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-                <Link to="/services#menage-repassage" className="link-more">
+                <Link to="/services/menage-repassage" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -171,7 +171,7 @@ function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <a href="tel:+33743670815" className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-                <Link to="/services#jardinage" className="link-more">
+                <Link to="/services/jardinage" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -448,6 +448,9 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/aide-a-domicile" element={<ServiceAidePage />} />
+        <Route path="/services/menage-repassage" element={<ServiceMenagePage />} />
+        <Route path="/services/jardinage" element={<ServiceJardinagePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/zones" element={<ZonesRoot />} />
         <Route path="/zones/:region" element={<RegionPage />} />

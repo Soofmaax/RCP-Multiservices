@@ -23,6 +23,9 @@ function buildUrls(locations) {
   urls.add(`${SITE_URL}/`);
   urls.add(`${SITE_URL}/zones`);
   urls.add(`${SITE_URL}/services`);
+  urls.add(`${SITE_URL}/services/aide-a-domicile`);
+  urls.add(`${SITE_URL}/services/menage-repassage`);
+  urls.add(`${SITE_URL}/services/jardinage`);
   urls.add(`${SITE_URL}/contact`);
 
   for (const region of locations.regions) {

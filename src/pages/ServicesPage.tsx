@@ -111,7 +111,7 @@ export default function ServicesPage() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href="tel:+33743670815" className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              <Link to="/services#aide-a-domicile" className="link-more">
+              <Link to="/services/aide-a-domicile" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
               </Link>
             </div>
@@ -137,7 +137,7 @@ export default function ServicesPage() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href="tel:+33743670815" className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              <Link to="/services#menage-repassage" className="link-more">
+              <Link to="/services/menage-repassage" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
               </Link>
             </div>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href="tel:+33743670815" className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              <Link to="/services#jardinage" className="link-more">
+              <Link to="/services/jardinage" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
               </Link>
             </div>
