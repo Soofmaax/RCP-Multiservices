@@ -26,3 +26,7 @@ declare module '*.svg' {
   const src: string;
   export default src;
 }
+declare module '*.geojson' {
+  const data: unknown;
+  export default data;
+}

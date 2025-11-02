@@ -1,16 +1,44 @@
-import { MapContainer, TileLayer, Polygon } from 'react-leaflet';
-import { useEffect, useRef } from 'react';
-import { REGIONS_POLYGONS } from '../data/regions';
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
+import { useEffect, useMemo, useRef } from 'react';
+import regionsData from '../data/regions.geojson';
 
 type LatLngTuple = readonly [number, number];
 type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
 
+// Type minimal pour éviter d'introduire 'any'
+type GeoJsonObject = { type: string } & Record<string, unknown>;
+type Feature = {
+  type: 'Feature';
+  properties: Record<string, unknown>;
+  geometry: Record<string, unknown>;
+};
+type FeatureCollection = {
+  type: 'FeatureCollection';
+  features: Feature[];
+};
+
+function isFeatureCollection(x: unknown): x is FeatureCollection {
+  if (!x || typeof x !== 'object') return false;
+  const obj = x as Record<string, unknown>;
+  return obj.type === 'FeatureCollection' && Array.isArray(obj.features);
+}
+
+const NOM_BY_KEY: Record<'ile-de-france' | 'normandie', string> = {
+  'ile-de-france': 'Île-de-France',
+  normandie: 'Normandie',
+};
+
+const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
+  'ile-de-france': '#0B4EB3',
+  normandie: '#1C8C4B',
+};
+
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
-// Bounds covering Île-de-France & Normandie
+// Emprise générale couvrant IDF & Normandie
 const BOUNDS: BoundsTuple = [
-  [47.5, -1.0], // southwest
-  [50.5, 3.7],  // northeast
+  [47.5, -1.0], // sud-ouest
+  [50.5, 3.7],  // nord-est
 ];
 
 const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> = {
@@ -25,13 +53,24 @@ const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> 
   ],
 };
 
-const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
-  'ile-de-france': '#0B4EB3',
-  normandie: '#1C8C4B',
-};
-
 export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | 'ile-de-france' | 'normandie' }) {
   const mapRef = useRef<import('leaflet').Map | null>(null);
+
+  const featuresByKey = useMemo(() => {
+    const record: Partial<Record<'ile-de-france' | 'normandie', GeoJsonObject>> = {};
+    if (isFeatureCollection(regionsData)) {
+      for (const f of regionsData.features) {
+        const props = f.properties;
+        const nom = props && typeof props.nom === 'string' ? props.nom : null;
+        if (nom === NOM_BY_KEY['ile-de-france']) {
+          record['ile-de-france'] = f as unknown as GeoJsonObject;
+        } else if (nom === NOM_BY_KEY['normandie']) {
+          record['normandie'] = f as unknown as GeoJsonObject;
+        }
+      }
+    }
+    return record as Record<'ile-de-france' | 'normandie', GeoJsonObject>;
+  }, []);
 
   useEffect(() => {
     const m = mapRef.current;
@@ -44,7 +83,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
 
   return (
     <div className="relative h-[420px] w-full">
-      {/* Helper overlay + legend */}
+      {/* Légende discrète */}
       <div className="absolute top-2 left-2 z-[1000] rounded-[12px] bg-white/90 text-neutral-900 px-3 py-2 shadow text-sm">
         <div>Surbrillance des régions d&apos;intervention.</div>
         <div className="mt-1 flex items-center gap-3">
@@ -66,13 +105,17 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
         }}
       >
         <TileLayer url={TILE_URL} />
-        {keys.map((key) => (
-          <Polygon
-            key={`poly-${key}`}
-            positions={REGIONS_POLYGONS[key]}
-            pathOptions={{ color: COLOR_BY_REGION[key], fillColor: COLOR_BY_REGION[key], fillOpacity: 0.18, weight: 2 }}
-          />
-        ))}
+        {keys.map((key) => {
+          const data = featuresByKey[key];
+          const color = COLOR_BY_REGION[key];
+          return (
+            <GeoJSON
+              key={`geo-${key}`}
+              data={data}
+              style={() => ({ color, weight: 2, fillColor: color, fillOpacity: 0.18 })}
+            />
+          );
+        })}
       </MapContainer>
     </div>
   );
