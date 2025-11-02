@@ -8,6 +8,7 @@
 [![ESLint](https://img.shields.io/badge/ESLint-Strict-4b32c3?logo=eslint)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-Enabled-ff69b4?logo=prettier)](https://prettier.io/)
 [![Vitest](https://img.shields.io/badge/Tests-Coverage%20%E2%89%A5%2080%25-brightgreen?logo=vitest)](https://vitest.dev/)
+[![CI](https://img.shields.io/badge/CI-GitHub%20Actions-blue?logo=githubactions)](.github/workflows/ci.yml)
 
 Site vitrine “services à domicile” optimisé pour le SEO local (Île‑de‑France & Normandie), hébergé sur Netlify. Stack moderne, CI stricte, accessibilité et sécurité prises au sérieux.
 
@@ -15,6 +16,7 @@ Site vitrine “services à domicile” optimisé pour le SEO local (Île‑de�
 
 - Aperçu
 - Démo & Liens
+- Captures (Screenshots)
 - Stack & Architecture
 - Fonctionnalités clés
 - Qualité & CI
@@ -25,6 +27,8 @@ Site vitrine “services à domicile” optimisé pour le SEO local (Île‑de�
 - Performance (Core Web Vitals)
 - SEO technique
 - Variables d’environnement
+- Infos à renseigner (TODO)
+- Contribuer
 - Licence
 
 ## Aperçu
@@ -42,6 +46,18 @@ Ce projet React + TypeScript (Vite) propose:
 - robots.txt: https://www.rcp-multiservices.com/robots.txt
 - sitemap.xml: https://www.rcp-multiservices.com/sitemap.xml
 
+## Captures (Screenshots)
+
+Placez vos captures dans `public/screenshots/` et référencez‑les ci‑dessous:
+- Hero (Desktop): `public/screenshots/hero-desktop.png`
+- Page Ville (Paris): `public/screenshots/city-paris.png`
+- Carte des zones (Leaflet): `public/screenshots/zones-map.png`
+
+Exemple d’insertion:
+![Hero Desktop](public/screenshots/hero-desktop.png)
+![Page Ville — Paris](public/screenshots/city-paris.png)
+![Carte des zones](public/screenshots/zones-map.png)
+
 ## Stack & Architecture
 
 - React 18, TypeScript 5, Vite 5, Tailwind CSS 3
@@ -52,15 +68,17 @@ Ce projet React + TypeScript (Vite) propose:
 
 Arborescence (extraits):
 - src/
-  - components/ (Header, Badge Google Reviews, QuickCall, Reviews, MapZones)
+  - components/ (Header, GoogleReviewsBadge, QuickCall, Reviews, MapZones)
   - pages/ (Home, Services, Contact, ZonesIndex, Region, City, Legal, Privacy, 404)
   - routes/ (AppRoutes)
   - data/ (locations.json + types/helpers)
   - utils/ (styles, SEO helpers, openingHours)
   - lib/ (env, reviews)
-- public/ (robots.txt, 404.html)
+- public/ (robots.txt, 404.html, screenshots/)
 - scripts/ (generate-sitemap.mjs, sync-tokens.mjs)
 - netlify.toml (headers, redirects, functions)
+
+Note monorepo: Le dossier `next/` contient un prototype Next.js non utilisé en production. Il est conservé à titre d’exemple mais hors périmètre CI/Build.
 
 ## Fonctionnalités clés
 
@@ -113,6 +131,9 @@ Arborescence (extraits):
   - functions: `netlify/functions`
   - redirects: `/api/*` → `/.netlify/functions/:splat`
   - headers (sécurité + cache immuable sur assets/images)
+- Domaine:
+  - `www.rcp-multiservices.com` en primary
+  - Redirection apex → www configurée
 
 ## Sécurité & Headers
 
@@ -153,6 +174,18 @@ Arborescence (extraits):
   - `GOOGLE_PLACE_ID` — Place ID établissement
 
 Voir `.env.example` et config Netlify (Site settings → Environment variables).
+
+## Infos à renseigner (TODO)
+
+- SIRET: à compléter (footer + Mentions légales)
+- RC Pro: assureur + n° de police (footer + Mentions légales)
+- Adresse: à compléter (Contact + JSON‑LD)
+- Réseaux sociaux (sameAs dans JSON‑LD): LinkedIn, X/Twitter, Instagram, Facebook
+- og:image par défaut: ajouter `public/og-default.webp` et référencer dans Helmet
+
+## Contribuer
+
+Voir [CONTRIBUTING.md](./CONTRIBUTING.md) pour les conventions de commits (Conventional Commits), branchement (`feature/*`, `fix/*`, `chore/*`), exécution des scripts, CI et guidelines de code (TypeScript strict, accessibilité, SEO).
 
 ## Licence
 
