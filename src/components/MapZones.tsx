@@ -1,16 +1,9 @@
-import { MapContainer, TileLayer, CircleMarker, Circle, Popup } from 'react-leaflet';
-import { useEffect, useMemo, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { MapContainer, TileLayer, Polygon } from 'react-leaflet';
+import { useEffect, useRef } from 'react';
+import { REGIONS_POLYGONS } from '../data/regions';
 
 type LatLngTuple = readonly [number, number];
 type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
-
-type CityMarker = {
-  name: string;
-  slug: string;
-  regionKey: 'ile-de-france' | 'normandie';
-  pos: LatLngTuple;
-};
 
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
@@ -32,34 +25,13 @@ const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> 
   ],
 };
 
-const REGION_COVERAGE: Record<'ile-de-france' | 'normandie', { center: LatLngTuple; radius: number }> = {
-  // Affine pour éviter le débordement visuel
-  'ile-de-france': { center: [48.8566, 2.3522], radius: 40000 }, // ~40 km autour de Paris
-  normandie: { center: [49.2, 0.5], radius: 100000 }, // ~100 km autour du centre de la Normandie
-};
-
-const FEATURED_CITIES: CityMarker[] = [
-  { name: 'Paris', slug: 'paris', regionKey: 'ile-de-france', pos: [48.8566, 2.3522] },
-  { name: 'Versailles', slug: 'versailles', regionKey: 'ile-de-france', pos: [48.8014, 2.1301] },
-  { name: 'Meaux', slug: 'meaux', regionKey: 'ile-de-france', pos: [48.9602, 2.8784] },
-  { name: 'Chelles', slug: 'chelles', regionKey: 'ile-de-france', pos: [48.8813, 2.5911] },
-  { name: 'Fontainebleau', slug: 'fontainebleau', regionKey: 'ile-de-france', pos: [48.4079, 2.7016] },
-  { name: 'Rouen', slug: 'rouen', regionKey: 'normandie', pos: [49.4431, 1.0993] },
-];
-
 const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
-  'ile-de-france': '#0B4EB3', // teal/navy brand
-  normandie: '#1C8C4B', // green accent
+  'ile-de-france': '#0B4EB3',
+  normandie: '#1C8C4B',
 };
 
 export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | 'ile-de-france' | 'normandie' }) {
-  const navigate = useNavigate();
   const mapRef = useRef<import('leaflet').Map | null>(null);
-
-  const visibleCities = useMemo(
-    () => FEATURED_CITIES.filter((c) => (regionFilter === 'all' ? true : c.regionKey === regionFilter)),
-    [regionFilter],
-  );
 
   useEffect(() => {
     const m = mapRef.current;
@@ -68,13 +40,13 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
     m.fitBounds(b);
   }, [regionFilter]);
 
-  // Petits points ville supprimés pour une lecture plus claire des zones
+  const keys = regionFilter === 'all' ? (['ile-de-france', 'normandie'] as const) : ([regionFilter] as const);
 
   return (
     <div className="relative h-[420px] w-full">
       {/* Helper overlay + legend */}
       <div className="absolute top-2 left-2 z-[1000] rounded-[12px] bg-white/90 text-neutral-900 px-3 py-2 shadow text-sm">
-        <div>Cliquez sur un marqueur ou utilisez les filtres pour centrer la carte.</div>
+        <div>Surbrillance des régions d&apos;intervention.</div>
         <div className="mt-1 flex items-center gap-3">
           <span className="inline-flex items-center gap-1">
             <span className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: COLOR_BY_REGION['ile-de-france'] }}></span>
@@ -94,17 +66,17 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
         }}
       >
         <TileLayer url={TILE_URL} />
-        {/* Region coverage circles only (petits points supprimés) */}
-        {(
-          regionFilter === 'all'
-            ? (['ile-de-france', 'normandie'] as const)
-            : ([regionFilter] as const)
-        ).map((key) => {
-          const cfg = REGION_COVERAGE[key];
-          const color = COLOR_BY_REGION[key];
-          return (
-            <Circle
-              key={`cover-${key}`}
+        {keys.map((key) => (
+          <Polygon
+            key={`poly-${key}`}
+            positions={REGIONS_POLYGONS[key]}
+            pathOptions={{ color: COLOR_BY_REGION[key], fillColor: COLOR_BY_REGION[key], fillOpacity: 0.18, weight: 2 }}
+          />
+        ))}
+      </MapContainer>
+    </div>
+  );
+}`}
               center={cfg.center}
               radius={cfg.radius}
               pathOptions={{ color, fillColor: color, fillOpacity: 0.18, weight: 2 }}
