@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { LOCATIONS } from '../data/locations';
 import { MapZones } from '../components';
 
 export default function ZonesIndex() {
+  const [filter, setFilter] = useState<'all' | 'ile-de-france' | 'normandie'>('all');
+
   return (
     <main className="container">
       <nav className="text-sm text-neutral-600 mb-4">
@@ -14,15 +17,29 @@ export default function ZonesIndex() {
       <h1 className="heading-1">Zones d&apos;intervention</h1>
       <div className="accent mt-2"></div>
       <p className="mt-3 text-neutral-600">
-        Nous intervenons en Île-de-France et en Normandie. Sélectionnez une région puis une ville.
+        Nous intervenons en Île-de-France et en Normandie. Choisissez une région, puis cliquez sur un
+        marqueur ou un lien de ville.
       </p>
 
       {/* Map section */}
       <section className="section-spacious" aria-label="Carte des zones d'intervention">
         <h2 className="heading-2">Carte des zones d&apos;intervention</h2>
         <div className="accent mt-2"></div>
+
+        <div className="mt-3 flex flex-wrap items-center gap-2" role="group" aria-label="Filtrer par région">
+          <button type="button" className="btn-secondary" onClick={() => setFilter('all')}>
+            Toutes
+          </button>
+          <button type="button" className="btn-secondary" onClick={() => setFilter('ile-de-france')}>
+            Île-de-France
+          </button>
+          <button type="button" className="btn-secondary" onClick={() => setFilter('normandie')}>
+            Normandie
+          </button>
+        </div>
+
         <div className="mt-3 rounded-[24px] overflow-hidden border border-border/70 shadow-md">
-          <MapZones />
+          <MapZones regionFilter={filter} />
         </div>
       </section>
 
