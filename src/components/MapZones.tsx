@@ -6,7 +6,7 @@ import regionsData from '../data/regions.geojson';
 type LatLngTuple = readonly [number, number];
 type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
 
-// Type minimal pour éviter d'introduire 'any'
+// Types minimaux pour éviter 'any'
 type GeoJsonObject = { type: string } & Record<string, unknown>;
 type Feature = {
   type: 'Feature';
@@ -34,15 +34,15 @@ const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
   normandie: '#1C8C4B',
 };
 
-// Style constants (ajustables rapidement)
+// Style (ajustables)
 const FILL_OPACITY = 0.26;
 const STROKE_WEIGHT = 3;
-const OUTLINE_WEIGHT = 5; // léger contour blanc sous la bordure colorée
+const OUTLINE_WEIGHT = 5;
 const OUTLINE_OPACITY = 0.65;
 
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
-// Emprise générale couvrant IDF & Normandie
+// Emprise générale IDF & Normandie
 const BOUNDS: BoundsTuple = [
   [47.5, -1.0], // sud-ouest
   [50.5, 3.7],  // nord-est
@@ -128,10 +128,11 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
         <TileLayer url={TILE_URL} />
         {keys.map((key) => {
           const data = featuresByKey[key];
+          if (!data) return null;
           const color = COLOR_BY_REGION[key];
           return (
             <>
-              {/* Contour blanc sous-jacent pour lisibilité */}
+              {/* Contour blanc sous-jacent */}
               <GeoJSON
                 key={`geo-outline-${key}`}
                 data={data}
