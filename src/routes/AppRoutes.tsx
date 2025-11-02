@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage, ServiceAidePage, ServiceMenagePage, ServiceJardinagePage } from '../pages';
-import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar } from '../components';
+import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar, ScrollTop } from '../components';
 import CookieConsent from '../components/CookieConsent';
 import { initAnalytics } from '../lib/analytics';
 import { initClarity } from '../lib/clarity';
@@ -443,6 +443,7 @@ export default function AppRoutes() {
 
   return (
     <BrowserRouter>
+      <ScrollTop />
       <TopInfoBar />
       <Header />
       <Routes>

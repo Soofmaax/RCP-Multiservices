@@ -29,17 +29,34 @@ export default function ServiceMenagePage() {
           <Link to="/" className="hover:underline">Accueil</Link> / <Link to="/services" className="hover:underline">Services</Link> / <span className="font-medium">Ménage &amp; repassage</span>
         </nav>
 
-        <h1 className="heading-1">Ménage &amp; repassage</h1>
-        <div className="accent mt-2"></div>
-        <p className="mt-3 text-neutral-600">
-          Entretien régulier, grand ménage et remise en état, repassage soigné. Matériel adapté et contrôle qualité.
-        </p>
-
-        <div className={ctaRow}>
-          <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
-          <Link to="/contact" className="btn-request">Demander un devis</Link>
-          <GoogleReviewsBadge />
-        </div>
+        {/* Hero split — style landing */}
+        <section className="hero-split">
+          <div className="hero-teal">
+            <h1 className="heading-1 heading-hero">Ménage &amp; repassage</h1>
+            <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+            <p className="mt-3 text-white/90 text-lg md:text-xl">
+              Entretien régulier, grand ménage &amp; remise en état
+            </p>
+            <div className={`${ctaRow} mt-3`}>
+              <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+              <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
+              <Link to="/zones" className="btn-outline">Voir nos zones</Link>
+              <GoogleReviewsBadge />
+            </div>
+          </div>
+          <div className="relative rounded-[24px] overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1581579188871-45ea61f2a6b2?auto=format&fit=crop&w=1600&q=80"
+              alt="Ménage & repassage — illustration"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              loading="lazy"
+              decoding="async"
+              width={1600}
+              height={1067}
+            />
+            <div className="image-overlay-teal" aria-hidden="true"></div>
+          </div>
+        </section>
 
         <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">Prestations</h2>
