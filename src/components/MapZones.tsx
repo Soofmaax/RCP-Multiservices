@@ -33,8 +33,9 @@ const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> 
 };
 
 const REGION_COVERAGE: Record<'ile-de-france' | 'normandie', { center: LatLngTuple; radius: number }> = {
-  'ile-de-france': { center: [48.8566, 2.3522], radius: 50000 }, // ~50 km autour de Paris
-  normandie: { center: [49.2, 0.5], radius: 120000 }, // ~120 km autour du centre de la Normandie
+  // Affine pour éviter le débordement visuel
+  'ile-de-france': { center: [48.8566, 2.3522], radius: 40000 }, // ~40 km autour de Paris
+  normandie: { center: [49.2, 0.5], radius: 100000 }, // ~100 km autour du centre de la Normandie
 };
 
 const FEATURED_CITIES: CityMarker[] = [
@@ -67,32 +68,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
     m.fitBounds(b);
   }, [regionFilter]);
 
-  const markers = visibleCities.map((c) => {
-    const color = COLOR_BY_REGION[c.regionKey];
-    return (
-      <CircleMarker
-        key={c.slug}
-        center={c.pos}
-        pathOptions={{ color, fillColor: color, fillOpacity: 0.85, weight: 2 }}
-        radius={8}
-      >
-        <Popup>
-          <div className="text-sm">
-            <div className="font-medium">{c.name}</div>
-            <button
-              type="button"
-              className="btn-primary mt-2"
-              onClick={() => {
-                void navigate(`/zones/${c.regionKey}/${c.slug}`);
-              }}
-            >
-              Voir la ville
-            </button>
-          </div>
-        </Popup>
-      </CircleMarker>
-    );
-  });
+  // Petits points ville supprimés pour une lecture plus claire des zones
 
   return (
     <div className="relative h-[420px] w-full">
@@ -118,7 +94,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
         }}
       >
         <TileLayer url={TILE_URL} />
-        {/* Region coverage circles for clarity */}
+        {/* Region coverage circles only (petits points supprimés) */}
         {(
           regionFilter === 'all'
             ? (['ile-de-france', 'normandie'] as const)
@@ -131,11 +107,10 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
               key={`cover-${key}`}
               center={cfg.center}
               radius={cfg.radius}
-              pathOptions={{ color, fillColor: color, fillOpacity: 0.15, weight: 1 }}
+              pathOptions={{ color, fillColor: color, fillOpacity: 0.18, weight: 2 }}
             />
           );
         })}
-        {markers}
       </MapContainer>
     </div>
   );
