@@ -17,7 +17,8 @@
     "test": "vitest",
     "test:ci": "vitest run --coverage",
     "tokens:sync": "node scripts/sync-tokens.mjs",
-    "screenshots": "node scripts/capture-screenshots.mjs"
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "audit:site": "node scripts/audit.mjs"
   },
   "dependencies": {
     

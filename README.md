@@ -22,6 +22,7 @@ Site vitrine “services à domicile” optimisé pour le SEO local (Île‑de�
 - Qualité & CI
 - Démarrage & Scripts
 - Déploiement Netlify
+- Audit automatisé de PR
 - Sécurité & Headers
 - Accessibilité (WCAG AA)
 - Performance (Core Web Vitals)
@@ -136,6 +137,33 @@ Note monorepo: Le dossier `next/` contient un prototype Next.js non utilisé en 
 - Domaine:
   - `www.rcp-multiservices.com` en primary
   - Redirection apex → www configurée
+
+## Audit automatisé de PR
+
+Exécutez un audit qualité automatisé sur l’URL de prévisualisation (Netlify/Vercel) de la Pull Request.
+
+Pré-requis (optionnels mais recommandés):
+- Lighthouse + Chrome launcher: `npm i -D lighthouse chrome-launcher`
+- Puppeteer + Axe: `npm i -D puppeteer axe-core`
+
+Commande:
+```bash
+# avec variable d'environnement
+BASE_URL="https://deploy-preview-123--rcp-multiservices.netlify.app" npm run audit:site
+
+# ou en argument
+npm run audit:site -- "https://deploy-preview-123--rcp-multiservices.netlify.app"
+```
+
+Ce script:
+- Valide tous les liens du site via le sitemap (404/5xx)
+- Lance Lighthouse (si installé) et remonte les scores Performance, Accessibilité, Bonnes pratiques, SEO
+- Lance Axe sur 3 pages (Accueil, Services, Contact) et liste les violations crit./serious
+- Inspecte les en-têtes HTTP (HSTS, XFO, XCTO, CSP, Referrer-Policy, Permissions-Policy, COOP/CORP)
+- Vérifie `/robots.txt`, `/sitemap.xml` et métadonnées de la homepage (title, description, OG)
+
+Sortie:
+- Un rapport Markdown est écrit dans `./audit-report.md` que vous pouvez copier-coller dans le commentaire de la PR.
 
 ## Sécurité & Headers
 
