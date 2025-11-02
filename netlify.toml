@@ -11,8 +11,8 @@
 
 # Canonical domain redirect (apex -> www)
 [[redirects]]
-  from = "https://rcp-multisevices.com/*"
-  to = "https://www.rcp-multisevices.com/:splat"
+  from = "https://rcp-multiservices.com/*"
+  to = "https://www.rcp-multiservices.com/:splat"
   status = 301
   force = true
 
