@@ -1,13 +1,23 @@
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { geoJSON } from 'leaflet';
-import type { GeoJsonObject as GJObject, FeatureCollection as GJFeatureCollection } from 'geojson';
-import regionsData from '../data/regions.geojson';
 
 type LatLngTuple = readonly [number, number];
 type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
 
-function isFeatureCollection(x: unknown): x is GJFeatureCollection {
+// Types locaux minimaux
+type GeoJsonObject = { type: string } & Record<string, unknown>;
+type Feature = {
+  type: 'Feature';
+  properties: Record<string, unknown>;
+  geometry: Record<string, unknown>;
+};
+type FeatureCollection = {
+  type: 'FeatureCollection';
+  features: Feature[];
+};
+
+function isFeatureCollection(x: unknown): x is FeatureCollection {
   if (!x || typeof x !== 'object') return false;
   const obj = x as Record<string, unknown>;
   return obj.type === 'FeatureCollection' && Array.isArray((obj as { features?: unknown }).features);
@@ -51,22 +61,31 @@ const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> 
 
 export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | 'ile-de-france' | 'normandie' }) {
   const mapRef = useRef<import('leaflet').Map | null>(null);
+  const [featuresByKey, setFeaturesByKey] = useState<Record<'ile-de-france' | 'normandie', GeoJsonObject> | null>(null);
 
-  const featuresByKey = useMemo(() => {
-    const record: Partial<Record<'ile-de-france' | 'normandie', GJObject>> = {};
-    if (isFeatureCollection(regionsData)) {
-      const fc = regionsData as GJFeatureCollection;
-      for (const f of fc.features) {
-        const props = f.properties as Record<string, unknown> | undefined;
-        const nom = props && typeof props.nom === 'string' ? (props.nom as string) : null;
-        if (nom === NOM_BY_KEY['ile-de-france']) {
-          record['ile-de-france'] = f as unknown as GJObject;
-        } else if (nom === NOM_BY_KEY['normandie']) {
-          record['normandie'] = f as unknown as GJObject;
+  // Chargement du GeoJSON depuis le dossier public
+  useEffect(() => {
+    void (async () => {
+      try {
+        const res = await fetch('/data/regions.geojson');
+        if (!res.ok) return;
+        const json = await res.json();
+        if (!isFeatureCollection(json)) return;
+
+        const record: Partial<Record<'ile-de-france' | 'normandie', GeoJsonObject>> = {};
+        for (const f of json.features) {
+          const nom = typeof f.properties?.nom === 'string' ? (f.properties.nom as string) : null;
+          if (nom === NOM_BY_KEY['ile-de-france']) {
+            record['ile-de-france'] = f as unknown as GeoJsonObject;
+          } else if (nom === NOM_BY_KEY['normandie']) {
+            record['normandie'] = f as unknown as GeoJsonObject;
+          }
         }
+        setFeaturesByKey(record as Record<'ile-de-france' | 'normandie', GeoJsonObject>);
+      } catch {
+        // ignore
       }
-    }
-    return record as Record<'ile-de-france' | 'normandie', GJObject>;
+    })();
   }, []);
 
   const keys = regionFilter === 'all' ? (['ile-de-france', 'normandie'] as const) : ([regionFilter] as const);
@@ -77,7 +96,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
 
     let bounds: import('leaflet').LatLngBounds | null = null;
     for (const key of keys) {
-      const data = featuresByKey[key];
+      const data = featuresByKey?.[key];
       if (!data) continue;
       const gj = geoJSON(data);
       const b = gj.getBounds();
@@ -117,7 +136,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
       >
         <TileLayer url={TILE_URL} />
         {keys.map((key) => {
-          const data = featuresByKey[key];
+          const data = featuresByKey?.[key];
           if (!data) return null;
           const color = COLOR_BY_REGION[key];
           return (
