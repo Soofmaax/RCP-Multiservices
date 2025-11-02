@@ -18,7 +18,7 @@ export default function ZonesIndex() {
       </p>
 
       {/* Map section */}
-      <section className="section-spacious">
+      <section className="section-spacious" aria-label="Carte des zones d'intervention">
         <h2 className="heading-2">Carte des zones d&apos;intervention</h2>
         <div className="accent mt-2"></div>
         <div className="mt-3 rounded-[24px] overflow-hidden border border-border/70 shadow-md">
