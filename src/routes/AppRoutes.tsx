@@ -5,6 +5,7 @@ import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPa
 import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar } from '../components';
 import CookieConsent from '../components/CookieConsent';
 import { initAnalytics } from '../lib/analytics';
+import { initClarity } from '../lib/clarity';
 import { onConsentChange } from '../lib/consent';
 import { btnPrimary, ctaRow } from '../utils/styles';
 
@@ -430,8 +431,12 @@ export default function AppRoutes() {
   useEffect(() => {
     // init analytics if consent & tag present
     initAnalytics();
+    // init Microsoft Clarity if consent & ID present
+    initClarity();
+
     const off = onConsentChange(() => {
       initAnalytics();
+      initClarity();
     });
     return () => off();
   }, []);

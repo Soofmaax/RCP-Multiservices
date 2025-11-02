@@ -38,3 +38,27 @@ export function getGtagId(): string | undefined {
   const trimmed = raw.trim();
   return trimmed.length ? trimmed : undefined;
 }
+
+export function getClarityId(): string | undefined {
+  const override = (globalThis.__APP_TEST_ENV__ as any)?.VITE_CLARITY_ID;
+  const raw =
+    typeof override === 'string' && override.length > 0
+      ? override
+      : (import.meta.env as any).VITE_CLARITY_ID;
+
+  if (typeof raw !== 'string') return undefined;
+  const trimmed = raw.trim();
+  return trimmed.length ? trimmed : undefined;
+}
+
+export function getClarityId(): string | undefined {
+  const override = (globalThis.__APP_TEST_ENV__ as any)?.VITE_CLARITY_ID;
+  const raw =
+    typeof override === 'string' && override.length > 0
+      ? override
+      : (import.meta.env as any).VITE_CLARITY_ID;
+
+  if (typeof raw !== 'string') return undefined;
+  const trimmed = raw.trim();
+  return trimmed.length ? trimmed : undefined;
+}
