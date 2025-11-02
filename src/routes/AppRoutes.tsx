@@ -4,7 +4,7 @@ import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPa
 import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar } from '../components';
 import { btnPrimary, ctaRow } from '../utils/styles';
 
-const SITE_URL = 'https://www.rcp-multisevices.com';
+const SITE_URL = 'https://www.rcp-multiservices.com';
 
 function Home() {
   const canonical = `${SITE_URL}/`;
