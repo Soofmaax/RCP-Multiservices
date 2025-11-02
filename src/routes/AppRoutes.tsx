@@ -1,7 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage } from '../pages';
 import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar } from '../components';
+import CookieConsent from '../components/CookieConsent';
+import { initAnalytics } from '../lib/analytics';
+import { onConsentChange } from '../lib/consent';
 import { btnPrimary, ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
@@ -406,7 +410,16 @@ function Footer() {
       <hr className="mt-8 border-white/20" />
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-white/70 text-sm">
           <div>© {new Date().getFullYear()} RCP Multiservices · Île-de-France &amp; Normandie</div>
-          <div>SIRET: à compléter • RC Pro: à compléter</div>
+          <div className="flex items-center gap-3">
+            <span>SIRET: à compléter • RC Pro: à compléter</span>
+            <button
+              type="button"
+              className="underline hover:text-secondary"
+              onClick={() => window.dispatchEvent(new Event('openConsent'))}
+            >
+              Gérer les cookies
+            </button>
+          </div>
         </div>
       </div>
     </footer>
@@ -414,6 +427,15 @@ function Footer() {
 }
 
 export default function AppRoutes() {
+  useEffect(() => {
+    // init analytics if consent & tag present
+    initAnalytics();
+    const off = onConsentChange(() => {
+      initAnalytics();
+    });
+    return () => off();
+  }, []);
+
   return (
     <BrowserRouter>
       <TopInfoBar />
@@ -431,6 +453,7 @@ export default function AppRoutes() {
       </Routes>
       <QuickCall />
       <Footer />
+      <CookieConsent />
     </BrowserRouter>
   );
 }

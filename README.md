@@ -142,6 +142,7 @@ Note monorepo: Le dossier `next/` contient un prototype Next.js non utilisé en 
 - Strict‑Transport‑Security, X‑Frame‑Options, X‑Content‑Type‑Options, Referrer‑Policy, Permissions‑Policy
 - Cross‑Origin‑Opener‑Policy, Cross‑Origin‑Resource‑Policy
 - CSP (Note): Leaflet utilise des styles inline dynamiques → style‑src contient 'unsafe‑inline' pour compatibilité.
+- Pour activer Google Analytics (GA4), ajoutez `https://www.googletagmanager.com` à `script-src` dans la CSP.
 - Cache‑Control (immutable) sur /assets/* et /images/*
 
 ## Accessibilité (WCAG AA)
