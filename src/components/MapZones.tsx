@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import { useEffect, useMemo, useRef } from 'react';
+import { geoJSON } from 'leaflet';
 import regionsData from '../data/regions.geojson';
 
 type LatLngTuple = readonly [number, number];
@@ -32,6 +33,12 @@ const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
   'ile-de-france': '#0B4EB3',
   normandie: '#1C8C4B',
 };
+
+// Style constants (ajustables rapidement)
+const FILL_OPACITY = 0.26;
+const STROKE_WEIGHT = 3;
+const OUTLINE_WEIGHT = 5; // léger contour blanc sous la bordure colorée
+const OUTLINE_OPACITY = 0.65;
 
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
@@ -72,14 +79,28 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
     return record as Record<'ile-de-france' | 'normandie', GeoJsonObject>;
   }, []);
 
+  const keys = regionFilter === 'all' ? (['ile-de-france', 'normandie'] as const) : ([regionFilter] as const);
+
   useEffect(() => {
     const m = mapRef.current;
     if (!m) return;
-    const b = REGION_BOUNDS[regionFilter];
-    m.fitBounds(b);
-  }, [regionFilter]);
 
-  const keys = regionFilter === 'all' ? (['ile-de-france', 'normandie'] as const) : ([regionFilter] as const);
+    let bounds: import('leaflet').LatLngBounds | null = null;
+    for (const key of keys) {
+      const data = featuresByKey[key];
+      if (!data) continue;
+      const gj = geoJSON(data as any);
+      const b = gj.getBounds();
+      bounds = bounds ? bounds.extend(b) : b;
+    }
+
+    if (bounds) {
+      m.fitBounds(bounds, { padding: [18, 18] });
+    } else {
+      const fallback = REGION_BOUNDS[regionFilter];
+      m.fitBounds(fallback);
+    }
+  }, [regionFilter, featuresByKey, keys]);
 
   return (
     <div className="relative h-[420px] w-full">
@@ -109,11 +130,30 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
           const data = featuresByKey[key];
           const color = COLOR_BY_REGION[key];
           return (
-            <GeoJSON
-              key={`geo-${key}`}
-              data={data}
-              style={() => ({ color, weight: 2, fillColor: color, fillOpacity: 0.18 })}
-            />
+            <>
+              {/* Contour blanc sous-jacent pour lisibilité */}
+              <GeoJSON
+                key={`geo-outline-${key}`}
+                data={data}
+                style={() => ({
+                  color: '#ffffff',
+                  weight: OUTLINE_WEIGHT,
+                  opacity: OUTLINE_OPACITY,
+                  fill: false,
+                })}
+              />
+              {/* Couche principale colorée */}
+              <GeoJSON
+                key={`geo-fill-${key}`}
+                data={data}
+                style={() => ({
+                  color,
+                  weight: STROKE_WEIGHT,
+                  fillColor: color,
+                  fillOpacity: FILL_OPACITY,
+                })}
+              />
+            </>
           );
         })}
       </MapContainer>
