@@ -172,6 +172,44 @@ body,
     mask-image: linear-gradient(to left, transparent 0%, black 40%);
   }
 
+  /* Micro-animations & premium lists */
+  @keyframes fade-up {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fade-up 500ms ease-out both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up { animation: none !important; }
+  }
+  .list-check {
+    /* base list removes default bullets, we draw custom checks */
+    list-style: none;
+    padding-left: 0;
+  }
+  .list-check li {
+    position: relative;
+    padding-left: 1.25rem; /* space for the check icon */
+    color: rgb(var(--color-neutral-600-rgb, 71 85 105));
+    animation: fade-up 500ms ease-out both;
+  }
+  .list-check li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.125rem;
+    color: rgb(var(--color-primary-rgb));
+    font-weight: 700;
+  }
+  /* simple stagger */
+  .list-check li:nth-child(1) { animation-delay: 0ms; }
+  .list-check li:nth-child(2) { animation-delay: 80ms; }
+  .list-check li:nth-child(3) { animation-delay: 160ms; }
+  .list-check li:nth-child(4) { animation-delay: 240ms; }
+  .list-check li:nth-child(5) { animation-delay: 320ms; }
+  .list-check li:nth-child(6) { animation-delay: 400ms; }
+
   /* Spacing */
   .section-spacious {
     @apply mt-10 md:mt-12;

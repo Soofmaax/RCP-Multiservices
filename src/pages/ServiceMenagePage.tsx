@@ -61,7 +61,7 @@ export default function ServiceMenagePage() {
         <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">Prestations</h2>
           <div className="accent mt-2"></div>
-          <ul className="mt-2 list-disc list-inside text-neutral-600">
+          <ul className="service-list list-check mt-2">
             <li>Entretien régulier (poussière, sols, sanitaires, cuisine)</li>
             <li>Grand ménage et remise en état</li>
             <li>Repassage et pliage</li>

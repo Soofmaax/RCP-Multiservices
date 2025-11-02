@@ -112,7 +112,7 @@ export default function ServicesPage() {
         </section>
 
         <section id="aide-a-domicile" className="section-spacious">
-          <article className="service-card group">
+          <article className="service-card group animate-fade-up">
             <div className="flex items-center gap-3">
               <div className="icon-teal">
                 <ServiceIconHomeAssist />
@@ -122,7 +122,7 @@ export default function ServicesPage() {
             <p className="service-desc mt-2">
               Appel direct et réponse immédiate. Intervenants qualifiés et assurés pour vous accompagner au quotidien.
             </p>
-            <ul className="service-list mt-2">
+            <ul className="service-list list-check mt-2">
               <li>Courses, préparation des repas</li>
               <li>Aide administrative, accompagnement</li>
               <li>Compagnie et sorties</li>
@@ -138,7 +138,7 @@ export default function ServicesPage() {
         </section>
 
         <section id="menage-repassage" className="section-spacious">
-          <article className="service-card group">
+          <article className="service-card group animate-fade-up">
             <div className="flex items-center gap-3">
               <div className="icon-teal">
                 <ServiceIconClean />
@@ -148,7 +148,7 @@ export default function ServicesPage() {
             <p className="service-desc mt-2">
               Planning flexible, contrôle qualité et matériel adapté pour un entretien impeccable.
             </p>
-            <ul className="service-list mt-2">
+            <ul className="service-list list-check mt-2">
               <li>Entretien régulier de la maison/appartement</li>
               <li>Grand ménage, remise en état</li>
               <li>Repassage, pliage</li>
@@ -164,7 +164,7 @@ export default function ServicesPage() {
         </section>
 
         <section id="jardinage" className="section-spacious">
-          <article className="service-card group">
+          <article className="service-card group animate-fade-up">
             <div className="flex items-center gap-3">
               <div className="icon-teal">
                 <ServiceIconGarden />
@@ -174,7 +174,7 @@ export default function ServicesPage() {
             <p className="service-desc mt-2">
               Intervention rapide et résultat durable pour vos espaces verts.
             </p>
-            <ul className="service-list mt-2">
+            <ul className="service-list list-check mt-2">
               <li>Tonte, taille, désherbage</li>
               <li>Entretien des haies et massifs</li>
               <li>Petits aménagements</li>

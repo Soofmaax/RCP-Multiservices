@@ -123,7 +123,7 @@ export default function CityPage() {
         <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">Prestations</h2>
           <div className="accent mt-2"></div>
-          <ul className="mt-2 list-disc list-inside text-neutral-600">
+          <ul className="service-list list-check mt-2">
             <li>Aide à domicile (courses, préparation des repas, accompagnement)</li>
             <li>Ménage et repassage</li>
             <li>Jardinage (tonte, taille, entretien)</li>

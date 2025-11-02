@@ -61,7 +61,7 @@ export default function ServiceAidePage() {
         <section className="section-spacious panel panel-hover">
           <h2 className="heading-2">Prestations</h2>
           <div className="accent mt-2"></div>
-          <ul className="mt-2 list-disc list-inside text-neutral-600">
+          <ul className="service-list list-check mt-2">
             <li>Courses, préparation des repas</li>
             <li>Aide administrative et accompagnement</li>
             <li>Compagnie, sorties et stimulation</li>
