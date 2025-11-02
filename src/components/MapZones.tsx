@@ -30,7 +30,7 @@ const NOM_BY_KEY: Record<'ile-de-france' | 'normandie', string> = {
 
 const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
   'ile-de-france': '#0B4EB3',
-  normandie: '#1C8C4B',
+  normandie: '#0B4EB3',
 };
 
 // Styles ajustables
