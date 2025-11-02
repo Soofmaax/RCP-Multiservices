@@ -1,6 +1,13 @@
 import { hasConsentForAnalytics } from './consent';
 import { getGtagId } from './env';
 
+declare global {
+  interface Window {
+    dataLayer?: Array<unknown>;
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 let initialized = false;
 
 export function initAnalytics(): void {
@@ -21,11 +28,11 @@ export function initAnalytics(): void {
   s.src = src;
   document.head.appendChild(s);
 
-  (window as any).dataLayer = (window as any).dataLayer || [];
-  function gtag(...args: any[]) {
-    (window as any).dataLayer.push(args);
-  }
-  (window as any).gtag = gtag;
+  window.dataLayer = window.dataLayer || [];
+  const gtag: (...args: unknown[]) => void = (...args) => {
+    window.dataLayer!.push(args);
+  };
+  window.gtag = gtag;
 
   gtag('js', new Date());
   gtag('config', gtagId, { anonymize_ip: true });

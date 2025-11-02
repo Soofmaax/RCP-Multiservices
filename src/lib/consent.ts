@@ -9,9 +9,10 @@ export function getConsent(): Consent | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    const parsed = JSON.parse(raw) as Consent;
-    if (!parsed || typeof parsed.analytics !== 'boolean') return null;
-    return { necessary: true, analytics: parsed.analytics };
+    const parsed = JSON.parse(raw) as unknown;
+    const c = parsed as Partial<Consent>;
+    if (!c || typeof c.analytics !== 'boolean') return null;
+    return { necessary: true, analytics: c.analytics };
   } catch {
     return null;
   }
@@ -20,7 +21,7 @@ export function getConsent(): Consent | null {
 export function setConsent(consent: Consent): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
   // notify app
-  const evt = new CustomEvent<Consent>('rcp:consent', { detail: consent } as any);
+  const evt = new CustomEvent<Consent>('rcp:consent', { detail: consent });
   window.dispatchEvent(evt);
 }
 

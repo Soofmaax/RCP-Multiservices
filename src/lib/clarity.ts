@@ -1,6 +1,13 @@
 import { hasConsentForAnalytics } from './consent';
 import { getClarityId } from './env';
 
+declare global {
+  interface Window {
+    // Clarity function with an internal queue
+    clarity?: ((...args: unknown[]) => void) & { q?: unknown[] };
+  }
+}
+
 let initialized = false;
 
 export function initClarity(): void {
@@ -12,19 +19,20 @@ export function initClarity(): void {
     return;
   }
 
-  // Microsoft Clarity snippet
-  (function (c: any, l: Document, a: string, r: string, i: string) {
-    c[a] =
-      c[a] ||
-      function () {
-        (c[a].q = c[a].q || []).push(arguments);
-      };
-    const t = l.createElement(r);
-    t.async = 1;
-    (t as HTMLScriptElement).src = 'https://www.clarity.ms/tag/' + i;
-    const y = l.getElementsByTagName(r)[0];
-    y.parentNode?.insertBefore(t, y);
-  })(window, document, 'clarity', 'script', clarityId);
+  // Prepare a queued clarity function
+  if (!window.clarity) {
+    window.clarity = (...args: unknown[]) => {
+      const fn = window.clarity!;
+      fn.q = fn.q || [];
+      fn.q.push(args);
+    };
+  }
+
+  // Inject Clarity script
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.clarity.ms/tag/' + encodeURIComponent(clarityId);
+  document.head.appendChild(s);
 
   initialized = true;
 }

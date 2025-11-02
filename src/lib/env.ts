@@ -28,11 +28,11 @@ export function getReviewsEndpoint(): string | undefined {
 }
 
 export function getGtagId(): string | undefined {
-  const override = (globalThis.__APP_TEST_ENV__ as any)?.VITE_GTAG_ID;
+  const override = globalThis.__APP_TEST_ENV__?.VITE_GTAG_ID;
   const raw =
     typeof override === 'string' && override.length > 0
       ? override
-      : (import.meta.env as any).VITE_GTAG_ID;
+      : import.meta.env.VITE_GTAG_ID;
 
   if (typeof raw !== 'string') return undefined;
   const trimmed = raw.trim();
@@ -40,11 +40,11 @@ export function getGtagId(): string | undefined {
 }
 
 export function getClarityId(): string | undefined {
-  const override = (globalThis.__APP_TEST_ENV__ as any)?.VITE_CLARITY_ID;
+  const override = globalThis.__APP_TEST_ENV__?.VITE_CLARITY_ID;
   const raw =
     typeof override === 'string' && override.length > 0
       ? override
-      : (import.meta.env as any).VITE_CLARITY_ID;
+      : import.meta.env.VITE_CLARITY_ID;
 
   if (typeof raw !== 'string') return undefined;
   const trimmed = raw.trim();

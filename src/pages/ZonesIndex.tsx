@@ -85,7 +85,9 @@ export default function ZonesIndex() {
                   <button
                     type="button"
                     className="w-full text-left px-3 py-2 hover:bg-surface.light"
-                    onClick={() => navigate(`/zones/${s.regionKey}/${s.slug}`)}
+                    onClick={() => {
+                      void navigate(`/zones/${s.regionKey}/${s.slug}`);
+                    }}
                   >
                     {s.name} <span className="text-neutral-600">({s.regionKey === 'ile-de-france' ? 'Île-de-France' : 'Normandie'})</span>
                   </button>

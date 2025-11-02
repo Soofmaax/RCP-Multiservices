@@ -128,34 +128,37 @@ export default function ContactPage() {
             method="POST"
             data-netlify="true"
             netlify-honeypot="company"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.currentTarget as HTMLFormElement;
+            onSubmit={(e) => {
+              const handleSubmit = async (evt: React.FormEvent<HTMLFormElement>) => {
+                evt.preventDefault();
+                const form = evt.currentTarget as HTMLFormElement;
 
-              const encode = (f: HTMLFormElement): string => {
-                const fd = new FormData(f);
-                const params = new URLSearchParams();
-                // include form-name for Netlify processing
-                params.append('form-name', 'contact');
-                fd.forEach((value, key) => {
-                  if (typeof value === 'string') {
-                    params.append(key, value);
-                  }
-                });
-                return params.toString();
+                const encode = (f: HTMLFormElement): string => {
+                  const fd = new FormData(f);
+                  const params = new URLSearchParams();
+                  // include form-name for Netlify processing
+                  params.append('form-name', 'contact');
+                  fd.forEach((value, key) => {
+                    if (typeof value === 'string') {
+                      params.append(key, value);
+                    }
+                  });
+                  return params.toString();
+                };
+
+                try {
+                  await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: encode(form),
+                  });
+                  alert('Merci, votre demande a été envoyée.');
+                  form.reset();
+                } catch {
+                  alert('Une erreur est survenue. Merci de réessayer ou de nous appeler.');
+                }
               };
-
-              try {
-                await fetch('/', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                  body: encode(form),
-                });
-                alert('Merci, votre demande a été envoyée.');
-                form.reset();
-              } catch {
-                alert('Une erreur est survenue. Merci de réessayer ou de nous appeler.');
-              }
+              void handleSubmit(e);
             }}
           >
             {/* Required hidden input for Netlify Forms */}
