@@ -48,7 +48,7 @@ function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
-      <main className="container">
+      <main id="main" className="container">
         {/* Hero split (teal panel + royalty-free image) */}
         {(() => {
           const heroImg =
@@ -86,6 +86,8 @@ function Home() {
                   className="w-full h-full object-cover md:min-h-[360px] mask-image"
                   loading="lazy"
                   decoding="async"
+                  width={1600}
+                  height={1067}
                 />
                 <div className="image-overlay-teal" aria-hidden="true"></div>
               </div>
@@ -201,6 +203,8 @@ function Home() {
               className="w-full h-[420px] object-cover"
               loading="lazy"
               decoding="async"
+              width={1600}
+              height={1067}
             />
             <div className="absolute inset-y-0 right-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 flex flex-col justify-center rounded-l-[24px]">
               <div className="uppercase tracking-wide text-white/80 text-sm">Ce que disent nos clients</div>
