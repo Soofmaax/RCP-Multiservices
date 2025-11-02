@@ -186,6 +186,14 @@ Voir `.env.example` et config Netlify (Site settings → Environment variables).
 - Adresse: à compléter (Contact + JSON‑LD)
 - Réseaux sociaux (sameAs dans JSON‑LD): LinkedIn, X/Twitter, Instagram, Facebook
 - og:image par défaut: ajouter `public/og-default.webp` et référencer dans Helmet
+- Images de hero: à personnaliser plus tard (laisser en l’état pour le moment). Pages et fichiers concernés:
+  - Accueil: `src/routes/AppRoutes.tsx`
+  - Services: `src/pages/ServicesPage.tsx`
+  - Contact: `src/pages/ContactPage.tsx`
+  - Zones (index): `src/pages/ZonesIndex.tsx`
+  - Région: `src/pages/RegionPage.tsx`
+  - Ville: `src/pages/CityPage.tsx`
+- Micro‑animations étendues (optionnel): à appliquer plus tard sur cartes témoignages et listes de départements/zones (stagger, hover, fade), en conservant `prefers-reduced-motion`.
 
 ## Contribuer
 
