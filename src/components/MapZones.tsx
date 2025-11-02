@@ -1,27 +1,16 @@
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import { useEffect, useMemo, useRef } from 'react';
 import { geoJSON } from 'leaflet';
+import type { GeoJsonObject as GJObject, FeatureCollection as GJFeatureCollection } from 'geojson';
 import regionsData from '../data/regions.geojson';
 
 type LatLngTuple = readonly [number, number];
 type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
 
-// Types minimaux pour éviter 'any'
-type GeoJsonObject = { type: string } & Record<string, unknown>;
-type Feature = {
-  type: 'Feature';
-  properties: Record<string, unknown>;
-  geometry: Record<string, unknown>;
-};
-type FeatureCollection = {
-  type: 'FeatureCollection';
-  features: Feature[];
-};
-
-function isFeatureCollection(x: unknown): x is FeatureCollection {
+function isFeatureCollection(x: unknown): x is GJFeatureCollection {
   if (!x || typeof x !== 'object') return false;
   const obj = x as Record<string, unknown>;
-  return obj.type === 'FeatureCollection' && Array.isArray(obj.features);
+  return obj.type === 'FeatureCollection' && Array.isArray((obj as { features?: unknown }).features);
 }
 
 const NOM_BY_KEY: Record<'ile-de-france' | 'normandie', string> = {
@@ -34,11 +23,11 @@ const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
   normandie: '#1C8C4B',
 };
 
-// Style (ajustables)
-const FILL_OPACITY = 0.26;
-const STROKE_WEIGHT = 3;
-const OUTLINE_WEIGHT = 5;
-const OUTLINE_OPACITY = 0.65;
+// Styles ajustables
+const FILL_OPACITY = 0.24;
+const STROKE_WEIGHT = 4;
+const OUTLINE_WEIGHT = 6;
+const OUTLINE_OPACITY = 0.5;
 
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
@@ -64,19 +53,20 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
   const mapRef = useRef<import('leaflet').Map | null>(null);
 
   const featuresByKey = useMemo(() => {
-    const record: Partial<Record<'ile-de-france' | 'normandie', GeoJsonObject>> = {};
+    const record: Partial<Record<'ile-de-france' | 'normandie', GJObject>> = {};
     if (isFeatureCollection(regionsData)) {
-      for (const f of regionsData.features) {
-        const props = f.properties;
-        const nom = props && typeof props.nom === 'string' ? props.nom : null;
+      const fc = regionsData as GJFeatureCollection;
+      for (const f of fc.features) {
+        const props = f.properties as Record<string, unknown> | undefined;
+        const nom = props && typeof props.nom === 'string' ? (props.nom as string) : null;
         if (nom === NOM_BY_KEY['ile-de-france']) {
-          record['ile-de-france'] = f as unknown as GeoJsonObject;
+          record['ile-de-france'] = f as unknown as GJObject;
         } else if (nom === NOM_BY_KEY['normandie']) {
-          record['normandie'] = f as unknown as GeoJsonObject;
+          record['normandie'] = f as unknown as GJObject;
         }
       }
     }
-    return record as Record<'ile-de-france' | 'normandie', GeoJsonObject>;
+    return record as Record<'ile-de-france' | 'normandie', GJObject>;
   }, []);
 
   const keys = regionFilter === 'all' ? (['ile-de-france', 'normandie'] as const) : ([regionFilter] as const);
@@ -89,7 +79,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
     for (const key of keys) {
       const data = featuresByKey[key];
       if (!data) continue;
-      const gj = geoJSON(data as any);
+      const gj = geoJSON(data);
       const b = gj.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     }
@@ -155,16 +145,6 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
                 })}
               />
             </>
-          );
-        })}
-      </MapContainer>
-    </div>
-  );
-}`}
-              center={cfg.center}
-              radius={cfg.radius}
-              pathOptions={{ color, fillColor: color, fillOpacity: 0.18, weight: 2 }}
-            />
           );
         })}
       </MapContainer>
