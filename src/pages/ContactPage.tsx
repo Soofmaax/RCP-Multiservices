@@ -4,7 +4,7 @@ import { GoogleReviewsBadge } from '../components';
 import { buildLocalBusinessLd } from '../utils/seo';
 import { ctaRow } from '../utils/styles';
 
-const SITE_URL = 'https://www.rcp-multisevices.com';
+const SITE_URL = 'https://www.rcp-multiservices.com';
 
 export default function ContactPage() {
   const title = 'Contact — RCP Multiservices';
@@ -102,13 +102,50 @@ export default function ContactPage() {
           <div className="accent mt-2"></div>
           <form
             className="mt-3 space-y-3"
-            onSubmit={(e) => {
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="company"
+            onSubmit={async (e) => {
               e.preventDefault();
               const form = e.currentTarget as HTMLFormElement;
-              alert('Merci, votre demande a été envoyée (démo).');
-              form.reset();
+
+              const encode = (f: HTMLFormElement): string => {
+                const fd = new FormData(f);
+                const params = new URLSearchParams();
+                // include form-name for Netlify processing
+                params.append('form-name', 'contact');
+                fd.forEach((value, key) => {
+                  if (typeof value === 'string') {
+                    params.append(key, value);
+                  }
+                });
+                return params.toString();
+              };
+
+              try {
+                await fetch('/', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: encode(form),
+                });
+                alert('Merci, votre demande a été envoyée.');
+                form.reset();
+              } catch {
+                alert('Une erreur est survenue. Merci de réessayer ou de nous appeler.');
+              }
             }}
           >
+            {/* Required hidden input for Netlify Forms */}
+            <input type="hidden" name="form-name" value="contact" />
+            {/* honeypot field to reduce spam */}
+            <div hidden>
+              <label>
+                Ne pas remplir:
+                <input name="company" />
+              </label>
+            </div>
+
             <div>
               <label htmlFor="name" className="block text-sm text-neutral-600">
                 Nom

@@ -1,10 +1,34 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useMemo, useState } from 'react';
 import { LOCATIONS } from '../data/locations';
 import { MapZones } from '../components';
 
+type Suggestion = { name: string; slug: string; regionKey: 'ile-de-france' | 'normandie' };
+
 export default function ZonesIndex() {
   const [filter, setFilter] = useState<'all' | 'ile-de-france' | 'normandie'>('all');
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
+
+  const allCities: Suggestion[] = useMemo(() => {
+    const arr: Suggestion[] = [];
+    for (const r of LOCATIONS.regions) {
+      for (const d of r.departments) {
+        for (const c of d.cities) {
+          arr.push({ name: c.name, slug: c.slug, regionKey: r.key as 'ile-de-france' | 'normandie' });
+        }
+      }
+    }
+    return arr;
+  }, []);
+
+  const suggestions = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return allCities
+      .filter((c) => c.name.toLowerCase().includes(q))
+      .slice(0, 7);
+  }, [query, allCities]);
 
   return (
     <main className="container">
@@ -20,6 +44,37 @@ export default function ZonesIndex() {
         Nous intervenons en Île-de-France et en Normandie. Choisissez une région, puis cliquez sur un
         marqueur ou un lien de ville.
       </p>
+
+      {/* Search bar */}
+      <div className="mt-3">
+        <label htmlFor="city-search" className="block text-sm text-neutral-600">
+          Rechercher une ville
+        </label>
+        <div className="mt-1 relative">
+          <input
+            id="city-search"
+            className="input"
+            placeholder="Ex: Paris, Rouen, Meaux…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          {suggestions.length > 0 && (
+            <ul className="absolute z-20 mt-1 w-full bg-white border border-border rounded-[12px] shadow">
+              {suggestions.map((s) => (
+                <li key={`${s.regionKey}-${s.slug}`}>
+                  <button
+                    type="button"
+                    className="w-full text-left px-3 py-2 hover:bg-surface.light"
+                    onClick={() => navigate(`/zones/${s.regionKey}/${s.slug}`)}
+                  >
+                    {s.name} <span className="text-neutral-600">({s.regionKey === 'ile-de-france' ? 'Île-de-France' : 'Normandie'})</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
 
       {/* Map section */}
       <section className="section-spacious" aria-label="Carte des zones d'intervention">

@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import { useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -41,6 +41,11 @@ const FEATURED_CITIES: CityMarker[] = [
   { name: 'Rouen', slug: 'rouen', regionKey: 'normandie', pos: [49.4431, 1.0993] },
 ];
 
+const COLOR_BY_REGION: Record<'ile-de-france' | 'normandie', string> = {
+  'ile-de-france': '#0B4EB3', // teal/navy brand
+  normandie: '#1C8C4B', // green accent
+};
+
 export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | 'ile-de-france' | 'normandie' }) {
   const navigate = useNavigate();
   const mapRef = useRef<import('leaflet').Map | null>(null);
@@ -58,8 +63,14 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
   }, [regionFilter]);
 
   const markers = visibleCities.map((c) => {
+    const color = COLOR_BY_REGION[c.regionKey];
     return (
-      <Marker key={c.slug} position={c.pos}>
+      <CircleMarker
+        key={c.slug}
+        center={c.pos}
+        pathOptions={{ color, fillColor: color, fillOpacity: 0.85, weight: 2 }}
+        radius={8}
+      >
         <Popup>
           <div className="text-sm">
             <div className="font-medium">{c.name}</div>
@@ -74,15 +85,25 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
             </button>
           </div>
         </Popup>
-      </Marker>
+      </CircleMarker>
     );
   });
 
   return (
     <div className="relative h-[420px] w-full">
-      {/* Small helper overlay */}
+      {/* Helper overlay + legend */}
       <div className="absolute top-2 left-2 z-[1000] rounded-[12px] bg-white/90 text-neutral-900 px-3 py-2 shadow text-sm">
-        Cliquez sur un marqueur ou utilisez les filtres pour centrer la carte.
+        <div>Cliquez sur un marqueur ou utilisez les filtres pour centrer la carte.</div>
+        <div className="mt-1 flex items-center gap-3">
+          <span className="inline-flex items-center gap-1">
+            <span className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: COLOR_BY_REGION['ile-de-france'] }}></span>
+            Île-de-France
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <span className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: COLOR_BY_REGION['normandie'] }}></span>
+            Normandie
+          </span>
+        </div>
       </div>
       <MapContainer
         bounds={REGION_BOUNDS[regionFilter]}

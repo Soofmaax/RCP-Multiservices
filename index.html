@@ -31,7 +31,7 @@
       property="og:description"
       content="Services à domicile de qualité : aide, ménage, jardinage, accompagnement. Personnel qualifié et assuré. Devis gratuit sous 24h."
     />
-    <meta property="og:image" content="https://rcp-multiservices.netlify.app/og-image.jpg" />
+    <meta property="og:image" content="https://www.rcp-multiservices.com/og-image.jpg" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="RCP Multiservices" />
 
@@ -46,7 +46,7 @@
       property="twitter:description"
       content="Services à domicile de qualité : aide, ménage, jardinage, accompagnement. Personnel qualifié et assuré."
     />
-    <meta property="twitter:image" content="https://www.rcp-multisevices.com/og-image.jpg" />
+    <meta property="twitter:image" content="https://www.rcp-multiservices.com/og-image.jpg" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -73,7 +73,7 @@
         "@type": "LocalBusiness",
         "name": "RCP Multiservices",
         "description": "Services à domicile de qualité en Île-de-France : aide à domicile, ménage, jardinage, accompagnement",
-        "url": "https://rcp-multiservices.netlify.app",
+        "url": "https://www.rcp-multiservices.com",
         "telephone": "+33743670815",
         "email": "contact@rcp-multiservices.com",
         "address": {
@@ -108,6 +108,14 @@
     </script>
   </head>
   <body>
+    <!-- Hidden Netlify form (SPA detection) -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="name" />
+      <input name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
