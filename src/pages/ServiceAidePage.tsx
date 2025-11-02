@@ -21,7 +21,9 @@ export default function ServiceAidePage() {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.rcp-multiservices.com/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:image" content="https://www.rcp-multiservices.com/og-default.jpg" />
       </Helmet>
 
       <main className="container">
