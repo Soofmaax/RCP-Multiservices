@@ -3,6 +3,8 @@
 interface ImportMetaEnv {
   readonly VITE_GBP_URL?: string;
   readonly VITE_REVIEWS_ENDPOINT?: string;
+  readonly VITE_GTAG_ID?: string;
+  readonly VITE_CLARITY_ID?: string;
 }
 
 interface ImportMeta {

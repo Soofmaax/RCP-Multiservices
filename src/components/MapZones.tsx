@@ -66,9 +66,9 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
       try {
         const res = await fetch('/data/regions.geojson');
         if (!res.ok) return;
-        const json = await res.json();
-        if (!isFeatureCollection(json)) return;
-        setFc(json);
+        const raw: unknown = await res.json();
+        if (!isFeatureCollection(raw)) return;
+        setFc(raw);
       } catch {
         // ignore
       }
@@ -79,15 +79,17 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
     const record: Partial<Record<'ile-de-france' | 'normandie', RegionFeature>> = {};
     if (!fc) return record;
     for (const f of fc.features) {
-      const nom = typeof f.properties?.nom === 'string' ? f.properties!.nom! : undefined;
+      const nom = typeof f.properties?.nom === 'string' ? f.properties?.nom : undefined;
       if (nom === REGION_NAMES['ile-de-france']) record['ile-de-france'] = f;
       else if (nom === REGION_NAMES['normandie']) record['normandie'] = f;
     }
     return record;
   }, [fc]);
 
-  const keys = useMemo(
-    () => (regionFilter === 'all' ? (['ile-de-france', 'normandie'] as const) : ([regionFilter] as const)),
+  type RegionKey = 'ile-de-france' | 'normandie';
+  const allKeys: RegionKey[] = ['ile-de-france', 'normandie'];
+  const keys = useMemo<RegionKey[]>(
+    () => (regionFilter === 'all' ? allKeys : [regionFilter]),
     [regionFilter],
   );
 

@@ -3,35 +3,30 @@ declare global {
   var __APP_TEST_ENV__: Partial<ImportMetaEnv> | undefined;
 }
 
-function pickEnvString<K extends keyof ImportMetaEnv>(key: K): string | undefined {
-  const testEnv = globalThis.__APP_TEST_ENV__;
-  const overrideVal = testEnv?.[key];
-  const envVal = import.meta.env[key];
+type OptString = string | undefined;
 
-  const raw =
-    typeof overrideVal === 'string' && overrideVal.length > 0
-      ? overrideVal
-      : typeof envVal === 'string'
-      ? envVal
-      : undefined;
+function nonEmptyString(s: OptString): s is string {
+  return typeof s === 'string' && s.trim().length > 0;
+}
 
-  if (typeof raw !== 'string') return undefined;
-  const trimmed = raw.trim();
-  return trimmed.length ? trimmed : undefined;
+function pickEnv(override: OptString, env: OptString): string | undefined {
+  if (nonEmptyString(override)) return override.trim();
+  if (nonEmptyString(env)) return env.trim();
+  return undefined;
 }
 
 export function getGbpUrl(): string | undefined {
-  return pickEnvString('VITE_GBP_URL');
+  return pickEnv(globalThis.__APP_TEST_ENV__?.VITE_GBP_URL, import.meta.env.VITE_GBP_URL);
 }
 
 export function getReviewsEndpoint(): string | undefined {
-  return pickEnvString('VITE_REVIEWS_ENDPOINT');
+  return pickEnv(globalThis.__APP_TEST_ENV__?.VITE_REVIEWS_ENDPOINT, import.meta.env.VITE_REVIEWS_ENDPOINT);
 }
 
 export function getGtagId(): string | undefined {
-  return pickEnvString('VITE_GTAG_ID');
+  return pickEnv(globalThis.__APP_TEST_ENV__?.VITE_GTAG_ID, import.meta.env.VITE_GTAG_ID);
 }
 
 export function getClarityId(): string | undefined {
-  return pickEnvString('VITE_CLARITY_ID');
+  return pickEnv(globalThis.__APP_TEST_ENV__?.VITE_CLARITY_ID, import.meta.env.VITE_CLARITY_ID);
 }
