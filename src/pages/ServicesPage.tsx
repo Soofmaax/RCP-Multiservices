@@ -1,12 +1,22 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { GoogleReviewsBadge } from '../components';
 import { buildFaqLd } from '../utils/seo';
 import { ctaRow } from '../utils/styles';
 
-const SITE_URL = 'https://www.rcp-multisevices.com';
+const SITE_URL = 'https://www.rcp-multiservices.com';
 
 export default function ServicesPage() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [location.hash]);
+
   const title = 'Services à domicile — Aide, Ménage, Jardinage | RCP Multiservices';
   const description =
     "Découvrez nos services à domicile en Île-de-France et en Normandie : aide à domicile, ménage, repassage, jardinage, petits travaux. Devis gratuit sous 24h.";
@@ -82,7 +92,7 @@ export default function ServicesPage() {
           <GoogleReviewsBadge />
         </div>
 
-        <section className="section-spacious">
+        <section id="aide-a-domicile" className="section-spacious">
           <article className="service-card group">
             <div className="flex items-center gap-3">
               <div className="icon-teal">
@@ -101,14 +111,14 @@ export default function ServicesPage() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href="tel:+33743670815" className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              <Link to="/services" className="link-more">
+              <Link to="/services#aide-a-domicile" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
               </Link>
             </div>
           </article>
         </section>
 
-        <section className="section-spacious">
+        <section id="menage-repassage" className="section-spacious">
           <article className="service-card group">
             <div className="flex items-center gap-3">
               <div className="icon-teal">
@@ -127,14 +137,14 @@ export default function ServicesPage() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href="tel:+33743670815" className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              <Link to="/services" className="link-more">
+              <Link to="/services#menage-repassage" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
               </Link>
             </div>
           </article>
         </section>
 
-        <section className="section-spacious">
+        <section id="jardinage" className="section-spacious">
           <article className="service-card group">
             <div className="flex items-center gap-3">
               <div className="icon-teal">
@@ -153,7 +163,7 @@ export default function ServicesPage() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <a href="tel:+33743670815" className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
-              <Link to="/services" className="link-more">
+              <Link to="/services#jardinage" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
               </Link>
             </div>
