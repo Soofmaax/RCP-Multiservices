@@ -1,12 +1,21 @@
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { geoJSON, LatLngBounds } from 'leaflet';
-import type { Feature, FeatureCollection } from 'geojson';
+import { useEffect, useMemo, useState } from 'react';
 
 type LatLngTuple = readonly [number, number];
 type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
 
-function isFeatureCollection(x: unknown): x is FeatureCollection {
+// Types minimalistes et sûrs pour le GeoJSON
+type RegionFeature = {
+  type: 'Feature';
+  properties?: { nom?: string };
+  geometry: unknown;
+};
+type RegionFeatureCollection = {
+  type: 'FeatureCollection';
+  features: RegionFeature[];
+};
+
+function isFeatureCollection(x: unknown): x is RegionFeatureCollection {
   if (!x || typeof x !== 'object') return false;
   const obj = x as { type?: unknown; features?: unknown };
   return obj.type === 'FeatureCollection' && Array.isArray(obj.features);
@@ -49,8 +58,7 @@ const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> 
 };
 
 export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | 'ile-de-france' | 'normandie' }) {
-  const mapRef = useRef<import('leaflet').Map | null>(null);
-  const [featuresByKey, setFeaturesByKey] = useState<Partial<Record<'ile-de-france' | 'normandie', Feature>>>({});
+  const [fc, setFc] = useState<RegionFeatureCollection | null>(null);
 
   // Chargement du GeoJSON depuis le dossier public
   useEffect(() => {
@@ -60,50 +68,28 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
         if (!res.ok) return;
         const json = await res.json();
         if (!isFeatureCollection(json)) return;
-
-        const record: Partial<Record<'ile-de-france' | 'normandie', Feature>> = {};
-        for (const f of json.features) {
-          const props = (f.properties ?? {}) as Record<string, unknown>;
-          const nomVal = props.nom;
-          const nom = typeof nomVal === 'string' ? nomVal : null;
-          if (nom === REGION_NAMES['ile-de-france']) {
-            record['ile-de-france'] = f;
-          } else if (nom === REGION_NAMES['normandie']) {
-            record['normandie'] = f;
-          }
-        }
-        setFeaturesByKey(record);
+        setFc(json);
       } catch {
         // ignore
       }
     })();
   }, []);
 
+  const featuresByKey = useMemo(() => {
+    const record: Partial<Record<'ile-de-france' | 'normandie', RegionFeature>> = {};
+    if (!fc) return record;
+    for (const f of fc.features) {
+      const nom = typeof f.properties?.nom === 'string' ? f.properties!.nom! : undefined;
+      if (nom === REGION_NAMES['ile-de-france']) record['ile-de-france'] = f;
+      else if (nom === REGION_NAMES['normandie']) record['normandie'] = f;
+    }
+    return record;
+  }, [fc]);
+
   const keys = useMemo(
     () => (regionFilter === 'all' ? (['ile-de-france', 'normandie'] as const) : ([regionFilter] as const)),
     [regionFilter],
   );
-
-  useEffect(() => {
-    const m = mapRef.current;
-    if (!m) return;
-
-    let bounds: LatLngBounds | null = null;
-    for (const key of keys) {
-      const data = featuresByKey[key];
-      if (!data) continue;
-      const gj = geoJSON(data);
-      const b = gj.getBounds();
-      bounds = bounds ? bounds.extend(b) : b;
-    }
-
-    if (bounds) {
-      m.fitBounds(bounds, { padding: [18, 18] });
-    } else {
-      const fallback = REGION_BOUNDS[regionFilter];
-      m.fitBounds(fallback);
-    }
-  }, [keys, featuresByKey, regionFilter]);
 
   return (
     <div className="relative h-[420px] w-full">
@@ -127,13 +113,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
           </span>
         </div>
       </div>
-      <MapContainer
-        bounds={REGION_BOUNDS[regionFilter]}
-        className="h-full w-full"
-        whenCreated={(m) => {
-          mapRef.current = m;
-        }}
-      >
+      <MapContainer bounds={REGION_BOUNDS[regionFilter]} className="h-full w-full">
         <TileLayer url={TILE_URL} />
         {keys.map((key) => {
           const data = featuresByKey[key];

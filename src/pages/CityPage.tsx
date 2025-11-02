@@ -10,7 +10,7 @@ type Params = {
   city: string;
 };
 
-const SITE_URL = 'https://www.rcp-multisevices.com';
+const SITE_URL = 'https://www.rcp-multiservices.com';
 
 export default function CityPage() {
   const { region, city } = useParams<Params>();

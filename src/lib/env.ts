@@ -3,50 +3,35 @@ declare global {
   var __APP_TEST_ENV__: Partial<ImportMetaEnv> | undefined;
 }
 
-export function getGbpUrl(): string | undefined {
-  const override = globalThis.__APP_TEST_ENV__?.VITE_GBP_URL;
+function pickEnvString<K extends keyof ImportMetaEnv>(key: K): string | undefined {
+  const testEnv = globalThis.__APP_TEST_ENV__;
+  const overrideVal = testEnv?.[key];
+  const envVal = import.meta.env[key];
+
   const raw =
-    typeof override === 'string' && override.length > 0
-      ? override
-      : import.meta.env.VITE_GBP_URL;
+    typeof overrideVal === 'string' && overrideVal.length > 0
+      ? overrideVal
+      : typeof envVal === 'string'
+      ? envVal
+      : undefined;
 
   if (typeof raw !== 'string') return undefined;
   const trimmed = raw.trim();
   return trimmed.length ? trimmed : undefined;
+}
+
+export function getGbpUrl(): string | undefined {
+  return pickEnvString('VITE_GBP_URL');
 }
 
 export function getReviewsEndpoint(): string | undefined {
-  const override = globalThis.__APP_TEST_ENV__?.VITE_REVIEWS_ENDPOINT;
-  const raw =
-    typeof override === 'string' && override.length > 0
-      ? override
-      : import.meta.env.VITE_REVIEWS_ENDPOINT;
-
-  if (typeof raw !== 'string') return undefined;
-  const trimmed = raw.trim();
-  return trimmed.length ? trimmed : undefined;
+  return pickEnvString('VITE_REVIEWS_ENDPOINT');
 }
 
 export function getGtagId(): string | undefined {
-  const override = globalThis.__APP_TEST_ENV__?.VITE_GTAG_ID;
-  const raw =
-    typeof override === 'string' && override.length > 0
-      ? override
-      : import.meta.env.VITE_GTAG_ID;
-
-  if (typeof raw !== 'string') return undefined;
-  const trimmed = raw.trim();
-  return trimmed.length ? trimmed : undefined;
+  return pickEnvString('VITE_GTAG_ID');
 }
 
 export function getClarityId(): string | undefined {
-  const override = globalThis.__APP_TEST_ENV__?.VITE_CLARITY_ID;
-  const raw =
-    typeof override === 'string' && override.length > 0
-      ? override
-      : import.meta.env.VITE_CLARITY_ID;
-
-  if (typeof raw !== 'string') return undefined;
-  const trimmed = raw.trim();
-  return trimmed.length ? trimmed : undefined;
+  return pickEnvString('VITE_CLARITY_ID');
 }
