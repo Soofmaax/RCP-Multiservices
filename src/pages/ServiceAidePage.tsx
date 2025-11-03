@@ -55,6 +55,9 @@ export default function ServiceAidePage() {
               decoding="async"
               width={1600}
               height={1067}
+              onError={(e) => {
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
+              }}
             />
             <div className="image-overlay-teal" aria-hidden="true"></div>
           </div>
