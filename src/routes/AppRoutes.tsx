@@ -60,7 +60,7 @@ function Home() {
         {/* Hero split (teal panel + royalty-free image) */}
         {(() => {
           const heroImg =
-            'https://images.unsplash.com/photo-1600585154340-0d1f5a6375d0?auto=format&fit=crop&w=1600&q=80';
+            'https://images.unsplash.com/photo-1493666438817-866a91353cae?auto=format&fit=crop&w=1600&q=80';
           return (
             <section className="hero-split">
               <div className="hero-teal">

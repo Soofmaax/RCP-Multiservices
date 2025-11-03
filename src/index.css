@@ -145,7 +145,7 @@ body,
 
   /* Image overlay for hero visuals */
   .image-overlay-teal {
-    @apply absolute inset-0 bg-gradient-to-l from-accent/25 to-transparent;
+    @apply absolute inset-0 bg-gradient-to-l from-accent/35 to-transparent;
   }
 
   /* Footer trust badges */
