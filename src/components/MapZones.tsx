@@ -73,7 +73,9 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
   );
 
   // Désactiver Leaflet en environnement de test (jsdom) pour éviter les erreurs
-  const isTestEnv = typeof import.meta !== 'undefined' && import.meta.env?.MODE === 'test';
+  const isTestEnv =
+    typeof import.meta !== 'undefined' &&
+    (!!(import.meta.env as any)?.VITEST || import.meta.env?.MODE === 'test');
   if (isTestEnv) {
     return (
       <div className="relative h-[420px] w-full rounded-[24px] border border-border bg-surface-light flex items-center justify-center text-neutral-600 text-sm">
