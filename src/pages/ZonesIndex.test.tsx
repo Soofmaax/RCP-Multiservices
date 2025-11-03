@@ -30,11 +30,11 @@ describe('ZonesIndex', () => {
     const input = screen.getByLabelText(/Rechercher une ville/i);
     fireEvent.change(input, { target: { value: 'Paris' } });
 
-    // Expect a suggestion to appear for Paris (Île-de-France)
-    expect(screen.getByText(/Paris\s+\(Île-de-France\)/i)).toBeInTheDocument();
+    // Expect a suggestion button with an accessible name (aria-label)
+    const suggestionBtn = screen.getByRole('button', { name: /Paris\s+\(Île-de-France\)/i });
+    expect(suggestionBtn).toBeInTheDocument();
 
     // Click the suggestion to exercise navigate handler (no assertion on navigation)
-    const suggestionBtn = screen.getByRole('button', { name: /Paris\s+\(Île-de-France\)/i });
     fireEvent.click(suggestionBtn);
   });
 

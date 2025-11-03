@@ -87,12 +87,16 @@ export default function ZonesIndex() {
                 <li key={`${s.regionKey}-${s.slug}`}>
                   <button
                     type="button"
-                    className="w-full text-left px-3 py-2 hover:bg-surface.light"
+                    className="w-full text-left px-3 py-2 hover:bg-surface-light"
+                    aria-label={`${s.name} (${s.regionKey === 'ile-de-france' ? 'Île-de-France' : 'Normandie'})`}
                     onClick={() => {
                       void navigate(`/zones/${s.regionKey}/${s.slug}`);
                     }}
                   >
-                    {s.name} <span className="text-neutral-600">({s.regionKey === 'ile-de-france' ? 'Île-de-France' : 'Normandie'})</span>
+                    {s.name}{' '}
+                    <span className="text-neutral-600">
+                      ({s.regionKey === 'ile-de-france' ? 'Île-de-France' : 'Normandie'})
+                    </span>
                   </button>
                 </li>
               ))}
