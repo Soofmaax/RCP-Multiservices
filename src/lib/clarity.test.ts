@@ -12,8 +12,8 @@ describe('initClarity', () => {
     vi.resetModules();
     clearHeadScripts();
     localStorage.clear();
-    // test cleanup
-    window.clarity = undefined as any;
+    // test cleanup: remove clarity if present
+    delete window.clarity;
   });
 
   it('does nothing when no consent', async () => {
