@@ -12,9 +12,8 @@ describe('initAnalytics', () => {
     vi.resetModules();
     clearHeadScripts();
     localStorage.clear();
-    // @ts-expect-error test cleanup
+    // test cleanup
     window.dataLayer = undefined;
-    // @ts-expect-error test cleanup
     window.gtag = undefined;
   });
 

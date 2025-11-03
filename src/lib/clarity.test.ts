@@ -12,8 +12,8 @@ describe('initClarity', () => {
     vi.resetModules();
     clearHeadScripts();
     localStorage.clear();
-    // @ts-expect-error test cleanup
-    window.clarity = undefined;
+    // test cleanup
+    window.clarity = undefined as any;
   });
 
   it('does nothing when no consent', async () => {
