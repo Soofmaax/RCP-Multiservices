@@ -1,27 +1,12 @@
-import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
-import { useEffect, useMemo, useState } from 'react';
-import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
+import { MapContainer, TileLayer, Polygon } from 'react-leaflet';
+import { useMemo } from 'react';
 
-type LatLngTuple = readonly [number, number];
-type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
+type LatLng = readonly [number, number];
+type Bounds = readonly [LatLng, LatLng];
 type RegionKey = 'ile-de-france' | 'normandie';
 const ALL_REGION_KEYS: RegionKey[] = ['ile-de-france', 'normandie'];
 
-// Types GeoJSON stricts
-type RegionFeature = Feature<Geometry, GeoJsonProperties>;
-type RegionFeatureCollection = FeatureCollection<Geometry, GeoJsonProperties>;
-
-function isFeatureCollection(x: unknown): x is RegionFeatureCollection {
-  if (!x || typeof x !== 'object') return false;
-  const obj = x as { type?: unknown; features?: unknown };
-  return obj.type === 'FeatureCollection' && Array.isArray(obj.features);
-}
-
-const REGION_NAMES: Record<RegionKey, string> = {
-  'ile-de-france': 'Île-de-France',
-  normandie: 'Normandie',
-};
-
+// Couleurs par région (uniformisées bleu)
 const REGION_COLOR: Record<RegionKey, string> = {
   'ile-de-france': '#0B4EB3',
   normandie: '#0B4EB3',
@@ -36,12 +21,12 @@ const OUTLINE_OPACITY = 0.5;
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 // Emprise générale IDF & Normandie
-const BOUNDS: BoundsTuple = [
+const BOUNDS: Bounds = [
   [47.5, -1.0], // sud-ouest
   [50.5, 3.7],  // nord-est
 ];
 
-const REGION_BOUNDS: Record<'all' | RegionKey, BoundsTuple> = {
+const REGION_BOUNDS: Record<'all' | RegionKey, Bounds> = {
   all: BOUNDS,
   'ile-de-france': [
     [48.0, 1.5],
@@ -53,44 +38,37 @@ const REGION_BOUNDS: Record<'all' | RegionKey, BoundsTuple> = {
   ],
 };
 
+// Polygones simplifiés (approximations propres et typées)
+// IDF: contour grossier autour de Paris et départements proches
+const POLY_IDF: LatLng[] = [
+  [49.20, 2.40],
+  [49.10, 3.20],
+  [48.40, 3.30],
+  [48.00, 2.60],
+  [48.10, 1.70],
+  [48.60, 1.50],
+  [49.10, 2.00],
+];
+// Normandie: contour grossier couvrant Seine-Maritime, Calvados, Manche, Orne, Eure
+const POLY_NOR: LatLng[] = [
+  [49.80, 0.10],
+  [49.50, 1.90],
+  [49.10, 2.00],
+  [48.80, 1.50],
+  [48.60, 0.40],
+  [48.50, -1.50],
+  [49.40, -1.70],
+  [49.70, -0.40],
+];
+
+const REGION_POLYGONS: Record<RegionKey, LatLng[]> = {
+  'ile-de-france': POLY_IDF,
+  normandie: POLY_NOR,
+};
+
 export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | RegionKey }) {
-  const [fc, setFc] = useState<RegionFeatureCollection | null>(null);
-
-  // Chargement du GeoJSON depuis le dossier public
-  useEffect(() => {
-    void (async () => {
-      try {
-        const res = await fetch('/data/regions.geojson');
-        if (!res.ok) return;
-        const raw: unknown = await res.json();
-        if (!isFeatureCollection(raw)) return;
-        setFc(raw);
-      } catch {
-        // ignore
-      }
-    })();
-  }, []);
-
-  function getRegionName(f: RegionFeature): string | undefined {
-    const props = f.properties;
-    if (!props || typeof props !== 'object') return undefined;
-    const nom = (props as Record<string, unknown>)['nom'];
-    return typeof nom === 'string' ? nom : undefined;
-  }
-
-  const featuresByKey = useMemo(() => {
-    const record: Partial<Record<RegionKey, RegionFeature>> = {};
-    if (!fc) return record;
-    for (const f of fc.features) {
-      const nom = getRegionName(f);
-      if (nom === REGION_NAMES['ile-de-france']) record['ile-de-france'] = f;
-      else if (nom === REGION_NAMES['normandie']) record['normandie'] = f;
-    }
-    return record;
-  }, [fc]);
-
   const keys = useMemo<RegionKey[]>(
-    () => (regionFilter === 'all' ? ALL_REGION_KEYS : [regionFilter as RegionKey]),
+    () => (regionFilter === 'all' ? ALL_REGION_KEYS : [regionFilter]),
     [regionFilter],
   );
 
@@ -119,33 +97,30 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
       <MapContainer bounds={REGION_BOUNDS[regionFilter]} className="h-full w-full">
         <TileLayer url={TILE_URL} />
         {keys.map((key) => {
-          const data = featuresByKey[key];
-          if (!data) return null;
+          const positions = REGION_POLYGONS[key];
           const color = REGION_COLOR[key];
+
+          // Contour blanc sous-jacent
+          const outlineOpts = {
+            color: '#ffffff',
+            weight: OUTLINE_WEIGHT,
+            opacity: OUTLINE_OPACITY,
+            fill: false,
+          } as const;
+
+          // Couche principale colorée
+          const fillOpts = {
+            color,
+            weight: STROKE_WEIGHT,
+            fill: true,
+            fillColor: color,
+            fillOpacity: FILL_OPACITY,
+          } as const;
+
           return (
             <>
-              {/* Contour blanc sous-jacent */}
-              <GeoJSON
-                key={`geo-outline-${key}`}
-                data={data}
-                style={() => ({
-                  color: '#ffffff',
-                  weight: OUTLINE_WEIGHT,
-                  opacity: OUTLINE_OPACITY,
-                  fill: false,
-                })}
-              />
-              {/* Couche principale colorée */}
-              <GeoJSON
-                key={`geo-fill-${key}`}
-                data={data}
-                style={() => ({
-                  color,
-                  weight: STROKE_WEIGHT,
-                  fillColor: color,
-                  fillOpacity: FILL_OPACITY,
-                })}
-              />
+              <Polygon key={`poly-outline-${key}`} positions={positions} pathOptions={outlineOpts} />
+              <Polygon key={`poly-fill-${key}`} positions={positions} pathOptions={fillOpts} />
             </>
           );
         })}
