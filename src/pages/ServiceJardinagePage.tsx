@@ -50,7 +50,7 @@ export default function ServiceJardinagePage() {
               src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
               alt="Jardinage — illustration"
               className="w-full h-[360px] md:h-[420px] object-cover image-hero object-left"
-              style={{ objectPosition: 'left center' }}
+              style={{ objectPosition: '0% 50%' }}
               loading="lazy"
               decoding="async"
               width={1600}
