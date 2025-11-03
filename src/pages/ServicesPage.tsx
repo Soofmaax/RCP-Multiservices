@@ -82,7 +82,7 @@ export default function ServicesPage() {
         <section className="section-spacious">
           <div className="rounded-[24px] overflow-hidden relative card-elevated">
             <img
-              src="https://images.unsplash.com/photo-1517196084899-8d1bcd5ed9b5?auto=format&fit=crop&w=1600&q=80"
+              src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80"
               alt="Prestations à domicile — illustration"
               className="w-full h-[360px] md:h-[420px] object-cover image-hero"
               loading="lazy"
