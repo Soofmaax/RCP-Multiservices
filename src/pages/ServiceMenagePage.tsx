@@ -50,11 +50,14 @@ export default function ServiceMenagePage() {
             <img
               src="https://images.unsplash.com/photo-1581579188871-45ea61f2a6b2?auto=format&fit=crop&w=1600&q=80"
               alt="Ménage & repassage — illustration"
-              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
               loading="lazy"
               decoding="async"
               width={1600}
               height={1067}
+              onError={(e) => {
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
+              }}
             />
             <div className="image-overlay-teal" aria-hidden="true"></div>
           </div>

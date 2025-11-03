@@ -103,7 +103,7 @@ export default function ServicesPage() {
             <img
               src="https://images.unsplash.com/photo-1517196084899-8d1bcd5ed9b5?auto=format&fit=crop&w=1600&q=80"
               alt="Prestations à domicile — illustration"
-              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
               loading="lazy"
               decoding="async"
               width={1600}

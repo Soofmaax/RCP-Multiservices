@@ -74,7 +74,7 @@ export default function ContactPage() {
             <img
               src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80"
               alt="Contact — illustration"
-              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
               loading="lazy"
               decoding="async"
               width={1600}

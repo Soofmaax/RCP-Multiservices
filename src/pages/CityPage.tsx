@@ -112,7 +112,7 @@ export default function CityPage() {
                 ? 'https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1600&q=80'
                 : 'https://images.unsplash.com/photo-1526779259212-939e64768c92?auto=format&fit=crop&w=1600&q=80'}
               alt={`Ville de ${match.city.name} — illustration`}
-              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
               loading="lazy"
               decoding="async"
               width={1600}

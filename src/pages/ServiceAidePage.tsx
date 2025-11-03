@@ -50,7 +50,7 @@ export default function ServiceAidePage() {
             <img
               src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?auto=format&fit=crop&w=1600&q=80"
               alt="Aide à domicile — illustration"
-              className="w-full h-full object-cover md:min_h-[360px] mask-image"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
               loading="lazy"
               decoding="async"
               width={1600}

@@ -60,7 +60,7 @@ function Home() {
         {/* Hero split (teal panel + royalty-free image) */}
         {(() => {
           const heroImg =
-            'https://images.unsplash.com/photo-1493666438817-866a91353cae?auto=format&fit=crop&w=1600&q=80';
+            'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80';
           return (
             <section className="hero-split">
               <div className="hero-teal">
@@ -91,7 +91,7 @@ function Home() {
                 <img
                   src={heroImg}
                   alt="Service à domicile — illustration"
-                  className="w-full h-full object-cover md:min-h-[360px] mask-image"
+                  className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
                   loading="lazy"
                   decoding="async"
                   width={1600}
@@ -211,7 +211,7 @@ function Home() {
             <img
               src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"
               alt="Témoignages — illustration"
-              className="w-full h-[420px] object-cover"
+              className="w-full h-[420px] object-cover image-hero"
               loading="lazy"
               decoding="async"
               width={1600}

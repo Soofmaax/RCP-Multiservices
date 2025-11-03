@@ -55,7 +55,7 @@ export default function ZonesIndex() {
           <img
             src="https://images.unsplash.com/photo-1527049979667-990f1d0d8b79?auto=format&fit=crop&w=1600&q=80"
             alt="Zones d’intervention — illustration"
-            className="w-full h-full object-cover md:min-h-[360px] mask-image"
+            className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
             loading="lazy"
             decoding="async"
             width={1600}
