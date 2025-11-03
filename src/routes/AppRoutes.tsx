@@ -87,18 +87,7 @@ function Home() {
                   <GoogleReviewsBadge />
                 </div>
               </div>
-              <div className="relative rounded-[24px] overflow-hidden shadow-md">
-                <img
-                  src={heroImg}
-                  alt="Service à domicile — illustration"
-                  className="w-full h-full object-cover md:min-h-[360px] mask-image"
-                  loading="lazy"
-                  decoding="async"
-                  width={1600}
-                  height={1067}
-                />
-                <div className="image-overlay-teal" aria-hidden="true"></div>
-              </div>
+              {/* image retirée sur la landing (on garde uniquement le panneau teal) */}
             </section>
           );
         })()}
@@ -206,7 +195,7 @@ function Home() {
         <section className="section-spacious">
           <div className="rounded-[24px] overflow-hidden relative card-elevated">
             <img
-              src="https://images.unsplash.com/photo-1512486130939-2c4f799ff06e?auto=format&fit=crop&w=1600&q=80"
+              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"
               alt="Témoignages — illustration"
               className="w-full h-[420px] object-cover"
               loading="lazy"

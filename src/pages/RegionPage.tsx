@@ -70,20 +70,7 @@ export default function RegionPage() {
               <Link to="/zones" className="btn-outline">Voir toutes les zones</Link>
             </div>
           </div>
-          <div className="relative rounded-[24px] overflow-hidden shadow-md">
-            <img
-              src={data.key === 'ile-de-france'
-                ? 'https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1600&q=80'
-                : 'https://images.unsplash.com/photo-1526779259212-939e64768c92?auto=format&fit=crop&w=1600&q=80'}
-              alt={`${data.name} — illustration`}
-              className="w-full h-full object-cover md:min-h-[360px] mask-image"
-              loading="lazy"
-              decoding="async"
-              width={1600}
-              height={1067}
-            />
-            <div className="image-overlay-teal" aria-hidden="true"></div>
-          </div>
+          {/* image retirée sur Région (on garde uniquement le panneau teal) */}
         </section>
 
         <div className="mt-3">

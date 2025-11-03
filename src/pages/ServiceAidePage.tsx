@@ -46,18 +46,7 @@ export default function ServiceAidePage() {
               <GoogleReviewsBadge />
             </div>
           </div>
-          <div className="relative rounded-[24px] overflow-hidden shadow-md">
-            <img
-              src="https://images.unsplash.com/photo-1512429283315-55e04c39f457?auto=format&fit=crop&w=1600&q=80"
-              alt="Aide à domicile — illustration"
-              className="w-full h-full object-cover md:min-h-[360px] mask-image"
-              loading="lazy"
-              decoding="async"
-              width={1600}
-              height={1067}
-            />
-            <div className="image-overlay-teal" aria-hidden="true"></div>
-          </div>
+          {/* image retirée sur Aide à domicile (on garde uniquement le panneau teal) */}
         </section>
 
         <section className="section-spacious panel panel-hover">
