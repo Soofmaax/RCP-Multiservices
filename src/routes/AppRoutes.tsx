@@ -57,50 +57,50 @@ function Home() {
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
       <main id="main" className="container">
-        {/* Hero split (teal panel + royalty-free image) */}
+        {/* Hero overlay — même rendu que la section Témoignages */}
         {(() => {
           const heroImg =
             'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80';
           return (
-            <section className="hero-split">
-              <div className="hero-teal">
-                <h1 className="heading-1 heading-hero">RCP Multiservices</h1>
-                <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
-                <p className="mt-3 text-white/90 text-lg md:text-xl">
-                  Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
-                </p>
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <span className="badge bg-white/10 text-white">Assuré RC Pro</span>
-                  <span className="badge bg-white/10 text-white">Intervenants qualifiés</span>
-                  <span className="badge bg-white/10 text-white">Intervention rapide</span>
-                </div>
-                <div className={`${ctaRow} mt-3`}>
-                  <a href="tel:+33743670815" className="btn-white">
-                    07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
-                  </a>
-                  <Link to="/services" className="btn-request">
-                    Demander un rendez-vous
-                  </Link>
-                  <Link to="/zones" className="btn-outline">
-                    Voir nos zones d&apos;intervention
-                  </Link>
-                  <GoogleReviewsBadge />
-                </div>
-              </div>
-              <div className="relative rounded-[24px] overflow-hidden shadow-md">
+            <section className="section-spacious">
+              <div className="rounded-[24px] overflow-hidden relative card-elevated">
                 <img
                   src={heroImg}
                   alt="Service à domicile — illustration"
-                  className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
+                  className="w-full h-[360px] md:h-[420px] object-cover image-hero"
                   loading="lazy"
                   decoding="async"
                   width={1600}
                   height={1067}
                   onError={(e) => {
-                    e.currentTarget.src = 'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
+                    e.currentTarget.src =
+                      'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
                   }}
                 />
-                <div className="image-overlay-teal" aria-hidden="true"></div>
+                <div className="absolute inset-y-0 right-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 flex flex-col justify-center rounded-l-[24px]">
+                  <h1 className="heading-1 heading-hero text-white">RCP Multiservices</h1>
+                  <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+                  <p className="mt-3 text-white/90 text-lg md:text-xl">
+                    Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
+                  </p>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <span className="badge bg-white/10 text-white">Assuré RC Pro</span>
+                    <span className="badge bg-white/10 text-white">Intervenants qualifiés</span>
+                    <span className="badge bg-white/10 text-white">Intervention rapide</span>
+                  </div>
+                  <div className={`${ctaRow} mt-3`}>
+                    <a href="tel:+33743670815" className="btn-white">
+                      07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+                    </a>
+                    <Link to="/services" className="btn-request">
+                      Demander un rendez-vous
+                    </Link>
+                    <Link to="/zones" className="btn-outline">
+                      Voir nos zones d&apos;intervention
+                    </Link>
+                    <GoogleReviewsBadge />
+                  </div>
+                </div>
               </div>
             </section>
           );
