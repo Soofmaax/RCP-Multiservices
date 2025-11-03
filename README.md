@@ -233,6 +233,59 @@ Voir `.env.example` et config Netlify (Site settings → Environment variables).
 
 Voir [CONTRIBUTING.md](./CONTRIBUTING.md) pour les conventions de commits (Conventional Commits), branchement (`feature/*`, `fix/*`, `chore/*`), exécution des scripts, CI et guidelines de code (TypeScript strict, accessibilité, SEO).
 
+## Guide légal (Mentions légales & Confidentialité)
+
+Éléments à renseigner et où les placer:
+- SIRET: afficher en footer et dans la page Mentions légales (`src/pages/LegalPage.tsx`).
+- RC Pro: assureur + n° de police en footer et Mentions légales.
+- Adresse postale: Contact (`src/pages/ContactPage.tsx`) et JSON‑LD LocalBusiness.
+- Téléphone et email: harmonisés (NAP), présents dans le footer, Contact et JSON‑LD.
+- Horaires: TopInfoBar et footer (affichage), JSON‑LD LocalBusiness (structure).
+- Confidentialité: compléter `src/pages/PrivacyPage.tsx` (politique cookies/analytique) et ajouter un lien “Gérer les cookies” (bannière de consentement déjà incluse).
+
+JSON‑LD LocalBusiness — champs recommandés:
+- `"@type": "LocalBusiness"`, `"name"`, `"url"`, `"telephone"`, `"email"`
+- `"address"` (streetAddress, postalCode, addressLocality, addressRegion, addressCountry)
+- `"openingHours"` (ex: `"Mo-Fr 08:00-20:00", "Sa 09:00-18:00"`)
+- `"priceRange"` (ex: `"€€"`) si pertinent
+- `"sameAs"` (liens officiels: Google Business, LinkedIn, X/Twitter, Instagram, Facebook)
+- (option) `"areaServed"` (Île‑de‑France, Normandie)
+
+## CSP — exemples détaillés (GA4 & Clarity)
+
+Si vous activez GA4 et/ou Microsoft Clarity, adaptez la directive CSP dans `netlify.toml`:
+```toml
+[[headers]]
+for = "/*"
+[headers.values]
+Content-Security-Policy = """
+  default-src 'self';
+  script-src 'self' https://www.googletagmanager.com https://www.clarity.ms;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https://images.unsplash.com https://*.tile.openstreetmap.org;
+  font-src 'self' https://fonts.gstatic.com;
+  connect-src 'self' https://www.google-analytics.com https://www.clarity.ms;
+  frame-ancestors 'none';
+  base-uri 'self';
+  form-action 'self';
+  upgrade-insecure-requests;
+"""
+```
+Notes:
+- Leaflet exige `style-src 'unsafe-inline'`.
+- Ajoutez/retirez des hôtes selon vos sources réelles (CDN images, APIs).
+- Vérifiez les en‑têtes effectifs avec l’audit (SecurityHeaders / DevTools).
+
+## Changelog (récent)
+
+- Tests: fallback de MapZones en mode test (jsdom) pour éviter les erreurs Leaflet.
+- ScrollTop: ignore `window.scrollTo` non implémenté en jsdom.
+- Pages Services: contenu enrichi (prestations, méthode, conseils) + CTA mis en avant.
+- Consentement cookies: bannière et initialisation conditionnelle GA4/Clarity.
+- Couverture tests: ajout de tests (analytics, clarity, consent, openingHours, zones) → ≥ 80%.
+- Documentation: README et VISUELS.md mis à jour (CSP, légal, visuels et captures).
+- Accessibilité & SEO: breadcrumb, aria‑label de la carte, og:image par défaut, robots/sitemap.
+
 ## Licence
 
 Ce projet est publié sous licence MIT. Voir [LICENSE](./LICENSE).

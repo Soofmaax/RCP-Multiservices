@@ -40,6 +40,10 @@ Dépôt recommandé:
 - (optionnel) `public/images/region-hero-ile-de-france.jpg` — 1600×1067
 - (optionnel) `public/images/city-hero-ile-de-france-paris.jpg` — 1600×1067
 - (optionnel) décliner `city-hero-{region}-{city}.jpg` au besoin
+- Spécifique pages services:
+  - `public/images/service-aide-hero.jpg` — 1600×1067 (ambiance chaleureuse intérieure)
+  - `public/images/service-menage-hero.jpg` — 1600×1067 (ménage discrètement illustré)
+  - `public/images/service-jardinage-hero.jpg` — 1600×1067 (taille de haies/jardin)
 
 Astuce performance:
 - Fournir aussi la variante WebP (ex: `home-hero.webp`, `services-hero.webp`) en plus du JPG si souhaité (nous pourrons basculer les sources).
@@ -85,9 +89,14 @@ Nous pouvons l’intégrer dans `public/email-signature.html` si vous souhaitez 
   - Fichier: `src/routes/AppRoutes.tsx`
   - Constante `heroImg`: remplacer l’URL Unsplash par `/images/home-hero.jpg`
 
-- Services:
+- Services (listing):
   - Fichier: `src/pages/ServicesPage.tsx`
   - Remplacer l’URL Unsplash par `/images/services-hero.jpg`
+
+- Services (détaillés):
+  - Fichier: `src/pages/ServiceAidePage.tsx` → `/images/service-aide-hero.jpg`
+  - Fichier: `src/pages/ServiceMenagePage.tsx` → `/images/service-menage-hero.jpg`
+  - Fichier: `src/pages/ServiceJardinagePage.tsx` → `/images/service-jardinage-hero.jpg`
 
 - Contact:
   - Fichier: `src/pages/ContactPage.tsx`
@@ -129,9 +138,21 @@ Nous pouvons l’intégrer dans `public/email-signature.html` si vous souhaitez 
   - [ ] `public/images/zones-hero.jpg`
   - [ ] (option) `public/images/region-hero-ile-de-france.jpg`
   - [ ] (option) `public/images/city-hero-ile-de-france-paris.jpg`
+  - [ ] (option) `public/images/service-aide-hero.jpg`
+  - [ ] (option) `public/images/service-menage-hero.jpg`
+  - [ ] (option) `public/images/service-jardinage-hero.jpg`
 - [ ] Témoignages: `public/images/testimonials-bg.jpg`
 - [ ] (option) WebP pour chaque héros
 - [ ] (option) OG spécifiques par page
 - [ ] (option) `public/email/logo-email.png`
 
-Lorsque tout est déposé, je ferai une passe pour basculer le code sur vos fichiers locaux (au lieu des URLs Unsplash) et valider Lighthouse/SEO.
+## 11) Captures (Screenshots) — automation
+
+Vous pouvez capturer automatiquement des pages clés et insérer les captures dans le README:
+```bash
+npm i -D puppeteer
+npm run screenshots
+```
+Les fichiers seront enregistrés dans `public/screenshots/` et injectés dans le README entre les marqueurs `<!-- screenshots:start -->` et `<!-- screenshots:end -->`.
+
+Lorsque tout est déposé, je ferai une passe pour basculer le code sur vos fichiers locaux (au lieu des URLs Unsplash), valider Lighthouse/SEO et mettre à jour les captures si nécessaire.
