@@ -31,35 +31,35 @@ export default function ServiceJardinagePage() {
           <Link to="/" className="hover:underline">Accueil</Link> / <Link to="/services" className="hover:underline">Services</Link> / <span className="font-medium">Jardinage</span>
         </nav>
 
-        {/* Hero split — style landing */}
-        <section className="hero-split">
-          <div className="hero-teal">
-            <h1 className="heading-1 heading-hero">Jardinage</h1>
-            <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
-            <p className="mt-3 text-white/90 text-lg md:text-xl">
-              Tonte, taille, haies &amp; massifs — résultat propre et durable
-            </p>
-            <div className={`${ctaRow} mt-3`}>
-              <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
-              <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
-              <Link to="/zones" className="btn-outline">Voir nos zones</Link>
-              <GoogleReviewsBadge />
-            </div>
-          </div>
-          <div className="relative rounded-[24px] overflow-hidden shadow-md">
+        {/* Hero overlay — même rendu que la section Témoignages */}
+        <section className="section-spacious">
+          <div className="rounded-[24px] overflow-hidden relative card-elevated">
             <img
               src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
               alt="Jardinage — illustration"
-              className="w-full h-full object-cover md:min-h-[360px] mask-image image-hero"
+              className="w-full h-[360px] md:h-[420px] object-cover image-hero"
               loading="lazy"
               decoding="async"
               width={1600}
               height={1067}
               onError={(e) => {
-                e.currentTarget.src = 'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
+                e.currentTarget.src =
+                  'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
               }}
             />
-            <div className="image-overlay-teal" aria-hidden="true"></div>
+            <div className="absolute inset-y-0 right-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 flex flex-col justify-center rounded-l-[24px]">
+              <h1 className="heading-1 heading-hero text-white">Jardinage</h1>
+              <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+              <p className="mt-3 text-white/90 text-lg md:text-xl">
+                Tonte, taille, haies &amp; massifs — résultat propre et durable
+              </p>
+              <div className={`${ctaRow} mt-3`}>
+                <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+                <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
+                <Link to="/zones" className="btn-outline">Voir nos zones</Link>
+                <GoogleReviewsBadge />
+              </div>
+            </div>
           </div>
         </section>
 
