@@ -99,7 +99,18 @@ export default function ServicesPage() {
               <GoogleReviewsBadge />
             </div>
           </div>
-          {/* image retirée sur Services (on garde uniquement le panneau teal) */}
+          <div className="relative rounded-[24px] overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1517196084899-8d1bcd5ed9b5?auto=format&fit=crop&w=1600&q=80"
+              alt="Prestations à domicile — illustration"
+              className="w-full h-full object-cover md:min-h-[360px] mask-image"
+              loading="lazy"
+              decoding="async"
+              width={1600}
+              height={1067}
+            />
+            <div className="image-overlay-teal" aria-hidden="true"></div>
+          </div>
         </section>
 
         <section id="aide-a-domicile" className="section-spacious">

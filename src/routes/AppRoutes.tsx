@@ -87,7 +87,18 @@ function Home() {
                   <GoogleReviewsBadge />
                 </div>
               </div>
-              {/* image retirée sur la landing (on garde uniquement le panneau teal) */}
+              <div className="relative rounded-[24px] overflow-hidden shadow-md">
+                <img
+                  src={heroImg}
+                  alt="Service à domicile — illustration"
+                  className="w-full h-full object-cover md:min-h-[360px] mask-image"
+                  loading="lazy"
+                  decoding="async"
+                  width={1600}
+                  height={1067}
+                />
+                <div className="image-overlay-teal" aria-hidden="true"></div>
+              </div>
             </section>
           );
         })()}
