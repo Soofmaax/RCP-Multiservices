@@ -13,8 +13,15 @@ export default function Header() {
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b shadow-sm">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link to="/" className="text-lg font-semibold text-gray-900 hover:text-primary">
-              RCP Multiservices
+            <Link to="/" className="flex items-center gap-2">
+              <img
+                src="/logo.svg"
+                alt="RCP Multiservices"
+                className="h-8 w-auto"
+                width={160}
+                height={40}
+                decoding="async"
+              />
             </Link>
             <span className="badge">{status}</span>
           </div>

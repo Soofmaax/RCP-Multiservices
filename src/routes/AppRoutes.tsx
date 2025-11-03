@@ -350,7 +350,16 @@ function Footer() {
         {/* Footer columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="space-y-2">
-            <div className="text-xl font-semibold">RCP Multiservices</div>
+            <div className="flex items-center">
+              <img
+                src="/logo-white.svg"
+                alt="RCP Multiservices"
+                className="h-8 w-auto"
+                width={160}
+                height={40}
+                decoding="async"
+              />
+            </div>
             <p className="text-white/80 text-sm">
               Services à domicile: aide, ménage, jardinage, accompagnement. Interventions rapides,
               équipe qualifiée et assurée.
