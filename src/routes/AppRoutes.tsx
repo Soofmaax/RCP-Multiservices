@@ -354,7 +354,7 @@ function Footer() {
               <img
                 src="/logo-white.svg"
                 alt="RCP Multiservices"
-                className="h-18 w-auto md:h-20"
+                className="h-20 w-auto md:h-24"
                 width={160}
                 height={40}
                 decoding="async"
