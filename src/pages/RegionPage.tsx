@@ -74,7 +74,7 @@ export default function RegionPage() {
                   'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
               }}
             />
-            <div className="absolute inset-y-0 right-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 flex flex-col justify-center rounded-l-[24px]">
+            <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 pt-8 md:pt-10 flex flex-col items-start justify-start rounded-r-[24px]">
               <h1 className="heading-1 heading-hero text-white">{data.name}</h1>
               <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
               <p className="mt-3 text-white/90 text-lg md:text-xl">
