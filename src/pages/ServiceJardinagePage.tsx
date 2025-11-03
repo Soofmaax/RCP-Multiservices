@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { GoogleReviewsBadge } from '../components';
 import { ctaRow } from '../utils/styles';
+import { buildFaqLd } from '../utils/seo';
+import { buildServicePageLd, buildServiceBreadcrumbsLd } from '../utils/seoExtras';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -10,6 +12,13 @@ export default function ServiceJardinagePage() {
   const description =
     "Jardinage : tonte, taille, entretien des haies et massifs, petits aménagements. Intervention rapide, résultat durable.";
   const canonical = `${SITE_URL}/services/jardinage`;
+
+  const serviceLd = buildServicePageLd('Jardinage', description);
+  const breadcrumbsLd = buildServiceBreadcrumbsLd(SITE_URL, 'jardinage', 'Jardinage');
+  const faqLd = buildFaqLd([
+    { q: 'Intervenez-vous rapidement ?', a: 'Oui, nous planifions une intervention dans les meilleurs délais.' },
+    { q: 'Pouvez-vous évacuer les déchets verts ?', a: 'Oui, nous pouvons évacuer les déchets verts si besoin.' },
+  ]);
 
   return (
     <>
@@ -24,6 +33,9 @@ export default function ServiceJardinagePage() {
         <meta property="og:image" content="/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:image" content="/og-default.jpg" />
+        <script type="application/ld+json">{JSON.stringify(serviceLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbsLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
 
       <main className="container">
@@ -37,7 +49,8 @@ export default function ServiceJardinagePage() {
             <img
               src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
               alt="Jardinage — illustration"
-              className="w-full h-[360px] md:h-[420px] object-cover image-hero"
+              className="w-full h-[360px] md:h-[420px] object-cover image-hero object-left"
+              style={{ objectPosition: 'left center' }}
               loading="lazy"
               decoding="async"
               width={1600}
@@ -55,7 +68,7 @@ export default function ServiceJardinagePage() {
               </p>
               <div className={`${ctaRow} mt-3`}>
                 <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
-                <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
+                <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
                 <Link to="/zones" className="btn-outline">Voir nos zones</Link>
                 <GoogleReviewsBadge />
               </div>
@@ -91,7 +104,7 @@ export default function ServiceJardinagePage() {
           <h2 className="heading-2">Demander un devis</h2>
           <div className="accent mt-2"></div>
           <p className="mt-2 text-neutral-600">Devis gratuit sous 24h par téléphone ou via notre formulaire.</p>
-          <Link to="/contact" className="btn-request">Nous contacter</Link>
+          <Link to="/contact" className="btn-primary">Nous contacter</Link>
         </section>
       </main>
     </>

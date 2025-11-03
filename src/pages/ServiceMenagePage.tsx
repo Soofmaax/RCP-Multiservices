@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { GoogleReviewsBadge } from '../components';
 import { ctaRow } from '../utils/styles';
+import { buildFaqLd } from '../utils/seo';
+import { buildServicePageLd, buildServiceBreadcrumbsLd } from '../utils/seoExtras';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
 
@@ -10,6 +12,13 @@ export default function ServiceMenagePage() {
   const description =
     "Ménage et repassage : entretien régulier, grand ménage, remise en état, repassage. Planning flexible et contrôle qualité.";
   const canonical = `${SITE_URL}/services/menage-repassage`;
+
+  const serviceLd = buildServicePageLd('Ménage & repassage', description);
+  const breadcrumbsLd = buildServiceBreadcrumbsLd(SITE_URL, 'menage-repassage', 'Ménage & repassage');
+  const faqLd = buildFaqLd([
+    { q: 'Proposez-vous des créneaux flexibles ?', a: 'Oui, nous adaptons le planning à vos disponibilités.' },
+    { q: 'Fournissez-vous le matériel ?', a: 'Nous intervenons avec du matériel adapté si nécessaire.' },
+  ]);
 
   return (
     <>
@@ -24,6 +33,9 @@ export default function ServiceMenagePage() {
         <meta property="og:image" content="/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:image" content="/og-default.jpg" />
+        <script type="application/ld+json">{JSON.stringify(serviceLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbsLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
 
       <main className="container">
@@ -55,7 +67,7 @@ export default function ServiceMenagePage() {
               </p>
               <div className={`${ctaRow} mt-3`}>
                 <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
-                <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
+                <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
                 <Link to="/zones" className="btn-outline">Voir nos zones</Link>
                 <GoogleReviewsBadge />
               </div>
@@ -91,7 +103,7 @@ export default function ServiceMenagePage() {
           <h2 className="heading-2">Demander un devis</h2>
           <div className="accent mt-2"></div>
           <p className="mt-2 text-neutral-600">Devis gratuit sous 24h par téléphone ou via notre formulaire.</p>
-          <Link to="/contact" className="btn-request">Nous contacter</Link>
+          <Link to="/contact" className="btn-primary">Nous contacter</Link>
         </section>
       </main>
     </>

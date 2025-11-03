@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { GoogleReviewsBadge } from '../components';
 import { buildFaqLd } from '../utils/seo';
+import { buildServicesItemListLd } from '../utils/seoExtras';
 import { ctaRow } from '../utils/styles';
 
 const SITE_URL = 'https://www.rcp-multiservices.com';
@@ -37,6 +38,8 @@ export default function ServicesPage() {
     },
   ]);
 
+  const itemListLd = buildServicesItemListLd(SITE_URL);
+
   // Minimal inline icons for services (harmonized with home)
   const ServiceIconHomeAssist = () => (
     <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -68,6 +71,7 @@ export default function ServicesPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:image" content="/og-default.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
       </Helmet>
 
       <main className="container">
@@ -104,7 +108,7 @@ export default function ServicesPage() {
                 <a href="tel:+33743670815" className="btn-white">
                   07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
                 </a>
-                <Link to="/contact" className="btn-request">
+                <Link to="/contact" className="btn-primary">
                   Demander un rendez-vous
                 </Link>
                 <Link to="/zones" className="btn-outline">
@@ -200,7 +204,7 @@ export default function ServicesPage() {
           <p className="mt-2 text-neutral-600">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
-          <Link to="/contact" className="btn-request">
+          <Link to="/contact" className="btn-primary">
             Nous contacter
           </Link>
         </section>
