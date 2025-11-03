@@ -79,11 +79,47 @@ export default function ServiceMenagePage() {
           <h2 className="heading-2">Prestations</h2>
           <div className="accent mt-2"></div>
           <ul className="service-list list-check mt-2">
-            <li>Entretien régulier (poussière, sols, sanitaires, cuisine)</li>
-            <li>Grand ménage et remise en état</li>
-            <li>Repassage et pliage</li>
-            <li>Nettoyage ponctuel (avant/après déménagement)</li>
+            <li>Entretien régulier: poussière, sols, sanitaires, cuisine</li>
+            <li>Grand ménage et remise en état (après travaux, déménagement)</li>
+            <li>Repassage soigné et pliage</li>
+            <li>Nettoyage ponctuel ciblé (pièces, vitres accessibles)</li>
           </ul>
+          <p className="mt-2 text-neutral-600">
+            Nous pouvons utiliser votre matériel ou fournir le nôtre selon votre préférence. Un plan de tâches clair est défini à l’avance.
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Formules</h2>
+          <div className="accent mt-2"></div>
+          <ul className="service-list list-check mt-2">
+            <li>Régulier (hebdomadaire/bihebdomadaire) pour un intérieur impeccable</li>
+            <li>Ponctuel (pré-événement, grand nettoyage)</li>
+            <li>Remise en état (post-travaux, fin de bail)</li>
+          </ul>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Qualité &amp; suivi</h2>
+          <div className="accent mt-2"></div>
+          <ul className="service-list list-check mt-2">
+            <li>Contrôle qualité régulier et ajustements si besoin</li>
+            <li>Intervenants qualifiés et assurés</li>
+            <li>Planning flexible et communication simple</li>
+          </ul>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Zones d’intervention et délais</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">
+            Île-de-France &amp; Normandie — intervention rapide selon votre secteur. Consultez nos zones pour vérifier la disponibilité.
+          </p>
+          <Link to="/zones" className="btn-outline">Voir les zones</Link>
         </section>
 
         <section className="section-spacious panel panel-hover">

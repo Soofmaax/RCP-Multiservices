@@ -81,10 +81,34 @@ export default function ServiceJardinagePage() {
           <div className="accent mt-2"></div>
           <ul className="service-list list-check mt-2">
             <li>Tonte de pelouse</li>
-            <li>Taille de haies et arbustes</li>
-            <li>Entretien des massifs et désherbage</li>
+            <li>Taille de haies et arbustes (soins saisonniers)</li>
+            <li>Entretien des massifs, désherbage et paillage</li>
             <li>Petits aménagements et évacuation des déchets verts</li>
           </ul>
+          <p className="mt-2 text-neutral-600">
+            Nous adaptons l’entretien aux saisons et à la croissance des végétaux pour un rendu propre et durable.
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Conseils &amp; saisons</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">
+            Taille douce au bon moment, entretien régulier des bordures et apports organiques si besoin. Nous vous conseillons sur les gestes à privilégier.
+          </p>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Zones d’intervention et délais</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">
+            Île-de-France &amp; Normandie — intervention rapide selon votre secteur. Vérifiez la disponibilité et les délais dans votre ville.
+          </p>
+          <Link to="/zones" className="btn-outline">Voir les zones</Link>
         </section>
 
         <section className="section-spacious panel panel-hover">

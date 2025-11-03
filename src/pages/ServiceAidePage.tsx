@@ -80,10 +80,50 @@ export default function ServiceAidePage() {
           <div className="accent mt-2"></div>
           <ul className="service-list list-check mt-2">
             <li>Courses, préparation des repas</li>
-            <li>Aide administrative et accompagnement</li>
+            <li>Aide administrative et accompagnement (démarches simples)</li>
             <li>Compagnie, sorties et stimulation</li>
             <li>Coordination avec l’entourage et les professionnels</li>
           </ul>
+          <p className="mt-2 text-neutral-600">
+            Nous intervenons avec discrétion et bienveillance, en respectant vos habitudes et votre rythme de vie.
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Pourquoi nous choisir</h2>
+          <div className="accent mt-2"></div>
+          <ul className="service-list list-check mt-2">
+            <li>Intervenants qualifiés et assurés</li>
+            <li>Présence, écoute et respect de la confidentialité</li>
+            <li>Plan d’accompagnement personnalisé</li>
+            <li>Suivi qualité et coordination avec l’entourage</li>
+          </ul>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Notre méthode</h2>
+          <div className="accent mt-2"></div>
+          <ul className="service-list list-check mt-2">
+            <li>Évaluation de votre besoin et de votre rythme de vie</li>
+            <li>Mise en place d’un planning adapté avec intervenant dédié</li>
+            <li>Suivi régulier et ajustements si nécessaire</li>
+          </ul>
+          <p className="mt-2 text-neutral-600">
+            Nous ne réalisons pas d’actes médicaux ou infirmiers. Nous proposons une aide à domicile non médicale, centrée sur l’accompagnement et le confort quotidien.
+          </p>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Zones d’intervention et délais</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">
+            Île-de-France &amp; Normandie — intervention rapide selon votre secteur. Consultez nos zones pour vérifier la disponibilité près de chez vous.
+          </p>
+          <Link to="/zones" className="btn-outline">Voir les zones</Link>
         </section>
 
         <section className="section-spacious panel panel-hover">
