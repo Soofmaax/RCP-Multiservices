@@ -51,9 +51,9 @@ function Home() {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.rcp-multiservices.com/og-default.jpg" />
+        <meta property="og:image" content="/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:image" content="https://www.rcp-multiservices.com/og-default.jpg" />
+        <meta property="twitter:image" content="/og-default.jpg" />
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
       </Helmet>
       <main id="main" className="container">
@@ -308,9 +308,9 @@ function ZonesRoot() {
         <meta property="og:description" content="Découvrez nos villes d'intervention en Île-de-France et en Normandie." />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.rcp-multiservices.com/og-default.jpg" />
+        <meta property="og:image" content="/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:image" content="https://www.rcp-multiservices.com/og-default.jpg" />
+        <meta property="twitter:image" content="/og-default.jpg" />
       </Helmet>
       <ZonesIndex />
     </>
