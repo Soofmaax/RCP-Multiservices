@@ -102,12 +102,15 @@ Note monorepo: Le dossier `next/` contient un prototype Next.js non utilisé en 
 - Sécurité:
   - Headers: HSTS, XFO, nosniff, Referrer‑Policy, Permissions‑Policy, COOP/CORP
   - CSP restrictive (avec style‑src 'unsafe‑inline' compatible Leaflet)
+- Consentement cookies:
+  - Bannière de consentement (nécessaires toujours actifs, analytics optionnel)
+  - Analytics (GA4) et Microsoft Clarity initialisés uniquement si consentement + variables d’environnement présentes
 
 ## Qualité & CI
 
 - ESLint strict (type‑aware), TypeScript strict
 - Prettier format:check
-- Vitest avec couverture minimale ≥ 80%
+- Vitest avec couverture minimale ≥ 80% (tests unitaires couvrant pages, lib, utils)
 - Build Vite
 - Audit sécurité (npm audit)
 - CI GitHub Actions (Format, Lint, Typecheck, Test, Build, Audit)
@@ -137,6 +140,9 @@ Note monorepo: Le dossier `next/` contient un prototype Next.js non utilisé en 
 - Domaine:
   - `www.rcp-multiservices.com` en primary
   - Redirection apex → www configurée
+- CSP:
+  - Pour activer GA4, ajoutez `https://www.googletagmanager.com` à `script-src`
+  - Pour activer Microsoft Clarity, ajoutez `https://www.clarity.ms` à `script-src`
 
 ## Audit automatisé de PR
 
@@ -146,7 +152,7 @@ Pré-requis (optionnels mais recommandés):
 - Lighthouse + Chrome launcher: `npm i -D lighthouse chrome-launcher`
 - Puppeteer + Axe: `npm i -D puppeteer axe-core`
 
-Commande:
+Commandes:
 ```bash
 # avec variable d'environnement
 BASE_URL="https://deploy-preview-123--rcp-multiservices.netlify.app" npm run audit:site
@@ -155,12 +161,12 @@ BASE_URL="https://deploy-preview-123--rcp-multiservices.netlify.app" npm run aud
 npm run audit:site -- "https://deploy-preview-123--rcp-multiservices.netlify.app"
 ```
 
-Ce script:
+Le script `scripts/audit.mjs`:
 - Valide tous les liens du site via le sitemap (404/5xx)
 - Lance Lighthouse (si installé) et remonte les scores Performance, Accessibilité, Bonnes pratiques, SEO
 - Lance Axe sur 3 pages (Accueil, Services, Contact) et liste les violations crit./serious
-- Inspecte les en-têtes HTTP (HSTS, XFO, XCTO, CSP, Referrer-Policy, Permissions-Policy, COOP/CORP)
-- Vérifie `/robots.txt`, `/sitemap.xml` et métadonnées de la homepage (title, description, OG)
+- Inspecte les en‑têtes HTTP (HSTS, XFO, XCTO, CSP, Referrer‑Policy, Permissions‑Policy, COOP/CORP)
+- Vérifie `/robots.txt`, `/sitemapde la homepage (title, description, OG)
 
 Sortie:
 - Un rapport Markdown est écrit dans `./audit-report.md` que vous pouvez copier-coller dans le commentaire de la PR.
