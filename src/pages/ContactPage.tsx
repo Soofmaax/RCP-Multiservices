@@ -72,7 +72,7 @@ export default function ContactPage() {
           </div>
           <div className="relative rounded-[24px] overflow-hidden shadow-md">
             <img
-              src="https://images.unsplash.com/photo-1526378722484-b51edf409d98?auto=format&fit=crop&w=1600&q=80"
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80"
               alt="Contact — illustration"
               className="w-full h-full object-cover md:min-h-[360px] mask-image"
               loading="lazy"

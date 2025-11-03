@@ -72,7 +72,9 @@ export default function RegionPage() {
           </div>
           <div className="relative rounded-[24px] overflow-hidden shadow-md">
             <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+              src={data.key === 'ile-de-france'
+                ? 'https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1600&q=80'
+                : 'https://images.unsplash.com/photo-1526779259212-939e64768c92?auto=format&fit=crop&w=1600&q=80'}
               alt={`${data.name} — illustration`}
               className="w-full h-full object-cover md:min-h-[360px] mask-image"
               loading="lazy"

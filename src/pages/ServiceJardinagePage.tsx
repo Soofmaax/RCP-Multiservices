@@ -48,7 +48,7 @@ export default function ServiceJardinagePage() {
           </div>
           <div className="relative rounded-[24px] overflow-hidden shadow-md">
             <img
-              src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1600&q=80"
+              src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
               alt="Jardinage — illustration"
               className="w-full h-full object-cover md:min-h-[360px] mask-image"
               loading="lazy"
