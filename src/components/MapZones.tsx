@@ -1,19 +1,15 @@
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import { useEffect, useMemo, useState } from 'react';
+import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
 
 type LatLngTuple = readonly [number, number];
 type BoundsTuple = readonly [LatLngTuple, LatLngTuple];
+type RegionKey = 'ile-de-france' | 'normandie';
+const ALL_REGION_KEYS: RegionKey[] = ['ile-de-france', 'normandie'];
 
-// Types minimalistes et sûrs pour le GeoJSON
-type RegionFeature = {
-  type: 'Feature';
-  properties?: { nom?: string };
-  geometry: unknown;
-};
-type RegionFeatureCollection = {
-  type: 'FeatureCollection';
-  features: RegionFeature[];
-};
+// Types GeoJSON stricts
+type RegionFeature = Feature<Geometry, GeoJsonProperties>;
+type RegionFeatureCollection = FeatureCollection<Geometry, GeoJsonProperties>;
 
 function isFeatureCollection(x: unknown): x is RegionFeatureCollection {
   if (!x || typeof x !== 'object') return false;
@@ -21,12 +17,12 @@ function isFeatureCollection(x: unknown): x is RegionFeatureCollection {
   return obj.type === 'FeatureCollection' && Array.isArray(obj.features);
 }
 
-const REGION_NAMES: Record<'ile-de-france' | 'normandie', string> = {
+const REGION_NAMES: Record<RegionKey, string> = {
   'ile-de-france': 'Île-de-France',
   normandie: 'Normandie',
 };
 
-const REGION_COLOR: Record<'ile-de-france' | 'normandie', string> = {
+const REGION_COLOR: Record<RegionKey, string> = {
   'ile-de-france': '#0B4EB3',
   normandie: '#0B4EB3',
 };
@@ -45,7 +41,7 @@ const BOUNDS: BoundsTuple = [
   [50.5, 3.7],  // nord-est
 ];
 
-const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> = {
+const REGION_BOUNDS: Record<'all' | RegionKey, BoundsTuple> = {
   all: BOUNDS,
   'ile-de-france': [
     [48.0, 1.5],
@@ -57,7 +53,7 @@ const REGION_BOUNDS: Record<'all' | 'ile-de-france' | 'normandie', BoundsTuple> 
   ],
 };
 
-export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | 'ile-de-france' | 'normandie' }) {
+export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all' | RegionKey }) {
   const [fc, setFc] = useState<RegionFeatureCollection | null>(null);
 
   // Chargement du GeoJSON depuis le dossier public
@@ -75,11 +71,18 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
     })();
   }, []);
 
+  function getRegionName(f: RegionFeature): string | undefined {
+    const props = f.properties;
+    if (!props || typeof props !== 'object') return undefined;
+    const nom = (props as Record<string, unknown>)['nom'];
+    return typeof nom === 'string' ? nom : undefined;
+  }
+
   const featuresByKey = useMemo(() => {
-    const record: Partial<Record<'ile-de-france' | 'normandie', RegionFeature>> = {};
+    const record: Partial<Record<RegionKey, RegionFeature>> = {};
     if (!fc) return record;
     for (const f of fc.features) {
-      const nom = typeof f.properties?.nom === 'string' ? f.properties?.nom : undefined;
+      const nom = getRegionName(f);
       if (nom === REGION_NAMES['ile-de-france']) record['ile-de-france'] = f;
       else if (nom === REGION_NAMES['normandie']) record['normandie'] = f;
     }
@@ -87,7 +90,7 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
   }, [fc]);
 
   const keys = useMemo<RegionKey[]>(
-    () => (regionFilter === 'all' ? ALL_REGION_KEYS : [regionFilter]),
+    () => (regionFilter === 'all' ? ALL_REGION_KEYS : [regionFilter as RegionKey]),
     [regionFilter],
   );
 
