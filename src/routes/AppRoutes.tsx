@@ -60,7 +60,7 @@ function Home() {
         {/* Hero split (teal panel + royalty-free image) */}
         {(() => {
           const heroImg =
-            'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
+            'https://images.unsplash.com/photo-1600585154340-0d1f5a6375d0?auto=format&fit=crop&w=1600&q=80';
           return (
             <section className="hero-split">
               <div className="hero-teal">
@@ -206,7 +206,7 @@ function Home() {
         <section className="section-spacious">
           <div className="rounded-[24px] overflow-hidden relative card-elevated">
             <img
-              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80"
+              src="https://images.unsplash.com/photo-1512486130939-2c4f799ff06e?auto=format&fit=crop&w=1600&q=80"
               alt="Témoignages — illustration"
               className="w-full h-[420px] object-cover"
               loading="lazy"
