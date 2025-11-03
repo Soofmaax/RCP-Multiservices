@@ -86,10 +86,8 @@ export default function MapZones({ regionFilter = 'all' }: { regionFilter?: 'all
     return record;
   }, [fc]);
 
-  type RegionKey = 'ile-de-france' | 'normandie';
-  const allKeys: RegionKey[] = ['ile-de-france', 'normandie'];
   const keys = useMemo<RegionKey[]>(
-    () => (regionFilter === 'all' ? allKeys : [regionFilter]),
+    () => (regionFilter === 'all' ? ALL_REGION_KEYS : [regionFilter]),
     [regionFilter],
   );
 
