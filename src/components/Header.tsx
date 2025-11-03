@@ -17,7 +17,7 @@ export default function Header() {
               <img
                 src="/logo.svg"
                 alt="RCP Multiservices"
-                className="h-8 w-auto"
+                className="h-10 w-auto sm:h-12 md:h-14"
                 width={160}
                 height={40}
                 decoding="async"
