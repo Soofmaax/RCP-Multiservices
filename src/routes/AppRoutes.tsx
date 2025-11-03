@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage, ServiceAidePage, ServiceMenagePage, ServiceJardinagePage } from '../pages';
-import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar, ScrollTop } from '../components';
+import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar, ScrollTop, BackToTop } from '../components';
 import SOCIAL_LINKS from '../config/social';
 import CookieConsent from '../components/CookieConsent';
 import { initAnalytics } from '../lib/analytics';
@@ -429,6 +429,7 @@ function Footer() {
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-white/70 text-sm">
           <div>© {new Date().getFullYear()} RCP Multiservices · Île-de-France &amp; Normandie</div>
           <div className="flex items-center gap-3">
+            <span className="hidden md:inline">SEO local optimisé avec <a href="https://smarterlogicweb.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary">smarterlogicweb.com</a></span>
             <span>SIRET: à compléter • RC Pro: à compléter</span>
             <button
               type="button"
@@ -478,6 +479,7 @@ export default function AppRoutes() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <QuickCall />
+      <BackToTop />
       <Footer />
       <CookieConsent />
     </BrowserRouter>

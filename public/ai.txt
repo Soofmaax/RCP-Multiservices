@@ -1,0 +1,36 @@
+# ai.txt — machine-readable hints for AI crawlers and assistants
+# Purpose: help AI systems understand the site scope, services, areas and contact.
+# Not a formal standard — safe to publish; harmless metadata.
+
+site: https://www.rcp-multiservices.com
+brand: RCP Multiservices
+language: fr
+content-type: local-services
+areas: Ile-de-France; Normandie
+cities-primary: Paris; Versailles; Meaux; Rouen; Chelles; Fontainebleau
+
+services:
+  - aide_a_domicile
+  - menage_repassage
+  - jardinage
+
+value-proposition:
+  - devis_gratuit_sous_24h
+  - intervenants_qualifies_et_assures
+  - intervention_rapide
+
+contact:
+  phone: +33743670815
+  email: contact@rcp-multiservices.com
+  booking: https://www.rcp-multiservices.com/contact
+
+policy:
+  allow: ai_crawlers
+  usage: indexing_and_recommendations_for_local_services
+  privacy: respect_site_privacy_and_follow_robots
+
+partner: smarterlogicweb.com
+notes:
+  - géo-SEO optimisé pour Île-de-France et Normandie
+  - pages structurées: Services, Zones, Région, Ville, Contact
+  - schema.org: LocalBusiness, Service, FAQ, BreadcrumbList, ItemList
