@@ -110,12 +110,29 @@
     .list li { margin:1mm 0; }
 
     .highlight { display:grid; grid-template-columns:auto 1fr; align-items:center; gap:3mm;
-      background:#e6f6ed; border:.5pt solid #bbf7d0; color:#065f46; padding:3.5mm; border-radius:10px; font-weight:700; font-size:10pt; }
+      background:#e6f6ed; border:.5pt solid #bbf7d0; color:#065f46; padding:3.5mm; border-radius:10px; font-weight:700; font-size:10pt; margin-bottom: 6mm; }
     .mark { width:4mm; height:4mm; border-radius:999px; background: var(--accent); }
 
     .cta { display:grid; grid-template-columns:auto 1fr auto; gap:5mm; align-items:center; background:#f8fafc; border:.5pt solid #e5e7eb; border-radius:12px; padding:5mm; color:#0f172a; margin-top:auto; }
     .note { font-size:10pt; color: var(--muted); }
     .btn { background: var(--primary); color: var(--cta-ink); font-weight:800; padding:4mm 8mm; border-radius:999px; border:none; font-size:11.5pt; }
+
+    /* Mini CTA pour le verso (bouton en bas à droite) */
+    .mini-cta {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+    .mini-btn {
+      background: var(--primary);
+      color: var(--cta-ink);
+      font-weight: 800;
+      padding: 3.5mm 7mm;
+      border-radius: 999px;
+      border: none;
+      font-size: 11.5pt;
+      justify-self: end;
+    }
 
     /* VERSO — header */
     .back-header {
@@ -248,8 +265,7 @@
                 <ul class="list">
                   <li>Ménage, vitres, repassage</li>
                   <li>Jardinage et entretien des extérieurs</li>
-                  <li>Aide au quotidien, courses, accompagnement</li>
-                  <li>Préparation de repas, organisation</li>
+                  <li>Aide au quotidien & accompagnement</li>
                 </ul>
               </div>
 
@@ -260,7 +276,6 @@
                   <li>Personnel qualifié et assuré</li>
                   <li>Intervention rapide en Île‑de‑France</li>
                   <li>Devis clair, sans surprise</li>
-                  <li>Suivi satisfaction</li>
                 </ul>
                 <div class="testimonial" style="margin-top:6mm;">
                   <p>“Service impeccable, équipe ponctuelle et à l’écoute.”</p>
@@ -270,9 +285,14 @@
             </div>
 
             <!-- Bandeau avantage fiscal -->
-            <div class="highlight">
+            <div class="highlight" style="margin-top: 4mm;">
               <span class="mark"></span>
               <span>50% de crédit d’impôt sur les services à la personne (art. 199 sexdecies, sous conditions).</span>
+            </div>
+
+            <!-- Mini-CTA pour mirroir recto -->
+            <div class="mini-cta">
+              <button class="mini-btn" aria-label="Téléphone de contact">+33 7 43 67 08 15</button>
             </div>
 
             <!-- Mentions légales -->
