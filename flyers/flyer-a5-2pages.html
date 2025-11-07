@@ -5,9 +5,26 @@
   <title>RCP Multiservices — Flyer A5 (2 pages)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="./theme.css">
   <style>
     @page { size: A5 portrait; margin: 0; }
+
+    /* Palette intégrée (assortie au site, vert/bleu profond) */
+    :root{
+      --bleed: 3mm;
+      --safe: 6mm;
+      --paper-w: 148mm;
+      --paper-h: 210mm;
+
+      --brand-font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      --brand-bg-1: #0c1b2a;   /* bleu nuit */
+      --brand-bg-2: #0b2740;   /* bleu pétrole */
+      --brand-bg-3: #0d3b66;   /* bleu profond */
+      --brand-primary: #16a34a;/* vert bouton */
+      --brand-accent:  #10b981;/* vert émeraude */
+      --ink: #0f172a;          /* texte principal */
+      --muted: #475569;        /* texte secondaire */
+      --cta-ink: #052e1c;      /* texte bouton */
+    }
 
     html, body { background: #f3f4f6; height: 100%; }
     body { margin: 0; font-family: var(--brand-font); color: var(--ink); }
