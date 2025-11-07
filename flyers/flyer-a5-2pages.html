@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>RCP Multiservices — Flyer A5 (2 pages)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    @page { size: A5 portrait; margin: 0; }
+
+    :root{
+      --bleed: 3mm;
+      --safe: 6mm;
+      --paper-w: 148mm;
+      --paper-h: 210mm;
+
+      /* Palette assortie au site (ajustable) */
+      --brand-font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      --brand-bg-1: #0f172a;
+      --brand-bg-2: #0b2534;
+      --brand-bg-3: #0a3f39;
+      --brand-primary: #22c55e;
+      --brand-accent: #14b8a6;
+      --ink: #0b1220;
+      --muted: #475569;
+      --cta-ink: #06210e;
+    }
+
+    html, body { background: #f3f4f6; height: 100%; }
+    body { margin: 0; font-family: var(--brand-font); color: var(--ink); }
+
+    .page {
+      position: relative;
+      width: calc(var(--paper-w) + var(--bleed) * 2);
+      height: calc(var(--paper-h) + var(--bleed) * 2);
+      margin: 12px auto;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .artboard { position: absolute; inset: 0; }
+    .trim { position: absolute; left: var(--bleed); top: var(--bleed); width: var(--paper-w); height: var(--paper-h); background: #fff; overflow: hidden; }
+    .safe { position: absolute; inset: var(--safe); }
+
+    /* Traits de coupe */
+    .crop { position: absolute; pointer-events: none; }
+    .crop.h { width: 8mm; height: 0; border-top: 0.25pt solid #000; }
+    .crop.v { width: 0; height: 8mm; border-left: 0.25pt solid #000; }
+    .crop.top-left.h    { left: var(--bleed);  top: 0; transform: translate(-8mm, 0); }
+    .crop.top-left.v    { left: 0;             top: var(--bleed); transform: translate(0, -8mm); }
+    .crop.top-right.h   { right: var(--bleed); top: 0; }
+    .crop.top-right.v   { right: 0;            top: var(--bleed); transform: translate(0, -8mm); }
+    .crop.bottom-left.h { left: var(--bleed);  bottom: 0; transform: translate(-8mm, 0); }
+    .crop.bottom-left.v { left: 0;             bottom: var(--bleed); }
+    .crop.bottom-right.h{ right: var(--bleed); bottom: 0; }
+    .crop.bottom-right.v{ right: 0;            bottom: var(--bleed); }
+
+    /* Styles communs */
+    .hero {
+      background: linear-gradient(135deg, var(--brand-bg-1) 0%, var(--brand-bg-2) 60%, var(--brand-bg-3) 100%);
+      color: #fff; border-radius: 8px; padding: 8mm;
+      display: grid; grid-template-columns: auto 1fr; gap: 6mm; align-items: center;
+    }
+    .logo { width: 18mm; height: 18mm; object-fit: contain; background: #ffffff12; border-radius: 3mm; padding: 2mm; }
+    h1 { margin: 0; font-size: 18pt; line-height: 1; }
+    .tag { margin: 0; color: #e2e8f0; font-size: 10pt; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+    .card { border: 0.5pt solid #e5e7eb; border-radius: 8px; padding: 5mm; }
+    .card h3 { margin: 0 0 2mm 0; font-size: 12pt; color: #0f172a; }
+    .list { margin: 0; padding-left: 4mm; font-size: 10pt; }
+    .list li { margin: 1mm 0; }
+
+    .cta {
+      display: grid; grid-template-columns: 1fr auto; gap: 4mm; align-items: center;
+      padding: 5mm; border-radius: 8px; background: #f8fafc; border: 0.5pt solid #e5e7eb;
+    }
+    .cta .phone { font-size: 16pt; font-weight: 800; color: var(--brand-bg-3); }
+    .btn { background: var(--brand-primary); color: var(--cta-ink); font-weight: 800; padding: 4mm 7mm; border-radius: 999px; border: none; font-size: 11pt; }
+
+    .legal { font-size: 8pt; color: var(--muted); line-height: 1.35; }
+
+    @media print {
+      html, body { background: transparent; }
+      .page { box-shadow: none; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1: image de marque + promesse + services clés -->
+  <section class="page" aria-label="Recto">
+    <div class="artboard">
+      <!-- Traits de coupe -->
+      <div class="crop h top-left h"></div>
+      <div class="crop v top-left v"></div>
+      <div class="crop h top-right h"></div>
+      <div class="crop v top-right v"></div>
+      <div class="crop h bottom-left h"></div>
+      <div class="crop v bottom-left v"></div>
+      <div class="crop h bottom-right h"></div>
+      <div class="crop v bottom-right v"></div>
+
+      <div class="trim">
+        <div class="safe" style="display:flex;flex-direction:column;gap:6mm;height:100%;">
+          <div class="hero">
+            <img class="logo" src="/assets/logo-placeholder.png" alt="Logo">
+            <div>
+              <h1>RCP Multiservices</h1>
+              <p class="tag">Services à domicile en Île‑de‑France · aide · ménage · jardinage</p>
+            </div>
+          </div>
+
+          <div class="grid" style="flex:1;">
+            <div class="card">
+              <h3>Prestations</h3>
+              <ul class="list">
+                <li>Ménage, vitres, repassage</li>
+                <li>Jardinage et entretien</li>
+                <li>Courses et accompagnement</li>
+                <li>Préparation de repas</li>
+                <li>Petits travaux</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Engagements</h3>
+              <ul class="list">
+                <li>Personnel qualifié et assuré</li>
+                <li>Intervention rapide en Île‑de‑France</li>
+                <li>Devis clair et sans surprise</li>
+                <li>Matériel fourni si nécessaire</li>
+                <li>Suivi qualité après intervention</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cta">
+            <div>
+              Devis gratuit sous 24h<br>
+              <span class="phone">01 23 45 67 89</span>
+            </div>
+            <button class="btn">Contactez‑nous</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 2: détails + mentions légales -->
+  <section class="page" aria-label="Verso">
+    <div class="artboard">
+      <!-- Traits de coupe -->
+      <div class="crop h top-left h"></div>
+      <div class="crop v top-left v"></div>
+      <div class="crop h top-right h"></div>
+      <div class="crop v top-right v"></div>
+      <div class="crop h bottom-left h"></div>
+      <div class="crop v bottom-left v"></div>
+      <div class="crop h bottom-right h"></div>
+      <div class="crop v bottom-right v"></div>
+
+      <div class="trim">
+        <div class="safe" style="display:flex;flex-direction:column;gap:6mm;height:100%;">
+          <div class="card" style="border-color:#dbeafe;background:#f8fafc;">
+            <h3 style="color:#0f172a;margin-top:0;">Détails des prestations</h3>
+            <ul class="list">
+              <li>Forfaits réguliers et prestations ponctuelles</li>
+              <li>Produits écologiques possibles</li>
+              <li>Interventions sur toute l’Île‑de‑France</li>
+              <li>Devis sous 24h, planification flexible</li>
+              <li>Facturation claire et suivi qualité</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Contact</h3>
+            <ul class="list">
+              <li>Téléphone: 01 23 45 67 89</li>
+              <li>Email: contact@rcp-multiservices.com</li>
+              <li>Site: www.rcp-multiservices.com</li>
+              <li>Adresse: 123 Av. de la République, 75011 Paris</li>
+            </ul>
+            <div style="margin-top:4mm;background:#f0fdf4;border:0.5pt solid #bbf7d0;color:#065f46;padding:3mm 4mm;border-radius:6px;font-weight:700;">
+              Jusqu’à 50% de crédit d’impôt (art. 199 sexdecies du CGI, sous conditions).
+            </div>
+          </div>
+
+          <div class="legal" style="margin-top:auto;">
+            RCP Multiservices — Statut: [SAS] — Capital: [10 000 €] · SIREN/SIRET: [XXXXXXXXX / XXXXXXXXXXXXX] ·
+            RCS: [Ville] [n°] · TVA intracom: [FR..] · RC Pro: [Assureur + n° police] ·
+            Siège: 123 Av. de la République, 75011 Paris — Tél: 01 23 45 67 89 — contact@rcp-multiservices.com ·
+            Directeur de la publication: [Nom] · Ne pas jeter sur la voie publique.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
