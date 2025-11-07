@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>RCP Multiservices — Flyer A5 (avec fond perdu et traits de coupe)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Impression: 2 pages (recto/verso), format A5 avec fond perdu simulé (3 mm) et traits de coupe */
+    @page {
+      size: A5 portrait;
+      margin: 0; /* On gère le fond perdu et la zone de sécurité manuellement */
+    }
+
+    :root{
+      --bleed: 3mm;          /* fond perdu */
+      --safe: 6mm;           /* marge intérieure de sécurité */
+      --paper-w: 148mm;
+      --paper-h: 210mm;
+      --bg: #0f172a;         /* slate-900 */
+      --primary: #22c55e;    /* green-500 */
+      --accent: #14b8a6;     /* teal-500 */
+      --text: #0b1220;       /* near black */
+      --muted: #475569;      /* slate-500 */
+    }
+
+    html, body {
+      background: #888; /* rendu écran */
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      color: #111827;
+    }
+
+    .page {
+      position: relative;
+      width: calc(var(--paper-w) + var(--bleed) * 2);
+      height: calc(var(--paper-h) + var(--bleed) * 2);
+      margin: 12px auto;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* Zone d'impression (inclut le fond perdu) */
+    .artboard {
+      position: absolute;
+      inset: 0;
+      background: white;
+    }
+
+    /* Zone utile (bord à bord A5 sans fond perdu) */
+    .trim {
+      position: absolute;
+      left: var(--bleed);
+      top: var(--bleed);
+      width: var(--paper-w);
+      height: var(--paper-h);
+      background: white;
+      overflow: hidden;
+    }
+
+    /* Marge de sécurité (éviter texte proche du bord) */
+    .safe {
+      position: absolute;
+      left: calc(var(--bleed) + var(--safe));
+      top: calc(var(--bleed) + var(--safe));
+      right: calc(var(--bleed) + var(--safe));
+      bottom: calc(var(--bleed) + var(--safe));
+    }
+
+    /* Traits de coupe (4 coins) */
+    .crop {
+      position: absolute;
+      pointer-events: none;
+    }
+    /* horizontaux top/bottom */
+    .crop.h {
+      width: 8mm;
+      height: 0;
+      border-top: 0.25pt solid #000;
+    }
+    .crop.v {
+      width: 0;
+      height: 8mm;
+      border-left: 0.25pt solid #000;
+    }
+    .crop.top-left.h    { left: var(--bleed);            top: 0;                    transform: translate(-8mm, 0); }
+    .crop.top-left.v    { left: 0;                       top: var(--bleed);          transform: translate(0, -8mm); }
+    .crop.top-right.h   { right: var(--bleed);           top: 0;                    }
+    .crop.top-right.v   { right: 0;                      top: var(--bleed);          transform: translate(0, -8mm); }
+    .crop.bottom-left.h { left: var(--bleed);            bottom: 0;                 transform: translate(-8mm, 0); }
+    .crop.bottom-left.v { left: 0;                       bottom: var(--bleed);       }
+    .crop.bottom-right.h{ right: var(--bleed);           bottom: 0;                 }
+    .crop.bottom-right.v{ right: 0;                      bottom: var(--bleed);       }
+
+    /* Habillage recto */
+    .hero {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--bg) 0%, #0b2534 60%, #0a3f39 100%);
+      color: #fff;
+    }
+    .hero .brand {
+      position: absolute;
+      left: calc(var(--safe));
+      top: calc(var(--safe));
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+    .hero .brand .logo {
+      width: 14mm;
+      height: 14mm;
+      border-radius: 4mm;
+      background: radial-gradient(circle at 30% 30%, var(--primary), var(--accent));
+      box-shadow: 0 4px 16px rgba(34,197,94,0.4), inset 0 0 40px rgba(255,255,255,0.15);
+    }
+    .hero .brand .name {
+      font-size: 16pt;
+      line-height: 1;
+    }
+    .hero .headline {
+      position: absolute;
+      left: calc(var(--safe));
+      right: calc(var(--safe));
+      top: 38mm;
+      font-size: 22pt;
+      font-weight: 800;
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+    .hero .sub {
+      position: absolute;
+      left: calc(var(--safe));
+      right: calc(var(--safe));
+      top: 78mm;
+      font-size: 11pt;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+    .hero .badges {
+      position: absolute;
+      left: calc(var(--safe));
+      right: calc(var(--safe));
+      top: 112mm;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6mm 8mm;
+    }
+    .badge {
+      background: rgba(255,255,255,0.08);
+      border: 0.5pt solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 6mm;
+      backdrop-filter: blur(2px);
+    }
+    .badge h4 {
+      margin: 0 0 2mm 0;
+      font-size: 11pt;
+      color: #a7f3d0;
+    }
+    .badge p {
+      margin: 0;
+      font-size: 9pt;
+      color: #e5e7eb;
+    }
+
+    .cta {
+      position: absolute;
+      left: calc(var(--safe));
+      right: calc(var(--safe));
+      bottom: calc(var(--safe));
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4mm;
+      align-items: end;
+      color: #fff;
+    }
+    .cta .phone {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #a7f3d0;
+    }
+    .cta .btn {
+      justify-self: end;
+      background: #22c55e;
+      color: #06210e;
+      font-weight: 800;
+      padding: 4mm 7mm;
+      border-radius: 999px;
+      border: none;
+      font-size: 11pt;
+    }
+
+    /* Habillage verso */
+    .back {
+      background: #ffffff;
+      color: var(--text);
+    }
+    .back .header {
+      background: linear-gradient(90deg, #0f172a 0%, #0b2534 60%, #0a3f39 100%);
+      color: #fff;
+      padding: 10mm var(--safe);
+      position: absolute;
+      left: var(--bleed);
+      right: var(--bleed);
+      top: var(--bleed);
+    }
+    .back .header h2 {
+      margin: 0;
+      font-size: 16pt;
+      font-weight: 800;
+    }
+    .back .content {
+      position: absolute;
+      left: calc(var(--bleed) + var(--safe));
+      right: calc(var(--bleed) + var(--safe));
+      top: calc(var(--bleed) + 28mm);
+      bottom: calc(var(--bleed) + 36mm);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+      font-size: 10pt;
+      line-height: 1.45;
+    }
+    .card {
+      border: 0.5pt solid #e5e7eb;
+      border-radius: 8px;
+      padding: 6mm;
+    }
+    .card h3 {
+      margin: 0 0 3mm 0;
+      font-size: 12pt;
+      color: #0f172a;
+    }
+    .list {
+      margin: 0;
+      padding: 0 0 0 4mm;
+    }
+    .list li {
+      margin: 1.2mm 0;
+    }
+    .highlight {
+      background: #f0fdf4;
+      border: 0.5pt solid #bbf7d0;
+      color: #065f46;
+      padding: 3mm 4mm;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .legal {
+      position: absolute;
+      left: calc(var(--bleed) + var(--safe));
+      right: calc(var(--bleed) + var(--safe));
+      bottom: calc(var(--bleed) + var(--safe));
+      font-size: 8pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* Print hints: enlever ombre et fond écran à l'impression */
+    @media print {
+      html, body { background: transparent; }
+      .page { box-shadow: none; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- RECTO -->
+  <section class="page" aria-label="Recto">
+    <div class="artboard hero">
+      <!-- Traits de coupe -->
+      <div class="crop h top-left h"></div>
+      <div class="crop v top-left v"></div>
+      <div class="crop h top-right h"></div>
+      <div class="crop v top-right v"></div>
+      <div class="crop h bottom-left h"></div>
+      <div class="crop v bottom-left v"></div>
+      <div class="crop h bottom-right h"></div>
+      <div class="crop v bottom-right v"></div>
+
+      <div class="trim">
+        <div class="safe">
+          <div class="brand">
+            <div class="logo" aria-hidden="true"></div>
+            <div class="name">RCP Multiservices</div>
+          </div>
+
+          <div class="headline">
+            Services à domicile en Île‑de‑France
+            pour simplifier votre quotidien
+          </div>
+
+          <div class="sub">
+            Aide à domicile, ménage, jardinage, accompagnement. Personnel qualifié,
+            assuré et à l’écoute. Devis gratuit sous 24h.
+          </div>
+
+          <div class="badges">
+            <div class="badge">
+              <h4>Ménage & repassage</h4>
+              <p>Prestation soignée et régulière. Produits écologiques sur demande.</p>
+            </div>
+            <div class="badge">
+              <h4>Jardinage</h4>
+              <p>Tonte, taille, désherbage, remise en état. Intervention rapide.</p>
+            </div>
+            <div class="badge">
+              <h4>Aide à domicile</h4>
+              <p>Accompagnement quotidien, courses, préparation de repas.</p>
+            </div>
+            <div class="badge">
+              <h4>Petits travaux</h4>
+              <p>Montage, petits dépannages, manutention légère.</p>
+            </div>
+          </div>
+
+          <div class="cta">
+            <div>
+              <div>Devis gratuit • Sous 24h</div>
+              <div class="phone">01 23 45 67 89</div>
+            </div>
+            <button class="btn">Contactez‑nous</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSO -->
+  <section class="page" aria-label="Verso">
+    <div class="artboard back">
+      <!-- Traits de coupe -->
+      <div class="crop h top-left h"></div>
+      <div class="crop v top-left v"></div>
+      <div class="crop h top-right h"></div>
+      <div class="crop v top-right v"></div>
+      <div class="crop h bottom-left h"></div>
+      <div class="crop v bottom-left v"></div>
+      <div class="crop h bottom-right h"></div>
+      <div class="crop v bottom-right v"></div>
+
+      <div class="trim">
+        <div class="header">
+          <h2>Nos services</h2>
+        </div>
+
+        <div class="content">
+          <div class="card">
+            <h3>Prestations</h3>
+            <ul class="list">
+              <li>Ménage, vitres, repassage</li>
+              <li>Jardinage et entretien des espaces verts</li>
+              <li>Courses et accompagnement</li>
+              <li>Préparation de repas, aide au quotidien</li>
+              <li>Petits travaux et manutention</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Engagements</h3>
+            <ul class="list">
+              <li>Personnel qualifié et assuré</li>
+              <li>Intervention rapide en Île‑de‑France</li>
+              <li>Devis clair et sans surprise</li>
+              <li>Matériel fourni si nécessaire</li>
+              <li>Suivi qualité après intervention</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Contact</h3>
+            <ul class="list">
+              <li>Téléphone: 01 23 45 67 89</li>
+              <li>Email: contact@rcp-multiservices.com</li>
+              <li>Site: www.rcp-multiservices.com</li>
+              <li>Adresse: 123 Av. de la République, 75011 Paris</li>
+            </ul>
+            <div class="highlight" style="margin-top:4mm;">
+              Jusqu’à 50% de crédit d’impôt sur les services à la personne
+              (selon l’article 199 sexdecies du CGI, sous conditions).
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Tarification</h3>
+            <ul class="list">
+              <li>Devis gratuit et personnalisé</li>
+              <li>Tarifs TTC, hors fournitures spécifiques</li>
+              <li>Aides et CESU acceptés (le cas échéant)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="legal">
+          <strong>Mentions légales minimales pour un flyer</strong><br>
+          RCP Multiservices — Statut: [ex: SAS] — Capital social: [ex: 10 000 €]<br>
+          Siège social: 123 Avenue de la République, 75011 Paris — Tél: 01 23 45 67 89 — Email: contact@rcp-multiservices.com<br>
+          RCS: [Ville] [numéro RCS] — SIREN/SIRET: [XXXXXXXXX / XXXXXXXXXXXXX] — TVA intracom: [FR..] — Assurance RC Pro: [Assureur + n° police]<br>
+          Directeur de la publication: [Nom] — Hébergeur du site: [si mention du site, nom + adresse + téléphone]<br>
+          Données personnelles: les informations collectées via nos moyens de contact sont utilisées pour répondre à vos demandes et ne sont pas cédées à des tiers. Droit d’accès et de rectification: contact@rcp-multiservices.com.<br>
+          Photos non contractuelles. Offre non cumulable, valable sous conditions. Ne pas jeter sur la voie publique.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
