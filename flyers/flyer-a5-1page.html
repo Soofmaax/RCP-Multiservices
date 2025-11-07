@@ -62,7 +62,7 @@
     .crop.bottom-right.v{ right: 0;            bottom: var(--bleed); }
 
     /* Mise en page en flux (pas de superposition) */
-    .container { display: flex; flex-direction: column; gap: 6mm; height: 100%; }
+    .container { display: flex; flex-direction: column; gap: 5mm; height: 100%; }
 
     /* Hero premium avec bandeau décoratif */
     .hero {
@@ -70,10 +70,10 @@
       background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 55%, var(--accent) 100%);
       color: #fff;
       border-radius: 12px;
-      padding: 8mm;
+      padding: 7mm;
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 6mm;
+      gap: 5mm;
       align-items: center;
     }
     .hero::after {
@@ -90,8 +90,8 @@
       background: #ffffff12; border-radius: 3mm; padding: 2mm;
     }
     .brand { display: flex; flex-direction: column; gap: 3mm; }
-    .title { margin: 0; font-size: 24pt; font-weight: 800; line-height: 1.1; letter-spacing: 0.2px; }
-    .subtitle { margin: 0; color: #e2e8f0; font-size: 11pt; }
+    .title { margin: 0; font-size: 22pt; font-weight: 800; line-height: 1.08; letter-spacing: 0.2px; }
+    .subtitle { margin: 0; color: #e2e8f0; font-size: 10pt; }
 
     /* Pastille contact dans le hero */
     .contact-pill {
@@ -126,23 +126,22 @@
 
     /* Services en tuiles premium */
     .tiles {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6mm;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5mm;
       flex: 1;
     }
     .tile {
-      border: 0.5pt solid #e5e7eb; border-radius: 12px; padding: 6mm;
+      border: 0.5pt solid #e5e7eb; border-radius: 12px; padding: 5mm;
       background: linear-gradient(180deg, #ffffff, rgba(16,191,174,0.05));
     }
-    .tile h3 { margin: 0 0 2mm 0; font-size: 12pt; color: #0f172a; display: inline-flex; align-items: center; gap: 3mm; }
-    .icon { width: 6mm; height: 6mm; display: inline-block; color: var(--primary); }
-    .list { margin: 0; padding: 0 0 0 4mm; font-size: 10pt; color: #334155; }
-    .list li { margin: 1.2mm 0; }
+    .tile h3 { margin: 0 0 2mm 0; font-size: 12pt; color: #0f172a; }
+    .list { margin: 0; padding: 0 0 0 4mm; font-size: 9.5pt; color: #334155; }
+    .list li { margin: 1mm 0; }
 
     /* Bandeau avantage fiscal */
     .highlight {
       display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 3mm;
       background: #e6f6ed; border: 0.5pt solid #bbf7d0; color: #065f46;
-      padding: 4mm; border-radius: 10px; font-weight: 700; font-size: 10.5pt;
+      padding: 3.5mm; border-radius: 10px; font-weight: 700; font-size: 10pt;
     }
     .mark { width: 4mm; height: 4mm; border-radius: 999px; background: var(--accent); }
 
@@ -150,14 +149,14 @@
     .cta {
       display: grid; grid-template-columns: auto 1fr auto; gap: 5mm; align-items: center;
       background: #f8fafc; border: 0.5pt solid #e5e7eb;
-      border-radius: 12px; padding: 6mm;
+      border-radius: 12px; padding: 5mm;
       color: #0f172a;
       margin-top: auto; /* pousse le CTA vers le bas */
     }
-    .cta .note { font-size: 10.5pt; color: var(--muted); }
+    .cta .note { font-size: 10pt; color: var(--muted); }
     .btn {
       background: var(--primary); color: var(--cta-ink);
-      font-weight: 800; padding: 4mm 8mm; border-radius: 999px; border: none; font-size: 12pt;
+      font-weight: 800; padding: 4mm 8mm; border-radius: 999px; border: none; font-size: 11.5pt;
     }
 
     /* Espace réservé QR (optionnel, pour version digitale) */
