@@ -133,7 +133,8 @@
       border: 0.5pt solid #e5e7eb; border-radius: 12px; padding: 6mm;
       background: linear-gradient(180deg, #ffffff, rgba(16,191,174,0.05));
     }
-    .tile h3 { margin: 0 0 2mm 0; font-size: 12pt; color: #0f172a; }
+    .tile h3 { margin: 0 0 2mm 0; font-size: 12pt; color: #0f172a; display: inline-flex; align-items: center; gap: 3mm; }
+    .icon { width: 6mm; height: 6mm; display: inline-block; color: var(--primary); }
     .list { margin: 0; padding: 0 0 0 4mm; font-size: 10pt; color: #334155; }
     .list li { margin: 1.2mm 0; }
 
@@ -222,7 +223,7 @@
             <!-- Services -->
             <div class="tiles">
               <div class="tile">
-                <h3>Prestations</h3>
+                <h3><img class="icon" src="/icons/cleaning.svg" alt=""> Prestations</h3>
                 <ul class="list">
                   <li>Ménage, vitres, repassage</li>
                   <li>Jardinage et entretien</li>
@@ -232,7 +233,7 @@
                 </ul>
               </div>
               <div class="tile">
-                <h3>Engagements</h3>
+                <h3><img class="icon" src="/icons/assistance.svg" alt=""> Engagements</h3>
                 <ul class="list">
                   <li>Personnel qualifié et assuré</li>
                   <li>Devis clair, sans surprise</li>

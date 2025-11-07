@@ -105,7 +105,7 @@
     .tiles { display:grid; grid-template-columns: 1fr 1fr; gap:6mm; flex:1; }
     .tile { border: .5pt solid #e5e7eb; border-radius:12px; padding:6mm; background: linear-gradient(180deg, #ffffff, rgba(16,191,174,0.05)); }
     .tile h3 { margin:0 0 2mm 0; font-size:12pt; color:#0f172a; display:flex; align-items:center; gap:3mm; }
-    .icon-dot { width:4mm; height:4mm; border-radius:999px; background: var(--primary); box-shadow: 0 0 0 1pt rgba(11,78,179,0.15); }
+    .icon { width:6mm; height:6mm; display:inline-block; color: var(--primary); }
     .list { margin:0; padding:0 0 0 4mm; font-size:10pt; color:#334155; }
     .list li { margin:1.2mm 0; }
 
@@ -184,7 +184,7 @@
 
             <div class="tiles">
               <div class="tile">
-                <h3><span class="icon-dot"></span>Prestations</h3>
+                <h3><img class="icon" src="/icons/cleaning.svg" alt=""> Prestations</h3>
                 <ul class="list">
                   <li>Ménage, vitres, repassage</li>
                   <li>Jardinage et entretien</li>
@@ -194,7 +194,7 @@
                 </ul>
               </div>
               <div class="tile">
-                <h3><span class="icon-dot"></span>Engagements</h3>
+                <h3><img class="icon" src="/icons/assistance.svg" alt=""> Engagements</h3>
                 <ul class="list">
                   <li>Devis clair, sans surprise</li>
                   <li>Matériel fourni si nécessaire</li>
@@ -243,7 +243,7 @@
 
             <div class="content">
               <div class="card">
-                <h3><span class="icon-dot"></span>Détails des prestations</h3>
+                <h3><img class="icon" src="/icons/cleaning.svg" alt=""> Détails des prestations</h3>
                 <ul class="list">
                   <li>Forfaits réguliers et prestations ponctuelles</li>
                   <li>Produits écologiques possibles</li>
@@ -254,7 +254,7 @@
               </div>
 
               <div class="card">
-                <h3><span class="icon-dot"></span>Contact</h3>
+                <h3><img class="icon" src="/icons/assistance.svg" alt=""> Contact</h3>
                 <ul class="list">
                   <li>Téléphone: +33 7 43 67 08 15</li>
                   <li>Email: contact@rcp-multiservices.com</li>
