@@ -5,26 +5,18 @@
   --paper-w: 148mm;
   --paper-h: 210mm;
 
-  /* PALETTE MARQUE - A REMPLACER PAR LES COULEURS DU SITE */
-  /* Indiquez-moi vos codes pour que je les verrouille ici */
-  --brand-font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  /* PALETTE MARQUE — alignée sur le site */
+  --brand-font: "Raleway", "Lato", ui-sans-serif, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
-  /* Exemple actuel (provisoire) */
-  --brand-bg-1: #111827;   /* fond 1 */
-  --brand-bg-2: #0b2534;   /* fond 2 */
-  --brand-bg-3: #0a3f39;   /* fond 3 */
-  --brand-primary: #16a34a;/* CTA */
-  --brand-accent:  #0891b2;/* accent */
-  --ink: #0b1220;          /* texte principal */
-  --muted: #475569;        /* texte secondaire */
-  --cta-ink: #06210e;      /* texte bouton */
-}
+  /* Dégradé héros et boutons */
+  --brand-bg-1: #0B2E4E;   /* navy */
+  --brand-bg-2: #0B4EB3;   /* bleu primaire */
+  --brand-bg-3: #10BFAE;   /* teal accent */
+  --brand-primary: #0B4EB3;/* CTA (bleu) */
+  --brand-accent:  #10BFAE;/* accent (teal) */
 
-/* Variante claire (si besoin) */
-/*
-:root{
-  --brand-bg-1:#0c1b2a; --brand-bg-2:#0b2740; --brand-bg-3:#0d3b66;
-  --brand-primary:#2dd4bf; --brand-accent:#60a5fa;
-  --ink:#0b1220; --muted:#475569; --cta-ink:#06210e;
+  /* Typo */
+  --ink: #212121;          /* texte principal */
+  --muted: #616161;        /* texte secondaire */
+  --cta-ink: #ffffff;      /* texte bouton */
 }
-*/

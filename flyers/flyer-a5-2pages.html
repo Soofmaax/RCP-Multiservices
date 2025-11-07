@@ -15,16 +15,21 @@
       --paper-w: 148mm;
       --paper-h: 210mm;
 
-      --brand-font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      /* Dégradé bleu -> plus lumineux */
-      --brand-bg-1: #1e3a8a;   /* blue-900 */
-      --brand-bg-2: #1d4ed8;   /* blue-700 */
-      --brand-bg-3: #3b82f6;   /* blue-500 */
-      /* CTA en bleu pour rester dans la même gamme */
-      --brand-primary: #2563eb;/* blue-600 */
-      --brand-accent:  #60a5fa;/* blue-400 */
-      --ink: #0f172a;          /* texte principal */
-      --muted: #475569;        /* texte secondaire */
+      /* Palette alignée sur le site (Raleway/Lato + bleu/teal) */
+      --brand-font: "Raleway", "Lato", ui-sans-serif, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+      /* Dégradé cohérent avec le site */
+      --brand-bg-1: #0B2E4E;   /* navy */
+      --brand-bg-2: #0B4EB3;   /* bleu primaire */
+      --brand-bg-3: #10BFAE;   /* teal accent */
+
+      /* CTA et accents */
+      --brand-primary: #0B4EB3;/* bleu primaire */
+      --brand-accent:  #10BFAE;/* teal accent */
+
+      /* Texte */
+      --ink: #212121;          /* texte principal */
+      --muted: #616161;        /* texte secondaire */
       --cta-ink: #ffffff;      /* texte bouton (contraste sur bleu) */
     }
 
@@ -89,6 +94,11 @@
       .page { box-shadow: none; margin: 0 auto; }
     }
   </style>
+  <!-- Fonts (Raleway + Lato comme le site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -108,7 +118,7 @@
       <div class="trim">
         <div class="safe" style="display:flex;flex-direction:column;gap:6mm;height:100%;">
           <div class="hero">
-            <img class="logo" src="/assets/logo-placeholder.png" alt="Logo">
+            <img class="logo" src="/logo-white.svg" alt="Logo">
             <div>
               <h1>RCP Multiservices</h1>
               <p class="tag">Services à domicile en Île‑de‑France · aide · ménage · jardinage</p>

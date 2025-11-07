@@ -16,16 +16,20 @@
       --paper-w: 148mm;
       --paper-h: 210mm;
 
-      /* CHARTE – remplacez par vos couleurs et police de marque */
-      --brand-font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      --brand-primary: #22c55e;   /* ex: vert primaire */
-      --brand-accent:  #14b8a6;   /* ex: accent secondaire */
-      --brand-bg-1:    #0f172a;   /* fond dégradé recto (foncé) */
-      --brand-bg-2:    #0b2534;   /* fond dégradé recto (milieu) */
-      --brand-bg-3:    #0a3f39;   /* fond dégradé recto (clair) */
-      --brand-ink:     #0b1220;   /* texte principal */
-      --brand-muted:   #475569;   /* texte secondaire */
-      --brand-cta-ink: #06210e;   /* couleur texte bouton */
+      /* CHARTE – calée sur le design du site (Raleway/Lato + bleu/teal) */
+      --brand-font: "Raleway", "Lato", ui-sans-serif, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+      /* Couleurs issues des tokens du site */
+      --brand-primary: #0B4EB3;   /* bleu primaire (CTA, éléments clés) */
+      --brand-accent:  #10BFAE;   /* teal accent (détails, surlignage) */
+      --brand-bg-1:    #0B2E4E;   /* navy (fond dégradé foncé) */
+      --brand-bg-2:    #0B4EB3;   /* bleu (milieu du dégradé) */
+      --brand-bg-3:    #10BFAE;   /* teal (fin du dégradé) */
+
+      /* Typo / nuances */
+      --brand-ink:     #212121;   /* texte principal du site */
+      --brand-muted:   #616161;   /* texte secondaire */
+      --brand-cta-ink: #ffffff;   /* texte bouton sur fond bleu */
     }
 
     html, body { background: #888; height: 100%; }
@@ -113,14 +117,14 @@
       border: 0.5pt solid rgba(255,255,255,0.15);
       border-radius: 6px; padding: 6mm; backdrop-filter: blur(2px);
     }
-    .badge h4 { margin: 0 0 2mm 0; font-size: 11pt; color: #a7f3d0; }
+    .badge h4 { margin: 0 0 2mm 0; font-size: 11pt; color: var(--brand-accent); }
     .badge p  { margin: 0; font-size: 9pt; color: #e5e7eb; }
 
     .cta {
       position: absolute; left: var(--safe); right: var(--safe); bottom: var(--safe);
       display: grid; grid-template-columns: 1fr auto; gap: 4mm; align-items: end; color: #fff;
     }
-    .cta .phone { font-size: 16pt; font-weight: 800; color: #a7f3d0; }
+    .cta .phone { font-size: 16pt; font-weight: 800; color: var(--brand-accent); }
     .btn {
       justify-self: end; background: var(--brand-primary); color: var(--brand-cta-ink);
       font-weight: 800; padding: 4mm 7mm; border-radius: 999px; border: none; font-size: 11pt;
@@ -163,10 +167,11 @@
     }
   </style>
 
-  <!-- Optionnel: charger une police Google (remplacez Inter par votre police) -->
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Fonts (alignées avec le site : Raleway pour titres, Lato pour corps) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"> -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -187,7 +192,7 @@
         <div class="safe">
           <div class="brand">
             <!-- Remplacez src par le chemin de votre logo (PNG/SVG recommandé) -->
-            <img class="logo-img" src="assets/logo-placeholder.png" alt="Logo RCP Multiservices">
+            <img class="logo-img" src="/logo-white.svg" alt="Logo RCP Multiservices">
             <div class="name">RCP Multiservices</div>
           </div>
 
