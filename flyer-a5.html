@@ -53,9 +53,11 @@
       top: var(--bleed);
       width: var(--paper-w);
       height: var(--paper-h);
-      background: white;
+      background: transparent; /* transparent sur le recto pour laisser voir le dégradé */
       overflow: hidden;
     }
+    /* Sur le verso on garde un fond blanc propre */
+    .back .trim { background: white; }
     .safe {
       position: absolute;
       left: calc(var(--bleed) + var(--safe));
