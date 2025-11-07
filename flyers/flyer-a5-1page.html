@@ -9,7 +9,7 @@
     /* Gabarit impression */
     @page { size: A5 portrait; margin: 0; }
 
-    /* Palette intégrée (assortie au site, vert/bleu profond) */
+    /* Palette intégrée (deux bleus) */
     :root{
       --bleed: 3mm;
       --safe: 6mm;
@@ -17,14 +17,16 @@
       --paper-h: 210mm;
 
       --brand-font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      --brand-bg-1: #0c1b2a;   /* bleu nuit */
-      --brand-bg-2: #0b2740;   /* bleu pétrole */
-      --brand-bg-3: #0d3b66;   /* bleu profond */
-      --brand-primary: #16a34a;/* vert bouton */
-      --brand-accent:  #10b981;/* vert émeraude */
+      /* Dégradé bleu -> plus lumineux */
+      --brand-bg-1: #1e3a8a;   /* blue-900 */
+      --brand-bg-2: #1d4ed8;   /* blue-700 */
+      --brand-bg-3: #3b82f6;   /* blue-500 */
+      /* CTA en bleu pour rester dans la même gamme */
+      --brand-primary: #2563eb;/* blue-600 */
+      --brand-accent:  #60a5fa;/* blue-400 */
       --ink: #0f172a;          /* texte principal */
       --muted: #475569;        /* texte secondaire */
-      --cta-ink: #052e1c;      /* texte bouton */
+      --cta-ink: #ffffff;      /* texte bouton (contraste sur bleu) */
     }
 
     html, body { background: #f3f4f6; height: 100%; }
