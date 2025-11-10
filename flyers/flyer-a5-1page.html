@@ -2,31 +2,28 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>RCP Multiservices — Flyer A5 (1 page)</title>
+  <title>RCP Multiservices — Flyer A5 (1 page Premium)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* Gabarit impression */
+    /* Gabarit impression A5 avec fond perdu et marge de sécurité confortables */
     @page { size: A5 portrait; margin: 0; }
 
-    /* Palette intégrée (deux bleus) */
     :root{
-      --bleed: 3mm;
-      --safe: 6mm;
+      --bleed: 3mm;           /* fond perdu standard */
+      --safe: 10mm;           /* marge de sécurité augmentée pour l'imprimeur */
       --paper-w: 148mm;
       --paper-h: 210mm;
 
-      --brand-font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      /* Dégradé bleu -> plus lumineux */
-      --brand-bg-1: #1e3a8a;   /* blue-900 */
-      --brand-bg-2: #1d4ed8;   /* blue-700 */
-      --brand-bg-3: #3b82f6;   /* blue-500 */
-      /* CTA en bleu pour rester dans la même gamme */
-      --brand-primary: #2563eb;/* blue-600 */
-      --brand-accent:  #60a5fa;/* blue-400 */
-      --ink: #0f172a;          /* texte principal */
-      --muted: #475569;        /* texte secondaire */
-      --cta-ink: #ffffff;      /* texte bouton (contraste sur bleu) */
+      /* Palette alignée sur le site (Raleway/Lato + bleu/teal) */
+      --brand-font: "Raleway", "Lato", ui-sans-serif, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      --primary: #0B4EB3;
+      --accent:  #10BFAE;
+      --navy:    #0B2E4E;
+
+      --ink:   #212121;
+      --muted: #616161;
+      --cta-ink: #ffffff;
     }
 
     html, body { background: #f3f4f6; height: 100%; }
@@ -47,13 +44,9 @@
       position: absolute;
       left: var(--bleed); top: var(--bleed);
       width: var(--paper-w); height: var(--paper-h);
-      background: #fff;
-      overflow: hidden;
+      background: #fff; overflow: hidden;
     }
-    .safe {
-      position: absolute;
-      inset: calc(var(--safe));
-    }
+    .safe { position: absolute; inset: var(--safe); }
 
     /* Traits de coupe */
     .crop { position: absolute; pointer-events: none; }
@@ -68,80 +61,114 @@
     .crop.bottom-right.h{ right: var(--bleed); bottom: 0; }
     .crop.bottom-right.v{ right: 0;            bottom: var(--bleed); }
 
-    /* Mise en page sans superposition (flow layout) */
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 6mm;
-      height: 100%;
-    }
+    /* Mise en page en flux (pas de superposition) */
+    .container { display: flex; flex-direction: column; gap: 5mm; height: 100%; }
 
+    /* Hero premium avec bandeau décoratif */
     .hero {
-      background: linear-gradient(135deg, var(--brand-bg-1) 0%, var(--brand-bg-2) 60%, var(--brand-bg-3) 100%);
+      position: relative;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 55%, var(--accent) 100%);
       color: #fff;
-      border-radius: 8px;
-      padding: 8mm;
+      border-radius: 12px;
+      padding: 7mm;
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 6mm;
+      gap: 5mm;
       align-items: center;
+    }
+    .hero::after {
+      /* ruban décoratif discret */
+      content: "";
+      position: absolute;
+      right: 0; bottom: 0;
+      width: 45mm; height: 14mm;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+      border-top-left-radius: 12px;
     }
     .logo {
-      width: 18mm; height: 18mm; object-fit: contain; object-position: left center;
+      width: 18mm; height: 18mm; object-fit: contain;
       background: #ffffff12; border-radius: 3mm; padding: 2mm;
     }
-    .brand {
-      display: flex; flex-direction: column; gap: 2mm;
-    }
-    .brand h1 { margin: 0; font-size: 18pt; line-height: 1; }
-    .brand p  { margin: 0; color: #e2e8f0; font-size: 10pt; }
+    .brand { display: flex; flex-direction: column; gap: 3mm; }
+    .title { margin: 0; font-size: 22pt; font-weight: 800; line-height: 1.08; letter-spacing: 0.2px; }
+    .subtitle { margin: 0; color: #e2e8f0; font-size: 10pt; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5mm;
+    /* Pastille contact dans le hero */
+    .contact-pill {
+      display: inline-flex; align-items: center; gap: 3mm;
+      padding: 3mm 5mm; border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 0.5pt solid rgba(255,255,255,0.35);
+      color: #fff; font-weight: 700; font-size: 11pt;
+      backdrop-filter: blur(2px);
+      max-width: max-content;
+    }
+    .contact-pill .bubble {
+      width: 6mm; height: 6mm; border-radius: 999px; background: #fff; opacity: 0.85;
+    }
+
+    .accent-bar { width: 24mm; height: 2.5mm; background: #fff; opacity: 0.35; border-radius: 999px; }
+
+    /* Bande de confiance (chips) */
+    .trust {
+      display: flex; flex-wrap: wrap; gap: 3mm;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 2mm;
+      padding: 2mm 3.5mm; border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      border: 0.5pt solid rgba(255,255,255,0.25);
+      color: #fff; font-size: 9.5pt;
+    }
+    .dot {
+      width: 3mm; height: 3mm; border-radius: 999px; background: #fff; opacity: 0.75;
+    }
+
+    /* Services en tuiles premium */
+    .tiles {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5mm;
       flex: 1;
     }
-    .card {
-      border: 0.5pt solid #e5e7eb;
-      border-radius: 8px;
-      padding: 5mm;
+    .tile {
+      border: 0.5pt solid #e5e7eb; border-radius: 12px; padding: 5mm;
+      background: linear-gradient(180deg, #ffffff, rgba(16,191,174,0.05));
     }
-    .card h3 { margin: 0 0 2mm 0; font-size: 12pt; color: #0f172a; }
-    .list { margin: 0; padding-left: 4mm; font-size: 10pt; }
+    .tile h3 { margin: 0 0 2mm 0; font-size: 12pt; color: #0f172a; }
+    .list { margin: 0; padding: 0 0 0 4mm; font-size: 9.5pt; color: #334155; }
     .list li { margin: 1mm 0; }
 
+    /* Bandeau avantage fiscal */
     .highlight {
-      background: #f0fdf4; border: 0.5pt solid #bbf7d0; color: #065f46;
-      padding: 3mm 4mm; border-radius: 6px; font-weight: 700; font-size: 10pt;
+      display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 3mm;
+      background: #e6f6ed; border: 0.5pt solid #bbf7d0; color: #065f46;
+      padding: 3.5mm; border-radius: 10px; font-weight: 700; font-size: 10pt;
     }
+    .mark { width: 4mm; height: 4mm; border-radius: 999px; background: var(--accent); }
 
+    /* CTA solide (numéro dans le bouton) */
     .cta {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 4mm;
-      align-items: center;
-      padding: 5mm;
-      border-radius: 8px;
-      background: #f8fafc;
-      border: 0.5pt solid #e5e7eb;
+      display: grid; grid-template-columns: auto 1fr auto; gap: 5mm; align-items: center;
+      background: #f8fafc; border: 0.5pt solid #e5e7eb;
+      border-radius: 12px; padding: 5mm;
+      color: #0f172a;
+      margin-top: auto; /* pousse le CTA vers le bas */
     }
-    .cta .phone { font-size: 16pt; font-weight: 800; color: var(--brand-bg-3); }
+    .cta .note { font-size: 10pt; color: var(--muted); }
     .btn {
-      background: var(--brand-primary);
-      color: var(--cta-ink);
-      font-weight: 800;
-      padding: 4mm 7mm;
-      border-radius: 999px;
-      border: none;
-      font-size: 11pt;
+      background: var(--primary); color: var(--cta-ink);
+      font-weight: 800; padding: 4mm 8mm; border-radius: 999px; border: none; font-size: 11.5pt;
     }
 
+    /* Espace réservé QR (optionnel, pour version digitale) */
+    .qr-slot {
+      width: 18mm; height: 18mm;
+      border-radius: 6px; border: 0.5pt dashed rgba(0,0,0,0.25);
+      background: #ffffff;
+    }
+
+    /* Pied légal */
     .legal {
-      margin-top: auto;
-      font-size: 8pt;
-      color: var(--muted);
-      line-height: 1.35;
+      font-size: 8pt; color: var(--muted); line-height: 1.35;
     }
 
     @media print {
@@ -149,34 +176,53 @@
       .page { box-shadow: none; margin: 0 auto; }
     }
   </style>
+
+  <!-- Fonts (Raleway + Lato comme le site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <section class="page" aria-label="Flyer A5 1 page">
-    <div class="artboard">
-      <!-- Traits de coupe -->
-      <div class="crop h top-left h"></div>
-      <div class="crop v top-left v"></div>
-      <div class="crop h top-right h"></div>
-      <div class="crop v top-right v"></div>
-      <div class="crop h bottom-left h"></div>
-      <div class="crop v bottom-left v"></div>
-      <div class="crop h bottom-right h"></div>
-      <div class="crop v bottom-right v"></div>
+    <!-- Traits de coupe -->
+    <div class="crop h top-left h"></div>
+    <div class="crop v top-left v"></div>
+    <div class="crop h top-right h"></div>
+    <div class="crop v top-right v"></div>
+    <div class="crop h bottom-left h"></div>
+    <div class="crop v bottom-left v"></div>
+    <div class="crop h bottom-right h"></div>
+    <div class="crop v bottom-right v"></div>
 
+    <div class="artboard">
       <div class="trim">
         <div class="safe">
           <div class="container">
+
+            <!-- HERO -->
             <div class="hero">
-              <img class="logo" src="/assets/logo-placeholder.png" alt="Logo">
+              <img class="logo" src="/logo-white.svg" alt="Logo">
               <div class="brand">
                 <h1>RCP Multiservices</h1>
-                <p>Services à domicile en Île‑de‑France · aide · ménage · jardinage</p>
+                <div class="accent-bar"></div>
+                <p>Des services à domicile fiables et attentifs. Personnel qualifié et assuré.</p>
+                <div class="trust">
+                  <span class="chip"><span class="dot"></span>Assuré & déclaré</span>
+                  <span class="chip"><span class="dot"></span>Intervention rapide</span>
+                  <span class="chip"><span class="dot"></span>Suivi qualité</span>
+                </div>
+                <div class="contact-pill" style="margin-top:4mm;">
+                  <span class="bubble"></span>
+                  <span>Appelez-nous&nbsp;:&nbsp;+33 7 43 67 08 15</span>
+                </div>
               </div>
             </div>
 
-            <div class="grid">
-              <div class="card">
-                <h3>Prestations</h3>
+            <!-- Services -->
+            <div class="tiles">
+              <div class="tile">
+                <h3><img class="icon" src="/icons/cleaning.svg" alt=""> Prestations</h3>
                 <ul class="list">
                   <li>Ménage, vitres, repassage</li>
                   <li>Jardinage et entretien</li>
@@ -185,37 +231,39 @@
                   <li>Petits travaux</li>
                 </ul>
               </div>
-              <div class="card">
-                <h3>Engagements</h3>
+              <div class="tile">
+                <h3><img class="icon" src="/icons/assistance.svg" alt=""> Engagements</h3>
                 <ul class="list">
                   <li>Personnel qualifié et assuré</li>
-                  <li>Intervention rapide en Île‑de‑France</li>
-                  <li>Devis clair et sans surprise</li>
+                  <li>Devis clair, sans surprise</li>
                   <li>Matériel fourni si nécessaire</li>
-                  <li>Suivi qualité après intervention</li>
+                  <li>Produits écologiques sur demande</li>
+                  <li>Suivi satisfaction</li>
                 </ul>
               </div>
             </div>
 
+            <!-- Avantage fiscal -->
             <div class="highlight">
-              Jusqu’à 50% de crédit d’impôt sur les services à la personne
-              (article 199 sexdecies du CGI, sous conditions).
+              <span class="mark"></span>
+              <span>Jusqu’à 50% de crédit d’impôt sur les services à la personne (article 199 sexdecies du CGI, sous conditions).</span>
             </div>
 
+            <!-- CTA -->
             <div class="cta">
-              <div>
-                Devis gratuit sous 24h<br>
-                <span class="phone">01 23 45 67 89</span>
-              </div>
-              <button class="btn">Contactez‑nous</button>
+              <div class="qr-slot" aria-hidden="true" title="Espace réservé QR (optionnel)"></div>
+              <div class="note">Devis gratuit • Sous 24h</div>
+              <button class="btn" aria-label="Téléphone de contact">+33 7 43 67 08 15</button>
             </div>
 
+            <!-- Mentions légales -->
             <div class="legal">
               RCP Multiservices — Statut: [SAS] — Capital: [10 000 €] · SIREN/SIRET: [XXXXXXXXX / XXXXXXXXXXXXX] ·
               RCS: [Ville] [n°] · TVA intracom: [FR..] · RC Pro: [Assureur + n° police] ·
-              Siège: 123 Av. de la République, 75011 Paris — Tél: 01 23 45 67 89 — contact@rcp-multiservices.com ·
+              Siège: 123 Av. de la République, 75011 Paris — Tél: +33 7 43 67 08 15 — contact@rcp-multiservices.com ·
               Directeur de la publication: [Nom] · Ne pas jeter sur la voie publique.
             </div>
+
           </div>
         </div>
       </div>
