@@ -3,90 +3,120 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO Meta Tags -->
-    <title>RCP Multiservices - Services à domicile en Île-de-France | Aide, Ménage, Jardinage</title>
-    <meta name="description" content="RCP Multiservices propose des services à domicile de qualité en Île-de-France : aide à domicile, ménage, jardinage, accompagnement. Devis gratuit sous 24h. Personnel qualifié et assuré." />
-    <meta name="keywords" content="aide à domicile, ménage, jardinage, services à la personne, Île-de-France, Paris, accompagnement, devis gratuit" />
+    <title>
+      RCP Multiservices - Services à domicile en Île-de-France | Aide, Ménage, Jardinage
+    </title>
+    <meta
+      name="description"
+      content="RCP Multiservices propose des services à domicile de qualité en Île-de-France : aide à domicile, ménage, jardinage, accompagnement. Devis gratuit sous 24h. Personnel qualifié et assuré."
+    />
+    <meta
+      name="keywords"
+      content="aide à domicile, ménage, jardinage, services à la personne, Île-de-France, Paris, accompagnement, devis gratuit"
+    />
     <meta name="author" content="RCP Multiservices" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.rcp-multiservices.com/" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.rcp-multiservices.com/" />
-    <meta property="og:title" content="RCP Multiservices - Services à domicile en Île-de-France" />
-    <meta property="og:description" content="Services à domicile de qualité : aide, ménage, jardinage, accompagnement. Personnel qualifié et assuré. Devis gratuit sous 24h." />
-    <meta property="og:image" content="https://www.rcp-multiservices.com/og-image.jpg" />
+    <meta
+      property="og:title"
+      content="RCP Multiservices - Services à domicile en Île-de-France"
+    />
+    <meta
+      property="og:description"
+      content="Services à domicile de qualité : aide, ménage, jardinage, accompagnement. Personnel qualifié et assuré. Devis gratuit sous 24h."
+    />
+    <meta property="og:image" content="/og-default.jpg" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="RCP Multiservices" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.rcp-multiservices.com/" />
-    <meta property="twitter:title" content="RCP Multiservices - Services à domicile en Île-de-France" />
-    <meta property="twitter:description" content="Services à domicile de qualité : aide, ménage, jardinage, accompagnement. Personnel qualifié et assuré." />
-    <meta property="twitter:image" content="https://www.rcp-multiservices.com/og-image.jpg" />
-    
-    <!-- Favicon -->
+    <meta
+      property="twitter:title"
+      content="RCP Multiservices - Services à domicile en Île-de-France"
+    />
+    <meta
+      property="twitter:description"
+      content="Services à domicile de qualité : aide, ménage, jardinage, accompagnement. Personnel qualifié et assuré."
+    />
+    <meta property="twitter:image" content="/og-default.jpg" />
+
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    
+    <link rel="manifest" href="/site.webmanifest" />
+
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://a.tile.openstreetmap.org" />
+    <link rel="preconnect" href="https://a.tile.openstreetmap.org" crossorigin />
+    <!-- Fonts to match premium look (Raleway headings, Lato body) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#0B4EB3" />
+
     <!-- Local Business Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "RCP Multiservices",
-      "description": "Services à domicile de qualité en Île-de-France : aide à domicile, ménage, jardinage, accompagnement",
-      "url": "https://www.rcp-multiservices.com",
-      "telephone": "+33123456789",
-      "email": "contact@rcp-multiservices.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Avenue de la République",
-        "addressLocality": "Paris",
-        "postalCode": "75011",
-        "addressCountry": "FR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      "openingHours": [
-        "Mo-Fr 08:00-20:00",
-        "Sa 09:00-18:00"
-      ],
-      "serviceArea": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "RCP Multiservices",
+        "description": "Services à domicile de qualité en Île-de-France : aide à domicile, ménage, jardinage, accompagnement",
+        "url": "https://www.rcp-multiservices.com",
+        "telephone": "+33743670815",
+        "email": "contact@rcp-multiservices.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Avenue de la République",
+          "addressLocality": "Paris",
+          "postalCode": "75011",
+          "addressCountry": "FR"
+        },
+        "geo": {
           "@type": "GeoCoordinates",
           "latitude": 48.8566,
           "longitude": 2.3522
         },
-        "geoRadius": "50000"
-      },
-      "priceRange": "€€",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "127"
-      },
-      "sameAs": [
-        "https://www.facebook.com/rcpmultiservices",
-        "https://www.linkedin.com/company/rcp-multiservices"
-      ]
-    }
+        "openingHours": ["Mo-Fr 08:00-20:00", "Sa 09:00-18:00"],
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.8566,
+            "longitude": 2.3522
+          },
+          "geoRadius": "50000"
+        },
+        "priceRange": "€€",
+        
+        "sameAs": [
+          "https://www.facebook.com/rcpmultiservices",
+          "https://www.linkedin.com/company/rcp-multiservices"
+        ]
+      }
     </script>
   </head>
   <body>
+    <!-- Hidden Netlify form (SPA detection) -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="name" />
+      <input name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

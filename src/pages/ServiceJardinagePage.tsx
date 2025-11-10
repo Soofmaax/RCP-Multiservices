@@ -1,0 +1,136 @@
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { GoogleReviewsBadge } from '../components';
+import { ctaRow } from '../utils/styles';
+import { buildFaqLd } from '../utils/seo';
+import { buildServicePageLd, buildServiceBreadcrumbsLd } from '../utils/seoExtras';
+
+const SITE_URL = 'https://www.rcp-multiservices.com';
+
+export default function ServiceJardinagePage() {
+  const title = 'Jardinage — RCP Multiservices';
+  const description =
+    "Jardinage : tonte, taille, entretien des haies et massifs, petits aménagements. Intervention rapide, résultat durable.";
+  const canonical = `${SITE_URL}/services/jardinage`;
+
+  const serviceLd = buildServicePageLd('Jardinage', description);
+  const breadcrumbsLd = buildServiceBreadcrumbsLd(SITE_URL, 'jardinage', 'Jardinage');
+  const faqLd = buildFaqLd([
+    { q: 'Intervenez-vous rapidement ?', a: 'Oui, nous planifions une intervention dans les meilleurs délais.' },
+    { q: 'Pouvez-vous évacuer les déchets verts ?', a: 'Oui, nous pouvons évacuer les déchets verts si besoin.' },
+  ]);
+
+  return (
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/og-default.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:image" content="/og-default.jpg" />
+        <script type="application/ld+json">{JSON.stringify(serviceLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbsLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
+      </Helmet>
+
+      <main className="container">
+        <nav className="text-sm text-neutral-600 mb-4">
+          <Link to="/" className="hover:underline">Accueil</Link> / <Link to="/services" className="hover:underline">Services</Link> / <span className="font-medium">Jardinage</span>
+        </nav>
+
+        {/* Hero overlay — même rendu que la section Témoignages */}
+        <section className="section-spacious">
+          <div className="rounded-[24px] overflow-hidden relative card-elevated">
+            <img
+              src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
+              alt="Jardinage — illustration"
+              className="w-full h-[360px] md:h-[420px] object-cover image-hero object-left"
+              style={{ objectPosition: '0% 50%' }}
+              loading="lazy"
+              decoding="async"
+              width={1600}
+              height={1067}
+              onError={(e) => {
+                e.currentTarget.src =
+                  'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80';
+              }}
+            />
+            <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 pt-8 md:pt-10 flex flex-col items-start justify-start rounded-r-[24px]">
+              <h1 className="heading-1 heading-hero text-white">Jardinage</h1>
+              <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
+              <p className="mt-3 text-white/90 text-lg md:text-xl">
+                Tonte, taille, haies &amp; massifs — résultat propre et durable
+              </p>
+              <div className={`${ctaRow} mt-3`}>
+                <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+                <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
+                <Link to="/zones" className="btn-outline">Voir nos zones</Link>
+                <GoogleReviewsBadge />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Prestations</h2>
+          <div className="accent mt-2"></div>
+          <ul className="service-list list-check mt-2">
+            <li>Tonte de pelouse</li>
+            <li>Taille de haies et arbustes (soins saisonniers)</li>
+            <li>Entretien des massifs, désherbage et paillage</li>
+            <li>Petits aménagements et évacuation des déchets verts</li>
+          </ul>
+          <p className="mt-2 text-neutral-600">
+            Nous adaptons l’entretien aux saisons et à la croissance des végétaux pour un rendu propre et durable.
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <Link to="/contact" className="btn-secondary">Demander un devis</Link>
+          </div>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Conseils &amp; saisons</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">
+            Taille douce au bon moment, entretien régulier des bordures et apports organiques si besoin. Nous vous conseillons sur les gestes à privilégier.
+          </p>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">Zones d’intervention et délais</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">
+            Île-de-France &amp; Normandie — intervention rapide selon votre secteur. Vérifiez la disponibilité et les délais dans votre ville.
+          </p>
+          <Link to="/zones" className="btn-outline">Voir les zones</Link>
+        </section>
+
+        <section className="section-spacious panel panel-hover">
+          <h2 className="heading-2">FAQ</h2>
+          <div className="accent mt-2"></div>
+          <details className="mt-2">
+            <summary className="cursor-pointer font-medium">Intervenez-vous rapidement ?</summary>
+            <p className="mt-1 text-neutral-600">Oui, nous planifions une intervention dans les meilleurs délais.</p>
+          </details>
+          <details className="mt-2">
+            <summary className="cursor-pointer font-medium">Pouvez-vous évacuer les déchets verts ?</summary>
+            <p className="mt-1 text-neutral-600">Oui, nous pouvons évacuer les déchets verts si besoin.</p>
+          </details>
+        </section>
+
+        <section className="section-spacious panel">
+          <h2 className="heading-2">Demander un devis</h2>
+          <div className="accent mt-2"></div>
+          <p className="mt-2 text-neutral-600">Devis gratuit sous 24h par téléphone ou via notre formulaire.</p>
+          <Link to="/contact" className="btn-primary">Nous contacter</Link>
+        </section>
+      </main>
+    </>
+  );
+}

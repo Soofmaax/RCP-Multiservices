@@ -1,0 +1,230 @@
+{
+  "regions": [
+    {
+      "key": "ile-de-france",
+      "name": "Île-de-France",
+      "departments": [
+        {
+          "key": "paris-75",
+          "name": "Paris (75)",
+          "cities": [
+            { "slug": "paris", "name": "Paris" }
+          ]
+        },
+        {
+          "key": "seine-et-marne-77",
+          "name": "Seine-et-Marne (77)",
+          "cities": [
+            { "slug": "meaux", "name": "Meaux" },
+            { "slug": "chelles", "name": "Chelles" },
+            { "slug": "melun", "name": "Melun" },
+            { "slug": "pontault-combault", "name": "Pontault-Combault" },
+            { "slug": "savigny-le-temple", "name": "Savigny-le-Temple" },
+            { "slug": "torcy", "name": "Torcy" },
+            { "slug": "bussy-saint-georges", "name": "Bussy-Saint-Georges" },
+            { "slug": "lagny-sur-marne", "name": "Lagny-sur-Marne" },
+            { "slug": "fontainebleau", "name": "Fontainebleau" },
+            { "slug": "provins", "name": "Provins" },
+            { "slug": "dammarie-les-lys", "name": "Dammarie-les-Lys" },
+            { "slug": "montereau-fault-yonne", "name": "Montereau-Fault-Yonne" },
+            { "slug": "roissy-en-brie", "name": "Roissy-en-Brie" },
+            { "slug": "ozoir-la-ferriere", "name": "Ozoir-la-Ferrière" },
+            { "slug": "villeparisis", "name": "Villeparisis" },
+            { "slug": "mitry-mory", "name": "Mitry-Mory" }
+          ]
+        },
+        {
+          "key": "yvelines-78",
+          "name": "Yvelines (78)",
+          "cities": [
+            { "slug": "versailles", "name": "Versailles" },
+            { "slug": "saint-germain-en-laye", "name": "Saint-Germain-en-Laye" },
+            { "slug": "mantes-la-jolie", "name": "Mantes-la-Jolie" },
+            { "slug": "poissy", "name": "Poissy" },
+            { "slug": "sartrouville", "name": "Sartrouville" },
+            { "slug": "montigny-le-bretonneux", "name": "Montigny-le-Bretonneux" },
+            { "slug": "rambouillet", "name": "Rambouillet" },
+            { "slug": "chatou", "name": "Chatou" },
+            { "slug": "le-chesnay-rocquencourt", "name": "Le Chesnay-Rocquencourt" },
+            { "slug": "trappes", "name": "Trappes" },
+            { "slug": "plaisir", "name": "Plaisir" },
+            { "slug": "conflans-sainte-honorine", "name": "Conflans-Sainte-Honorine" },
+            { "slug": "houilles", "name": "Houilles" }
+          ]
+        },
+        {
+          "key": "essonne-91",
+          "name": "Essonne (91)",
+          "cities": [
+            { "slug": "evry-courcouronnes", "name": "Évry-Courcouronnes" },
+            { "slug": "massy", "name": "Massy" },
+            { "slug": "palaiseau", "name": "Palaiseau" },
+            { "slug": "savigny-sur-orge", "name": "Savigny-sur-Orge" },
+            { "slug": "corbeil-essonnes", "name": "Corbeil-Essonnes" },
+            { "slug": "yerres", "name": "Yerres" },
+            { "slug": "athis-mons", "name": "Athis-Mons" },
+            { "slug": "sainte-genevieve-des-bois", "name": "Sainte-Geneviève-des-Bois" },
+            { "slug": "viry-chatillon", "name": "Viry-Châtillon" },
+            { "slug": "draveil", "name": "Draveil" },
+            { "slug": "les-ulis", "name": "Les Ulis" },
+            { "slug": "brunoy", "name": "Brunoy" }
+          ]
+        },
+        {
+          "key": "hauts-de-seine-92",
+          "name": "Hauts-de-Seine (92)",
+          "cities": [
+            { "slug": "boulogne-billancourt", "name": "Boulogne-Billancourt" },
+            { "slug": "nanterre", "name": "Nanterre" },
+            { "slug": "courbevoie", "name": "Courbevoie" },
+            { "slug": "neuilly-sur-seine", "name": "Neuilly-sur-Seine" },
+            { "slug": "colombes", "name": "Colombes" },
+            { "slug": "asnieres-sur-seine", "name": "Asnières-sur-Seine" },
+            { "slug": "levallois-perret", "name": "Levallois-Perret" },
+            { "slug": "issy-les-moulineaux", "name": "Issy-les-Moulineaux" },
+            { "slug": "antony", "name": "Antony" },
+            { "slug": "clichy", "name": "Clichy" },
+            { "slug": "rueil-malmaison", "name": "Rueil-Malmaison" },
+            { "slug": "suresnes", "name": "Suresnes" },
+            { "slug": "montrouge", "name": "Montrouge" },
+            { "slug": "puteaux", "name": "Puteaux" },
+            { "slug": "meudon", "name": "Meudon" },
+            { "slug": "malakoff", "name": "Malakoff" }
+          ]
+        },
+        {
+          "key": "seine-saint-denis-93",
+          "name": "Seine-Saint-Denis (93)",
+          "cities": [
+            { "slug": "saint-denis", "name": "Saint-Denis" },
+            { "slug": "montreuil", "name": "Montreuil" },
+            { "slug": "aubervilliers", "name": "Aubervilliers" },
+            { "slug": "drancy", "name": "Drancy" },
+            { "slug": "aulnay-sous-bois", "name": "Aulnay-sous-Bois" },
+            { "slug": "bobigny", "name": "Bobigny" },
+            { "slug": "bondy", "name": "Bondy" },
+            { "slug": "noisy-le-grand", "name": "Noisy-le-Grand" },
+            { "slug": "le-blanc-mesnil", "name": "Le Blanc-Mesnil" },
+            { "slug": "pantin", "name": "Pantin" },
+            { "slug": "epinay-sur-seine", "name": "Épinay-sur-Seine" },
+            { "slug": "sevran", "name": "Sevran" },
+            { "slug": "stains", "name": "Stains" },
+            { "slug": "villepinte", "name": "Villepinte" },
+            { "slug": "rosny-sous-bois", "name": "Rosny-sous-Bois" }
+          ]
+        },
+        {
+          "key": "val-de-marne-94",
+          "name": "Val-de-Marne (94)",
+          "cities": [
+            { "slug": "creteil", "name": "Créteil" },
+            { "slug": "vitry-sur-seine", "name": "Vitry-sur-Seine" },
+            { "slug": "ivry-sur-seine", "name": "Ivry-sur-Seine" },
+            { "slug": "villejuif", "name": "Villejuif" },
+            { "slug": "champigny-sur-marne", "name": "Champigny-sur-Marne" },
+            { "slug": "saint-maur-des-fosses", "name": "Saint-Maur-des-Fossés" },
+            { "slug": "maisons-alfort", "name": "Maisons-Alfort" },
+            { "slug": "alfortville", "name": "Alfortville" },
+            { "slug": "nogent-sur-marne", "name": "Nogent-sur-Marne" },
+            { "slug": "le-perreux-sur-marne", "name": "Le Perreux-sur-Marne" },
+            { "slug": "charenton-le-pont", "name": "Charenton-le-Pont" },
+            { "slug": "l-hay-les-roses", "name": "L’Haÿ-les-Roses" }
+          ]
+        },
+        {
+          "key": "val-d-oise-95",
+          "name": "Val-d'Oise (95)",
+          "cities": [
+            { "slug": "argenteuil", "name": "Argenteuil" },
+            { "slug": "cergy", "name": "Cergy" },
+            { "slug": "garges-les-gonesse", "name": "Garges-lès-Gonesse" },
+            { "slug": "sarcelles", "name": "Sarcelles" },
+            { "slug": "gonesse", "name": "Gonesse" },
+            { "slug": "franconville", "name": "Franconville" },
+            { "slug": "ermont", "name": "Ermont" },
+            { "slug": "sannois", "name": "Sannois" },
+            { "slug": "taverny", "name": "Taverny" },
+            { "slug": "pontoise", "name": "Pontoise" },
+            { "slug": "bezons", "name": "Bezons" },
+            { "slug": "herblay-sur-seine", "name": "Herblay-sur-Seine" },
+            { "slug": "cormeilles-en-parisis", "name": "Cormeilles-en-Parisis" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "normandie",
+      "name": "Normandie",
+      "departments": [
+        {
+          "key": "calvados-14",
+          "name": "Calvados (14)",
+          "cities": [
+            { "slug": "caen", "name": "Caen" },
+            { "slug": "lisieux", "name": "Lisieux" },
+            { "slug": "bayeux", "name": "Bayeux" },
+            { "slug": "herouville-saint-clair", "name": "Hérouville-Saint-Clair" },
+            { "slug": "vire-normandie", "name": "Vire Normandie" },
+            { "slug": "mondeville", "name": "Mondeville" },
+            { "slug": "ifs", "name": "Ifs" },
+            { "slug": "ouistreham", "name": "Ouistreham" },
+            { "slug": "deauville", "name": "Deauville" },
+            { "slug": "honfleur", "name": "Honfleur" }
+          ]
+        },
+        {
+          "key": "eure-27",
+          "name": "Eure (27)",
+          "cities": [
+            { "slug": "evreux", "name": "Évreux" },
+            { "slug": "vernon", "name": "Vernon" },
+            { "slug": "louviers", "name": "Louviers" },
+            { "slug": "val-de-reuil", "name": "Val-de-Reuil" },
+            { "slug": "gisors", "name": "Gisors" },
+            { "slug": "pont-audemer", "name": "Pont-Audemer" },
+            { "slug": "bernay", "name": "Bernay" }
+          ]
+        },
+        {
+          "key": "manche-50",
+          "name": "Manche (50)",
+          "cities": [
+            { "slug": "cherbourg-en-cotentin", "name": "Cherbourg-en-Cotentin" },
+            { "slug": "saint-lo", "name": "Saint-Lô" },
+            { "slug": "granville", "name": "Granville" },
+            { "slug": "avranches", "name": "Avranches" },
+            { "slug": "coutances", "name": "Coutances" },
+            { "slug": "carentan-les-marais", "name": "Carentan-les-Marais" }
+          ]
+        },
+        {
+          "key": "orne-61",
+          "name": "Orne (61)",
+          "cities": [
+            { "slug": "alencon", "name": "Alençon" },
+            { "slug": "flers", "name": "Flers" },
+            { "slug": "argentan", "name": "Argentan" },
+            { "slug": "l-aigle", "name": "L'Aigle" },
+            { "slug": "sees", "name": "Sées" }
+          ]
+        },
+        {
+          "key": "seine-maritime-76",
+          "name": "Seine-Maritime (76)",
+          "cities": [
+            { "slug": "rouen", "name": "Rouen" },
+            { "slug": "le-havre", "name": "Le Havre" },
+            { "slug": "dieppe", "name": "Dieppe" },
+            { "slug": "sotteville-les-rouen", "name": "Sotteville-lès-Rouen" },
+            { "slug": "saint-etienne-du-rouvray", "name": "Saint-Étienne-du-Rouvray" },
+            { "slug": "fecamp", "name": "Fécamp" },
+            { "slug": "mont-saint-aignan", "name": "Mont-Saint-Aignan" },
+            { "slug": "barentin", "name": "Barentin" },
+            { "slug": "yvetot", "name": "Yvetot" },
+            { "slug": "elbeuf", "name": "Elbeuf" }
+          ]
+        }
+      ]
+    }
+  ]
+}

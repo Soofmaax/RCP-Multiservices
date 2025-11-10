@@ -1,0 +1,9 @@
+/* humans.txt — credits & contact */
+
+Team: RCP Multiservices
+Website: https://www.rcp-multiservices.com
+Contact: contact@rcp-multiservices.com
+Phone: +33 7 43 67 08 15
+
+Design/Engineering: Cosine (Genie)
+SEO Local: smarterlogicweb.com

@@ -1,0 +1,46 @@
+[build]
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Canonical domain redirect (apex -> www)
+[[redirects]]
+  from = "https://rcp-multiservices.com/*"
+  to = "https://www.rcp-multiservices.com/:splat"
+  status = 301
+  force = true
+
+# Security headers for all routes
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    # CSP tuned for Vite + Tailwind + Google Fonts + Unsplash + Leaflet tiles + Netlify functions
+    # If you enable GA4, add https://www.googletagmanager.com to script-src.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.clarity.ms; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data: blob: https://images.unsplash.com https://*.tile.openstreetmap.org; font-src 'self' https://fonts.gstatic.com; connect-src 'self' /api/google-reviews https://*.tile.openstreetmap.org https://www.clarity.ms; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+# Long-lived cache headers for static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

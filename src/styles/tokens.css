@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* Design tokens: change values here to retheme the app globally */
+:root {
+  /* Brand */
+  --color-primary: #0B4EB3;            /* deep blue (buttons/CTAs) */
+  --color-primary-rgb: 11 78 179;
+  --color-secondary: #0EA5E9;          /* sky blue accent */
+  --color-secondary-rgb: 14 165 233;
+  --color-accent: #10BFAE;             /* teal (hero/strips) */
+  --color-accent-rgb: 16 191 174;
+
+  /* Semantic states */
+  --color-info: #00b0f4;
+  --color-info-rgb: 0 176 244;
+  --color-success: #11b76b;
+  --color-success-rgb: 17 183 107;
+  --color-warning: #ffa100;
+  --color-warning-rgb: 255 161 0;
+  --color-danger: #fa4362;
+  --color-danger-rgb: 250 67 98;
+
+  /* Text */
+  --text-dark: #212121;
+  --text-dark-rgb: 33 33 33;
+  --text-medium: #616161;
+  --text-medium-rgb: 97 97 97;
+  --text-light: #9e9e9e;
+  --text-light-rgb: 158 158 158;
+
+  /* Surfaces / backgrounds */
+  --bg-dark: #263238;
+  --bg-dark-rgb: 38 50 56;
+  --bg-light: #F8FAFC;
+  --bg-light-rgb: 248 250 252;
+  --bg-info: #e5f3ff;
+  --bg-info-rgb: 229 243 255;
+  --bg-success: #e6f6ed;
+  --bg-success-rgb: 230 246 237;
+  --bg-warning: #fff2d7;
+  --bg-warning-rgb: 255 242 215;
+  --bg-danger: #ffe6ec;
+  --bg-danger-rgb: 255 230 236;
+
+  /* Deep navy section background */
+  --bg-navy: #0B2E4E;
+  --bg-navy-rgb: 11 46 78;
+
+  /* Borders & radius */
+  --border-color: #dddedf;
+  --border-color-rgb: 221 222 223;
+  --radius: 4px;
+}

@@ -1,0 +1,11 @@
+export { default as CityPage } from './CityPage';
+export { default as ServicesPage } from './ServicesPage';
+export { default as ContactPage } from './ContactPage';
+export { default as ZonesIndex } from './ZonesIndex';
+export { default as RegionPage } from './RegionPage';
+export { default as NotFoundPage } from './NotFoundPage';
+export { default as LegalPage } from './LegalPage';
+export { default as PrivacyPage } from './PrivacyPage';
+export { default as ServiceAidePage } from './ServiceAidePage';
+export { default as ServiceMenagePage } from './ServiceMenagePage';
+export { default as ServiceJardinagePage } from './ServiceJardinagePage';
