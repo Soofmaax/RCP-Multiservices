@@ -1,6 +1,6 @@
-# RCP Multiservices
+# RCP Multiservices (démo portfolio)
 
-[![Live](https://img.shields.io/badge/Live-rcp--multiservices.com-success?logo=netlify)](https://www.rcp-multiservices.com/)
+[![Demo](https://img.shields.io/badge/Demo-demo.smarterlogicweb.com-inactive?logo=netlify)](https://demo.smarterlogicweb.com/)
 [![React](https://img.shields.io/badge/React-18-61dafb?logo=react&labelColor=20232a)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-5-purple?logo=vite)](https://vitejs.dev/)
@@ -10,7 +10,7 @@
 [![Vitest](https://img.shields.io/badge/Tests-Coverage%20%E2%89%A5%2080%25-brightgreen?logo=vitest)](https://vitest.dev/)
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-blue?logo=githubactions)](.github/workflows/ci.yml)
 
-Site vitrine “services à domicile” optimisé pour le SEO local (Île‑de‑France & Normandie), hébergé sur Netlify. Stack moderne, CI stricte, accessibilité et sécurité prises au sérieux.
+Projet de démonstration (portfolio SmarterLogicWeb) : site vitrine “services à domicile” optimisé pour le SEO local (Île‑de‑France & Normandie), hébergé sur Netlify. Aucun service réel n’est proposé et le formulaire de contact ne transmet aucune demande.
 
 ## Sommaire
 
@@ -43,9 +43,9 @@ Ce projet React + TypeScript (Vite) propose:
 
 ## Démo & Liens
 
-- Live: https://www.rcp-multiservices.com/
-- robots.txt: https://www.rcp-multiservices.com/robots.txt
-- sitemap.xml: https://www.rcp-multiservices.com/sitemap.xml
+- Démo (optionnelle): https://demo.smarterlogicweb.com/
+- Portfolio: https://www.smarterlogicweb.com/
+- robots.txt: https://demo.smarterlogicweb.com/robots.txt (désactive l’indexation)
 
 ## Captures (Screenshots)
 
@@ -138,8 +138,8 @@ Note monorepo: Le dossier `next/` contient un prototype Next.js non utilisé en 
   - redirects: `/api/*` → `/.netlify/functions/:splat`
   - headers (sécurité + cache immuable sur assets/images)
 - Domaine:
-  - `www.rcp-multiservices.com` en primary
-  - Redirection apex → www configurée
+  - Démo: `demo.smarterlogicweb.com` (exemple)
+  - Pour un usage réel: attachez votre propre domaine et adaptez `VITE_SITE_URL` + redirects
 - CSP:
   - Pour activer GA4, ajoutez `https://www.googletagmanager.com` à `script-src`
   - Pour activer Microsoft Clarity, ajoutez `https://www.clarity.ms` à `script-src`
@@ -155,10 +155,10 @@ Pré-requis (optionnels mais recommandés):
 Commandes:
 ```bash
 # avec variable d'environnement
-BASE_URL="https://deploy-preview-123--rcp-multiservices.netlify.app" npm run audit:site
+BASE_URL="https://deploy-preview-123--your-site.netlify.app" npm run audit:site
 
 # ou en argument
-npm run audit:site -- "https://deploy-preview-123--rcp-multiservices.netlify.app"
+npm run audit:site -- "https://deploy-preview-123--your-site.netlify.app"
 ```
 
 Le script `scripts/audit.mjs`:

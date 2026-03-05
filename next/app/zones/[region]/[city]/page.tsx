@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   const title = `Services à domicile à ${match.city.name} — ${match.department.name}`;
   const description = `Aide à domicile, ménage, jardinage et accompagnement à ${match.city.name} (${match.department.name}). Devis gratuit sous 24h.`;
-  const url = `https://www.rcp-multiservices.com/zones/${match.region.key}/${match.city.slug}`;
+  const url = `https://demo.smarterlogicweb.com/zones/${match.region.key}/${match.city.slug}`;
 
   return {
     title,

@@ -1,9 +1,10 @@
 /* humans.txt — credits & contact */
 
-Team: RCP Multiservices
-Website: https://www.rcp-multiservices.com
-Contact: contact@rcp-multiservices.com
-Phone: +33 7 43 67 08 15
+Project: RCP Multiservices (démo portfolio)
+Developer: SmarterLogicWeb
+Website: https://demo.smarterlogicweb.com
+Contact: Sonia@smarterlogicweb.com
+Phone: +33 7 44 40 79 73
 
 Design/Engineering: Cosine (Genie)
-SEO Local: smarterlogicweb.com
+SEO Local: SmarterLogicWeb

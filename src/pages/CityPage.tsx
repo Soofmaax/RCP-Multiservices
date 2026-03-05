@@ -4,13 +4,12 @@ import { findCity } from '../data/locations';
 import { Reviews, GoogleReviewsBadge } from '../components';
 import { buildFaqLd, buildServiceLd, buildBreadcrumbsLd } from '../utils/seo';
 import { ctaRow } from '../utils/styles';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, SITE_NAME, SITE_URL } from '../config/site';
 
 type Params = {
   region: string;
   city: string;
 };
-
-const SITE_URL = 'https://www.rcp-multiservices.com';
 
 export default function CityPage() {
   const { region, city } = useParams<Params>();
@@ -30,7 +29,7 @@ export default function CityPage() {
     );
   }
 
-  const title = `Services à domicile à ${match.city.name} (${match.region.name}) — RCP Multiservices`;
+  const title = `Services à domicile à ${match.city.name} (${match.region.name}) — ${SITE_NAME}`;
   const description = `Aide à domicile, ménage, jardinage et accompagnement à ${match.city.name}. Intervention rapide, personnel qualifié et assuré. Devis gratuit sous 24h.`;
   const canonical = `${SITE_URL}/zones/${match.region.key}/${match.city.slug}`;
 
@@ -110,8 +109,8 @@ export default function CityPage() {
                 {match.region.name} • {match.department.name}
               </p>
               <div className={`${ctaRow} mt-3`}>
-                <a href="tel:+33743670815" className="btn-white">
-                  07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+                <a href={CONTACT_PHONE_TEL} className="btn-white">
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
                 <Link to="/contact" className="btn-request">
                   Demander un rendez-vous
@@ -198,7 +197,7 @@ export default function CityPage() {
           <p className="mt-2 text-neutral-600">
             Devis gratuit sous 24h. Contactez-nous par téléphone ou via notre formulaire.
           </p>
-          <a href="mailto:contact@rcp-multiservices.com" className="btn-request">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="btn-request">
             Nous écrire
           </a>
         </section>

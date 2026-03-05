@@ -1,7 +1,7 @@
 import { mkdir, writeFile, readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-const SITE_URL = process.env.SITE_URL || 'https://www.rcp-multiservices.com';
+const SITE_URL = process.env.SITE_URL || 'https://demo.smarterlogicweb.com';
 
 // Pages to capture (path, output name, selector to wait for)
 const PAGES = [

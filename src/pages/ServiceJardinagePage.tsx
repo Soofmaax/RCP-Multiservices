@@ -4,11 +4,10 @@ import { GoogleReviewsBadge } from '../components';
 import { ctaRow } from '../utils/styles';
 import { buildFaqLd } from '../utils/seo';
 import { buildServicePageLd, buildServiceBreadcrumbsLd } from '../utils/seoExtras';
-
-const SITE_URL = 'https://www.rcp-multiservices.com';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, SITE_NAME, SITE_URL } from '../config/site';
 
 export default function ServiceJardinagePage() {
-  const title = 'Jardinage — RCP Multiservices';
+  const title = `Jardinage — ${SITE_NAME}`;
   const description =
     "Jardinage : tonte, taille, entretien des haies et massifs, petits aménagements. Intervention rapide, résultat durable.";
   const canonical = `${SITE_URL}/services/jardinage`;
@@ -67,7 +66,7 @@ export default function ServiceJardinagePage() {
                 Tonte, taille, haies &amp; massifs — résultat propre et durable
               </p>
               <div className={`${ctaRow} mt-3`}>
-                <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+                <a href={CONTACT_PHONE_TEL} className="btn-white">{CONTACT_PHONE_DISPLAY}</a>
                 <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
                 <Link to="/zones" className="btn-outline">Voir nos zones</Link>
                 <GoogleReviewsBadge />
@@ -89,7 +88,7 @@ export default function ServiceJardinagePage() {
             Nous adaptons l’entretien aux saisons et à la croissance des végétaux pour un rendu propre et durable.
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
             <Link to="/contact" className="btn-secondary">Demander un devis</Link>
           </div>
         </section>

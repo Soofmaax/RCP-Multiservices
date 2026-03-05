@@ -5,7 +5,7 @@ import SiteFooter from '@/components/SiteFooter';
 import PageTransition from '@/components/PageTransition';
 import BackToTop from '@/components/BackToTop';
 
-const SITE_URL = 'https://www.rcp-multiservices.com';
+const SITE_URL = 'https://demo.smarterlogicweb.com';
 
 export const metadata: Metadata = {
   title: 'RCP Multiservices — Île-de-France et Normandie',

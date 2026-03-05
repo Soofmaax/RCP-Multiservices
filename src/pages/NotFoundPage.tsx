@@ -1,8 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
-const SITE_URL = 'https://www.rcp-multisevices.com';
+import { SITE_NAME, SITE_URL } from '../config/site';
 
 export default function NotFoundPage() {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ export default function NotFoundPage() {
     };
   }, [navigate]);
 
-  const title = 'Page non trouvée — RCP Multiservices';
+  const title = `Page non trouvée — ${SITE_NAME}`;
   const description = "La page demandée n'a pas été trouvée. Vous allez être redirigé vers l'accueil.";
   const canonical = `${SITE_URL}/404`;
 

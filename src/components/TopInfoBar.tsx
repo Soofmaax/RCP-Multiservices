@@ -1,4 +1,5 @@
 import { openingStatusLabel } from '../utils/openingHours';
+import { CONTACT_PHONE_TEL, SITE_NAME } from '../config/site';
 
 export default function TopInfoBar() {
   const hours =
@@ -11,7 +12,7 @@ export default function TopInfoBar() {
         <div className="text-sm">
           <span className="opacity-90">{hours}</span>
         </div>
-        <a href="tel:+33743670815" className="btn-white" aria-label="Appeler RCP Multiservices">
+        <a href={CONTACT_PHONE_TEL} className="btn-white" aria-label={`Appeler ${SITE_NAME}`}>
           <svg
             aria-hidden="true"
             focusable="false"

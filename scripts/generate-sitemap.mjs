@@ -5,8 +5,8 @@ import { dirname, resolve } from 'node:path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Change this to your production domain
-const SITE_URL = 'https://www.rcp-multiservices.com';
+// Base URL used to generate absolute URLs for the sitemap
+const SITE_URL = process.env.SITE_URL || 'https://demo.smarterlogicweb.com';
 
 function url(loc) {
   return `  <url><loc>${loc}</loc></url>`;

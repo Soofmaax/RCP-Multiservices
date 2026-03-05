@@ -4,24 +4,23 @@ import { useEffect } from 'react';
 import { CityPage, ZonesIndex, ServicesPage, ContactPage, RegionPage, NotFoundPage, LegalPage, PrivacyPage, ServiceAidePage, ServiceMenagePage, ServiceJardinagePage } from '../pages';
 import { GoogleReviewsBadge, QuickCall, Header, TopInfoBar, ScrollTop, BackToTop } from '../components';
 import SOCIAL_LINKS from '../config/social';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_DISPLAY_SPACED, CONTACT_PHONE_TEL, DEMO_DISCLAIMER, SITE_NAME, SITE_URL, SMARTERLOGICWEB_URL } from '../config/site';
 import CookieConsent from '../components/CookieConsent';
 import { initAnalytics } from '../lib/analytics';
 import { initClarity } from '../lib/clarity';
 import { onConsentChange } from '../lib/consent';
 import { btnPrimary, ctaRow } from '../utils/styles';
 
-const SITE_URL = 'https://www.rcp-multiservices.com';
-
 function Home() {
   const canonical = `${SITE_URL}/`;
-  const title = 'RCP Multiservices — Île-de-France et Normandie';
+  const title = `${SITE_NAME} — Île-de-France et Normandie`;
   const description =
     'Services à domicile de qualité en Île-de-France et en Normandie : aide, ménage, jardinage, accompagnement. Devis gratuit sous 24h.';
   const websiteLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     url: SITE_URL,
-    name: 'RCP Multiservices',
+    name: SITE_NAME,
   };
 
   // Inline service icons (minimal SVGs)
@@ -78,7 +77,7 @@ function Home() {
                   }}
                 />
                 <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-accent/95 text-white p-6 md:p-10 pt-8 md:pt-10 flex flex-col items-start justify-start rounded-r-[24px]">
-                  <h1 className="heading-1 heading-hero text-white">RCP Multiservices</h1>
+                  <h1 className="heading-1 heading-hero text-white">{SITE_NAME}</h1>
                   <div className="h-1 w-20 bg-white rounded-full mt-2"></div>
                   <p className="mt-3 text-white/90 text-lg md:text-xl">
                     Services à domicile de confiance — Paris, Île-de-France &amp; Normandie.
@@ -89,8 +88,8 @@ function Home() {
                     <span className="badge bg-white/10 text-white">Intervention rapide</span>
                   </div>
                   <div className={`${ctaRow} mt-3`}>
-                    <a href="tel:+33743670815" className="btn-white">
-                      07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+                    <a href={CONTACT_PHONE_TEL} className="btn-white">
+                      {CONTACT_PHONE_DISPLAY}
                     </a>
                     <Link to="/services" className="btn-request">
                       Demander un rendez-vous
@@ -127,7 +126,7 @@ function Home() {
                 <li>Devis sous 24h</li>
               </ul>
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+                <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
                 <Link to="/services/aide-a-domicile" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
@@ -151,7 +150,7 @@ function Home() {
                 <li>Matériel adapté</li>
               </ul>
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+                <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
                 <Link to="/services/menage-repassage" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
@@ -175,7 +174,7 @@ function Home() {
                 <li>Conseils d’entretien</li>
               </ul>
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+                <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
                 <Link to="/contact" className="btn-secondary">Demander un devis</Link>
                 <Link to="/services/jardinage" className="link-more">
                   En savoir plus <span aria-hidden="true">→</span>
@@ -259,7 +258,7 @@ function Home() {
                 </div>
                 <div className="mt-1 text-secondary font-medium">Demande de rendez-vous</div>
                 <p className="mt-2 text-neutral-600">
-                  Appelez le <a href="tel:+33743670815" className="text-primary hover:underline">07 43 67 08 15</a> ou écrivez-nous. Nous fixons un créneau rapidement.
+                  Appelez le <a href={CONTACT_PHONE_TEL} className="text-primary hover:underline">{CONTACT_PHONE_DISPLAY_SPACED}</a> ou écrivez-nous. Nous fixons un créneau rapidement.
                 </p>
               </div>
 
@@ -327,11 +326,11 @@ function Footer() {
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <p className="text-white/90">
             Besoin d’aide rapidement ? Appelez-nous au{' '}
-            <a href="tel:+33743670815" className="underline hover:text-secondary">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>{' '}
+            <a href={CONTACT_PHONE_TEL} className="underline hover:text-secondary">{CONTACT_PHONE_DISPLAY}</a>{' '}
             ou <Link to="/contact" className="underline hover:text-secondary">demandez un rendez-vous</Link>.
           </p>
           <div className="flex items-center gap-2">
-            <a href="tel:+33743670815" className="btn-white">Appeler</a>
+            <a href={CONTACT_PHONE_TEL} className="btn-white">Appeler</a>
             <Link to="/contact" className="btn-primary">Rendez-vous</Link>
           </div>
           <div className="w-full text-white/80 text-sm flex flex-wrap items-center gap-2">
@@ -356,7 +355,7 @@ function Footer() {
             <div className="flex items-center">
               <img
                 src="/logo-white.svg"
-                alt="RCP Multiservices"
+                alt={SITE_NAME}
                 className="h-20 w-auto md:h-24"
                 width={160}
                 height={40}
@@ -398,7 +397,7 @@ function Footer() {
           <div>
             <div className="text-lg font-semibold">Prendre rendez-vous</div>
             <div className="mt-2 flex flex-col gap-2">
-              <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+              <a href={CONTACT_PHONE_TEL} className="btn-white">{CONTACT_PHONE_DISPLAY}</a>
               <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
               <GoogleReviewsBadge variant="inverted" />
             </div>
@@ -425,11 +424,21 @@ function Footer() {
             </div>
           </div>
         </div>
-      <hr className="mt-8 border-white/20" />
+        <hr className="mt-8 border-white/20" />
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-white/70 text-sm">
-          <div>© {new Date().getFullYear()} RCP Multiservices · Île-de-France &amp; Normandie</div>
+          <div>© {new Date().getFullYear()} {SITE_NAME} · Île-de-France &amp; Normandie</div>
           <div className="flex items-center gap-3">
-            <span className="hidden md:inline">SEO local optimisé avec <a href="https://smarterlogicweb.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary">smarterlogicweb.com</a></span>
+            <span>
+              {DEMO_DISCLAIMER}{' '}
+              <a
+                href={SMARTERLOGICWEB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-secondary"
+              >
+                Voir d’autres projets sur SmarterLogicWeb
+              </a>
+            </span>
             <span>SIRET: à compléter • RC Pro: à compléter</span>
             <button
               type="button"

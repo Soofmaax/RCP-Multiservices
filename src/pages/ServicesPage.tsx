@@ -5,8 +5,7 @@ import { GoogleReviewsBadge } from '../components';
 import { buildFaqLd } from '../utils/seo';
 import { buildServicesItemListLd } from '../utils/seoExtras';
 import { ctaRow } from '../utils/styles';
-
-const SITE_URL = 'https://www.rcp-multiservices.com';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, SITE_NAME, SITE_URL } from '../config/site';
 
 export default function ServicesPage() {
   const location = useLocation();
@@ -18,7 +17,7 @@ export default function ServicesPage() {
     }
   }, [location.hash]);
 
-  const title = 'Services à domicile — Aide, Ménage, Jardinage | RCP Multiservices';
+  const title = `Services à domicile — Aide, Ménage, Jardinage | ${SITE_NAME}`;
   const description =
     "Découvrez nos services à domicile en Île-de-France et en Normandie : aide à domicile, ménage, repassage, jardinage, petits travaux. Devis gratuit sous 24h.";
   const canonical = `${SITE_URL}/services`;
@@ -105,8 +104,8 @@ export default function ServicesPage() {
                 Prestations en Île-de-France &amp; Normandie — aide, ménage, jardinage.
               </p>
               <div className={`${ctaRow} mt-3`}>
-                <a href="tel:+33743670815" className="btn-white">
-                  07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+                <a href={CONTACT_PHONE_TEL} className="btn-white">
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
                 <Link to="/contact" className="btn-primary">
                   Demander un rendez-vous
@@ -137,7 +136,7 @@ export default function ServicesPage() {
               <li>Compagnie et sorties</li>
             </ul>
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+              <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
               <Link to="/services/aide-a-domicile" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
@@ -163,7 +162,7 @@ export default function ServicesPage() {
               <li>Repassage, pliage</li>
             </ul>
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+              <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
               <Link to="/services/menage-repassage" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
@@ -189,7 +188,7 @@ export default function ServicesPage() {
               <li>Petits aménagements</li>
             </ul>
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+              <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
               <Link to="/contact" className="btn-secondary">Demander un devis</Link>
               <Link to="/services/jardinage" className="link-more">
                 En savoir plus <span aria-hidden="true">→</span>
