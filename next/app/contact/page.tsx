@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import GoogleReviewsBadge from '@/components/GoogleReviewsBadge';
 
 export const metadata = {
-  title: 'Contact — RCP Multiservices',
+  title: 'Contact — RCP Multiservices (démo)',
   description:
-    "Contactez RCP Multiservices pour un devis gratuit sous 24h. Intervention en Île-de-France et en Normandie.",
+    "Projet de démonstration (portfolio) : formulaire fictif, aucune demande n’est envoyée.",
 };
 
 export default function ContactPage() {
@@ -30,7 +30,7 @@ export default function ContactPage() {
       <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
         <a
           className="inline-block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-transform duration-150 hover:scale-[1.03]"
-          href="mailto:contact@rcp-multiservices.com"
+          href="mailto:Sonia@smarterlogicweb.com"
         >
           Nous écrire
         </a>
@@ -42,14 +42,14 @@ export default function ContactPage() {
         <ul className="text-gray-800">
           <li>
             Téléphone:{' '}
-            <a className="text-blue-600 hover:underline" href="tel:+33123456789">
-              +33 1 23 45 67 89
+            <a className="text-blue-600 hover:underline" href="tel:+33744407973">
+              +33 7 44 40 79 73
             </a>
           </li>
           <li>
             Email:{' '}
-            <a className="text-blue-600 hover:underline" href="mailto:contact@rcp-multiservices.com">
-              contact@rcp-multiservices.com
+            <a className="text-blue-600 hover:underline" href="mailto:Sonia@smarterlogicweb.com">
+              Sonia@smarterlogicweb.com
             </a>
           </li>
           <li>Adresse: 123 Avenue de la République, 75011 Paris</li>

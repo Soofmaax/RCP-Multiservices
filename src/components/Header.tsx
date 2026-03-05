@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { openingStatusLabel } from '../utils/openingHours';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, SITE_NAME } from '../config/site';
 
 export default function Header() {
   const status = openingStatusLabel();
@@ -16,7 +17,7 @@ export default function Header() {
             <Link to="/" className="flex items-center gap-2">
               <img
                 src="/logo.svg"
-                alt="RCP Multiservices"
+                alt={SITE_NAME}
                 className="h-20 w-auto sm:h-24 md:h-28"
                 width={160}
                 height={40}
@@ -36,15 +37,15 @@ export default function Header() {
             <Link to="/contact" className="nav-link">
               Contact
             </Link>
-            <a href="tel:+33743670815" className="btn-primary">
-              Appeler: 07&nbsp;43&nbsp;67&nbsp;08&nbsp;15
+            <a href={CONTACT_PHONE_TEL} className="btn-primary">
+              Appeler: {CONTACT_PHONE_DISPLAY}
             </a>
           </nav>
 
           <a
-            href="tel:+33743670815"
+            href={CONTACT_PHONE_TEL}
             className="sm:hidden btn-primary"
-            aria-label="Appeler RCP Multiservices"
+            aria-label={`Appeler ${SITE_NAME}`}
           >
             Appeler
           </a>

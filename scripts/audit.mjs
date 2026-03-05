@@ -2,9 +2,9 @@
  * Automated QA audit for a deployed preview URL.
  *
  * Usage:
- *   BASE_URL="https://deploy-preview-123--rcp-multiservices.netlify.app" node scripts/audit.mjs
+ *   BASE_URL="https://deploy-preview-123--demo-multiservices.netlify.app" node scripts/audit.mjs
  * or:
- *   npm run audit:site -- "https://deploy-preview-123--rcp-multiservices.netlify.app"
+ *   npm run audit:site -- "https://deploy-preview-123--demo-multiservices.netlify.app"
  *
  * Output:
  *   Writes a Markdown report to ./audit-report.md with ✅/❌/⚠️ statuses.

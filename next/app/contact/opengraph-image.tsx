@@ -29,7 +29,7 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 76, fontWeight: 800, letterSpacing: -1 }}>{title}</div>
           <div style={{ fontSize: 44, opacity: 0.95 }}>{subtitle}</div>
           <div style={{ fontSize: 28, opacity: 0.9 }}>{line}</div>
-          <div style={{ marginTop: 12, fontSize: 22, opacity: 0.82 }}>www.rcp-multiservices.com</div>
+          <div style={{ marginTop: 12, fontSize: 22, opacity: 0.82 }}>demo.smarterlogicweb.com</div>
         </div>
       </div>
     ),

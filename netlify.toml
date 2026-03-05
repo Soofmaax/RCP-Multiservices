@@ -12,12 +12,8 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-# Canonical domain redirect (apex -> www)
-[[redirects]]
-  from = "https://rcp-multiservices.com/*"
-  to = "https://www.rcp-multiservices.com/:splat"
-  status = 301
-  force = true
+# NOTE: demo repo — no canonical domain redirect configured here.
+# Configure your own redirects once you attach a custom domain.
 
 # Security headers for all routes
 [[headers]]
@@ -27,6 +23,7 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Robots-Tag = "noindex, nofollow"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Resource-Policy = "same-origin"

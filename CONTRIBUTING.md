@@ -66,6 +66,7 @@ npm run dev
 ## Environnements & Secrets
 
 - Fichier exemple: `.env.example` (front)
+  - `VITE_SITE_URL` (base URL pour canonical + JSON-LD)
   - `VITE_GBP_URL` (URL Google Business pour badge “Avis Google”)
   - `VITE_REVIEWS_ENDPOINT` (optionnel, sinon `/api/google-reviews`)
 - Netlify (functions):
@@ -75,7 +76,7 @@ npm run dev
 ## Livraison
 
 - S'assurer que:
-  - Domaine `www.rcp-multiservices.com` aligné (canonical/OG/Twitter/robots/sitemap)
+  - Domaine aligné (canonical/OG/Twitter) via `VITE_SITE_URL`
   - JSON-LD sans rating fictif (aggregateRating absent)
   - Headers Netlify appliqués (HSTS, XFO, nosniff, Referrer, Permissions, CSP, COOP/CORP, Cache-Control)
   - Accessibilité et performances (Lighthouse, Axe)

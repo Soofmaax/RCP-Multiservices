@@ -3,6 +3,8 @@
  * Keep these functions synchronous and pure for easy SSR integration.
  */
 
+import { SITE_NAME } from '../config/site';
+
 export function buildServicePageLd(serviceName: string, serviceDescription: string) {
   return {
     '@context': 'https://schema.org',
@@ -11,7 +13,7 @@ export function buildServicePageLd(serviceName: string, serviceDescription: stri
     description: serviceDescription,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'RCP Multiservices',
+      name: SITE_NAME,
     },
     areaServed: [
       { '@type': 'AdministrativeArea', name: 'Île-de-France' },

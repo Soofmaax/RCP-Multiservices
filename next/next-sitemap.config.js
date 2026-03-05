@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const SITE_URL = 'https://www.rcp-multiservices.com';
+const SITE_URL = 'https://demo.smarterlogicweb.com';
 
 function getCityPaths() {
   try {

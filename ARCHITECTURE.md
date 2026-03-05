@@ -60,8 +60,8 @@ Ce document décrit la structure du projet, les flux de données et les conventi
   - Helmet par page: title/description/canonical/OG/Twitter
   - JSON‑LD injecté via `<script type="application/ld+json">` (helpers `src/utils/seo.ts`)
 - **Sitemap/robots**:
-  - `scripts/generate-sitemap.mjs` construit les URLs (SITE_URL configurable)
-  - `public/robots.txt` référence le sitemap
+  - `scripts/generate-sitemap.mjs` construit les URLs (SITE_URL configurable via env)
+  - `public/robots.txt` peut bloquer l’indexation (démo)
 
 ## Conventions techniques
 
@@ -87,6 +87,6 @@ Ce document décrit la structure du projet, les flux de données et les conventi
 1. `npm install && npm run dev`
 2. `npm run lint:ci && npm run typecheck && npm run test:ci`
 3. `npm run build` (génère `dist/` + `sitemap.xml`)
-4. Déploiement Netlify (domaine `www.rcp-multiservices.com`)
+4. Déploiement Netlify (attacher votre domaine + configurer `VITE_SITE_URL`)
 
 Pour plus de détails, voir [README](./README.md) et [CONTRIBUTING](./CONTRIBUTING.md).

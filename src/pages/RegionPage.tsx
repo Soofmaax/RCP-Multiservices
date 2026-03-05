@@ -1,8 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { findRegion } from '../data/locations';
-
-const SITE_URL = 'https://www.rcp-multiservices.com';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, SITE_NAME, SITE_URL } from '../config/site';
 
 type Params = {
   region: string;
@@ -25,7 +24,7 @@ export default function RegionPage() {
     );
   }
 
-  const title = `${data.name} — Zones d’intervention | RCP Multiservices`;
+  const title = `${data.name} — Zones d’intervention | ${SITE_NAME}`;
   const description = `Découvrez nos villes d’intervention en ${data.name}. Sélectionnez une ville pour plus d’informations et demander un devis.`;
   const canonical = `${SITE_URL}/zones/${data.key}`;
 
@@ -81,7 +80,7 @@ export default function RegionPage() {
                 Zones d&apos;intervention et villes couvertes
               </p>
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+                <a href={CONTACT_PHONE_TEL} className="btn-white">{CONTACT_PHONE_DISPLAY}</a>
                 <Link to="/contact" className="btn-request">Demander un rendez-vous</Link>
                 <Link to="/zones" className="btn-outline">Voir toutes les zones</Link>
               </div>

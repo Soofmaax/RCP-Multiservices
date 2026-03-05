@@ -16,8 +16,8 @@ describe('ContactPage', () => {
 
     expect(screen.getByRole('heading', { name: /Contact/i })).toBeInTheDocument();
     expect(screen.getByText(/Devis gratuit sous 24h/i)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /07 43 67 08 15/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /contact@rcp-multiservices.com/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /07 44 40 79 73/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /sonia@smarterlogicweb.com/i })).toBeInTheDocument();
   });
 
   it('shows Google reviews badge in CTA row when VITE_GBP_URL is set', async () => {

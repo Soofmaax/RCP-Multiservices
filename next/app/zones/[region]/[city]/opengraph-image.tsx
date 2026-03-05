@@ -61,7 +61,7 @@ export default function OpengraphImage({ params }: Props) {
             Aide • Ménage • Jardinage • Accompagnement
           </div>
           <div style={{ marginTop: 8, fontSize: 20, opacity: 0.78 }}>
-            www.rcp-multiservices.com
+            demo.smarterlogicweb.com
           </div>
         </div>
       </div>

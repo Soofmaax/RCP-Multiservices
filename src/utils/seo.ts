@@ -3,6 +3,8 @@
  * Keep these functions synchronous and pure.
  */
 
+import { SITE_NAME } from '../config/site';
+
 export type FaqItem = { q: string; a: string };
 
 export function buildFaqLd(items: FaqItem[]) {
@@ -27,7 +29,7 @@ export function buildServiceLd(cityName: string) {
     name: `Services à domicile à ${cityName}`,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'RCP Multiservices',
+      name: SITE_NAME,
     },
     areaServed: {
       '@type': 'Place',
@@ -92,7 +94,7 @@ export function buildLocalBusinessLd(args: {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'RCP Multiservices',
+    name: SITE_NAME,
     url: siteUrl,
     telephone,
     email,

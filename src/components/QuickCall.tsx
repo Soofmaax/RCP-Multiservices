@@ -1,10 +1,11 @@
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, SITE_NAME } from '../config/site';
+
 export default function QuickCall() {
-  const telHref = 'tel:+33743670815';
-  const label = 'Appeler RCP Multiservices';
+  const label = `Appeler ${SITE_NAME}`;
 
   return (
     <a
-      href={telHref}
+      href={CONTACT_PHONE_TEL}
       aria-label={label}
       className="fixed bottom-4 right-4 sm:hidden z-50 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-primary text-white shadow-lg transition-colors duration-150 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/30"
     >
@@ -22,7 +23,7 @@ export default function QuickCall() {
         />
       </svg>
       <span className="text-sm font-medium">Appeler</span>
-      <span className="text-sm">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</span>
+      <span className="text-sm">{CONTACT_PHONE_DISPLAY}</span>
     </a>
   );
 }

@@ -4,11 +4,10 @@ import { GoogleReviewsBadge } from '../components';
 import { ctaRow } from '../utils/styles';
 import { buildFaqLd } from '../utils/seo';
 import { buildServicePageLd, buildServiceBreadcrumbsLd } from '../utils/seoExtras';
-
-const SITE_URL = 'https://www.rcp-multiservices.com';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, SITE_NAME, SITE_URL } from '../config/site';
 
 export default function ServiceMenagePage() {
-  const title = 'Ménage & repassage — RCP Multiservices';
+  const title = `Ménage & repassage — ${SITE_NAME}`;
   const description =
     "Ménage et repassage : entretien régulier, grand ménage, remise en état, repassage. Planning flexible et contrôle qualité.";
   const canonical = `${SITE_URL}/services/menage-repassage`;
@@ -66,7 +65,7 @@ export default function ServiceMenagePage() {
                 Entretien régulier, grand ménage &amp; remise en état
               </p>
               <div className={`${ctaRow} mt-3`}>
-                <a href="tel:+33743670815" className="btn-white">07&nbsp;43&nbsp;67&nbsp;08&nbsp;15</a>
+                <a href={CONTACT_PHONE_TEL} className="btn-white">{CONTACT_PHONE_DISPLAY}</a>
                 <Link to="/contact" className="btn-primary">Demander un rendez-vous</Link>
                 <Link to="/zones" className="btn-outline">Voir nos zones</Link>
                 <GoogleReviewsBadge />
@@ -88,7 +87,7 @@ export default function ServiceMenagePage() {
             Nous pouvons utiliser votre matériel ou fournir le nôtre selon votre préférence. Un plan de tâches clair est défini à l’avance.
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <a href="tel:+33743670815" className="btn-primary">Appeler</a>
+            <a href={CONTACT_PHONE_TEL} className="btn-primary">Appeler</a>
             <Link to="/contact" className="btn-secondary">Demander un devis</Link>
           </div>
         </section>
